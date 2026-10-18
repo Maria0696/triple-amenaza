@@ -45,9 +45,19 @@ export const programs: Program[] = [
   },
 ];
 
+/** Las cuatro etapas oficiales del Método ATA.
+ * Se utilizan tanto en la portada como en /metodo/.
+ */
 export const methodSteps = [
   { number: "01", title: "Observar", detail: "Conocer al jugador y su punto de partida." },
   { number: "02", title: "Definir", detail: "Establecer prioridades y objetivos concretos." },
   { number: "03", title: "Entrenar", detail: "Trabajar habilidades con intención y progresión." },
   { number: "04", title: "Transferir", detail: "Llevar lo aprendido a situaciones reales de juego." },
 ] as const;
+
+/** Secuencia corta para utilizar en rótulos y bandas. */
+export const methodPath = methodSteps.map((step) => step.title.toUpperCase()).join(" / ");
+
+/** Explicación breve compartida por la portada y la página del método. */
+export const methodDescription =
+  "Observamos a cada jugador, definimos prioridades, entrenamos con intención y transferimos lo aprendido a situaciones reales de juego.";
