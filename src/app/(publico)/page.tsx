@@ -1,60 +1,248 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
-import { methodSteps, programs } from "@/lib/site";
-import { ProgramCard } from "@/components/publico/program-card";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Crosshair,
+  Dumbbell,
+  MoveUpRight,
+  Target,
+} from "lucide-react";
 
+import { methodSteps, programs } from "@/lib/site";
+import "./home.css";
+
+/**
+ * Portada pública de Triple Amenaza.
+ *
+ * Esta página es un Server Component: no necesita "use client".
+ * Los contenidos de los programas se reutilizan desde src/lib/site.ts.
+ * La fotografía del hero es provisional y se sustituirá por una foto propia
+ * y autorizada de la academia antes de publicar el sitio.
+ */
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
-        <div className="container hero-inner">
-          <div className="hero-copy">
-            <p className="eyebrow eyebrow-on-dark"><span className="eyebrow-line" /> ACADEMIA DE BALONCESTO</p>
-            <h1>NO SE TRATA<br />SOLO DE <span className="hero-emphasis">JUGAR<span className="hero-dot">.</span></span></h1>
-            <p className="hero-description">Se trata de entender, decidir y evolucionar. Tecnificación, preparación física y desarrollo del jugador con un propósito.</p>
-            <div className="hero-actions">
-              <Link className="button button-orange" href="/programas/">Descubre los programas <ArrowUpRight size={19} aria-hidden="true" /></Link>
-              <Link className="text-link text-link-light" href="/metodo/">Así trabajamos <ArrowRight size={18} aria-hidden="true" /></Link>
+      {/* 1 · Primera impresión */}
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="container home-hero-grid">
+          <div className="home-hero-content">
+            <p className="home-eyebrow home-eyebrow-light">
+              <span className="home-eyebrow-bar" aria-hidden="true" />
+              Academia Triple Amenaza · Baloncesto
+            </p>
+
+            <h1 id="home-title" className="home-hero-title">
+              ENTRENA
+              <span className="home-hero-title-outline"> PARA</span>
+              <span className="home-hero-title-accent"> DECIDIR.</span>
+            </h1>
+
+            <p className="home-hero-lead">
+              Cada situación de juego exige una respuesta. Te ayudamos a
+              desarrollar los recursos técnicos, físicos y mentales para
+              encontrar la tuya.
+            </p>
+
+            <div className="home-hero-actions">
+              <Link href="/programas/anotadores-elite/" className="home-action-primary">
+                Descubre Anotadores Élite
+                <ArrowUpRight size={19} aria-hidden="true" />
+              </Link>
+              <Link href="/metodo/" className="home-action-text">
+                Conoce nuestro método
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="home-hero-keywords" aria-label="Áreas de desarrollo">
+              <span>Técnica</span>
+              <span>Preparación física</span>
+              <span>Desarrollo personal</span>
             </div>
           </div>
-          <div className="hero-visual" aria-label="Ilustración geométrica de una pista de baloncesto" role="img">
-            <div className="hero-visual-caption"><span>TRIPLE AMENAZA</span><span>01 / MOVIMIENTO</span></div>
-            <div className="court-art" aria-hidden="true">
-              <div className="court-outer"><div className="court-middle" /><div className="court-center" /><div className="court-key" /><div className="court-hoop" /></div>
-              <div className="court-ball"><span /><span /></div>
+
+          <div className="home-hero-media">
+            <div
+              className="home-hero-photo"
+              role="img"
+              aria-label="Fotografía ilustrativa de una sesión de baloncesto en un gimnasio; no pertenece a Triple Amenaza"
+            />
+            <div className="home-hero-media-top" aria-hidden="true">
+              <span>ATA / DESARROLLO DEL JUGADOR</span>
+              <Crosshair size={24} />
             </div>
-            <span className="hero-vertical-label">TRAIN DIFFERENT · PLAY WITH PURPOSE</span>
-            <div className="hero-art-footer"><span>OBSERVAR · ENTRENAR · TRANSFERIR</span><MoveUpRight size={20} /></div>
+            <div className="home-hero-photo-caption">
+              <span>EL JUEGO NO SE DETIENE.</span>
+              <strong>PREPÁRATE PARA EL SIGUIENTE MOVIMIENTO.</strong>
+            </div>
+            <span className="home-hero-image-credit">
+              Imagen provisional · <a href="https://commons.wikimedia.org/wiki/File:Sue_Bird_gets_hands-on_with_military_children_in_free_basketball_clinic_150123-A-OP586-956.jpg" target="_blank" rel="noopener noreferrer">J. Spradlin / U.S. Army</a>
+            </span>
           </div>
         </div>
-        <div className="container hero-bottom"><span>01 / ACADEMIA TRIPLE AMENAZA</span><a href="#programas" aria-label="Ir a programas">DESLIZA PARA EXPLORAR <ArrowDownRight size={18}/></a></div>
-      </section>
 
-      <section className="section manifesto-section">
-        <div className="container manifesto-grid">
-          <div><p className="eyebrow">NUESTRA IDEA DE ENTRENAR</p><p className="index-mark">01 — 04</p></div>
-          <div><h2 className="manifesto-title">El talento importa.<br /><em>El proceso transforma.</em></h2><p className="manifesto-copy">La pista es el punto de partida. En Triple Amenaza trabajamos el desarrollo técnico, físico y personal para que cada aprendizaje tenga sentido en el juego.</p><Link className="text-link" href="/academia/">Conoce la academia <ArrowUpRight size={18}/></Link></div>
+        <div className="container home-hero-bottom">
+          <span>OBSERVAR / ENTRENAR / TRANSFERIR</span>
+          <a href="#programas" aria-label="Ir a los programas de entrenamiento">
+            Explorar programas <ArrowDown size={16} aria-hidden="true" />
+          </a>
         </div>
       </section>
 
-      <section className="section section-cream" id="programas">
+      {/* 2 · Filosofía en tres líneas, sin afirmaciones ficticias */}
+      <section className="home-intro" aria-labelledby="home-intro-title">
+        <div className="container home-intro-grid">
+          <p className="home-eyebrow">01 / NUESTRA FORMA DE ENTRENAR</p>
+          <div>
+            <h2 id="home-intro-title" className="home-intro-title">
+              El talento abre puertas.
+              <br />
+              <em>El trabajo marca el camino.</em>
+            </h2>
+            <p className="home-intro-copy">
+              No entrenamos movimientos aislados sin un porqué. Partimos de cada
+              jugador, proponemos retos y buscamos que lo aprendido aparezca
+              cuando el partido lo exige.
+            </p>
+            <Link href="/academia/" className="home-inline-link">
+              Descubre la academia <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 · Programas: Anotadores Élite ocupa el primer plano */}
+      <section className="home-programs" id="programas" aria-labelledby="home-programs-title">
         <div className="container">
-          <div className="section-heading"><div><p className="eyebrow">ENCUENTRA TU CAMINO</p><h2 className="section-title">Una academia.<br /><em>Diferentes maneras de crecer.</em></h2></div><Link className="text-link desktop-only" href="/programas/">Ver todos los programas <ArrowUpRight size={18} /></Link></div>
-          <div className="program-grid">{programs.map(program => <ProgramCard key={program.number} program={program}/>)}</div>
-          <p className="section-footnote">Formatos, horarios, precios y disponibilidad sujetos a confirmación con la academia.</p>
+          <div className="home-section-head">
+            <div>
+              <p className="home-eyebrow">02 / ENCUENTRA TU ENTRENAMIENTO</p>
+              <h2 id="home-programs-title" className="home-section-title">
+                DIFERENTES CAMINOS.
+                <span> MISMO PROPÓSITO.</span>
+              </h2>
+            </div>
+            <Link href="/programas/" className="home-inline-link home-inline-link-desktop">
+              Todos los programas <ArrowUpRight size={19} aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="home-program-cards">
+            {programs.map((program) => {
+              const featured = program.number === "01";
+
+              return (
+                <Link
+                  key={program.number}
+                  href={program.href}
+                  className={`home-program-card${featured ? " home-program-card-featured" : ""}`}
+                >
+                  <div className="home-program-card-top">
+                    <span>{program.number} / {program.label}</span>
+                    <ArrowUpRight size={23} aria-hidden="true" />
+                  </div>
+
+                  {featured && (
+                    <div className="home-program-feature-art" aria-hidden="true">
+                      <Target size={116} strokeWidth={0.8} />
+                    </div>
+                  )}
+
+                  <div className="home-program-card-body">
+                    <span className="home-program-tag">{program.tag}</span>
+                    <h3>{program.title}</h3>
+                    <p>{program.description}</p>
+                    <span className="home-program-more">
+                      Ver programa <ArrowRight size={17} aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <p className="home-programs-note">
+            Las condiciones, fechas y plazas se confirmarán directamente con la academia.
+          </p>
         </div>
       </section>
 
-      <section className="section method-section">
+      {/* 4 · Proceso de trabajo */}
+      <section className="home-method" aria-labelledby="home-method-title">
         <div className="container">
-          <div className="section-heading method-heading"><div><p className="eyebrow eyebrow-on-dark">MÉTODO ATA</p><h2 className="section-title">Entrenar tiene<br /><em>que tener sentido.</em></h2></div><p>Más que acumular ejercicios: entender el punto de partida, dar intención al trabajo y trasladarlo al juego.</p></div>
-          <div className="steps-grid">{methodSteps.map(step => <article key={step.number} className="step-card"><span className="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.detail}</p><ArrowUpRight size={19} aria-hidden="true" /></article>)}</div>
-          <Link className="button button-outline" href="/metodo/">Descubre el método <ArrowUpRight size={18} /></Link>
+          <div className="home-method-heading">
+            <div>
+              <p className="home-eyebrow home-eyebrow-light">03 / MÉTODO ATA</p>
+              <h2 id="home-method-title" className="home-section-title">
+                NO ES SOLO REPETIR.
+                <span> ES APRENDER A JUGAR.</span>
+              </h2>
+            </div>
+            <p>
+              Evaluar, entrenar y trasladar lo aprendido al juego:
+              una manera de trabajar con intención.
+            </p>
+          </div>
+
+          <div className="home-method-steps">
+            {methodSteps.map((step) => (
+              <article className="home-method-step" key={step.number}>
+                <div className="home-method-step-top">
+                  <span>{step.number}</span>
+                  <MoveUpRight size={19} aria-hidden="true" />
+                </div>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <Link href="/metodo/" className="home-action-outline">
+            Conoce el método completo <ArrowUpRight size={19} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
-      <section className="section closing-section">
-        <div className="container closing-inner"><p className="eyebrow">LA SIGUIENTE JUGADA</p><h2>EL SIGUIENTE<br />PASO <em>EMPIEZA AQUÍ.</em></h2><p>Explora nuestros programas y encuentra la forma de entrenar que mejor encaja con tus objetivos.</p><Link className="button button-dark" href="/programas/">Explorar programas <ArrowUpRight size={19}/></Link></div>
+      {/* 5 · Tres áreas de trabajo */}
+      <section className="home-pillars" aria-labelledby="home-pillars-title">
+        <div className="container home-pillars-layout">
+          <div>
+            <p className="home-eyebrow">04 / UNA VISIÓN COMPLETA</p>
+            <h2 id="home-pillars-title" className="home-section-title">
+              MÁS ALLÁ
+              <span> DEL BOTE.</span>
+            </h2>
+          </div>
+          <div className="home-pillar-list">
+            <div className="home-pillar">
+              <Target size={25} aria-hidden="true" />
+              <div><h3>Técnica con intención</h3><p>Recursos y lecturas para responder a las situaciones del juego.</p></div>
+            </div>
+            <div className="home-pillar">
+              <Dumbbell size={25} aria-hidden="true" />
+              <div><h3>Preparación física</h3><p>Desarrollo físico al servicio de las demandas del baloncesto.</p></div>
+            </div>
+            <div className="home-pillar">
+              <Crosshair size={25} aria-hidden="true" />
+              <div><h3>Desarrollo personal</h3><p>Hábitos, confianza y compromiso con el proceso de mejora.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 · CTA final: solo enlaza a páginas existentes */}
+      <section className="home-closing" aria-labelledby="home-closing-title">
+        <div className="container home-closing-inner">
+          <p className="home-eyebrow">TU SIGUIENTE JUGADA</p>
+          <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
+          <p>Conoce los programas y encuentra el punto de partida que mejor encaja con tus objetivos.</p>
+          <Link href="/programas/" className="home-action-dark">
+            Explorar programas <ArrowUpRight size={19} aria-hidden="true" />
+          </Link>
+        </div>
       </section>
     </>
   );
