@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function loggedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc() {
+      return /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    function isAdmin() {
+      return loggedIn()
+        && exists(userDoc())
+        && get(userDoc()).data.role == 'admin';
+    }
+
+    function canAccessPlayer(playerId) {
+      return isAdmin() || (
+        loggedIn()
+        && exists(/databases/$(database)/documents/players/$(playerId))
+        && request.auth.uid in get(/databases/$(database)/documents/players/$(playerId)).data.coachIds
+      );
+    }
+
+    match /users/{uid} {
+      allow get: if (loggedIn() && request.auth.uid == uid) || isAdmin();
+      allow list: if isAdmin();
+      // Los roles se asignan exclusivamente desde Firebase Console, no desde el cliente.
+      allow create, update, delete: if false;
+    }
+
+    match /players/{playerId} {
+      allow get, list: if isAdmin() || (
+        loggedIn() && request.auth.uid in resource.data.coachIds
+      );
+      allow create, update: if isAdmin();
+      allow delete: if false;
+
+      match /assessments/{assessmentId} {
+        allow get, list: if canAccessPlayer(playerId);
+        allow create: if canAccessPlayer(playerId)
+          && request.resource.data.coachId == request.auth.uid
+          && request.resource.data.rubricVersion == 'areas-preview-v1'
+          && request.resource.data.keys().hasOnly([
+            'coachId', 'coachName', 'rubricVersion', 'scores',
+            'strengths', 'priority', 'missions', 'notes', 'createdAt'
+          ])
+          && request.resource.data.createdAt == request.time;
+        // Historial inmutable: las evaluaciones no se sobrescriben ni se eliminan.
+        allow update, delete: if false;
+      }
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
