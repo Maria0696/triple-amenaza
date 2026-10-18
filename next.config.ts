@@ -1,10 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Permite desplegar el mismo proyecto como web estática en un hosting gratuito.
-  // No utilizamos API routes ni renderizado dinámico de servidor en esta fase.
+  // Generación de la web como sitio estático
   output: "export",
+
+  // Mantener la barra final en las URLs
   trailingSlash: true,
+
+  // Permitir imágenes con exportación estática
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
