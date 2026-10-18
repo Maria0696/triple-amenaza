@@ -55,10 +55,6 @@ export function SiteHeader() {
             {/* Acceso al área privada */}
             <Link href="/hub/" className="hub-link">
               ATA Hub
-              <ArrowUpRight
-                size={15}
-                aria-hidden="true"
-              />
             </Link>
 
             {/* Botón del menú móvil */}
