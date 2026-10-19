@@ -26,9 +26,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid #85cbff; outline-offs
 
 /* Cabecera: escudo oficial y navegación responsive. */
 .site-header { z-index: 30; position: sticky; top: 0; background: var(--ink); color: white; border-bottom: 1px solid #ffffff20; }
-.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 78px; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 100px; }
 .brand { display: inline-flex; align-items: center; width: auto; min-width: 0; flex-shrink: 0; }
-.site-header .brand img { display: block; width: 64px; height: 64px; object-fit: contain; }
+.site-header .brand img { display: block; width: 88px; height: auto; object-fit: contain; }
 .desktop-nav { display: flex; align-items: center; gap: 26px; }
 .nav-link { font-size: 15px; color: #f6f2e5b5; font-weight: 650; white-space: nowrap; transition: color .2s; }
 .nav-link:hover, .nav-link.active { color: #fff; }
