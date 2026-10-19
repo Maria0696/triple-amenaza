@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { SiteHeader } from "@/components/publico/site-header";
-import { SiteFooter } from "@/components/publico/site-footer";
+import { SiteHeader } from "@/components/web/site-header";
+import { SiteFooter } from "@/components/web/site-footer";
 
 /** Cabecera y pie exclusivos de la web pública. ATA Hub mantiene su layout. */
 export function PublicChrome({ children }: { children: ReactNode }) {
