@@ -14,7 +14,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <p className="footer-heading">Explora</p>
           {navigation.map(({ label, href }) => <Link href={href} key={href}>{label}</Link>)}
-          <Link href="/workshops/">Workshops</Link>
+          <Link href="/programas/workshops/">Workshops</Link>
           <Link href="/equipo/">Equipo</Link>
         </div>
         <div className="footer-links">
