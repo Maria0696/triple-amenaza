@@ -265,3 +265,45 @@ button:focus-visible, a:focus-visible { outline: 3px solid #85cbff; outline-offs
   .footer-grid { grid-template-columns: 1fr; gap: 27px; }
   .footer-grid > :first-child { grid-column: auto; }
 }
+
+
+/* ENTREGA 09 - NAVEGACION */
+.site-header .desktop-nav .nav-link {
+  position: relative;
+  display: inline-block;
+  padding-block: 7px;
+  transition: color .2s ease;
+}
+.site-header .desktop-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+.site-header .desktop-nav .nav-link.active::after { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .site-header .desktop-nav .nav-link:hover::after { transform: scaleX(1); }
+  .site-header .hub-link { transition: background-color .2s ease, transform .2s ease; }
+  .site-header .hub-link:hover { transform: translateY(-2px); }
+  .site-header .mobile-nav a:not(.mobile-hub):hover { color: var(--sage); }
+}
+@media (min-width: 1061px) {
+  .site-header .desktop-nav .nav-link { font-size: 17px; }
+  .site-header .hub-link { font-size: 14px; }
+}
+@media (min-width: 821px) and (max-width: 1060px) {
+  .site-header .desktop-nav .nav-link { font-size: 14px; }
+  .site-header .hub-link { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .desktop-nav .nav-link,
+  .site-header .desktop-nav .nav-link::after,
+  .site-header .hub-link { transition: none !important; }
+  .site-header .hub-link:hover { transform: none; }
+}
