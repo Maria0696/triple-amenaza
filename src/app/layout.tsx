@@ -1,3 +1,4 @@
+import { PublicChrome } from "@/components/publico/public-chrome";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -16,7 +17,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body><PublicChrome>{children}</PublicChrome></body>
     </html>
   );
 }
