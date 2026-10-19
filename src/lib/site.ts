@@ -40,7 +40,7 @@ export const programs: Program[] = [
     title: "Entrenamiento individual",
     description:
       "Entrenamiento adaptado a los objetivos y necesidades de desarrollo de cada jugador.",
-    href: "/entrenamiento-individual/",
+    href: "/programas/entrenamiento-individual/",
     tag: "Atención individual",
   },
 ];
