@@ -316,3 +316,16 @@
   .method-page-closing-link:hover,
   .method-page-closing-link:hover svg { transform: none !important; }
 }
+
+/* Cierre Método ATA: mantener Diferentes caminos en una línea */
+@media (min-width: 861px) {
+  .method-page-closing h2 {
+    max-width: none;
+  }
+
+  .method-page-closing h2 em {
+    display: block;
+    font-size: clamp(43px, 4.8vw, 70px);
+    white-space: nowrap;
+  }
+}
