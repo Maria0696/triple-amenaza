@@ -97,7 +97,7 @@ export default function AcademiaPage() {
                 ATA / EN EQUIPO
               </span>
             </div>
-            <figcaption>Una workshop real de Triple Amenaza · Fotografía: R1kman_fotografia</figcaption>
+            <figcaption>Sesión grupal de Triple Amenaza · Fotografía: R1kman_fotografia</figcaption>
           </figure>
         </div>
       </section>
