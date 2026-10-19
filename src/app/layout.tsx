@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/images/favicon.ico", sizes: "any" },
-      { url: "/images/icon.png", type: "image/png" },
+      { url: "/imagenes/favicon.ico", sizes: "any" },
+      { url: "/imagenes/icon.png", type: "image/png" },
     ],
-    apple: "/images/apple-icon.png",
+    apple: "/imagenes/apple-icon.png",
   },
 
   robots: { index: false, follow: false },
