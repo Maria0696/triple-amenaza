@@ -219,7 +219,7 @@
 .method-page-closing { background: var(--sage); padding-block: clamp(72px, 7vw, 109px); }
 .method-page-closing-inner { max-width: 1220px; }
 .method-page-closing h2 {
-  max-width: 1100px;
+  max-width: none;
   margin: 0;
   font-size: clamp(54px, 7.4vw, 110px);
   font-weight: 950;
@@ -227,6 +227,14 @@
   letter-spacing: -.088em;
 }
 .method-page-closing h2 em { color: #4f6849; }
+/* Mantener el subtítulo completo en escritorio, sin forzar desbordamiento móvil. */
+@media (min-width: 861px) {
+  .method-page-closing h2 em {
+    display: block;
+    font-size: clamp(43px, 4.8vw, 70px);
+    white-space: nowrap;
+  }
+}
 .method-page-closing-inner > p:not(.method-page-eyebrow) { margin: 27px 0 30px; max-width: 690px; font-size: 17px; line-height: 1.75; }
 .method-page-closing-link {
   display: inline-flex;
@@ -315,17 +323,4 @@
   .method-page-index li a:hover svg,
   .method-page-closing-link:hover,
   .method-page-closing-link:hover svg { transform: none !important; }
-}
-
-/* Cierre Método ATA: mantener Diferentes caminos en una línea */
-@media (min-width: 861px) {
-  .method-page-closing h2 {
-    max-width: none;
-  }
-
-  .method-page-closing h2 em {
-    display: block;
-    font-size: clamp(43px, 4.8vw, 70px);
-    white-space: nowrap;
-  }
 }

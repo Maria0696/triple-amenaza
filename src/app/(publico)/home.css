@@ -205,7 +205,7 @@
   gap: 16px;
 }
 .home-program-card {
-  min-height: 305px;
+  min-height: 415px;
   padding: clamp(24px, 2.4vw, 32px);
   display: flex;
   flex-direction: column;
@@ -217,11 +217,9 @@
   transition: transform .22s ease, background-color .22s ease, box-shadow .22s ease;
 }
 .home-program-card:hover { transform: translateY(-4px); background: #dce4ca; box-shadow: 0 15px 32px #1c211e13; }
-.home-program-card:nth-child(3) { background: #ebdfd3; border-color: #e1d3c5; }
-.home-program-card:nth-child(3):hover { background: #e5d4c2; }
 .home-program-card-featured {
-  grid-column: 1 / -1;
-  min-height: 360px;
+  grid-column: auto;
+  min-height: 415px;
   color: #f8f5ed;
   background: linear-gradient(110deg, #1d2621 14%, #334339 100%);
   border-color: #33453b;
@@ -240,7 +238,7 @@
   text-transform: uppercase;
 }
 .home-program-card-body { max-width: 555px; }
-.home-program-card-featured .home-program-card-body { max-width: min(56%, 560px); }
+.home-program-card-featured .home-program-card-body { max-width: 100%; }
 .home-program-tag { display: inline-block; border: 1px solid currentColor; padding: 7px 9px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .home-program-card h3 { font-size: clamp(31px, 3.8vw, 58px); font-weight: 940; line-height: 1; letter-spacing: -.065em; margin: 14px 0; }
 .home-program-card p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
@@ -251,13 +249,13 @@
 .home-program-feature-art {
   position: absolute;
   top: 50%;
-  right: 5%;
-  width: min(35%, 330px);
+  right: -13%;
+  width: 55%;
   aspect-ratio: 1;
   transform: translateY(-50%);
   pointer-events: none;
   color: var(--sage);
-  opacity: .85;
+  opacity: .12;
 }
 .home-program-ring { position: absolute; border: 2px solid #b9d28c88; border-radius: 50%; inset: 0; }
 .home-program-ring-middle { inset: 16%; border-width: 2px; border-color: #b9d28c9a; }
@@ -265,15 +263,6 @@
 .home-program-cross { position: absolute; background: #b9d28c60; }
 .home-program-cross-horizontal { height: 1px; width: 120%; left: -10%; top: 50%; }
 .home-program-cross-vertical { width: 1px; height: 120%; left: 50%; top: -10%; }
-.home-program-feature-label {
-  position: absolute;
-  bottom: -28px;
-  right: 0;
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .22em;
-  white-space: nowrap;
-}
 .home-programs-note { margin: 21px 0 0; font-size: 13px; color: #596359; }
 
 .home-method { background: #28352d; color: #fff; padding: clamp(68px, 6vw, 98px) 0; }
@@ -339,10 +328,14 @@
   .home-hero-title { font-size: clamp(64px, 10vw, 100px); }
   .home-hero-media { min-height: 430px; }
   .home-intro-grid, .home-pillars-layout { grid-template-columns: 1fr; gap: 23px; }
-  .home-program-card-featured { min-height: 350px; }
   .home-method-steps { grid-template-columns: repeat(2, 1fr); }
   .home-method-step:nth-child(2) { border-right: 0; }
   .home-method-step:nth-child(-n + 2) { border-bottom: 1px solid #ffffff37; }
+}
+
+@media (max-width: 760px) {
+  .home-program-cards { grid-template-columns: minmax(0, 1fr); }
+  .home-program-card { min-height: 345px; }
 }
 
 @media (max-width: 550px) {
@@ -381,11 +374,10 @@
   .home-section-head { display: block; }
   .home-inline-link-desktop { margin-top: 15px; }
   .home-program-cards { grid-template-columns: 1fr; }
-  .home-program-card-featured { grid-column: auto; min-height: 365px; }
+  .home-program-card-featured { grid-column: auto; min-height: 345px; }
   .home-program-card-featured .home-program-card-body { max-width: 100%; }
-  .home-program-card { min-height: 300px; }
-  .home-program-feature-art { top: 32%; right: -13%; width: 55%; transform: translateY(-50%); opacity: .16; }
-  .home-program-feature-label { display: none; }
+  .home-program-card { min-height: 345px; }
+  .home-program-feature-art { top: 32%; right: -13%; width: 55%; transform: translateY(-50%); opacity: .12; }
   .home-method-steps { grid-template-columns: 1fr; }
   /* Tarjetas más compactas: icono y texto próximos, sin huecos artificiales. */
   .home-method-step {
@@ -524,7 +516,6 @@
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease;
 }
-.home-program-card:nth-child(3) .home-program-card-symbol { color: #a55b35; }
 .home-program-card:hover .home-program-card-symbol,
 .home-program-card:focus-visible .home-program-card-symbol {
   transform: translateY(-6px) rotate(-4deg);
@@ -536,7 +527,7 @@
 .home-program-card-featured:hover .home-program-feature-art,
 .home-program-card-featured:focus-visible .home-program-feature-art {
   transform: translateY(-50%) scale(1.05) rotate(5deg);
-  opacity: 1;
+  opacity: .18;
 }
 
 /* 03 · Iconografía de los cuatro pasos, a juego con los pilares */
@@ -631,52 +622,4 @@
   .home-program-card-featured:hover .home-program-feature-art,
   .home-program-card-featured:focus-visible .home-program-feature-art,
   .home-method-step:hover .home-method-symbol { transform: none !important; }
-}
-
-/* Dos programas: tarjetas del mismo tamaño */
-.home-program-card-featured .home-program-card-body {
-  max-width: 100%;
-}
-
-/* Decoración de Élite sin tapar el texto */
-.home-program-card-featured .home-program-feature-art {
-  right: -13%;
-  width: 55%;
-  opacity: .12;
-}
-
-.home-program-card-featured:hover .home-program-feature-art,
-.home-program-card-featured:focus-visible .home-program-feature-art {
-  opacity: .18;
-}
-
-.home-program-feature-label {
-  display: none;
-}
-
-/* Escritorio: dos columnas iguales */
-@media (min-width: 761px) {
-  .home-program-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-  }
-
-  .home-program-cards > .home-program-card,
-  .home-program-cards > .home-program-card-featured {
-    grid-column: auto;
-    min-height: 415px;
-  }
-}
-
-/* Móvil: tarjetas apiladas */
-@media (max-width: 760px) {
-  .home-program-cards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .home-program-cards > .home-program-card,
-  .home-program-cards > .home-program-card-featured {
-    grid-column: auto;
-    min-height: 345px;
-  }
 }

@@ -166,7 +166,7 @@ export default function ProgramasPage() {
               ideas a la pista. Consulta el espacio de actividades para conocer
               las próximas novedades.
             </p>
-            <Link href="/workshops/" className="programs-page-workshops-link">
+            <Link href="workshops/" className="programs-page-workshops-link">
               Descubre los workshops
               <ArrowUpRight size={19} aria-hidden="true" />
             </Link>
