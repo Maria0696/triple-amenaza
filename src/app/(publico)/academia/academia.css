@@ -1,0 +1,308 @@
+/* ==========================================================
+   Academia Triple Amenaza — página interior «La academia»
+   Estilos encapsulados bajo el prefijo academy-.
+   No se modifica globals.css, el header ni la portada.
+   ========================================================== */
+
+.academy-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  color: var(--orange-dark);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.5;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.academy-eyebrow-light { color: #edc1a5; }
+.academy-eyebrow-line { flex: 0 0 28px; width: 28px; height: 2px; background: var(--orange); }
+.academy-section-title {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -.075em;
+  font-weight: 940;
+  text-transform: uppercase;
+}
+.academy-section-title em { font-family: Georgia, "Times New Roman", serif; font-weight: 500; text-transform: none; }
+.academy-section-title span { color: var(--orange-dark); }
+
+/* Apertura */
+.academy-hero { background: var(--ink); color: var(--paper); overflow: hidden; }
+.academy-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0,.84fr) minmax(0,1.16fr);
+  align-items: center;
+  gap: clamp(28px,4vw,70px);
+  padding-block: clamp(50px,6vw,94px);
+}
+.academy-hero-copy { min-width: 0; }
+.academy-hero-title {
+  margin: 0;
+  font-size: clamp(57px,6.2vw,105px);
+  font-weight: 950;
+  line-height: .94;
+  letter-spacing: -.09em;
+  text-transform: uppercase;
+}
+.academy-hero-title span { color: var(--sage); display: block; }
+.academy-hero-lead {
+  max-width: 570px;
+  margin: 30px 0;
+  font-size: clamp(16px,1.3vw,19px);
+  line-height: 1.75;
+  color: #e0e6dd;
+}
+.academy-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  border-bottom: 1px solid currentColor;
+  padding-block: 8px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.academy-hero-link:hover { color: var(--sage); }
+.academy-hero-figure,
+.academy-club-figure { min-width: 0; margin: 0; }
+.academy-photo-wrap { position: relative; overflow: hidden; isolation: isolate; background: #36473d; }
+.academy-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
+.academy-hero-photo { aspect-ratio: 1.32; box-shadow: 13px 13px 0 #ffffff0d; }
+.academy-hero-photo .academy-photo { object-position: center 50%; }
+.academy-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(0deg,#122018b0,transparent);
+  pointer-events: none;
+}
+.academy-photo-stamp {
+  position: absolute;
+  left: 21px;
+  top: 19px;
+  z-index: 1;
+  color: white;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .16em;
+}
+.academy-hero-figure figcaption,
+.academy-club-figure figcaption {
+  padding-top: 18px;
+  color: #c0cbbf;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Filosofía */
+.academy-approach { padding: clamp(68px,7vw,116px) 0; background: var(--paper); }
+.academy-approach-grid {
+  display: grid;
+  grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr);
+  gap: clamp(40px,8vw,120px);
+  align-items: start;
+}
+.academy-approach-intro > p:not(.academy-eyebrow) {
+  margin: 27px 0 0;
+  max-width: 500px;
+  color: #4d5c51;
+  font-size: 17px;
+  line-height: 1.8;
+}
+.academy-principles { border-top: 1px solid #d9ded4; }
+.academy-principle {
+  display: grid;
+  grid-template-columns: 42px minmax(0,1fr) 22px;
+  gap: clamp(14px,2vw,30px);
+  align-items: start;
+  border-bottom: 1px solid #d9ded4;
+  padding: 27px 0;
+}
+.academy-item-number { color: var(--orange-dark); font-size: 12px; font-weight: 850; letter-spacing: .08em; }
+.academy-principle h3 { margin: 0 0 11px; font-size: clamp(23px,2vw,31px); line-height: 1.15; letter-spacing: -.045em; }
+.academy-principle p { margin: 0; color: #566258; font-size: 15px; line-height: 1.75; }
+.academy-principle svg { color: var(--orange-dark); }
+
+/* Tres áreas */
+.academy-pillars { background: var(--cream); padding: clamp(67px,7vw,104px) 0; }
+.academy-pillars-heading { max-width: 920px; margin-bottom: 34px; }
+.academy-pillars-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+.academy-pillar {
+  background: #e5e9dc;
+  min-height: 315px;
+  padding: clamp(25px,2.8vw,38px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+  border: 1px solid #d8dfce;
+  transition: transform .22s ease,background-color .22s ease;
+}
+.academy-pillar:nth-child(2) { background: #ebdfd3; border-color: #e5d8ca; }
+.academy-pillar:nth-child(3) { background: #d9e4cc; border-color: #d1dbbf; }
+.academy-pillar:hover { transform: translateY(-4px); background: #dce5ce; }
+.academy-pillar-top { display: flex; justify-content: space-between; align-items: start; color: #56744d; }
+.academy-pillar-top span { font-size: 11px; font-weight: 850; letter-spacing: .12em; }
+.academy-pillar-subtitle { font-size: 10px; font-weight: 850; letter-spacing: .12em; color: #586952; text-transform: uppercase; }
+.academy-pillar h3 { margin: 12px 0 12px; font-size: clamp(27px,2.45vw,39px); line-height: 1.04; letter-spacing: -.055em; }
+.academy-pillar p { max-width: 330px; margin: 0; font-size: 15px; line-height: 1.7; color: #455349; }
+
+/* Colaboramos con el trabajo del club */
+.academy-club { background: #27352d; padding: clamp(70px,7vw,106px) 0; color: var(--paper); }
+.academy-club-grid { display: grid; grid-template-columns: minmax(0,.84fr) minmax(0,1.16fr); gap: clamp(45px,8vw,130px); align-items: center; }
+.academy-club-photo { aspect-ratio: .75; max-height: 670px; }
+.academy-club-photo .academy-photo { object-position: center 52%; }
+.academy-club-photo-mark { position: absolute; left: 20px; top: 20px; color: #fff; font-size: 11px; font-weight: 850; letter-spacing: .15em; }
+.academy-club-copy .academy-section-title span { color: var(--sage); }
+.academy-club-copy > p:not(.academy-eyebrow) { max-width: 630px; color: #d4dfd6; font-size: 17px; line-height: 1.78; margin: 24px 0 0; }
+.academy-outline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  margin-top: 34px;
+  border: 1px solid #d1e1d28c;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 850;
+  transition: background-color .2s;
+}
+.academy-outline-link:hover { background: #ffffff14; }
+
+/* Cierre */
+.academy-next { position: relative; background: var(--sage); overflow: hidden; padding: clamp(68px,7vw,106px) 0; }
+.academy-next-inner { position: relative; z-index: 1; }
+.academy-next h2 { margin: 0 0 22px; max-width: 1100px; font-size: clamp(53px,7.2vw,111px); line-height: .98; font-weight: 950; letter-spacing: -.085em; }
+.academy-next h2 em { color: #4e6847; font-family: Georgia,serif; font-weight: 500; }
+.academy-next-inner > p:not(.academy-eyebrow) { max-width: 740px; font-size: 17px; line-height: 1.7; margin: 0 0 30px; }
+.academy-next-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; background: var(--ink); color: white; min-height: 56px; padding: 16px 22px; border-radius: 3px; font-weight: 850; font-size: 13px; transition: transform .2s,background-color .2s; }
+.academy-next-link:hover { background: #34443a; transform: translateY(-2px); }
+.academy-next-court { position: absolute; top: 0; right: -7%; width: 410px; aspect-ratio: 1; opacity: .1; border: 7px solid var(--ink); border-radius: 50%; pointer-events: none; }
+.academy-next-court::after { content: ""; position: absolute; top: 50%; left: -15%; width: 130%; height: 7px; background: var(--ink); transform: rotate(-24deg); }
+.academy-next-court span { position: absolute; inset: 30%; border: 7px solid var(--ink); border-radius: 50%; }
+
+@media (max-width: 1060px) {
+  .academy-hero-title { font-size: clamp(52px,6.1vw,82px); }
+  .academy-pillar { min-height: 330px; }
+}
+@media (max-width: 860px) {
+  .academy-hero-grid, .academy-approach-grid, .academy-club-grid { grid-template-columns: 1fr; }
+  .academy-hero-grid { gap: 35px; padding-block: 54px 60px; }
+  .academy-hero-title { font-size: clamp(65px,10vw,95px); }
+  .academy-hero-lead { max-width: 700px; }
+  .academy-hero-photo { aspect-ratio: 1.5; }
+  .academy-approach-mark { display: none; }
+  .academy-approach-grid { gap: 32px; }
+  .academy-pillars-grid { grid-template-columns: 1fr; }
+  .academy-pillar { min-height: 225px; gap: 40px; }
+  .academy-club-grid { gap: 35px; }
+  .academy-club-photo { max-height: 530px; aspect-ratio: 1.2; }
+  .academy-club-photo .academy-photo { object-position: center 48%; }
+}
+@media (max-width: 550px) {
+  .academy-eyebrow { font-size: 10px; letter-spacing: .11em; gap: 8px; margin-bottom: 17px; }
+  .academy-hero-grid { padding-block: 43px 48px; gap: 30px; }
+  .academy-hero-title { font-size: clamp(48px,12vw,66px); letter-spacing: -.085em; }
+  .academy-hero-lead { font-size: 15px; line-height: 1.75; margin: 22px 0; }
+  .academy-hero-photo { aspect-ratio: 1.16; }
+  .academy-photo-stamp { font-size: 9px; top: 15px; left: 15px; }
+  .academy-hero-figure figcaption, .academy-club-figure figcaption { font-size: 10px; }
+  .academy-approach, .academy-pillars, .academy-club, .academy-next { padding-block: 64px; }
+  .academy-section-title { font-size: clamp(37px,10vw,57px); }
+  .academy-approach-intro > p:not(.academy-eyebrow) { font-size: 15px; margin-top: 21px; }
+  .academy-principle { grid-template-columns: 28px minmax(0,1fr); gap: 12px; padding: 22px 0; }
+  .academy-principle svg { display: none; }
+  .academy-principle h3 { font-size: 23px; }
+  .academy-principle p { font-size: 14px; }
+  .academy-pillars-heading { margin-bottom: 25px; }
+  .academy-pillar { min-height: 205px; padding: 23px; gap: 36px; }
+  .academy-pillar h3 { font-size: 28px; }
+  .academy-club-photo { aspect-ratio: .96; max-height: 420px; }
+  .academy-club-copy > p:not(.academy-eyebrow) { font-size: 15px; line-height: 1.75; margin-top: 17px; }
+  .academy-next h2 { font-size: clamp(45px,11.2vw,68px); }
+  .academy-next-inner > p:not(.academy-eyebrow) { font-size: 15px; }
+  .academy-next-court { width: 320px; right: -55%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .academy-pillar, .academy-outline-link, .academy-next-link { transition: none; }
+  .academy-pillar:hover, .academy-next-link:hover { transform: none; }
+}
+
+
+/* ENTREGA 09 - MICROINTERACCIONES ACADEMIA */
+/* Los principios NO son enlaces: acento visual sin cursor de clic. */
+.academy-principle {
+  position: relative;
+  margin-inline: -12px;
+  padding-inline: 12px;
+  transition: background-color .25s ease;
+}
+.academy-principle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--orange-dark);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .25s ease;
+}
+.academy-principle-dash {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin-top: 7px;
+  background: var(--orange-dark);
+  opacity: .58;
+  transition: opacity .25s ease, width .25s ease;
+}
+.academy-principle h3 { transition: color .25s ease; }
+
+/* Pilares: acento naranja, icono dinámico y sombra discreta. */
+.academy-pillar { position: relative; overflow: hidden; }
+.academy-pillar::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--orange-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+.academy-pillar-top svg { transition: transform .3s ease; }
+.academy-outline-link { transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.academy-outline-link svg,
+.academy-next-link svg { transition: transform .2s ease; }
+
+@media (hover: hover) and (pointer: fine) {
+  .academy-principle:hover { background-color: #edf0e8; }
+  .academy-principle:hover::before { transform: scaleY(1); }
+  .academy-principle:hover h3 { color: var(--orange-dark); }
+  .academy-principle:hover .academy-principle-dash { opacity: 1; width: 28px; }
+  .academy-pillar:hover { box-shadow: 0 16px 35px #18201917; }
+  .academy-pillar:hover::before { transform: scaleX(1); }
+  .academy-pillar:hover .academy-pillar-top svg { transform: translateY(-3px) rotate(-7deg); }
+  .academy-pillar:nth-child(2):hover { background: #e6d7ca; }
+  .academy-pillar:nth-child(3):hover { background: #d2e0c4; }
+  .academy-outline-link:hover { border-color: var(--sage); transform: translateY(-2px); }
+  .academy-outline-link:hover svg,
+  .academy-next-link:hover svg { transform: translate(3px, -2px); }
+}
+@media (max-width: 550px) {
+  .academy-principle-dash { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .academy-principle, .academy-principle::before, .academy-principle-dash,
+  .academy-principle h3, .academy-photo, .academy-pillar::before,
+  .academy-pillar-top svg, .academy-outline-link,
+  .academy-outline-link svg, .academy-next-link svg { transition: none !important; }
+  .academy-photo-wrap:hover .academy-photo,
+  .academy-pillar:hover .academy-pillar-top svg,
+  .academy-outline-link:hover,
+  .academy-outline-link:hover svg, .academy-next-link:hover svg { transform: none !important; }
+}

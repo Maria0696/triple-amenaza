@@ -76,7 +76,7 @@ export default function HomePage() {
             <div
               className="home-hero-photo"
               role="img"
-              aria-label="Fotografía ilustrativa de una sesión de baloncesto en un gimnasio; no pertenece a Triple Amenaza"
+              aria-label="Entrenador de Academia Triple Amenaza trabajando con un jugador durante una sesión de baloncesto"
             />
             <div className="home-hero-media-top" aria-hidden="true">
               <span>ATA / DESARROLLO DEL JUGADOR</span>
@@ -87,7 +87,7 @@ export default function HomePage() {
               <strong>PREPÁRATE PARA EL SIGUIENTE MOVIMIENTO.</strong>
             </div>
             <span className="home-hero-image-credit">
-              Imagen provisional · <a href="https://commons.wikimedia.org/wiki/File:Sue_Bird_gets_hands-on_with_military_children_in_free_basketball_clinic_150123-A-OP586-956.jpg" target="_blank" rel="noopener noreferrer">J. Spradlin / U.S. Army</a>
+              Academia Triple Amenaza · Fotografía: R1kman_fotografia
             </span>
           </div>
         </div>

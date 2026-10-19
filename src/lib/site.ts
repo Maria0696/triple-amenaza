@@ -1,7 +1,7 @@
 /** Datos editoriales confirmados para la primera versión pública. */
 export const navigation = [
-  { label: "La academia", href: "/academia/" },
-  { label: "Nuestro método", href: "/metodo/" },
+  { label: "Academia", href: "/academia/" },
+  { label: "Método", href: "/metodo/" },
   { label: "Programas", href: "/programas/" },
   { label: "Contacto", href: "/contacto/" },
 ] as const;
