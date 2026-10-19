@@ -371,3 +371,12 @@
   .flex-page-hero-link:hover svg, .flex-page-compare-link:hover svg,
   .flex-page-closing-link:hover, .flex-page-closing-link:hover svg { transform: none !important; }
 }
+
+/* Comparativa Flex: segunda frase en una sola línea */
+@media (min-width: 861px) {
+  .flex-page-compare-heading .flex-page-heading em {
+    display: block;
+    font-size: clamp(36px, 4.2vw, 65px);
+    white-space: nowrap;
+  }
+}
