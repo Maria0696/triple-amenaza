@@ -117,11 +117,13 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  /* Foto ilustrativa provisional: sustituir por una imagen real y autorizada de ATA.
-     Si la imagen externa no se carga, el degradado conserva una composición legible. */
   background-image:
-    linear-gradient(0deg, rgba(14, 22, 18, .96), rgba(13, 21, 17, .1) 65%),
-    url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sue_Bird_gets_hands-on_with_military_children_in_free_basketball_clinic_150123-A-OP586-956.jpg/960px-Sue_Bird_gets_hands-on_with_military_children_in_free_basketball_clinic_150123-A-OP586-956.jpg");
+  linear-gradient(
+    0deg,
+    rgba(14, 22, 18, .96),
+    rgba(13, 21, 17, .1) 65%
+  ),
+  url("/images/hero-ata.jpg");
   background-position: center, 51% center;
   background-size: cover;
   filter: saturate(.65);
@@ -326,7 +328,7 @@
 .home-closing { background: var(--sage); padding: clamp(68px, 6vw, 105px) 0; }
 .home-closing-inner h2 { max-width: 1050px; margin: 12px 0 25px; font-size: clamp(50px, 7vw, 101px); font-weight: 950; line-height: .97; letter-spacing: -.08em; text-transform: uppercase; }
 .home-closing-inner h2 em { color: #4f6847; font-family: Georgia, serif; font-weight: 500; }
-.home-closing-inner > p:not(.home-eyebrow) { max-width: 610px; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
+.home-closing-inner > p:not(.home-eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
 .home-action-dark { color: #fff; background: var(--ink); }
 .home-action-dark:hover { background: #34443a; transform: translateY(-2px); }
 

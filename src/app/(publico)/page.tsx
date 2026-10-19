@@ -134,9 +134,6 @@ export default function HomePage() {
                 <span> MISMO PROPÓSITO.</span>
               </h2>
             </div>
-            <Link href="/programas/" className="home-inline-link home-inline-link-desktop">
-              Todos los programas <ArrowUpRight size={19} aria-hidden="true" />
-            </Link>
           </div>
 
           <div className="home-program-cards">
