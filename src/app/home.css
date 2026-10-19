@@ -273,15 +273,18 @@
 
 .home-method { background: #28352d; color: #fff; padding: clamp(68px, 6vw, 98px) 0; }
 .home-method-heading { display: flex; justify-content: space-between; gap: 45px; align-items: end; }
-.home-method-heading .home-section-title { max-width: 870px; }
+.home-method-heading .home-section-title { max-width: none; }
+.home-method-heading .home-section-title span { display: block; }
+@media (min-width: 821px) {
+  .home-method-heading .home-section-title span {
+    white-space: nowrap;
+  }
+}
 .home-method-heading .home-section-title span { color: var(--sage); }
 .home-method-steps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #ffffff37; margin: 35px 0 26px; }
 .home-method-step { min-height: 222px; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; border-right: 1px solid #ffffff37; }
 .home-method-step:last-child { border-right: 0; }
 .home-method-step-top { display: flex; align-items: center; justify-content: space-between; color: var(--sage); font-size: 12px; font-weight: 850; }
-/* Recorrido visual de las cuatro etapas del Método ATA.
-   Cada tarjeta destaca los tramos alcanzados: 1/4, 2/4, 3/4, 4/4.
-   Es decorativo: la tarjeta no es un enlace. */
 .home-method-progress {
   display: inline-flex;
   align-items: center;
