@@ -24,7 +24,7 @@ export function Logo({
       }}
     >
       <Image
-        src="/images/icon.png"
+        src="/resources/imagenes/icon.png"
         alt="Escudo de Academia Triple Amenaza"
         width={size}
         height={size}

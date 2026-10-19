@@ -117,7 +117,7 @@
     rgba(14, 22, 18, .96),
     rgba(13, 21, 17, .1) 65%
   ),
-  url("/images/sesion-ata.jpg");
+  url("/resources/imagenes/sesion-ata.jpg");
   background-position: center, 51% center;
   background-size: cover;
   filter: saturate(.65);
