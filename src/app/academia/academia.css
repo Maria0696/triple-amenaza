@@ -181,7 +181,12 @@
 .academy-next { position: relative; background: var(--sage); overflow: hidden; padding: clamp(68px,7vw,106px) 0; }
 .academy-next-inner { position: relative; z-index: 1; }
 .academy-next h2 { margin: 0 0 22px; max-width: 1100px; font-size: clamp(53px,7.2vw,111px); line-height: .98; font-weight: 950; letter-spacing: -.085em; }
-.academy-next h2 em { color: #4e6847; font-family: Georgia,serif; font-weight: 500; }
+.academy-next h2 em { display: block; color: #4e6847; font-family: Georgia, serif; font-weight: 500; }
+@media (min-width: 861px) {
+  .academy-next h2 em {
+    white-space: nowrap;
+  }
+}
 .academy-next-inner > p:not(.academy-eyebrow) { max-width: 740px; font-size: 17px; line-height: 1.7; margin: 0 0 30px; }
 .academy-next-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; background: var(--ink); color: white; min-height: 56px; padding: 16px 22px; border-radius: 3px; font-weight: 850; font-size: 13px; transition: transform .2s,background-color .2s; }
 .academy-next-link:hover { background: #34443a; transform: translateY(-2px); }
