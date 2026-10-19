@@ -55,8 +55,8 @@ export default function HomePage() {
             </p>
 
             <div className="home-hero-actions">
-              <Link href="/programas/anotadores-elite/" className="home-action-primary">
-                Descubre Anotadores Élite
+              <Link href="/programas" className="home-action-primary">
+                Descubre nuestros programas
                 <ArrowUpRight size={19} aria-hidden="true" />
               </Link>
               <Link href="/metodo/" className="home-action-text">
@@ -173,7 +173,7 @@ export default function HomePage() {
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
                     <span className="home-program-more">
-                      {featured ? "Descubre el programa" : "Ver programa"}
+                      {featured ? "Descubre el programa" : "Decubre el programa"}
                       <ArrowRight size={17} aria-hidden="true" />
                     </span>
                   </div>

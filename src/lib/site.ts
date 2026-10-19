@@ -34,15 +34,6 @@ export const programs: Program[] = [
     href: "/programas/anotadores-flex/",
     tag: "Formato flexible",
   },
-  {
-    number: "03",
-    label: "Trabajo personalizado",
-    title: "Entrenamiento individual",
-    description:
-      "Entrenamiento adaptado a los objetivos y necesidades de desarrollo de cada jugador.",
-    href: "/programas/entrenamiento-individual/",
-    tag: "Atención individual",
-  },
 ];
 
 /** Las cuatro etapas oficiales del Método ATA.

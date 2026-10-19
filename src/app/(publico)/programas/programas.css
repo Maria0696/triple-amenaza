@@ -453,3 +453,184 @@
   .programs-page-workshops-link:hover,
   .programs-page-workshops-link:hover svg { transform: none !important; }
 }
+
+
+/* ================================================
+   ENTREGA 22: Élite y Flex, dos tarjetas hermanas.
+   Solo afecta a /programas/. Las imágenes no se animan.
+   ================================================ */
+.programs-page-duo-title {
+  max-width: 1050px;
+}
+.programs-page-duo-title span {
+  color: var(--orange-dark);
+}
+.programs-page-duo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+.programs-page-duo-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 505px;
+  overflow: hidden;
+  padding: clamp(28px, 3.2vw, 42px);
+  border: 1px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.programs-page-duo-card::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 4px;
+  background: var(--orange);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .25s ease;
+}
+.programs-page-duo-elite {
+  color: var(--paper);
+  border-color: #33483a;
+  background: linear-gradient(115deg, #202b25 10%, #34483b 100%);
+}
+.programs-page-duo-flex {
+  color: var(--ink);
+  border-color: #d2ddc9;
+  background: #dfe7d3;
+}
+.programs-page-duo-top,
+.programs-page-duo-content {
+  position: relative;
+  z-index: 1;
+}
+.programs-page-duo-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 11px;
+  line-height: 1.45;
+  font-weight: 850;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.programs-page-duo-top svg {
+  flex: 0 0 auto;
+  transition: transform .25s ease;
+}
+.programs-page-duo-content { max-width: 100%; padding-top: 70px; }
+.programs-page-duo-tag {
+  display: inline-block;
+  padding: 9px 12px;
+  border: 1px solid currentColor;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.programs-page-duo-elite .programs-page-duo-tag { border-color: #ffffff80; }
+.programs-page-duo-flex .programs-page-duo-tag { border-color: #6f80636e; }
+.programs-page-duo-content h3 {
+  margin: 23px 0 17px;
+  font-size: clamp(38px, 3.8vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -.072em;
+  font-weight: 950;
+}
+.programs-page-duo-content p {
+  max-width: 540px;
+  margin: 0;
+  font-size: clamp(15px, 1.28vw, 17px);
+  line-height: 1.7;
+}
+.programs-page-duo-elite .programs-page-duo-content p { color: #e0e8dd; }
+.programs-page-duo-flex .programs-page-duo-content p { color: #445648; }
+.programs-page-duo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  width: fit-content;
+  margin-top: 26px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 850;
+}
+.programs-page-duo-link svg { transition: transform .25s ease; }
+.programs-page-duo-target {
+  position: absolute;
+  top: 24%; right: -8%;
+  width: 53%;
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: .23;
+  z-index: 0;
+}
+.programs-page-duo-target span {
+  position: absolute;
+  display: block;
+  border: 2px solid #c8d88e;
+  border-radius: 50%;
+  inset: 0;
+}
+.programs-page-duo-target span:nth-child(2) { inset: 19%; }
+.programs-page-duo-target span:nth-child(3) { inset: 39%; border-width: 3px; }
+.programs-page-duo-symbol {
+  position: absolute;
+  top: 23%; right: 9%;
+  color: #7e9a79;
+  opacity: .35;
+  pointer-events: none;
+  z-index: 0;
+}
+.programs-page-duo-note {
+  margin: 22px 0 0;
+  color: #596359;
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (hover: hover) and (pointer: fine) {
+  .programs-page-duo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px #16271a23;
+  }
+  .programs-page-duo-card:hover::before { transform: scaleY(1); }
+  .programs-page-duo-top svg { transform-origin: center; }
+  .programs-page-duo-card:hover .programs-page-duo-top svg { transform: translate(3px, -3px); }
+  .programs-page-duo-card:hover .programs-page-duo-link svg { transform: translateX(5px); }
+}
+.programs-page-duo-card:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+@media (max-width: 900px) {
+  .programs-page-duo-grid { grid-template-columns: minmax(0, 1fr); }
+  .programs-page-duo-card { min-height: 415px; }
+  .programs-page-duo-content { padding-top: 48px; }
+  .programs-page-duo-target { width: 39%; top: 19%; right: 0; }
+}
+@media (max-width: 550px) {
+  .programs-page-duo-grid { gap: 14px; }
+  .programs-page-duo-card { min-height: 385px; padding: 25px; }
+  .programs-page-duo-content { padding-top: 46px; }
+  .programs-page-duo-content h3 { font-size: clamp(37px, 9.5vw, 50px); }
+  .programs-page-duo-content p { font-size: 14px; }
+  .programs-page-duo-symbol { width: 66px; height: 66px; top: 23%; right: 9%; }
+  .programs-page-duo-target { opacity: .15; width: 52%; right: -14%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .programs-page-duo-card,
+  .programs-page-duo-card::before,
+  .programs-page-duo-top svg,
+  .programs-page-duo-link svg { transition: none !important; }
+  .programs-page-duo-card:hover,
+  .programs-page-duo-card:hover::before,
+  .programs-page-duo-card:hover .programs-page-duo-top svg,
+  .programs-page-duo-card:hover .programs-page-duo-link svg { transform: none !important; }
+}

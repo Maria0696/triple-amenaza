@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarRange, UserRound } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
 import { programs } from "@/lib/site";
 import "./programas.css";
@@ -8,29 +8,16 @@ import "./programas.css";
 export const metadata: Metadata = {
   title: "Programas",
   description:
-    "Descubre los programas de Academia Triple Amenaza: Anotadores Élite, Anotadores Flex y entrenamiento individual. Tres formas de desarrollar tu juego.",
+    "Conoce Anotadores Élite y Anotadores Flex de Academia Triple Amenaza. Dos maneras de entrenar con intención y desarrollar tu juego.",
 };
 
-const [elite, flex, individual] = programs;
-
-const otherPrograms = [
-  {
-    program: flex,
-    icon: CalendarRange,
-    cue: "ELIGE CUÁNDO ENTRENAR",
-  },
-  {
-    program: individual,
-    icon: UserRound,
-    cue: "TRABAJA TU PROPIO OBJETIVO",
-  },
-] as const;
+const [elite, flex] = programs;
 
 const selectionQuestions = [
   {
     number: "01",
     title: "¿Qué quieres mejorar?",
-    text: "Define si buscas desarrollar tu capacidad anotadora o abordar un objetivo individual concreto.",
+    text: "Piensa qué recursos anotadores quieres mejorar y cómo trasladarlos a situaciones de partido.",
   },
   {
     number: "02",
@@ -62,19 +49,16 @@ export default function ProgramasPage() {
               que mejor se adapta a tu objetivo y a tu manera de organizar el entrenamiento.
             </p>
           </div>
-          <div className="programs-page-hero-aside" aria-label="Los tres enfoques de entrenamiento">
+          <div className="programs-page-hero-aside" aria-label="Los dos formatos de entrenamiento">
             <div className="programs-page-hero-aside-top">
               <span>UNA ACADEMIA</span>
-              <span>03 FORMATOS</span>
+              <span>02 FORMATOS</span>
             </div>
             <div className="programs-page-hero-aside-row">
               <span>01</span><strong>Continuidad</strong><span>ÉLITE</span>
             </div>
             <div className="programs-page-hero-aside-row">
               <span>02</span><strong>Flexibilidad</strong><span>FLEX</span>
-            </div>
-            <div className="programs-page-hero-aside-row">
-              <span>03</span><strong>Uno a uno</strong><span>INDIVIDUAL</span>
             </div>
             <div className="programs-page-hero-aside-bottom">
               DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
@@ -88,63 +72,54 @@ export default function ProgramasPage() {
           <div className="programs-page-offer-heading">
             <div>
               <p className="programs-page-eyebrow">01 / ENCUENTRA TU FORMATO</p>
-              <h2 id="programs-page-offer-title" className="programs-page-section-title">
-                TRES PROGRAMAS. <em>DISTINTOS PUNTOS DE PARTIDA.</em>
+              <h2 id="programs-page-offer-title" className="programs-page-section-title programs-page-duo-title">
+                DIFERENTES CAMINOS. <span>MISMO PROPÓSITO.</span>
               </h2>
             </div>
             <p>
-              Puedes recorrerlos y conocer qué ofrece cada uno. La elección depende
-              de tus objetivos, el tipo de acompañamiento y la continuidad que buscas.
+              Dos maneras de entrenar con intención. Elige la continuidad que mejor
+              encaja contigo: proceso completo o asistencia flexible.
             </p>
           </div>
 
-          <Link className="programs-page-feature" href={elite.href}>
-            <div className="programs-page-feature-main">
-              <div className="programs-page-card-top">
-                <span>01 / 03 — {elite.label}</span>
-                <ArrowUpRight size={26} strokeWidth={1.8} aria-hidden="true" />
+          <div className="programs-page-duo-grid">
+            <Link className="programs-page-duo-card programs-page-duo-elite" href={elite.href}>
+              <div className="programs-page-duo-top">
+                <span>01 / 02 — {elite.label}</span>
+                <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
-              <div className="programs-page-feature-content">
-                <span className="programs-page-tag">{elite.tag}</span>
+              <div className="programs-page-duo-target" aria-hidden="true">
+                <span /><span /><span />
+              </div>
+              <div className="programs-page-duo-content">
+                <span className="programs-page-duo-tag">{elite.tag}</span>
                 <h3>{elite.title}</h3>
                 <p>{elite.description}</p>
-                <span className="programs-page-card-link">
-                  Descubrir el programa <ArrowRight size={18} aria-hidden="true" />
+                <span className="programs-page-duo-link">
+                  Descubrir el programa <ArrowRight size={19} aria-hidden="true" />
                 </span>
               </div>
-            </div>
-            <div className="programs-page-feature-side" aria-hidden="true">
-              <span className="programs-page-feature-side-top">ATA / DESARROLLO ANOTADOR</span>
-              <span className="programs-page-feature-number">01</span>
-              <span className="programs-page-feature-side-bottom">
-                <span>VALORACIÓN</span>
-                <span>OBJETIVOS</span>
-                <span>SEGUIMIENTO</span>
-              </span>
-            </div>
-          </Link>
+            </Link>
 
-          <div className="programs-page-other-grid">
-            {otherPrograms.map(({ program, icon: Icon, cue }) => (
-              <Link className="programs-page-card" href={program.href} key={program.number}>
-                <div className="programs-page-card-top">
-                  <span>{program.number} / 03 — {program.label}</span>
-                  <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
-                </div>
-                <div className="programs-page-card-symbol" aria-hidden="true">
-                  <Icon size={38} strokeWidth={1.4} />
-                </div>
-                <div className="programs-page-card-body">
-                  <span className="programs-page-card-cue">{cue}</span>
-                  <h3>{program.title}</h3>
-                  <p>{program.description}</p>
-                  <span className="programs-page-card-link">
-                    Descubrir el programa <ArrowRight size={18} aria-hidden="true" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+            <Link className="programs-page-duo-card programs-page-duo-flex" href={flex.href}>
+              <div className="programs-page-duo-top">
+                <span>02 / 02 — {flex.label}</span>
+                <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
+              </div>
+              <CalendarRange className="programs-page-duo-symbol" size={108} strokeWidth={1.1} aria-hidden="true" />
+              <div className="programs-page-duo-content">
+                <span className="programs-page-duo-tag">{flex.tag}</span>
+                <h3>{flex.title}</h3>
+                <p>{flex.description}</p>
+                <span className="programs-page-duo-link">
+                  Descubrir el programa <ArrowRight size={19} aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
           </div>
+          <p className="programs-page-duo-note">
+            Las condiciones, fechas y plazas se confirmarán directamente con la academia.
+          </p>
         </div>
       </section>
 
