@@ -8,7 +8,6 @@ import {
   Dumbbell,
   MoveUpRight,
   Target,
-  UserRound,
   Zap,
 } from "lucide-react";
 
@@ -158,13 +157,12 @@ export default function HomePage() {
                       <span className="home-program-ring home-program-ring-center" />
                       <span className="home-program-cross home-program-cross-horizontal" />
                       <span className="home-program-cross home-program-cross-vertical" />
-                      <span className="home-program-feature-label">ATA / ÉLITE</span>
                     </div>
                   )}
 
                   {!featured && (
                     <span className="home-program-card-symbol" aria-hidden="true">
-                      {program.number === "02" ? <Zap size={76} strokeWidth={1.15} /> : <UserRound size={76} strokeWidth={1.15} />}
+                      <Zap size={76} strokeWidth={1.15} />
                     </span>
                   )}
 
@@ -173,7 +171,7 @@ export default function HomePage() {
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
                     <span className="home-program-more">
-                      {featured ? "Descubre el programa" : "Decubre el programa"}
+                      Descubre el programa
                       <ArrowRight size={17} aria-hidden="true" />
                     </span>
                   </div>

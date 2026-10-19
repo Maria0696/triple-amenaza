@@ -219,6 +219,14 @@
 /* 03 · COMPARATIVA */
 .flex-page-compare { padding-block: clamp(75px, 8vw, 120px); background: #f0f1e9; }
 .flex-page-compare-heading { max-width: 930px; margin-bottom: 43px; }
+/* Evita cortar el segundo titular de la comparativa en escritorio. */
+@media (min-width: 861px) {
+  .flex-page-compare-heading .flex-page-heading em {
+    display: block;
+    font-size: clamp(36px, 4.2vw, 65px);
+    white-space: nowrap;
+  }
+}
 .flex-page-compare-heading > p:last-child { max-width: 710px; margin: 25px 0 0; font-size: 17px; line-height: 1.75; color: #546255; }
 .flex-page-compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 15px; }
 .flex-page-compare-card { min-width: 0; display: flex; flex-direction: column; padding: clamp(28px, 3.7vw, 49px); min-height: 385px; border: 1px solid #ccd6c6; transition: box-shadow .23s ease; }
@@ -370,13 +378,4 @@
   .flex-page-strength:hover, .flex-page-strength:hover .flex-page-strength-top svg,
   .flex-page-hero-link:hover svg, .flex-page-compare-link:hover svg,
   .flex-page-closing-link:hover, .flex-page-closing-link:hover svg { transform: none !important; }
-}
-
-/* Comparativa Flex: segunda frase en una sola línea */
-@media (min-width: 861px) {
-  .flex-page-compare-heading .flex-page-heading em {
-    display: block;
-    font-size: clamp(36px, 4.2vw, 65px);
-    white-space: nowrap;
-  }
 }
