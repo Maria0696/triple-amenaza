@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageIntro } from "@/components/publico/page-intro";
+import { PageIntro } from "@/components/web/page-intro";
 
 export const metadata: Metadata = { title: "Workshops y masterclasses" };
 

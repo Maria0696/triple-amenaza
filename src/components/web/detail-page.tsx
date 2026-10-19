@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PageIntro } from "@/components/publico/page-intro";
+import { PageIntro } from "@/components/web/page-intro";
 
 type Props = {
   eyebrow: string;
