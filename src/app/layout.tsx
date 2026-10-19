@@ -8,8 +8,17 @@ export const metadata: Metadata = {
     template: "%s | Triple Amenaza",
   },
   description:
-    "Academia Triple Amenaza: tecnificación de baloncesto, preparación física y desarrollo del jugador. Descubre nuestra metodología y programas.",
-  robots: { index: false, follow: false }, // Retirar solo cuando el sitio esté listo para publicar.
+    "Academia Triple Amenaza: tecnificación de baloncesto, preparación física y desarrollo del jugador.",
+
+  icons: {
+    icon: [
+      { url: "/images/favicon.ico", sizes: "any" },
+      { url: "/images/icon.png", type: "image/png" },
+    ],
+    apple: "/images/apple-icon.png",
+  },
+
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
