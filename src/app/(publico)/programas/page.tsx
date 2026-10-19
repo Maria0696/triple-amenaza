@@ -74,7 +74,7 @@ export default function ProgramasPage() {
               <span>02</span><strong>Flexibilidad</strong><span>FLEX</span>
             </div>
             <div className="programs-page-hero-aside-row">
-              <span>03</span><strong>Personalización</strong><span>INDIVIDUAL</span>
+              <span>03</span><strong>Uno a uno</strong><span>INDIVIDUAL</span>
             </div>
             <div className="programs-page-hero-aside-bottom">
               DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
