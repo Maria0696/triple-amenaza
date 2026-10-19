@@ -127,7 +127,13 @@
 
 /* Tres áreas */
 .academy-pillars { background: var(--cream); padding: clamp(67px,7vw,104px) 0; }
-.academy-pillars-heading { max-width: 920px; margin-bottom: 34px; }
+.academy-pillars-heading { margin-bottom: 34px; }
+.academy-pillars-heading .academy-section-title span { display: block; }
+@media (min-width: 861px) {
+  .academy-pillars-heading .academy-section-title span {
+    white-space: nowrap;
+  }
+}
 .academy-pillars-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
 .academy-pillar {
   background: #e5e9dc;
