@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { navigation } from "@/lib/site";
-
-const footerNavigation = [
-  ...navigation.filter(({ href }) => href !== "/contacto/"),
-  { label: "Workshops", href: "/programas/workshops/" },
-  { label: "Equipo", href: "/equipo/" },
-  ...navigation.filter(({ href }) => href === "/contacto/"),
-];
+import { footerNavigation } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -21,9 +14,7 @@ export function SiteFooter() {
         <div className="footer-links">
           <p className="footer-heading">Explora</p>
           {footerNavigation.map(({ label, href }) => (
-            <Link href={href} key={href}>
-              {label}
-            </Link>
+            <Link href={href} key={href}>{label}</Link>
           ))}
         </div>
         <div className="footer-links">

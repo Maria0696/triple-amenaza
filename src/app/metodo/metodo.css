@@ -63,17 +63,6 @@
   font-size: clamp(16px, 1.3vw, 19px);
   line-height: 1.8;
 }
-.method-page-jump {
-  display: inline-flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 0 8px;
-  border-bottom: 1px solid #f6f3ec9c;
-  font-size: 14px;
-  font-weight: 800;
-  transition: color .2s ease, border-color .2s ease;
-}
-.method-page-jump svg { transition: transform .2s ease; }
 
 .method-page-index { min-width: 0; border: 1px solid #ffffff44; background: #26322b; }
 .method-page-index-top {
@@ -254,8 +243,7 @@
 .method-page-closing-link svg { transition: transform .2s ease; }
 
 @media (hover: hover) and (pointer: fine) {
-  .method-page-jump:hover { color: var(--sage); border-color: var(--sage); }
-  .method-page-jump:hover svg { transform: translateY(4px); }
+
   .method-page-index li a:hover { background: #34453a; }
   .method-page-index li a:hover svg { transform: translate(3px, -3px); }
   .method-page-stage:hover { background: #f1f4ec; }
@@ -312,16 +300,6 @@
   .method-page-closing-inner > p:not(.method-page-eyebrow) { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .method-page-jump,
-  .method-page-jump svg,
-  .method-page-index li a,
-  .method-page-index li svg,
-  .method-page-stage,
-  .method-page-stage-icon,
-  .method-page-closing-link,
-  .method-page-closing-link svg { transition: none !important; }
-  .method-page-jump:hover svg,
-  .method-page-index li a:hover svg,
-  .method-page-closing-link:hover,
-  .method-page-closing-link:hover svg { transform: none !important; }
+  .method-page-index li a, .method-page-index li svg, .method-page-stage, .method-page-stage-icon, .method-page-closing-link, .method-page-closing-link svg { transition: none !important; }
+  .method-page-index li a:hover svg, .method-page-closing-link:hover, .method-page-closing-link:hover svg { transform: none !important; }
 }

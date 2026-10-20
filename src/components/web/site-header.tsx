@@ -1,12 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-
-import { navigation } from "@/lib/site";
+import { isNavigationActive, navigation } from "@/lib/site";
 import { Logo } from "@/components/ui/logo";
 
 export function SiteHeader() {
@@ -15,92 +13,66 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Enlace de accesibilidad */}
-      <a className="skip-link" href="#contenido">
-        Saltar al contenido
-      </a>
+      <a className="skip-link" href="#contenido">Saltar al contenido</a>
 
       <header className="site-header">
         <div className="container header-inner">
-
-          {/* LOGO OFICIAL DE TRIPLE AMENAZA */}
           <div className="brand">
             <Logo showText={false} size={90} />
           </div>
 
-          {/* NAVEGACIÓN DE ESCRITORIO */}
-          <nav
-            className="desktop-nav"
-            aria-label="Navegación principal"
-          >
-            {navigation.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className={
-                  pathname === href.slice(0, -1) ||
-                  pathname === href
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
-                {label}
-              </Link>
-            ))}
+          <nav className="desktop-nav" aria-label="Navegación principal">
+            {navigation.map(({ label, href }) => {
+              const active = isNavigationActive(pathname, href);
+
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={active ? "nav-link active" : "nav-link"}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* ACCIONES DEL HEADER */}
           <div className="header-actions">
+            <Link href="/hub/" className="hub-link">ATA Hub</Link>
 
-            {/* Acceso al área privada */}
-            <Link href="/hub/" className="hub-link">
-              ATA Hub
-            </Link>
-
-            {/* Botón del menú móvil */}
             <button
               type="button"
               className="menu-toggle"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              aria-label={
-                open ? "Cerrar menú" : "Abrir menú"
-              }
-              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              onClick={() => setOpen((current) => !current)}
             >
-              {open ? (
-                <X size={24} />
-              ) : (
-                <Menu size={24} />
-              )}
+              {open ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* MENÚ MÓVIL */}
         {open && (
-          <nav
-            id="mobile-menu"
-            className="mobile-nav"
-            aria-label="Menú móvil"
-          >
-            {navigation.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </Link>
-            ))}
+          <nav id="mobile-menu" className="mobile-nav" aria-label="Menú móvil">
+            {navigation.map(({ label, href }) => {
+              const active = isNavigationActive(pathname, href);
 
-            <Link
-              className="mobile-hub"
-              href="/hub/"
-              onClick={() => setOpen(false)}
-            >
-              Acceder a ATA Hub
-              <ArrowUpRight size={18} />
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+
+            <Link className="mobile-hub" href="/hub/" onClick={() => setOpen(false)}>
+              Acceder a ATA Hub <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </nav>
         )}

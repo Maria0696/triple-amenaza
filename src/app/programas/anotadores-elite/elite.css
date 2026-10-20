@@ -16,10 +16,9 @@
 .elite-hero-title { max-width: 750px; margin: 0; font-size: clamp(56px, 6.3vw, 99px); line-height: .94; font-weight: 950; letter-spacing: -.093em; text-transform: uppercase; }
 .elite-hero-title span { display: block; margin-top: 10px; color: var(--sage); }
 .elite-hero-lead { max-width: 580px; margin: 30px 0 29px; font-size: clamp(16px, 1.25vw, 18px); line-height: 1.76; color: #d8e0d6; }
-.elite-hero-actions { display: flex; align-items: center; gap: 21px 28px; flex-wrap: wrap; }
+
 .elite-button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; padding: 16px 21px; min-height: 56px; border-radius: 3px; font-size: 13px; font-weight: 850; transition: transform .2s ease, background-color .2s ease; }
-.elite-button-orange { background: var(--orange); color: var(--ink); }
-.elite-button-orange:hover { background: #ff9465; transform: translateY(-2px); }
+
 .elite-hero-caption { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 39px 0 0; color: #c4cdbf; font-size: 11px; line-height: 1.7; font-weight: 650; letter-spacing: .085em; }
 .elite-hero-caption span { color: var(--orange); }
 .elite-profile { min-width: 0; border: 1px solid #ffffff3b; background: #293b31; box-shadow: 15px 15px 0 #ffffff08; }
