@@ -48,11 +48,12 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-size: clamp(58px, 6.7vw, 104px);
+  font-size: clamp(34px, 3.7vw, 62px);
   font-weight: 950;
-  line-height: .95;
-  letter-spacing: -.09em;
+  line-height: 1;
+  letter-spacing: -.075em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .method-page-hero-title span { display: block; color: var(--sage); }
 .method-page-hero-lead {
@@ -265,7 +266,7 @@
 
 @media (max-width: 1100px) {
   .method-page-hero-grid { gap: 35px; }
-  .method-page-hero-title { font-size: clamp(52px, 6vw, 78px); }
+  .method-page-hero-title { font-size: clamp(34px, 3.8vw, 46px); }
   .method-page-stage { grid-template-columns: 100px minmax(0, 1fr); gap: 25px 32px; }
   .method-page-stage-aside { grid-column: 2; margin-top: 0; min-height: 0; }
 }
@@ -274,7 +275,7 @@
   .method-page-process-heading,
   .method-page-practice-grid { grid-template-columns: 1fr; }
   .method-page-hero-grid { padding-block: 55px 65px; gap: 40px; }
-  .method-page-hero-title { font-size: clamp(56px, 9vw, 85px); }
+  .method-page-hero-title { font-size: clamp(56px, 9vw, 85px); white-space: normal; }
   .method-page-index { max-width: 650px; }
   .method-page-process-heading { gap: 20px; padding-bottom: 36px; }
   .method-page-practice-grid { gap: 35px; }
