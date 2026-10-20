@@ -1,6 +1,8 @@
 import { PublicChrome } from "@/components/web/public-chrome";
 import type { Metadata } from "next";
+
 import "./globals.css";
+import "./mobile-accessibility.css";
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +28,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" data-scroll-behavior="smooth">
-      <body><PublicChrome>{children}</PublicChrome></body>
+      <body>
+        <PublicChrome>{children}</PublicChrome>
+      </body>
     </html>
   );
 }
