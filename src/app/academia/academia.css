@@ -55,16 +55,8 @@
   line-height: 1.75;
   color: #e0e6dd;
 }
-.academy-hero-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  border-bottom: 1px solid currentColor;
-  padding-block: 8px;
-  font-size: 14px;
-  font-weight: 800;
-}
-.academy-hero-link:hover { color: var(--sage); }
+
+
 .academy-hero-figure,
 .academy-club-figure { min-width: 0; margin: 0; }
 .academy-photo-wrap { position: relative; overflow: hidden; isolation: isolate; background: #36473d; }
@@ -204,7 +196,7 @@
   .academy-hero-title { font-size: clamp(65px,10vw,95px); }
   .academy-hero-lead { max-width: 700px; }
   .academy-hero-photo { aspect-ratio: 1.5; }
-  .academy-approach-mark { display: none; }
+  
   .academy-approach-grid { gap: 32px; }
   .academy-pillars-grid { grid-template-columns: 1fr; }
   .academy-pillar { min-height: 225px; gap: 40px; }
