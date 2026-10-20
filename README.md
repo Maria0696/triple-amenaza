@@ -42,7 +42,7 @@ La web permitirá conocer cada propuesta y contactar con la academia. Los conten
 
 ## 🛠️ Tecnologías
 
-**Next.js + React** para la web · **TypeScript** para el código · **Tailwind CSS** para los estilos · **Firebase** para acceso y datos · **GitHub** para el trabajo en equipo.
+**Next.js + React** para la web · **TypeScript** para el código · **CSS tradicional** para los estilos · **Firebase** para acceso y datos · **GitHub** para el trabajo en equipo.
 
 El alojamiento definitivo está por decidir. Priorizamos una solución de bajo coste **compatible con el uso comercial** de la academia.
 
