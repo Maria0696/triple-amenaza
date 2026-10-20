@@ -85,7 +85,7 @@ export default function AcademiaPage() {
           <figure className="academy-hero-figure">
             <div className="academy-photo-wrap academy-hero-photo">
               <Image
-                src="/imagenes/grupo-ata.jpg"
+                src="/imagenes/grupo-ata.webp"
                 alt="Jugadores y entrenadores de la academia reuniéndose en la pista y levantando las manos"
                 width={1500}
                 height={1000}
@@ -167,7 +167,7 @@ export default function AcademiaPage() {
           <figure className="academy-club-figure">
             <div className="academy-photo-wrap academy-club-photo">
               <Image
-                src="/imagenes/sesion-ata.jpg"
+                src="/imagenes/sesion-ata.webp"
                 alt="Un entrenador de Triple Amenaza junto a un jugador con balón durante una sesión en pista"
                 width={1365}
                 height={2048}
