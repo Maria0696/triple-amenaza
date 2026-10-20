@@ -2,69 +2,67 @@
 
 # 🏀 TRIPLE AMENAZA
 
-### Academia de baloncesto · Preparación física · Desarrollo personal
+**Academia de baloncesto · Preparación física · Desarrollo del jugador**
 
-**Una web para descubrir la academia. Un espacio para hacerla crecer.**
+*Una web para conocer la academia. Un espacio para hacerla crecer.*
 
-`En desarrollo` · `Next.js` · `TypeScript` · `Firebase`
+`Next.js 16` · `TypeScript` · `CSS` · `ATA Hub en preparación`
 
 </div>
 
 ---
 
-## ✨ El proyecto
+## El proyecto
 
-**Triple Amenaza** reunirá en una sola plataforma todo lo relacionado con la academia: sus programas, su metodología y la gestión del trabajo diario.
+**Triple Amenaza** reúne la presentación pública de la academia y prepara **ATA Hub**, un futuro espacio de trabajo para administración y entrenadores. Más adelante podrán incorporarse funcionalidades para jugadores y familias.
 
 | 🌍 Web pública | 🔐 ATA Hub |
 | :--- | :--- |
-| El escaparate de la academia: quiénes somos, cómo entrenamos y qué ofrecemos. | El espacio privado de trabajo para administración y entrenadores. |
-| Programas, actividades, equipo y contacto. | Jugadores, sesiones, formularios, valoraciones y seguimiento. |
+| Inicio, academia, método y programas. | Área privada todavía en desarrollo. |
+| Anotadores Élite, Anotadores Flex y talleres. | Futuras fichas, sesiones, formularios y valoraciones. |
 
-Más adelante, **jugadores y familias** podrán acceder a su propia zona privada.
+## Programas
 
-## 🏀 Nuestros programas
+**Anotadores Élite** ofrece un proceso estructurado de tecnificación y seguimiento. **Anotadores Flex** permite participar en sesiones con mayor flexibilidad. Los **workshops y masterclasses** se presentan como actividades puntuales dentro de Programas.
 
-**Anotadores Élite** · **Anotadores Flex** · **Entrenamiento individual** · **Workshops y masterclasses**
+Las condiciones comerciales, fechas y plazas se comunicarán cuando estén confirmadas. Las páginas de **Equipo** y **Contacto** siguen en preparación; no hay un sistema de inscripciones o acceso al Hub habilitado en esta versión.
 
-La web permitirá conocer cada propuesta y contactar con la academia. Los contenidos, precios y fechas se publicarán cuando estén confirmados.
+## Tecnologías
 
-## 🚀 ¿En qué punto estamos?
+- **Next.js + React + TypeScript:** estructura de la aplicación.
+- **CSS tradicional:** estilos globales en `src/app/globals.css` y estilos propios de cada página.
+- **Firebase:** dependencia y reglas de seguridad preparadas para futuras funciones de ATA Hub; la autenticación todavía no está conectada a la web publicada.
+- **GitHub Actions:** comprueba ESLint, tipos de Next.js/TypeScript y compilación.
 
-| Módulo | Estado |
-| :--- | :--- |
-| Base Next.js + TypeScript | 🟡 Código inicial preparado; pendiente de probar |
-| Web pública completa | ⚪ Por desarrollar |
-| ATA Hub: acceso y fichas | 🟡 Prototipo inicial; pendiente de probar |
-| Formularios y valoraciones | 🟡 Valoración preliminar; integración pendiente |
-| Sesiones, informes y seguimiento | ⚪ Próximas fases |
-| Portal de familias y jugadores | ⚪ Futuro |
+El proyecto usa actualmente **exportación estática** (`output: "export"`): `npm run build` genera la carpeta `out/`, que podrá alojarse en un servidor de archivos estáticos compatible con el uso comercial.
 
-## 🛠️ Tecnologías
+## Empezar a desarrollar
 
-**Next.js + React** para la web · **TypeScript** para el código · **CSS tradicional** para los estilos · **Firebase** para acceso y datos · **GitHub** para el trabajo en equipo.
-
-El alojamiento definitivo está por decidir. Priorizamos una solución de bajo coste **compatible con el uso comercial** de la academia.
-
-## 💻 Ponerlo en marcha
-
-Con **Node.js** y el proyecto descargado, abre la carpeta en VS Code y ejecuta:
+Necesitas **Node.js 22**, npm y Git. Desde la carpeta del repositorio:
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Después, visita **http://localhost:3000**.
+Abre [http://localhost:3000](http://localhost:3000). La terminal seguirá activa mientras el servidor esté encendido; detenlo con `Ctrl + C`.
 
-Para probar **ATA Hub** necesitarás configurar Firebase y los permisos de usuario. Las instrucciones completas están en la [guía de instalación](docs/GUIA_DE_INSTALACION.md).
+Antes de abrir una PR:
 
-## 📚 Documentación
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-| Documento | Para qué sirve |
-| :--- | :--- |
-| 📍 [Hoja de ruta](docs/HOJA_DE_RUTA.md) | Qué construiremos y en qué orden. |
-| 🔧 [Guía de instalación](docs/GUIA_DE_INSTALACION.md) | Configuración detallada de VS Code, Firebase y GitHub. |
+`npm run typecheck` genera automáticamente las declaraciones de Next.js mediante `next typegen`. Por eso `next-env.d.ts` no se versiona: **Next.js lo recrea localmente y en CI**.
+
+No usamos `next start` porque el proyecto exporta HTML/CSS/JS estáticos. Para desarrollar utiliza `npm run dev`; para publicar, utiliza el contenido de `out/`.
+
+## Documentación
+
+- 📍 [Hoja de ruta](docs/hoja_de_ruta.md) — etapas, prioridades y módulos futuros.
+- 🔧 [Guía de instalación](docs/guia_de_instalacion.md) — configuración, comandos, ramas y preparación de Firebase.
 
 ---
 

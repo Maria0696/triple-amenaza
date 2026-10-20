@@ -3,8 +3,8 @@
 > **Proyecto:** Plataforma web integral de Academia Triple Amenaza (ATA)  
 > **Repositorio:** `triple-amenaza`  
 > **Área privada:** `ATA Hub`  
-> **Versión del plan:** 2.0 · 18 de octubre de 2026  
-> **Estado:** planificación revisada; primera base técnica desarrollada, aún pendiente de pruebas completas.
+> **Versión del plan:** 2.1 · 20 de octubre de 2026  
+> **Estado:** web pública desarrollada en código, CI de calidad configurado; páginas provisionales y ATA Hub pendientes de completar.
 
 ## 1. Visión y objetivo
 
@@ -33,7 +33,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 - **Nombre de marca:** Academia Triple Amenaza / ATA; evolución de la antigua Triple Threat.
 - **Pilares:** baloncesto, preparación física y desarrollo personal.
-- **Identidad:** negro, blanco, naranja oscuro sofisticado, dorado y verde. Los tonos exactos y recursos gráficos oficiales están pendientes de incorporar.
+- **Identidad:** colores negro/verde oscuro, crema, naranja y verde salvia; el logo y fotografías iniciales ya están incorporados en `public/imagenes/`.
 - **Enfoque de la web:** tecnificación y desarrollo del jugador, como complemento al entrenamiento en su club.
 - **Público prioritario de la comunicación actual:** jugadores de baloncesto en formación y sus familias, especialmente edades aproximadas de 10–16 años; sin convertirlo en un límite artificial para toda la academia.
 - **Enfoque metodológico del briefing previo:** diagnóstico → objetivos → entrenamiento → oposición → transferencia al juego real.
@@ -44,11 +44,10 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 |---|---|---|
 | **Anotadores Élite** | Programa principal y página comercial prioritaria | Proceso de unas 12 semanas, valoración, objetivos, tecnificación, seguimiento y progresión. |
 | **Anotadores Flex** | Alternativa más flexible | Bonos de cuatro sesiones y sesiones sueltas; valoración individual aparte y sin plaza semanal garantizada, según la definición anterior. |
-| **Entrenamiento individual** | Página de servicio propia | Presentación, destinatarios, enfoque y solicitud de información. |
-| **Workshops / masterclasses** | Agenda y páginas de actividad | Descripción, fechas disponibles e inscripciones cuando estén confirmadas. |
+| **Workshops / masterclasses** | Actividades complementarias dentro de Programas | Página informativa creada; fechas e inscripciones pendientes de confirmación. |
 | **Otras futuras modalidades** | Ampliaciones posteriores | No se publicarán programas, horarios o prestaciones sin confirmación. |
 
-**Nota comercial:** en conversaciones anteriores se manejaron referencias de 90 € por bono de 4 de Flex, 30 € por sesión Flex y 120 € por individual / 400 € por bono de 4. **No publicar automáticamente estos precios:** confirmar que continúan vigentes, sus condiciones y cómo se muestra el IVA antes de lanzar las páginas.
+**Nota comercial:** por ahora solo se presentan públicamente **Anotadores Élite** y **Anotadores Flex** como programas. El entrenamiento individual se retiró de la oferta pública. No publicar precios, plazas ni horarios sin confirmación.
 
 ### Valoraciones y gamificación conocidas
 
@@ -69,11 +68,10 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 | **Programas** (`/programas`) | Visión general de la oferta; Élite como opción principal y Flex como alternativa. | Alta |
 | **Anotadores Élite** (`/programas/anotadores-elite`) | Página de captación y explicación detallada del proceso. | Alta |
 | **Anotadores Flex** (`/programas/anotadores-flex`) | Funcionamiento flexible, condiciones y consulta/inscripción. | Alta |
-| **Entrenamiento individual** (`/entrenamiento-individual`) | Presentación del servicio y solicitud de información. | Alta |
-| **Workshops** (`/workshops`) | Talleres, masterclasses y futuras fechas. | Media |
+| **Workshops** (`/programas/workshops`) | Página informativa de talleres y masterclasses (sin calendario confirmado). | Media |
 | **Equipo** (`/equipo`) | Presentación de entrenadores, perfiles y experiencia, previa validación de datos y fotografías. | Media |
-| **Contacto** (`/contacto`) | Formulario de contacto, canales oficiales y consultas. | Alta |
-| **Preguntas frecuentes** (`/preguntas-frecuentes`) | Resolver dudas habituales de inscripción, sesiones y programas. | Media |
+| **Contacto** (`/contacto`) | Página provisional; falta definir un canal de consultas funcional. | Alta |
+| **Preguntas frecuentes** (sin ruta propia) | Respuestas integradas en las páginas de los programas; evaluar si una página independiente aporta valor. | Posterior / opcional |
 | **Información legal** (`/legal/...`) | Privacidad, aviso legal y cookies según los servicios realmente utilizados. | Obligatoria antes del lanzamiento público |
 | **Noticias y recursos** (`/recursos`) | Artículos, novedades y contenido de valor. | Posterior / opcional |
 
@@ -98,7 +96,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 - **Lenguaje:** TypeScript.
 - **Aplicación:** Next.js + React, en **un solo repositorio** llamado `triple-amenaza`.
-- **Diseño:** Tailwind CSS y componentes reutilizables; experiencia responsive y optimizada para móvil.
+- **Diseño:** CSS tradicional, estilos globales en `src/app/globals.css` y CSS específico por página; responsive y componentes reutilizables.
 - **Control de versiones:** Git y GitHub (repositorio privado durante el desarrollo).
 - **Autenticación inicial del Hub:** Google mediante Firebase Authentication.
 - **Datos del Hub:** Cloud Firestore, con reglas por rol y relaciones jugador–entrenador.
@@ -109,45 +107,40 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 El usuario prefiere Vercel, pero **Vercel Hobby está limitado a uso personal y no comercial**, por lo que no debemos plantearlo como despliegue gratuito definitivo de una academia. Una alternativa a evaluar es **Cloudflare Pages** para un Next.js con *static export*. Esta modalidad tiene limitaciones respecto a funcionalidades que requieren servidor; antes de avanzar se comprobarán rutas, renderización, formularios e integraciones. Si el proyecto precisa lógica de servidor, habrá que elegir una arquitectura compatible (sin introducir gastos inesperados).
 
-### Organización orientativa de carpetas
+### Organización actual del repositorio
 
 ```text
 triple-amenaza/
+├── .github/workflows/quality_checks.yml
 ├── docs/
-│   └── HOJA_DE_RUTA.md
-├── public/
+│   ├── guia_de_instalacion.md
+│   └── hoja_de_ruta.md
+├── public/imagenes/
 ├── src/
 │   ├── app/
-│   │   ├── (publico)/
-│   │   │   ├── page.tsx
-│   │   │   ├── academia/
-│   │   │   ├── metodo/
-│   │   │   ├── programas/
-│   │   │   ├── entrenamiento-individual/
-│   │   │   ├── workshops/
-│   │   │   ├── equipo/
-│   │   │   └── contacto/
-│   │   ├── hub/
-│   │   │   ├── page.tsx
-│   │   │   ├── acceso/
-│   │   │   ├── jugadores/
-│   │   │   ├── valoraciones/
-│   │   │   └── ...
+│   │   ├── page.tsx                 # Inicio
+│   │   ├── home.css
+│   │   ├── academia/
+│   │   ├── metodo/
+│   │   ├── programas/
+│   │   │   ├── anotadores-elite/
+│   │   │   ├── anotadores-flex/
+│   │   │   └── workshops/
+│   │   ├── equipo/                  # Provisional
+│   │   ├── contacto/                # Provisional
+│   │   ├── hub/                     # Provisional; sin login
 │   │   ├── layout.tsx
 │   │   └── globals.css
-│   ├── components/
-│   │   ├── publico/
-│   │   ├── hub/
-│   │   └── ui/
-│   ├── contexts/
-│   ├── lib/
-│   └── types/
-├── firestore.rules
+│   ├── components/web/
+│   ├── components/ui/
+│   └── lib/site.ts
+├── firestore.rules                 # Reglas previstas para Hub
+├── next.config.ts                  # Exportación estática
 ├── package.json
 └── README.md
 ```
 
-> Es la **estructura objetivo**, no un reflejo exacto de las carpetas del ZIP inicial. Las carpetas entre paréntesis de Next.js organizan rutas, pero no aparecen en la URL. La migración del código se hará de manera gradual para no romper funcionalidades ya escritas.
+**Estado técnico:** GitHub Actions valida lint, tipos y compilación; `next-env.d.ts` se genera automáticamente y no se versiona. El comando `npm run build` produce la carpeta estática `out/`. ATA Hub aún no dispone de autenticación ni fichas funcionales en la aplicación actual.
 
 ## 5. Hoja de ruta por fases
 
@@ -157,15 +150,15 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 **Objetivo:** disponer de un repositorio y un proyecto reproducibles antes de ampliarlos.
 
-- [x] Existe una base inicial de Next.js, TypeScript, Firebase y pantallas internas en el paquete anterior **ATA Manager**.
-- [x] Definida la denominación general **Triple Amenaza** y el nombre del área privada **ATA Hub**.
-- [ ] Trasladar el código inicial al repositorio `triple-amenaza`.
-- [ ] Cambiar nombre del proyecto, títulos y navegación, manteniendo el trabajo útil existente.
-- [ ] Instalar dependencias y ejecutar `npm run dev` con éxito en el equipo de desarrollo.
-- [ ] Verificar compilación (`npm run build`), tipos, lint y compatibilidad del hosting elegido.
+- [x] Proyecto Next.js + TypeScript establecido en el repositorio `triple-amenaza`.
+- [x] Denominación general **Triple Amenaza** y área prevista **ATA Hub**.
+- [x] Navegación pública, estilos y diseño de marca incorporados al código.
+- [x] Servidor local de desarrollo comprobado.
+- [x] GitHub Actions comprueba lint, tipos y compilación en pull requests.
+- [x] Tailwind retirado y CSS tradicional consolidado.
+- [x] Tipos generados con Next.js antes del chequeo de TypeScript en CI; `next-env.d.ts` excluido de Git.
+- [ ] Validar el proveedor definitivo de hosting estático para uso comercial.
 - [ ] Configurar Firebase de prueba, autenticar al primer administrador y validar las reglas Firestore.
-- [ ] Revisar `.gitignore`, variables de entorno, credenciales y flujo de publicación con Git.
-- [ ] Definir componentes globales: cabecera, pie, tipografía, botones, colores y navegación.
 
 **Hito de salida:** la base corre localmente sin errores críticos y el repositorio está organizado.
 
@@ -173,15 +166,13 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 **Objetivo:** que una familia pueda entender qué es ATA, conocer su oferta y contactar.
 
-- [ ] Diseñar la portada de Triple Amenaza con llamadas a la acción claras.
-- [ ] Crear navegación y pie de página, adaptados a móvil.
-- [ ] Publicar **La academia**, **Método ATA** y resumen de **Programas**.
-- [ ] Crear páginas específicas de **Anotadores Élite**, **Anotadores Flex** y **Entrenamiento individual**.
-- [ ] Crear **Workshops** y **Equipo** con los contenidos que estén confirmados.
-- [ ] Crear **Contacto** con un canal de recepción de consultas comprobado.
-- [ ] Añadir preguntas frecuentes esenciales.
-- [ ] Completar textos, fotografías y logotipo autorizados, sin datos inventados.
-- [ ] Revisar responsive, accesibilidad, rendimiento, SEO básico y metadatos.
+- [x] Portada de Triple Amenaza, navegación y pie de página responsive desarrollados.
+- [x] Páginas públicas de Academia, Método, Programas, Anotadores Élite y Anotadores Flex creadas.
+- [x] Página informativa de Workshops bajo `/programas/workshops/`.
+- [x] Páginas provisionales de Equipo y Contacto creadas.
+- [x] Logo e imágenes iniciales incorporados; primeras preguntas frecuentes presentes en programas.
+- [ ] Completar Equipo, Contacto y su canal de consultas verificado.
+- [ ] Verificar responsive, accesibilidad, rendimiento, imágenes y SEO en condiciones reales.
 - [ ] Completar textos y mecanismos legales requeridos antes de publicar.
 - [ ] Publicar la primera versión en un servicio compatible con el uso comercial y el presupuesto.
 
@@ -191,9 +182,10 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 **Objetivo:** administrar jugadores y entrenadores desde una zona privada.
 
-- [x] Hay código inicial de login, roles, listado de jugadores, alta y ficha individual.
-- [x] Hay una primera valoración por siete áreas con registro histórico, pendiente de probar.
-- [ ] Adaptar rutas existentes a `/hub/...` y conectar el acceso desde la web pública.
+- [x] Ruta provisional `/hub/` creada, todavía sin autenticación real.
+- [ ] Diseñar e integrar login, roles, listado, alta y ficha individual dentro del repositorio actual; el prototipo antiguo no constituye funcionalidad activa.
+- [ ] Implementar valoraciones de siete áreas y registro histórico cuando se desarrolle ATA Hub.
+- [ ] Crear rutas reales de `/hub/...` y conectar el acceso autorizado desde la web pública.
 - [ ] Validar el alta/baja de permisos de administrador y entrenador.
 - [ ] Definir `playerId` único, relación entre jugador, programa, grupo y entrenadores.
 - [ ] Consultar, crear y editar fichas, con campos mínimos indispensables.
@@ -271,7 +263,7 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 ## 6. Datos por confirmar antes de implementar
 
-- [ ] Logotipo, tipografías, códigos de color y fotografías oficiales autorizadas.
+- [ ] Confirmar uso y autorizaciones de imágenes y recursos antes de publicar (los archivos iniciales ya están incorporados).
 - [ ] Biografías definitivas del equipo, colaboradores y datos que se puedan publicar.
 - [ ] Datos de contacto y redes sociales oficiales; ubicación, disponibilidad y sedes variables.
 - [ ] Condiciones comerciales, precios vigentes, horarios y plazas reales por programa.
@@ -295,11 +287,11 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 ## 8. Próximo paso inmediato
 
-1. Crear o terminar de configurar el repositorio privado **`triple-amenaza`** en GitHub.
-2. Subir el proyecto inicial y colocar **este archivo en `docs/HOJA_DE_RUTA.md`**.
-3. Renombrar de manera controlada la antigua interfaz **ATA Manager** a **Triple Amenaza / ATA Hub**.
-4. Ejecutarlo localmente, revisar los errores de instalación o compilación y validar Firebase.
-5. Con la base funcionando, construir primero la **cabecera, navegación y portada pública**, mientras conservamos los módulos internos existentes para desarrollarlos después.
+1. Terminar los ajustes de mantenimiento y revisar el diseño tras retirar Tailwind.
+2. Completar la web pública: Equipo, Contacto, accesibilidad y contenido legal necesario.
+3. Elegir un hosting estático que permita uso comercial y validar la exportación de `out/`.
+4. Diseñar la arquitectura de ATA Hub (roles, permisos, fichas y valoraciones) antes de introducir datos reales.
+5. Preparar Firebase de prueba y verificar sus reglas de acceso con datos ficticios.
 
 ---
 
