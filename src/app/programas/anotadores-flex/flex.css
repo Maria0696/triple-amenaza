@@ -143,6 +143,10 @@
   gap: clamp(30px, 7vw, 110px);
   margin-bottom: 45px;
 }
+.flex-page-value .flex-page-heading em { display: block; }
+@media (min-width: 851px) {
+  .flex-page-value .flex-page-heading em { white-space: nowrap; }
+}
 .flex-page-section-head > p {
   color: #56665a;
   font-size: 17px;
@@ -284,13 +288,20 @@
 
 /* 05 · CIERRE */
 .flex-page-closing { background: var(--sage); padding-block: clamp(75px, 7.3vw, 105px); }
-.flex-page-closing-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, .7fr); align-items: end; gap: clamp(36px, 7vw, 115px); }
-.flex-page-closing h2 { margin: 0; font-size: clamp(45px, 5.6vw, 79px); line-height: 1.035; letter-spacing: -.082em; font-weight: 950; text-transform: uppercase; }
-.flex-page-closing h2 em { color: #516e48; }
+.flex-page-closing-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); align-items: end; gap: clamp(24px, 3vw, 46px); }
+.flex-page-closing h2 { margin: 0; font-size: clamp(46px, 4vw, 68px); line-height: 1.035; letter-spacing: -.082em; font-weight: 950; text-transform: uppercase; }
+.flex-page-closing h2 em { display: block; color: #516e48; }
 .flex-page-closing-action > p { margin: 0 0 24px; color: #243126; font-size: 17px; line-height: 1.8; }
 .flex-page-closing-link { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 59px; padding: 17px 23px; background: var(--ink); color: var(--paper); border-radius: 3px; font-size: 13px; font-weight: 850; transition: background-color .2s ease, transform .2s ease; }
 .flex-page-closing-link svg { transition: transform .2s ease; }
 .flex-page-closing-action small { display: block; max-width: 360px; margin: 16px 0 0; color: #43593c; font-size: 11px; line-height: 1.6; }
+@media (min-width: 1251px) {
+  .flex-page-closing h2 { white-space: nowrap; }
+}
+@media (max-width: 1250px) {
+  .flex-page-closing-grid { grid-template-columns: minmax(0, 1fr); }
+  .flex-page-closing h2 { white-space: normal; }
+}
 
 @media (hover: hover) and (pointer: fine) {
   .flex-page-hero-link:hover,
@@ -314,6 +325,7 @@
   .flex-page-hero-board-core strong { font-size: clamp(95px, 14vw, 150px); }
   .flex-page-board-bottom { font-size: 9px; }
   .flex-page-strength { min-height: 365px; gap: 75px; }
+  .flex-page-value .flex-page-section-head { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 850px) {
   .flex-page-hero-grid,

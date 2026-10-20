@@ -38,8 +38,8 @@
 .method-page-hero { background: var(--ink); color: var(--paper); }
 .method-page-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
-  gap: clamp(45px, 7vw, 110px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+  gap: clamp(30px, 5vw, 85px);
   align-items: center;
   padding-block: clamp(78px, 8vw, 116px);
 }
@@ -48,11 +48,12 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-size: clamp(58px, 6.7vw, 104px);
+  font-size: clamp(62px, 5.2vw, 88px);
   font-weight: 950;
   line-height: .95;
   letter-spacing: -.09em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .method-page-hero-title span { display: block; color: var(--sage); }
 .method-page-hero-lead {
@@ -265,7 +266,7 @@
 
 @media (max-width: 1100px) {
   .method-page-hero-grid { gap: 35px; }
-  .method-page-hero-title { font-size: clamp(52px, 6vw, 78px); }
+  .method-page-hero-title { font-size: clamp(56px, 9vw, 85px); white-space: normal; }
   .method-page-stage { grid-template-columns: 100px minmax(0, 1fr); gap: 25px 32px; }
   .method-page-stage-aside { grid-column: 2; margin-top: 0; min-height: 0; }
 }
@@ -274,7 +275,7 @@
   .method-page-process-heading,
   .method-page-practice-grid { grid-template-columns: 1fr; }
   .method-page-hero-grid { padding-block: 55px 65px; gap: 40px; }
-  .method-page-hero-title { font-size: clamp(56px, 9vw, 85px); }
+  .method-page-hero-title { font-size: clamp(56px, 9vw, 85px); white-space: normal; }
   .method-page-index { max-width: 650px; }
   .method-page-process-heading { gap: 20px; padding-bottom: 36px; }
   .method-page-practice-grid { gap: 35px; }

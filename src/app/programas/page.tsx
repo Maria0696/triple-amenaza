@@ -72,8 +72,9 @@ export default function ProgramasPage() {
           <div className="programs-page-offer-heading">
             <div>
               <p className="programs-page-eyebrow">01 / ENCUENTRA TU FORMATO</p>
-              <h2 id="programs-page-offer-title" className="programs-page-section-title programs-page-duo-title">
-                DIFERENTES CAMINOS. <span>MISMO PROPÓSITO.</span>
+              <h2 id="programs-page-offer-title" className="programs-page-section-title programs-page-duo-title" >
+                <span>DIFERENTES CAMINOS.</span>
+                <span>MISMO PROPÓSITO.</span>
               </h2>
             </div>
             <p>
