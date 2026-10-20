@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Generación de la web como sitio estático
+  // La web se exporta a out/: no depende de un servidor Next.js en producción.
   output: "export",
 
-  // Mantener la barra final en las URLs
   trailingSlash: true,
 
-  // Permitir imágenes con exportación estática
+  // La optimización de imágenes integrada requiere un servidor, incompatible con esta exportación.
   images: {
     unoptimized: true,
   },

@@ -238,7 +238,7 @@
 .home-program-more { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
 .home-program-more svg, .home-program-card-top svg { transition: transform .2s ease; }
 .home-program-card:hover .home-program-more svg, .home-program-card:focus-visible .home-program-more svg { transform: translate(3px, -2px); }
-/* Diagrama decorativo diseñado con CSS: no requiere fotografías ni recursos externos. */
+/* Gráfico puramente decorativo: no debe sugerir interacción. */
 .home-program-feature-art {
   position: absolute;
   top: 50%;
@@ -348,8 +348,7 @@
   .home-hero-photo-caption { left: 18px; right: 18px; bottom: 53px; }
   .home-hero-photo-caption strong { font-size: clamp(27px, 6.5vw, 36px); }
   .home-hero-image-credit { left: 18px; right: 18px; }
-  /* Método y enlace de exploración, en filas independientes. */
-
+  
   .home-intro-copy { font-size: 16px; }
   .home-programs-note { font-size: 14px; line-height: 1.65; }
   .home-section-head { display: block; }
@@ -360,8 +359,7 @@
   .home-program-card { min-height: 345px; }
   .home-program-feature-art { top: 32%; right: -13%; width: 55%; transform: translateY(-50%); opacity: .12; }
   .home-method-steps { grid-template-columns: 1fr; }
-  /* Tarjetas más compactas: icono y texto próximos, sin huecos artificiales. */
-  .home-method-step {
+    .home-method-step {
     min-height: 0;
     justify-content: flex-start;
     gap: 13px;
@@ -385,7 +383,7 @@
   .home-program-card { transition: none; }
 }
 
-/* Mejoras de accesibilidad y microinteracciones */
+/* Interacciones con foco visible y reducción de movimiento. */
 .home-program-card:focus-visible,
 .home-action-primary:focus-visible,
 .home-action-outline:focus-visible,
@@ -422,13 +420,9 @@
   .home-pillar { transition: none; }
 }
 
-/* ============================================================
-   Entrega 04 — lenguaje visual ATA
-   Gráficos vectoriales CSS + iconos existentes de lucide-react.
-   No hay scripts, dependencias nuevas ni animaciones automáticas.
-   ============================================================ */
+/* Motivos decorativos en CSS, independientes de las imágenes de contenido. */
 
-/* 01 · Pequeño diagrama de lectura/decisión en la filosofía */
+/* Diagrama de la filosofía */
 .home-intro-aside {
   align-self: stretch;
   display: flex;
@@ -467,7 +461,7 @@
   z-index: -1;
 }
 
-/* 02 · Símbolo discreto de cada tarjeta y acento al interactuar */
+/* Acento visual de las tarjetas */
 .home-program-card::before {
   content: "";
   position: absolute;
@@ -504,7 +498,7 @@
   opacity: .18;
 }
 
-/* 03 · Iconografía de los cuatro pasos, a juego con los pilares */
+/* Iconografía del método */
 .home-method-step {
   position: relative;
   transition: background-color .23s ease;
@@ -538,7 +532,7 @@
   background: #c8d88e18;
 }
 
-/* 04 · Pista abstracta en la llamada a la acción final */
+/* Pista decorativa en el cierre */
 .home-closing { position: relative; isolation: isolate; overflow: hidden; }
 .home-closing-inner { position: relative; z-index: 1; }
 .home-closing-court {
@@ -574,7 +568,7 @@
   .home-closing-court { width: 60vw; right: -20%; opacity: .11; }
 }
 @media (max-width: 550px) {
-  /* En móvil el gráfico de filosofía no debe alargar la sección. */
+  /* Se reduce el diagrama en móvil para no añadir altura innecesaria. */
   .home-intro-aside { flex-direction: row; align-items: center; gap: 14px; }
   .home-intro-aside .home-eyebrow { margin-bottom: 0; }
   .home-intro-diagram { width: 42px; margin: 0; flex: 0 0 42px; }

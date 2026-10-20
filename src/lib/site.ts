@@ -1,4 +1,3 @@
-/** Datos de la web pública de Triple Amenaza. */
 export const navigation = [
   { label: "Academia", href: "/academia/" },
   { label: "Método", href: "/metodo/" },
@@ -6,7 +5,7 @@ export const navigation = [
   { label: "Contacto", href: "/contacto/" },
 ] as const;
 
-/** En el pie, Contacto se muestra al final, después de Workshops y Equipo. */
+/** El pie amplía la navegación pública y mantiene Contacto como último enlace. */
 export const footerNavigation = [
   ...navigation.filter(({ href }) => href !== "/contacto/"),
   { label: "Workshops", href: "/programas/workshops/" },
@@ -14,7 +13,7 @@ export const footerNavigation = [
   ...navigation.filter(({ href }) => href === "/contacto/"),
 ] as const;
 
-/** Activa también la opción padre mientras se visitan rutas hijas. */
+/** Activa la ruta y sus hijas. La barra final impide falsos positivos por prefijos. */
 export function isNavigationActive(pathname: string, href: string): boolean {
   const current = pathname === "/" ? "/" : `${pathname.replace(/\/+$/, "")}/`;
   const target = href === "/" ? "/" : `${href.replace(/\/+$/, "")}/`;
@@ -52,7 +51,7 @@ export const programs: Program[] = [
   },
 ];
 
-/** Las cuatro etapas oficiales del Método ATA. */
+/** Fuente única de los nombres y el orden de las cuatro etapas del Método ATA. */
 export const methodSteps = [
   { number: "01", title: "Observar", detail: "Conocer al jugador y su punto de partida." },
   { number: "02", title: "Definir", detail: "Establecer prioridades y objetivos concretos." },
@@ -60,6 +59,6 @@ export const methodSteps = [
   { number: "04", title: "Transferir", detail: "Llevar lo aprendido a situaciones reales de juego." },
 ] as const;
 
-/** Explicación breve compartida por la portada y la página del método. */
+/** Texto compartido entre Inicio y Método para evitar versiones divergentes. */
 export const methodDescription =
   "Observamos a cada jugador, definimos prioridades, entrenamos con intención y transferimos lo aprendido a situaciones reales de juego.";

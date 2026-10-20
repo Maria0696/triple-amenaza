@@ -1,8 +1,3 @@
-/* ==========================================================
-   Academia Triple Amenaza — página interior «La academia»
-   Estilos encapsulados bajo el prefijo academy-.
-   No se modifica globals.css, el header ni la portada.
-   ========================================================== */
 
 .academy-eyebrow {
   display: flex;
@@ -232,8 +227,7 @@
   .academy-pillar:hover, .academy-next-link:hover { transform: none; }
 }
 
-/* ENTREGA 09 - MICROINTERACCIONES ACADEMIA */
-/* Los principios NO son enlaces: acento visual sin cursor de clic. */
+/* Acentos de hover para elementos informativos, sin cursor de enlace. */
 .academy-principle {
   position: relative;
   margin-inline: -12px;
@@ -263,7 +257,6 @@
 }
 .academy-principle h3 { transition: color .25s ease; }
 
-/* Pilares: acento naranja, icono dinámico y sombra discreta. */
 .academy-pillar { position: relative; overflow: hidden; }
 .academy-pillar::before {
   content: "";

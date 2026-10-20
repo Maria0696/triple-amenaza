@@ -1,5 +1,3 @@
-/* Página Programas ATA — estilos aislados con prefijo programs-page-.
-   No altera la portada, Academia, Método, el header ni el footer. */
 
 .programs-page-hero,
   .programs-page-offer,
@@ -35,7 +33,7 @@
   text-transform: none;
 }
 
-/* APERTURA */
+/* Apertura */
 .programs-page-hero { background: var(--ink); color: var(--paper); }
 .programs-page-hero-grid {
   display: grid;
@@ -123,7 +121,7 @@
   transition: color .25s ease;
 }
 
-/* FORMATOS */
+/* Formatos disponibles */
 .programs-page-offer { background: var(--cream); padding-block: clamp(75px, 8vw, 116px); }
 .programs-page-offer-heading {
   display: grid;
@@ -139,7 +137,7 @@
   line-height: 1.78;
 }
 
-/* TARJETAS DE PROGRAMAS: ÉLITE Y FLEX */
+/* Tarjetas de Élite y Flex */
 .programs-page-duo-title { max-width: none; font-size: clamp(40px, 4.65vw, 75px); }
 .programs-page-duo-title span { display: block; }
 .programs-page-duo-title span:last-child { color: var(--orange-dark); }
@@ -318,7 +316,7 @@
   .programs-page-duo-card:hover .programs-page-duo-link svg { transform: none !important; }
 }
 
-/* CRITERIOS DE ELECCIÓN */
+/* Criterios de elección */
 .programs-page-choice { background: #27382d; color: var(--paper); padding-block: clamp(75px, 8vw, 113px); }
 .programs-page-choice-grid { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(43px, 8vw, 130px); align-items: start; }
 .programs-page-choice-intro { min-width: 0; }
@@ -352,7 +350,7 @@
 .programs-page-question p { max-width: 540px; margin: 0; color: #c5d2c6; font-size: 15px; line-height: 1.75; }
 
 @media (hover: hover) and (pointer: fine) {
-  /* Hero: los formatos son informativos, sin apariencia de botones. */
+  /* El resumen del hero es informativo: no debe aparentar ser un enlace. */
   .programs-page-hero-copy:hover .programs-page-eyebrow-rule { transform: scaleX(1.45); }
   .programs-page-hero-aside:hover { border-color: #c8d88e70; box-shadow: 0 16px 32px #09110b35; }
   .programs-page-hero-aside-row:hover { background: #ffffff0b; }
@@ -360,7 +358,7 @@
   .programs-page-hero-aside-row:hover strong { color: var(--sage); transform: translateX(6px); }
   .programs-page-hero-aside-row:hover > span:last-child { color: #f1b692; }
 
-  /* Antes de elegir: resaltar la pregunta, sin simular que es un enlace. */
+  /* Las preguntas son informativas, no controles interactivos. */
   .programs-page-question:hover { background-color: #ffffff0a; }
   .programs-page-question:hover::before { transform: scaleY(1); }
   .programs-page-question:hover .programs-page-question-number { color: #f1a67d; }
@@ -425,7 +423,7 @@
   .programs-page-question:hover h3 { transform: none !important; }
 }
 
-/* Entrada editorial breve: respeta las preferencias de movimiento reducido. */
+/* La animación se elimina para usuarios que prefieren movimiento reducido. */
 @keyframes  programs-page-rise {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
@@ -436,7 +434,7 @@
 }
 
 
-/* CIERRE: WORKSHOPS Y MASTERCLASSES */
+/* Workshops y masterclasses: actividades, no un tercer programa. */
 .programs-page-workshops {
   background: var(--sage);
   color: var(--ink);
