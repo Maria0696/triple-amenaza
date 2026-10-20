@@ -39,7 +39,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: TypeScript
+      # El comando typecheck genera next-env.d.ts antes de invocar TypeScript.
+      # Así no dependemos de archivos generados versionados en Git.
+      - name: Generate Next.js types and check TypeScript
         run: npm run typecheck
 
       - name: Production build

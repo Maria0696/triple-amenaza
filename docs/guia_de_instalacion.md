@@ -1,55 +1,104 @@
 # Guía de instalación · Triple Amenaza
 
-Esta guía reúne los pasos técnicos que hemos sacado del README para que la portada del repositorio sea más sencilla.
+Esta guía corresponde al repositorio actual `Maria0696/triple-amenaza`. No hace falta descargar ni importar el antiguo proyecto ATA Manager: la web pública ya está desarrollada sobre Next.js y el área privada permanece en preparación.
 
-> **Punto de partida:** el código disponible todavía es el prototipo **ATA Manager**. Vamos a integrarlo en **Triple Amenaza**, donde el área privada se llamará **ATA Hub**. La web pública y las nuevas rutas `/hub/...` aún están por construir.
+## 1. Requisitos
 
-## 1. Preparar el ordenador
+- **Node.js 22** recomendado (el proyecto declara compatibilidad a partir de Node 20.9).
+- npm, incluido con Node.js.
+- Git y un editor como [Visual Studio Code](https://code.visualstudio.com/).
+- Acceso al [repositorio de GitHub](https://github.com/Maria0696/triple-amenaza).
 
-Instala estas herramientas:
+En la terminal comprueba:
 
-- [Visual Studio Code](https://code.visualstudio.com/): editor.
-- [Node.js](https://nodejs.org/): versión 20.9 o superior, compatible con el proyecto.
-- [Git](https://git-scm.com/): control de versiones.
-- Cuentas de [GitHub](https://github.com/) y [Firebase](https://console.firebase.google.com/).
-
-En VS Code, abre **Terminal → Nuevo terminal** y comprueba:
-
-```bash
+```powershell
 node --version
 npm --version
 git --version
 ```
 
-## 2. Abrir los archivos
+## 2. Descargar e instalar
 
-**Si ya has subido el código a GitHub:**
+Si todavía no has descargado el proyecto:
 
-```bash
-git clone https://github.com/TU_USUARIO/triple-amenaza.git
+```powershell
+git clone https://github.com/Maria0696/triple-amenaza.git
 cd triple-amenaza
 ```
 
-Sustituye `TU_USUARIO` por el propietario del repositorio. Si el repositorio todavía está vacío, utiliza el ZIP inicial `ATA_Manager_inicio.zip`, descomprímelo y abre la carpeta resultante en VS Code. Puedes renombrar esa carpeta local a `triple-amenaza`.
+Si ya lo tienes, abre **la carpeta que contiene `package.json`** en VS Code. Para trabajar sobre el desarrollo actualizado:
 
-En el `package.json` inicial puedes cambiar `"name": "ata-manager"` por `"name": "triple-amenaza"`; esto **no cambia por sí solo** los textos ni las rutas de la aplicación.
-
-Instala las dependencias en la carpeta donde está `package.json`:
-
-```bash
-npm install
+```powershell
+git switch develop
+git pull --ff-only origin develop
 ```
 
-No crees ni subas a GitHub la carpeta `node_modules`.
+Instala las dependencias reproducibles definidas en `package-lock.json`:
 
-## 3. Conectar Firebase
+```powershell
+npm ci
+```
 
-En [Firebase Console](https://console.firebase.google.com/):
+No subas a GitHub `node_modules/`, `.next/`, `out/` ni archivos de entorno locales. `.gitignore` los excluye.
 
-1. Crea un proyecto (por ejemplo, `triple-amenaza`).
-2. Registra una aplicación de tipo **Web** y copia sus valores de configuración.
-3. En la raíz del código, copia `.env.example` a un nuevo archivo `.env.local`.
-4. Rellena las variables con los valores reales proporcionados por Firebase:
+## 3. Desarrollar y comprobar
+
+Arranca el servidor de desarrollo:
+
+```powershell
+npm run dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000). La terminal **permanece ocupada** porque el servidor sigue activo. Detenlo con `Ctrl + C`.
+
+Antes de subir cambios:
+
+```powershell
+npm run lint
+npm run typecheck
+npm run build
+```
+
+| Comando | Qué comprueba |
+|---|---|
+| `npm run lint` | Reglas ESLint del proyecto. |
+| `npm run typecheck` | Genera tipos con `next typegen` y ejecuta `tsc --noEmit`. |
+| `npm run build` | Construye la web y exporta los archivos a `out/`. |
+
+**`next-env.d.ts` es un archivo generado**: Next.js lo crea al ejecutar `next dev`, `next build` o `next typegen`. No lo edites ni lo subas a Git. Debe seguir figurando en el `include` de `tsconfig.json`.
+
+GitHub Actions ejecuta estas comprobaciones tras instalar las dependencias con `npm ci`. Por tanto, el CI también genera las declaraciones de Next.js antes de comprobar TypeScript.
+
+## 4. Estructura actual
+
+```text
+triple-amenaza/
+├── .github/workflows/          # Comprobaciones automáticas
+├── docs/                       # Guías y planificación
+├── public/imagenes/            # Imágenes y marca de ATA
+├── src/
+│   ├── app/                    # Inicio, Academia, Método, Programas, Equipo, Contacto y Hub
+│   │   ├── programas/          # Élite, Flex y workshops
+│   │   ├── globals.css         # Normalización, variables y estilos compartidos
+│   │   └── layout.tsx
+│   ├── components/             # Componentes de la web
+│   └── lib/                    # Datos y navegación compartidos
+├── .env.example
+├── firestore.rules
+├── next.config.ts
+├── package.json
+└── README.md
+```
+
+La **web pública** tiene páginas de Inicio, Academia, Método, Programas, Anotadores Élite y Anotadores Flex. Workshops está en `/programas/workshops/`; Equipo y Contacto tienen páginas provisionales. `/hub/` es una página de presentación **sin autenticación todavía**.
+
+Los estilos se escriben en CSS tradicional; **Tailwind ya no forma parte del proyecto**.
+
+## 5. Preparar Firebase (fase futura de ATA Hub)
+
+La aplicación incluye el paquete `firebase`, la plantilla `.env.example` y `firestore.rules`, pero **la web actual no implementa inicio de sesión, fichas ni valoraciones funcionales**. Los siguientes datos solo harán falta cuando integremos realmente el Hub.
+
+En [Firebase Console](https://console.firebase.google.com/), registra una aplicación web y copia los valores públicos de configuración. Después, en la raíz del proyecto, crea `.env.local` a partir de `.env.example`:
 
 ```env
 NEXT_PUBLIC_FIREBASE_API_KEY=tu_api_key
@@ -60,99 +109,48 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=tu-proyecto.firebasestorage.app
 ```
 
-Las variables con prefijo `NEXT_PUBLIC_` se incorporan al código del navegador: **no pongas ahí contraseñas ni claves privadas**. Comprueba que `.env.local` está excluido de Git mediante `.gitignore`.
+Las variables `NEXT_PUBLIC_` se incluyen en el código del navegador: **nunca guardes ahí secretos de servidor**. No subas `.env.local` a Git.
 
-### Autenticación
+Cuando implementemos el acceso habrá que activar y probar Firebase Authentication y Firestore, revisar cuidadosamente `firestore.rules` y verificar los permisos de administrador, entrenador y, más adelante, familia. **No uses datos reales de menores en las pruebas iniciales.** La existencia del archivo de reglas no significa que estas estén desplegadas ni verificadas.
 
-1. Firebase → **Authentication → Sign-in method**.
-2. Habilita **Google** y elige un correo de soporte.
-3. En **Authorized domains**, autoriza `localhost` para probar en tu ordenador si no está ya incluido.
+## 6. Ramas y pull requests
 
-### Base de datos
+Trabaja en una rama dedicada a cada cambio:
 
-1. Firebase → **Firestore Database → Crear base de datos**.
-2. Valora seleccionar una región europea disponible, apropiada para vuestro caso.
-3. Comienza con permisos restrictivos (modo de producción).
-4. Abre la pestaña **Rules**, pega el contenido de `firestore.rules` del proyecto y publícalo.
-
-**No** uses reglas como `allow read, write: if true` con datos de jugadores.
-
-## 4. Dar acceso al primer administrador
-
-1. Ejecuta la aplicación (paso 5) e intenta iniciar sesión con Google.
-2. En Firebase → **Authentication → Users**, localiza tu usuario y copia su **UID**.
-3. En Firestore → **Data**, crea la colección `users` si todavía no existe.
-4. Crea un documento con **ID exactamente igual al UID**. Añade estos campos de tipo `string`:
-
-| Campo | Ejemplo |
-| :--- | :--- |
-| `name` | `Administrador ATA` |
-| `email` | `correo@ejemplo.com` |
-| `role` | `admin` |
-
-Recarga la web. La cuenta de Google por sí sola **no concede acceso**: el perfil autorizado debe existir en Firestore.
-
-Para autorizar a un entrenador se sigue el mismo proceso, pero con `role: "coach"`. Las asignaciones de jugadores a entrenadores se hacen inicialmente al crear su ficha.
-
-## 5. Ejecutar y comprobar
-
-En VS Code:
-
-```bash
-npm run dev
+```powershell
+git switch develop
+git pull --ff-only origin develop
+git switch -c chore/mi-cambio
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Cuando termines, revisa los cambios y sube la rama:
 
-Prueba el acceso con Google, la creación de un **jugador ficticio**, una valoración y la consulta de su historial. Comprueba también que un entrenador **no puede acceder** a jugadores que no tenga asignados.
-
-Para revisar el proyecto antes de publicarlo:
-
-```bash
-npm run typecheck
+```powershell
+git diff --check
 npm run lint
+npm run typecheck
+npm run build
+git add .
+git commit -m "chore(project): describir el cambio"
+git push -u origin chore/mi-cambio
+```
+
+Abre una pull request contra `develop`. Comprueba GitHub Actions y revisa el diseño en móvil y escritorio. La rama `main` queda reservada para versiones integradas según el flujo del repositorio.
+
+## 7. Compilación y publicación estática
+
+En `next.config.ts` tenemos `output: "export"` y `trailingSlash: true`. Al ejecutar:
+
+```powershell
 npm run build
 ```
 
-> Esta instalación aún no ha sido validada de extremo a extremo. Si aparece un error, conservaremos el mensaje exacto para corregirlo.
+Next.js genera `out/` con HTML, CSS, JavaScript y recursos públicos. Esa carpeta es la salida que se sirve en un **hosting estático**; hay que comprobar que el proveedor respete las rutas con barra final.
 
-## 6. Guardar cambios en GitHub
+**No utilices `npm start` ni `next start`**: son para un servidor Next.js, y esta aplicación se está exportando como sitio estático. Si en el futuro necesitamos funcionalidades de servidor, revisaremos la estrategia de despliegue antes de activarlas.
 
-Si tu carpeta todavía no tiene repositorio Git:
+El proveedor definitivo está pendiente de elegir; debe admitir uso comercial y ajustarse al presupuesto. No publiques sin revisar privacidad, condiciones comerciales, contenido y seguridad.
 
-```bash
-git init
-git branch -M main
-```
+## 8. Próximos pasos
 
-Después, desde la raíz del proyecto:
-
-```bash
-git add .
-git commit -m "Preparar proyecto Triple Amenaza"
-```
-
-Si todavía no existe el enlace al repositorio remoto, añádelo una sola vez:
-
-```bash
-git remote add origin https://github.com/TU_USUARIO/triple-amenaza.git
-git push -u origin main
-```
-
-Si has usado `git clone`, normalmente **ya existe** el remoto `origin`: no vuelvas a añadirlo. Verifica que `.env.local` y cualquier fichero con datos personales **no estén incluidos** en los cambios.
-
-## 7. Publicarlo cuando esté preparado
-
-Queremos empezar con gastos mínimos, pero la web pertenece a una academia, así que el alojamiento debe permitir **uso comercial**.
-
-La base actual está preparada para la exportación estática de Next.js. Podemos evaluar **Cloudflare Pages** o **Firebase Hosting**, verificando sus condiciones y límites antes de utilizarlo en producción. En Cloudflare Pages, la salida del build estático se encuentra normalmente en `out/`.
-
-**Vercel Hobby no es la opción adecuada para la actividad comercial de ATA**; si se elige Vercel más adelante, necesitaremos un plan que permita ese uso.
-
-Cuando publiquemos, también habrá que añadir el dominio final a **Firebase Authentication → Authorized domains** y configurar las variables `NEXT_PUBLIC_FIREBASE_...` en el alojamiento.
-
-## 8. Dónde seguimos
-
-La planificación completa está en la [hoja de ruta](HOJA_DE_RUTA.md). Próximo objetivo: **ejecutar la base sin errores y transformarla en una web pública de Triple Amenaza con acceso independiente a ATA Hub**.
-
-Antes de usar datos reales de jugadores, especialmente menores, debemos validar reglas, permisos, textos de privacidad y medidas de protección de datos.
+La [hoja de ruta](hoja_de_ruta.md) recoge la evolución prevista de ATA Hub, formularios, evaluaciones y seguimiento. No se deben presentar como funcionalidades activas hasta que estén implementadas y probadas.
