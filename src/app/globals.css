@@ -1,4 +1,4 @@
-/* El reseteo común se importa desde layout.tsx antes de este archivo. */
+/* Estilos corporativos y compartidos. La base HTML se define en base.css. */
 
 :root {
   --ink: #1c211e;
