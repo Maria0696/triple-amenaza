@@ -64,7 +64,6 @@
   line-height: 1.8;
 }
 
-
 .method-page-index { min-width: 0; border: 1px solid #ffffff44; background: #26322b; }
 .method-page-index-top {
   display: flex;
@@ -244,8 +243,7 @@
 .method-page-closing-link svg { transition: transform .2s ease; }
 
 @media (hover: hover) and (pointer: fine) {
-  
-  
+
   .method-page-index li a:hover { background: #34453a; }
   .method-page-index li a:hover svg { transform: translate(3px, -3px); }
   .method-page-stage:hover { background: #f1f4ec; }
@@ -302,6 +300,6 @@
   .method-page-closing-inner > p:not(.method-page-eyebrow) { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .method-page-index li a, .method-page-index li svg, .method-page-stage, .method-page-stage-icon, .method-page-closing-link, .method-page-closing-link svg{ transition: none !important; }
-  .method-page-index li a:hover svg, .method-page-closing-link:hover, .method-page-closing-link:hover svg{ transform: none !important; }
+  .method-page-index li a, .method-page-index li svg, .method-page-stage, .method-page-stage-icon, .method-page-closing-link, .method-page-closing-link svg { transition: none !important; }
+  .method-page-index li a:hover svg, .method-page-closing-link:hover, .method-page-closing-link:hover svg { transform: none !important; }
 }

@@ -63,7 +63,6 @@
   line-height: 1.8;
 }
 
-
 .flex-page-hero-board {
   min-width: 0;
   background: #2b4135;
@@ -294,8 +293,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .flex-page-compare-link:hover{ color: var(--sage); border-color: var(--sage); }
-  .flex-page-compare-link:hover svg{ transform: translate(4px, -2px); }
+  .flex-page-compare-link:hover { color: var(--sage); border-color: var(--sage); }
+  .flex-page-compare-link:hover svg { transform: translate(4px, -2px); }
   .flex-page-strength:hover { transform: translateY(-4px); box-shadow: 0 15px 32px #213b2815; }
   .flex-page-strength:hover::before { transform: scaleX(1); }
   .flex-page-strength:hover .flex-page-strength-top svg { transform: translateY(-3px); }
@@ -369,6 +368,6 @@
   .flex-page-board-bottom { font-size: 8px; letter-spacing: .04em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .flex-page-strength, .flex-page-strength::before, .flex-page-strength-top svg, .flex-page-step, .flex-page-step::before, .flex-page-compare-card, .flex-page-compare-link, .flex-page-compare-link svg, .flex-page-faq-item summary, .flex-page-faq-item summary svg, .flex-page-closing-link, .flex-page-closing-link svg{ transition: none !important; }
-  .flex-page-strength:hover, .flex-page-strength:hover .flex-page-strength-top svg, .flex-page-compare-link:hover svg, .flex-page-closing-link:hover, .flex-page-closing-link:hover svg{ transform: none !important; }
+  .flex-page-strength, .flex-page-strength::before, .flex-page-strength-top svg, .flex-page-step, .flex-page-step::before, .flex-page-compare-card, .flex-page-compare-link, .flex-page-compare-link svg, .flex-page-faq-item summary, .flex-page-faq-item summary svg, .flex-page-closing-link, .flex-page-closing-link svg { transition: none !important; }
+  .flex-page-strength:hover, .flex-page-strength:hover .flex-page-strength-top svg, .flex-page-compare-link:hover svg, .flex-page-closing-link:hover, .flex-page-closing-link:hover svg { transform: none !important; }
 }
