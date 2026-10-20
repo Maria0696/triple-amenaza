@@ -26,10 +26,11 @@ service cloud.firestore {
     match /users/{uid} {
       allow get: if (loggedIn() && request.auth.uid == uid) || isAdmin();
       allow list: if isAdmin();
-      // Los roles se asignan exclusivamente desde Firebase Console, no desde el cliente.
+      // Los roles se provisionan fuera del cliente (actualmente desde Firebase Console).
       allow create, update, delete: if false;
     }
 
+    // Solo administradores y entrenadores asignados pueden consultar jugadores.
     match /players/{playerId} {
       allow get, list: if isAdmin() || (
         loggedIn() && request.auth.uid in resource.data.coachIds
@@ -39,6 +40,7 @@ service cloud.firestore {
 
       match /assessments/{assessmentId} {
         allow get, list: if canAccessPlayer(playerId);
+        // Las evaluaciones usan una rúbrica versionada y una marca de tiempo del servidor.
         allow create: if canAccessPlayer(playerId)
           && request.resource.data.coachId == request.auth.uid
           && request.resource.data.rubricVersion == 'areas-preview-v1'
@@ -47,7 +49,7 @@ service cloud.firestore {
             'strengths', 'priority', 'missions', 'notes', 'createdAt'
           ])
           && request.resource.data.createdAt == request.time;
-        // Historial inmutable: las evaluaciones no se sobrescriben ni se eliminan.
+        // Historial inmutable: una valoración creada no se modifica ni elimina.
         allow update, delete: if false;
       }
     }

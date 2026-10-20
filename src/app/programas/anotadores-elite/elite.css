@@ -1,4 +1,3 @@
-/* Anotadores Élite — página propia. Solo clases elite-, sin alterar otras rutas. */
 .elite-hero, .elite-foundations, .elite-process, .elite-areas,
 .elite-passport, .elite-faq, .elite-closing { overflow: clip; }
 .elite-hero a, .elite-closing a { -webkit-tap-highlight-color: transparent; }
@@ -9,7 +8,7 @@
 .elite-heading em, .elite-closing h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -.065em; text-transform: none; }
 .elite-heading em { display: block; }
 
-/* HERO */
+/* Apertura */
 .elite-hero { background: var(--ink); color: var(--paper); }
 .elite-hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr); gap: clamp(35px, 6vw, 95px); align-items: center; padding-block: clamp(76px, 7vw, 112px); }
 .elite-hero-copy { min-width: 0; }
@@ -58,7 +57,7 @@
 }
 .elite-profile-foot { margin: 0; padding: 20px 25px; border-top: 1px solid #ffffff2a; font-size: 11px; line-height: 1.6; color: #c4d1c3; }
 
-/* Una única entrada editorial en el hero, sin animar fotografías. */
+/* Animación de entrada solo en el contenido; no se anima ninguna fotografía. */
 @keyframes elite-enter {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
@@ -68,7 +67,7 @@
   .elite-profile { animation: elite-enter .62s .12s ease-out both; }
 }
 
-/* DIFERENCIADORES */
+/* Diferenciadores */
 .elite-foundations { padding-block: clamp(76px, 8vw, 118px); background: var(--paper); }
 .elite-section-head { display: flex; align-items: end; justify-content: space-between; gap: 38px; margin-bottom: 41px; }
 .elite-foundations-heading { margin-bottom: 41px; }
@@ -96,7 +95,7 @@
 .elite-foundation h3 { max-width: 295px; margin: 34px 0 12px; font-size: clamp(28px, 2.5vw, 39px); line-height: 1.06; letter-spacing: -.065em; }
 .elite-foundation p { margin: 0; color: #4e5b50; font-size: 14px; line-height: 1.72; }
 
-/* PROCESO / ETAPAS OFICIALES */
+/* Etapas del método */
 .elite-process { padding-block: clamp(75px, 7vw, 115px); background: var(--cream); scroll-margin-top: 100px; }
 .elite-steps { border-top: 1px solid #d7ded3; }
 .elite-step { display: grid; grid-template-columns: minmax(100px, .28fr) minmax(0, 1fr) minmax(95px, .27fr); gap: 24px; align-items: center; min-height: 193px; padding: 28px 22px; border-bottom: 1px solid #d7ded3; transition: background-color .2s ease; }
@@ -108,10 +107,10 @@
 .elite-step-progress > span { height: 6px; background: #d5dcd0; }
 .elite-step-progress > span.is-active { background: var(--orange); }
 
-/* ÁREAS */
+/* Áreas de desarrollo */
 .elite-areas { padding-block: clamp(76px, 7vw, 115px); background: #eef0e7; scroll-margin-top: 100px; }
 .elite-areas-head > p { flex-basis: 300px; }
-/* Doce columnas permiten equilibrar 7 tarjetas sin huecos: 4 + 3. */
+/* Rejilla de 12 columnas: cuatro tarjetas arriba y tres abajo, sin huecos. */
 .elite-areas-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
 .elite-area { grid-column: span 3; }
 .elite-area:nth-child(n + 5) { grid-column: span 4; }
@@ -123,7 +122,7 @@
 .elite-area h3 { margin: 0 0 11px; font-size: clamp(24px, 2vw, 31px); line-height: 1.07; letter-spacing: -.06em; }
 .elite-area p { margin: 0; color: #556356; font-size: 13px; line-height: 1.7; }
 
-/* SEGUIMIENTO: sección editorial, sin maqueta del Pasaporte. */
+/* Seguimiento editorial: el pasaporte todavía no es una función pública. */
 .elite-passport {
   padding-block: clamp(85px, 8vw, 125px);
   background: #25372c;
@@ -181,7 +180,7 @@
   line-height: 1.75;
 }
 
-/* PREGUNTAS */
+/* Preguntas frecuentes */
 .elite-faq { padding-block: clamp(75px, 7vw, 112px); background: var(--paper); }
 .elite-faq-grid { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: clamp(45px, 7vw, 108px); }
 .elite-faq-intro { color: #59665c; max-width: 360px; margin: 24px 0 0; line-height: 1.75; }
@@ -194,7 +193,7 @@
 .elite-faq-item[open] summary svg { transform: rotate(180deg); }
 .elite-faq-item > p { max-width: 590px; margin: -7px 40px 27px 62px; color: #526156; font-size: 15px; line-height: 1.78; }
 
-/* CIERRE */
+/* Cierre */
 .elite-closing { background: var(--sage); padding-block: clamp(80px, 7.5vw, 116px); }
 .elite-closing-grid { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
 .elite-closing h2 { max-width: none; margin: 0 0 25px; font-size: clamp(51px, 7.2vw, 105px); line-height: .96; letter-spacing: -.088em; font-weight: 950; }
@@ -207,9 +206,9 @@
 .elite-button-dark { flex-shrink: 0; margin-bottom: 12px; color: var(--paper); background: var(--ink); }
 .elite-button-dark:hover { background: #35483c; transform: translateY(-2px); }
 
-/* Hovers solo sobre texto y tarjetas: ningún efecto aplicado a fotografías. */
+/* Los efectos de hover se reservan a tarjetas y textos, no a fotografías. */
 @media (hover: hover) and (pointer: fine) {
-  /* Las siete filas son informativas, sin cursor ni flechas de enlace. */
+  /* La lista describe áreas de trabajo: no es una navegación. */
   .elite-profile-areas li:hover { background-color: #3a4e40; }
   .elite-profile-areas li:hover::before { transform: scaleY(1); }
   .elite-profile-areas li:hover span:last-child { transform: translateX(5px); color: #fffdf5; }
@@ -226,7 +225,7 @@
   .elite-hero-grid { gap: 32px; }
   .elite-hero-title { font-size: clamp(53px, 6vw, 85px); }
   .elite-foundations-heading > p, .elite-section-head > p { flex-basis: 250px; }
-  /* En tablet mediana: 3 + 2 + 2 tarjetas, sin espacios vacíos. */
+  /* Tablet: distribución 3 + 2 + 2. */
   .elite-areas-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .elite-area, .elite-area:nth-child(n + 5) { grid-column: span 3; }
   .elite-area:nth-child(-n + 3) { grid-column: span 2; }
@@ -234,7 +233,7 @@
 }
 @media (max-width: 860px) {
   .elite-passport-lower { grid-template-columns: 1fr; gap: 35px; }
-  /* Dos columnas; la última tarjeta cierra el bloque a todo el ancho. */
+  /* Móvil: la última tarjeta ocupa las dos columnas para evitar un hueco. */
   .elite-areas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .elite-area, .elite-area:nth-child(-n + 3), .elite-area:nth-child(n + 5) { grid-column: auto; }
   .elite-area:last-child { grid-column: 1 / -1; }
