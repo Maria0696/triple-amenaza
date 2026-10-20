@@ -1,0 +1,133 @@
+/*
+ * Accesibilidad y experiencia móvil de la web pública ATA.
+ *
+ * Reúne ajustes puntuales sobre las páginas sin reemplazar
+ * sus archivos CSS ni alterar el diseño de escritorio.
+ * Las reglas se agrupan por punto de ruptura.
+ */
+
+@media (max-width: 820px) {
+  /* Espacio táctil suficiente para los enlaces de pie y portada. */
+  .site-footer .footer-links a,
+  .home-action-text,
+  .home-inline-link {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Anotadores Élite: mejorar lectura del texto explicativo. */
+  .elite-hero .elite-hero-lead,
+  .elite-step .elite-step-content p,
+  body .elite-faq-item > p,
+  body .elite-closing-grid > div > p:not(.elite-eyebrow) {
+    font-size: 16px;
+  }
+
+  .elite-hero .elite-hero-caption,
+  .elite-hero .elite-eyebrow {
+    font-size: 12px;
+  }
+
+  /* Anotadores Flex: textos legibles también en pantallas pequeñas. */
+  .flex-page-hero .flex-page-hero-lead,
+  body .flex-page-steps-intro > p:last-child,
+  body .flex-page-compare-heading > p:last-child,
+  body .flex-page-compare-card > p,
+  body .flex-page-faq-item > p,
+  body .flex-page-closing-action > p {
+    font-size: 16px;
+  }
+
+  .flex-page-hero .flex-page-eyebrow,
+  body .flex-page-board-label,
+  body .flex-page-board-underline {
+    font-size: 12px;
+  }
+
+  body .flex-page-hero-board-head,
+  body .flex-page-board-bottom {
+    font-size: 11px;
+  }
+
+  body .flex-page-board-bottom {
+    row-gap: 10px;
+  }
+
+  body .flex-page-board-bottom span {
+    flex: 1 1 95px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 550px) {
+  /* Inicio */
+  .home-hero .home-hero-lead {
+    font-size: 16px;
+  }
+
+  .home-hero .home-eyebrow,
+  .home-hero .home-hero-keywords,
+  .home-hero .home-hero-photo-caption > span,
+  .home-program-card .home-program-tag,
+  .home-program-card .home-program-card-top {
+    font-size: 12px;
+  }
+
+  .home-hero .home-hero-media-top {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 11px;
+  }
+
+  /* Academia */
+  .academy-hero .academy-hero-lead,
+  .academy-approach .academy-principle p {
+    font-size: 16px;
+  }
+
+  .academy-hero .academy-eyebrow,
+  body .academy-hero-figure figcaption,
+  body .academy-club-figure figcaption {
+    font-size: 12px;
+  }
+
+  /* Método ATA */
+  .method-page-hero .method-page-hero-lead,
+  .method-page-stage .method-page-stage-text,
+  body .method-page-practice-copy p,
+  body .method-page-closing-inner > p:not(.method-page-eyebrow) {
+    font-size: 16px;
+  }
+
+  .method-page-hero .method-page-eyebrow,
+  .method-page-index .method-page-index-bottom {
+    font-size: 12px;
+  }
+
+  /* Programas */
+  .programs-page-hero .programs-page-hero-lead,
+  body .programs-page-question p,
+  .programs-page-workshops .programs-page-workshops-detail {
+    font-size: 16px;
+  }
+
+  .programs-page-hero .programs-page-eyebrow,
+  .programs-page-workshops .programs-page-workshops-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* No forzar un ancho mínimo en títulos muy largos. */
+  .home-hero .home-hero-title,
+  .academy-hero .academy-hero-title,
+  .method-page-hero .method-page-hero-title,
+  .programs-page-hero .programs-page-hero-title,
+  .elite-hero .elite-hero-title,
+  .flex-page-hero .flex-page-hero-title {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
+}
