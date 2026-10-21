@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   BrainCircuit,
   Check,
