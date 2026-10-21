@@ -1,0 +1,949 @@
+/* =========================================
+   CONTACTO · ACADEMIA TRIPLE AMENAZA
+   ========================================= */
+
+.contact-hero {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.contact-hero-container {
+  padding-top: 50px;
+  padding-bottom: clamp(56px, 6vw, 96px);
+}
+
+.contact-back-link {
+  margin-bottom: clamp(42px, 5vw, 80px);
+}
+
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(270px, .65fr);
+  align-items: end;
+  gap: clamp(30px, 5vw, 95px);
+}
+
+.contact-hero-main,
+.contact-hero-aside {
+  min-width: 0;
+}
+
+.contact-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px;
+  color: var(--orange-dark);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.5;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.contact-eyebrow-light {
+  color: #edc3ab;
+}
+
+.contact-eyebrow-line {
+  width: 27px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--orange);
+}
+
+.contact-hero-title {
+  margin: 0;
+  font-size: clamp(52px, 6.5vw, 107px);
+  line-height: .96;
+  font-weight: 950;
+  letter-spacing: -.086em;
+  overflow-wrap: break-word;
+}
+
+.contact-hero-title em {
+  color: var(--sage);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -.07em;
+}
+
+.contact-hero-aside {
+  padding-top: 24px;
+  border-top: 1px solid #ffffff44;
+}
+
+.contact-aside-number,
+.contact-aside-label {
+  display: block;
+  color: var(--sage);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.contact-hero-aside p {
+  margin: 25px 0 25px;
+  color: #d4dfd6;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CANALES DE CONTACTO
+   ========================================= */
+
+.contact-section {
+  padding: clamp(72px, 8vw, 118px) 0;
+  background: var(--cream);
+}
+
+.contact-section-heading {
+  display: block;
+  width: 100%;
+  margin-bottom: 42px;
+}
+
+.contact-section-heading > div,
+.contact-section-heading > p {
+  min-width: 0;
+}
+
+.contact-section-heading h2,
+.contact-closing h2 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 75px);
+  line-height: 1.04;
+  font-weight: 950;
+  letter-spacing: -.075em;
+}
+
+.contact-section-heading h2 em,
+.contact-closing h2 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -.06em;
+}
+
+.contact-section-heading > p {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 20px 0 0;
+  color: #566258;
+  font-size: 16px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+/* El título y la descripción utilizan el mismo ancho que las dos tarjetas. */
+@media (min-width: 1100px) {
+  .contact-section-heading h2,
+  .contact-section-heading > p {
+    white-space: nowrap;
+  }
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 440px;
+  padding: clamp(24px, 3.4vw, 44px);
+  border: 1px solid #1c211e25;
+  cursor: pointer;
+}
+
+.contact-card-whatsapp {
+  background: var(--sage);
+  color: var(--ink);
+}
+
+.contact-card-email {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.contact-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #1c211e35;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.contact-card-content {
+  padding-top: 31px;
+  padding-bottom: 32px;
+}
+
+.contact-card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 25px;
+  border: 1px solid #1c211e4a;
+  border-radius: 50%;
+}
+
+.contact-card h3 {
+  margin: 0 0 18px;
+  font-size: clamp(35px, 4vw, 59px);
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -.065em;
+}
+
+.contact-card-content p {
+  max-width: 460px;
+  margin: 0;
+  color: #39483a;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.contact-card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.contact-card-detail {
+  display: block;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.contact-card-email-address {
+  overflow-wrap: anywhere;
+}
+
+.contact-card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  min-height: 56px;
+  padding: 15px 19px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 850;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.contact-card-action-dark,
+.contact-card-action-light {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* La tarjeta completa es un enlace: el foco se dibuja alrededor de ella. */
+.contact-card:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 8px var(--paper);
+}
+
+.contact-section-footer {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #1c211e24;
+}
+
+.contact-help-line {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.contact-help-dot {
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange-dark);
+}
+
+.contact-section-note {
+  max-width: 900px;
+  margin: 0 0 0 18px;
+  color: #58645b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   CTA FINAL
+   ========================================= */
+
+.contact-closing {
+  background: #2a382e;
+  color: var(--paper);
+  padding: clamp(75px, 8vw, 110px) 0;
+}
+
+.contact-closing-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 35px;
+}
+
+.contact-closing h2 {
+  max-width: 780px;
+  font-size: clamp(42px, 5vw, 74px);
+}
+
+.contact-closing h2 em {
+  color: var(--sage);
+}
+
+.contact-closing-inner > div > p:last-child {
+  max-width: 640px;
+  margin: 23px 0 0;
+  color: #d2dfd4;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.contact-closing-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 56px;
+  padding: 16px 20px;
+  border-radius: 3px;
+  background: var(--sage);
+  color: var(--ink);
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 850;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.contact-closing-link:focus-visible {
+  outline-color: var(--focus-light);
+  box-shadow: 0 0 0 6px var(--ink);
+}
+
+/* =========================================
+   INTERACCIÓN Y RESPONSIVE
+   ========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-card:hover .contact-card-action {
+    background: #3a493e;
+    transform: translateY(-2px);
+  }
+
+  .contact-closing-link:hover {
+    background: #dceaa8;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-hero-aside {
+    max-width: 570px;
+  }
+
+  .contact-section-heading h2,
+  .contact-section-heading > p {
+    white-space: normal;
+  }
+
+  .contact-closing-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-closing-link {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 680px) {
+  .contact-hero-container {
+    padding-top: 28px;
+    padding-bottom: 52px;
+  }
+
+  .contact-back-link {
+    margin-bottom: 38px;
+  }
+
+  .contact-hero-grid {
+    gap: 37px;
+  }
+
+  .contact-hero-title {
+    font-size: clamp(43px, 10.5vw, 67px);
+  }
+
+  .contact-hero-aside p {
+    margin: 15px 0 18px;
+    font-size: 16px;
+  }
+
+  .contact-section {
+    padding: 66px 0;
+  }
+
+  .contact-section-heading {
+    margin-bottom: 29px;
+  }
+
+  .contact-section-heading > p {
+    margin-top: 16px;
+  }
+
+  .contact-section-footer {
+    margin-top: 19px;
+    padding-top: 17px;
+  }
+
+  .contact-help-line {
+    font-size: 14px;
+  }
+
+  .contact-section-note {
+    margin-left: 18px;
+  }
+
+  .contact-section-heading h2 {
+    font-size: clamp(38px, 9.4vw, 56px);
+  }
+
+  .contact-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .contact-card {
+    min-height: 390px;
+    padding: 26px;
+  }
+
+  .contact-card h3 {
+    font-size: clamp(38px, 9vw, 52px);
+  }
+
+  .contact-closing {
+    padding: 68px 0;
+  }
+
+  .contact-closing h2 {
+    font-size: clamp(38px, 9vw, 58px);
+  }
+
+  .contact-closing-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-hero-title {
+    font-size: 41px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .contact-card-detail {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card-action,
+  .contact-closing-link {
+    transition: none;
+  }
+
+  .contact-card:hover .contact-card-action,
+  .contact-closing-link:hover {
+    transform: none;
+  }
+}
+
+/* =========================================
+   EFECTOS · MOVIMIENTO Y PROFUNDIDAD
+   ========================================= */
+
+/* Fondo gráfico: líneas orbitales inspiradas en la cancha de baloncesto. */
+.contact-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-image:
+    radial-gradient(ellipse 55% 90% at 88% 42%, #4b6d4d44 0%, transparent 72%),
+    linear-gradient(120deg, #1c211e 10%, #26352b 100%);
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 112px,
+    #ffffff06 113px,
+    transparent 114px
+  );
+}
+
+.contact-hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero-art {
+  position: absolute;
+  z-index: 0;
+  width: min(70vw, 920px);
+  aspect-ratio: 1;
+  right: -19%;
+  top: -26%;
+  pointer-events: none;
+  opacity: .6;
+  animation: contact-orbit-float 18s ease-in-out infinite alternate;
+}
+
+.contact-hero-orbit {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 1px solid #c8d88e3b;
+  border-radius: 50%;
+}
+
+.contact-hero-orbit-inner {
+  inset: 21%;
+  border-color: #c8d88e48;
+}
+
+.contact-hero-orbit-outer::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  background: #c8d88e22;
+  transform: rotate(-28deg);
+}
+
+.contact-hero-orbit-point {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  top: 14.6%;
+  left: 14.6%;
+  border-radius: 50%;
+  background: var(--sage);
+  box-shadow: 0 0 0 9px #c8d88e13, 0 0 34px #c8d88e66;
+}
+
+/* Entrada escalonada del titular y el texto. */
+.contact-hero .contact-eyebrow,
+.contact-hero .contact-back-link,
+.contact-hero .contact-hero-aside {
+  animation: contact-rise-in .75s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.contact-hero .contact-back-link { animation-delay: .04s; }
+.contact-hero .contact-eyebrow { animation-delay: .14s; }
+.contact-hero .contact-hero-aside { animation-delay: .48s; }
+
+.contact-hero-title-line {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  animation: contact-rise-in .82s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.contact-hero-title-line:nth-child(1) { animation-delay: .18s; }
+.contact-hero-title-line:nth-child(2) { animation-delay: .29s; }
+.contact-hero-title-line:nth-child(3) { animation-delay: .4s; }
+
+.contact-hero-title em {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.contact-hero-title em::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 1%;
+  right: 1%;
+  bottom: -.08em;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: contact-underline-reveal .65s ease-out .9s both;
+}
+
+.contact-aside-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.contact-aside-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--sage);
+  box-shadow: 0 0 0 5px #c8d88e20;
+}
+
+/* Aparición suave de los bloques, sin depender de JavaScript. */
+.contact-section-heading,
+.contact-section-note,
+.contact-closing-inner {
+  animation: contact-fade-in .85s ease both;
+}
+
+.contact-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform .38s cubic-bezier(.2,.75,.25,1),
+    box-shadow .38s ease,
+    border-color .38s ease;
+  animation: contact-fade-in .8s ease both;
+}
+
+.contact-card-whatsapp { animation-delay: .11s; }
+.contact-card-email { animation-delay: .22s; }
+
+/* Línea de borde que se ilumina suavemente al interactuar. */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border: 2px solid #1c211e75;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+/* Reflejo diagonal sobre la tarjeta; solo se activa con hover. */
+.contact-card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -35%;
+  left: -95%;
+  width: 65%;
+  height: 170%;
+  pointer-events: none;
+  opacity: 0;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, #ffffff55, transparent);
+  transition: left .75s ease, opacity .3s ease;
+}
+
+.contact-card-top,
+.contact-card-content,
+.contact-card-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card-top svg {
+  transition: transform .35s ease;
+}
+
+.contact-card-icon {
+  position: relative;
+  transition:
+    transform .45s cubic-bezier(.2,.75,.25,1),
+    background-color .35s ease,
+    box-shadow .35s ease;
+}
+
+.contact-card-icon::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid #1c211e36;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(.88);
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.contact-card-action {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    background-color .3s ease,
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.contact-card-action::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  transform: translateX(-110%);
+  background: linear-gradient(95deg, transparent, #ffffff24, transparent);
+  transition: transform .65s ease;
+}
+
+.contact-card-action svg,
+.contact-closing-link svg {
+  flex: 0 0 auto;
+  transition: transform .3s ease;
+}
+
+/* Decoración de la sección final. */
+.contact-closing {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 98% 15%, #708b5244 0%, transparent 42%),
+    linear-gradient(120deg, #253329, #34483a);
+}
+
+.contact-closing::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: min(72vw, 720px);
+  aspect-ratio: 1;
+  right: -19%;
+  top: -74%;
+  border: 1px solid #c8d88e45;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 100px #c8d88e0d,
+    0 0 0 200px #c8d88e07;
+  pointer-events: none;
+}
+
+.contact-closing-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-closing-link {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover reservado a dispositivos con ratón o puntero fino. */
+@media (hover: hover) and (pointer: fine) {
+  .contact-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 28px 55px #1c211e21;
+    border-color: #1c211e70;
+  }
+
+  .contact-card:hover::before,
+  .contact-card:focus-within::before {
+    opacity: 1;
+  }
+
+  .contact-card:hover::after {
+    left: 150%;
+    opacity: .65;
+  }
+
+  .contact-card:hover .contact-card-icon {
+    transform: rotate(-9deg) scale(1.09);
+    background-color: #ffffff45;
+    box-shadow: 0 11px 22px #1c211e16;
+  }
+
+  .contact-card:hover .contact-card-icon::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .contact-card:hover .contact-card-top svg {
+    transform: translate(4px, -4px);
+  }
+
+  .contact-card:hover .contact-card-action,
+  .contact-card:focus-visible .contact-card-action {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px #1c211e20;
+  }
+
+  .contact-card:hover .contact-card-action::before,
+  .contact-card:focus-visible .contact-card-action::before {
+    transform: translateX(110%);
+  }
+
+  .contact-card:hover .contact-card-action svg,
+  .contact-card:focus-visible .contact-card-action svg,
+  .contact-closing-link:hover svg,
+  .contact-closing-link:focus-visible svg {
+    transform: translate(4px, -3px);
+  }
+}
+
+/* El foco se mantiene visible incluso sin hover. */
+.contact-card:focus-visible::before {
+  opacity: 1;
+}
+
+/* Responsive: reducir ornamentos para que no compitan con el contenido. */
+@media (max-width: 1000px) {
+  .contact-hero-art {
+    right: -41%;
+    top: -16%;
+    width: min(100vw, 680px);
+    opacity: .45;
+  }
+}
+
+@media (max-width: 680px) {
+  .contact-hero-art {
+    width: 580px;
+    right: -300px;
+    top: 8%;
+    opacity: .2;
+  }
+
+  .contact-hero-title em::after {
+    height: 2px;
+  }
+
+  .contact-card {
+    box-shadow: 0 10px 25px #1c211e0b;
+  }
+
+  .contact-closing::before {
+    right: -80%;
+    top: -10%;
+    opacity: .55;
+  }
+}
+
+/* Evitar que los efectos resten legibilidad en zoom o pantallas estrechas. */
+@media (max-width: 360px) {
+  .contact-hero-art {
+    opacity: .12;
+  }
+}
+
+@keyframes contact-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contact-underline-reveal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes contact-orbit-float {
+  from { transform: translate3d(0, 0, 0) rotate(-5deg); }
+  to { transform: translate3d(-20px, 20px, 0) rotate(5deg); }
+}
+
+/* Accesibilidad: no imponer animaciones a quien prefiera reducir movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  .contact-hero-art,
+  .contact-hero .contact-eyebrow,
+  .contact-hero .contact-back-link,
+  .contact-hero .contact-hero-aside,
+  .contact-hero-title-line,
+  .contact-hero-title em::after,
+  .contact-section-heading,
+  .contact-section-note,
+  .contact-closing-inner,
+  .contact-card {
+    animation: none !important;
+  }
+
+  .contact-hero-title em::after {
+    transform: scaleX(1);
+  }
+
+  .contact-card,
+  .contact-card::before,
+  .contact-card::after,
+  .contact-card-icon,
+  .contact-card-icon::after,
+  .contact-card-top svg,
+  .contact-card-action,
+  .contact-card-action::before,
+  .contact-card-action svg,
+  .contact-closing-link,
+  .contact-closing-link svg {
+    transition: none !important;
+  }
+
+  .contact-card:hover,
+  .contact-card:hover .contact-card-action,
+  .contact-closing-link:hover {
+    transform: none !important;
+  }
+
+  .contact-card:hover::after,
+  .contact-card:hover .contact-card-action::before {
+    opacity: 0;
+  }
+
+  .contact-card:hover .contact-card-icon,
+  .contact-card:hover .contact-card-top svg,
+  .contact-card:hover .contact-card-action svg,
+  .contact-closing-link:hover svg {
+    transform: none !important;
+  }
+}
