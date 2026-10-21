@@ -93,7 +93,7 @@
 .team-hero-inner {
   position: relative;
   z-index: 1;
-  padding-block: clamp(67px, 7.5vw, 115px) 47px;
+  padding-block: clamp(67px, 7.5vw, 115px) clamp(60px, 6vw, 90px);
 }
 
 .team-hero-grid {
@@ -146,23 +146,6 @@
   color: #dbe3da;
 }
 
-.team-hero-scroll {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 48px;
-  margin-top: clamp(44px, 6vw, 87px);
-  border-bottom: 1px solid #cfddc78c;
-  color: var(--paper);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .1em;
-  transition: color .2s ease;
-}
-
-.team-hero-scroll svg { transition: transform .25s ease; }
-.team-hero-scroll:focus-visible { outline-color: var(--focus-light); box-shadow: 0 0 0 6px var(--ink); }
-
 /* Dirección: dos perfiles protagonistas ------------------ */
 .team-leadership {
   padding-block: clamp(76px, 8vw, 124px) clamp(65px, 7vw, 105px);
@@ -170,45 +153,10 @@
 }
 
 .team-section-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .58fr);
-  align-items: end;
-  gap: 35px 56px;
-  margin-bottom: 48px;
-}
-.team-leadership-heading .team-section-title {
-  max-width: 810px;
+  margin-bottom: 42px;
 }
 .team-leadership-heading .team-section-title em {
   color: #607c56;
-}
-.team-leadership-aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  gap: 11px;
-  padding-top: 15px;
-  border-top: 1px solid #25352b44;
-}
-.team-leadership-count {
-  color: var(--ink);
-  font-size: clamp(68px, 8vw, 116px);
-  font-weight: 950;
-  line-height: .92;
-  letter-spacing: -.08em;
-}
-.team-leadership-count > span {
-  font-size: 14px;
-  font-weight: 850;
-  letter-spacing: .1em;
-}
-.team-section-intro {
-  max-width: 490px;
-  margin: 11px 0 0;
-  color: #526055;
-  font-size: 16px;
-  line-height: 1.75;
 }
 
 .team-features {
@@ -409,37 +357,6 @@
   margin-left: auto;
 }
 
-.team-leadership-bottom {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 27px;
-  margin-top: 12px;
-  border-top: 1px solid #23362b35;
-}
-.team-leadership-bottom > span {
-  color: #586659;
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .13em;
-}
-.team-leadership-bottom p {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(28px, 4vw, 56px);
-  font-weight: 950;
-  letter-spacing: -.08em;
-  line-height: 1;
-}
-.team-leadership-bottom p span {
-  padding-inline: 8px;
-  color: #688960;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
 /* Colaboraciones ------------------------------------------ */
 .team-collaborations {
   padding-block: clamp(70px, 8vw, 117px);
@@ -447,15 +364,29 @@
   color: var(--paper);
 }
 
-.team-collab-heading { max-width: 840px; margin-bottom: 40px; }
+/* El encabezado de colaboradores ocupa el mismo ancho que la tarjeta inferior. */
+.team-collab-heading {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 40px;
+}
 .team-collab-heading .team-section-title { color: var(--paper); }
 .team-collab-heading .team-section-title em { color: var(--sage); }
 .team-collab-heading > p:last-child {
-  max-width: 640px;
+  width: 100%;
+  max-width: none;
   margin: 23px 0 0;
   color: #d2ddcf;
   font-size: 17px;
   line-height: 1.75;
+}
+
+/* En escritorio, título y descripción completos en una sola línea. */
+@media (min-width: 1051px) {
+  .team-collab-heading .team-section-title,
+  .team-collab-heading > p:last-child {
+    white-space: nowrap;
+  }
 }
 
 .team-collab-card {
@@ -539,88 +470,6 @@
   font-weight: 750;
 }
 
-/* En pista ------------------------------------------------ */
-.team-approach {
-  padding-block: clamp(72px, 8vw, 114px);
-  background: var(--paper);
-}
-
-.team-approach-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(38px, 7vw, 105px);
-  align-items: center;
-}
-
-.team-approach-figure { min-width: 0; margin: 0; }
-.team-approach-photo {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1.02;
-  background: #425642;
-}
-.team-approach-photo::after {
-  content: "";
-  position: absolute;
-  inset: 55% 0 0;
-  pointer-events: none;
-  background: linear-gradient(0deg, #122018a8, transparent);
-}
-.team-approach-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .6s ease;
-}
-.team-photo-stamp {
-  position: absolute;
-  z-index: 1;
-  top: 22px;
-  left: 22px;
-  color: var(--paper);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .13em;
-}
-.team-approach-figure figcaption {
-  padding-top: 13px;
-  color: #5a655b;
-  font-size: 12px;
-  line-height: 1.65;
-}
-
-.team-approach-copy { min-width: 0; }
-.team-approach-copy .team-section-title em { color: var(--orange-dark); }
-.team-approach-lead {
-  max-width: 600px;
-  margin: 26px 0 29px;
-  color: #4e5d52;
-  font-size: 17px;
-  line-height: 1.8;
-}
-.team-principles { margin: 0 0 27px; padding: 0; border-top: 1px solid #d4dbd0; }
-.team-principles li {
-  display: grid;
-  grid-template-columns: 35px minmax(0, 1fr);
-  gap: 15px;
-  padding: 17px 0;
-  border-bottom: 1px solid #d4dbd0;
-  color: #28372c;
-  font-size: 16px;
-  line-height: 1.5;
-}
-.team-principles li span { color: var(--orange-dark); font-size: 12px; font-weight: 850; }
-.team-method-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 50px;
-  font-size: 14px;
-  font-weight: 850;
-  border-bottom: 1px solid currentColor;
-}
-.team-method-link svg { transition: transform .25s ease; }
-
 /* Llamada final -------------------------------------------- */
 .team-closing { position: relative; overflow: hidden; background: var(--sage); }
 .team-closing-inner {
@@ -685,10 +534,6 @@
   .team-feature:hover .team-feature-initial { transform: translateY(-8px) scale(1.055); }
   .team-feature:hover .team-feature-orbit-one { transform: rotate(22deg) scale(1.08); }
   .team-feature:hover .team-feature-topline svg { transform: translate(4px, -4px); }
-  .team-approach-figure:hover .team-approach-image { transform: scale(1.035); }
-  .team-hero-scroll:hover { color: var(--sage); }
-  .team-hero-scroll:hover svg { transform: translate(3px, 3px); }
-  .team-method-link:hover svg { transform: translate(4px, -4px); }
   .team-closing-link:hover { background: #35453a; transform: translateY(-3px); }
   .team-closing-link:hover svg { transform: translateX(4px); }
 }
@@ -697,14 +542,6 @@
 @media (max-width: 1050px) {
   .team-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(230px, .65fr); gap: 35px; }
   .team-hero-title { font-size: clamp(55px, 7.8vw, 93px); }
-  .team-section-heading { grid-template-columns: minmax(0, 1fr); }
-  .team-leadership-aside {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: end;
-    gap: 25px;
-  }
-  .team-leadership-aside .team-section-intro { margin: 0; }
   .team-feature { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
   .team-feature-content { padding: 30px; }
   .team-feature-main h3 { font-size: clamp(85px, 11vw, 135px); }
@@ -713,12 +550,11 @@
 }
 
 @media (max-width: 880px) {
-  .team-hero-grid, .team-approach-grid { grid-template-columns: minmax(0, 1fr); }
+  .team-hero-grid { grid-template-columns: minmax(0, 1fr); }
   .team-hero-grid { gap: 42px; }
   .team-hero-aside { max-width: 590px; }
   .team-hero-title { font-size: clamp(59px, 10vw, 93px); }
   .team-hero-art { width: 630px; right: -280px; top: -75px; opacity: .33; }
-  .team-approach-photo { max-height: 520px; }
   .team-feature { grid-template-columns: minmax(0, 1fr); }
   .team-feature-art { min-height: 355px; }
   .team-feature-content { min-height: 450px; }
@@ -732,21 +568,13 @@
 }
 
 @media (max-width: 680px) {
-  .team-hero-inner { padding-block: 53px 30px; }
+  .team-hero-inner { padding-block: 53px 55px; }
   .team-hero-title { font-size: clamp(46px, 11.4vw, 74px); }
   .team-hero-grid { gap: 32px; }
   .team-hero-aside p { margin-block: 17px; font-size: 16px; }
-  .team-hero-scroll { margin-top: 34px; }
-  .team-leadership, .team-collaborations, .team-approach { padding-block: 67px; }
+  .team-leadership, .team-collaborations { padding-block: 67px; }
   .team-section-title { font-size: clamp(38px, 9.6vw, 58px); }
   .team-section-heading { margin-bottom: 29px; }
-  .team-section-intro { font-size: 16px; }
-  .team-leadership-aside {
-    display: flex;
-    align-items: flex-start;
-    gap: 13px;
-  }
-  .team-leadership-count { font-size: 72px; }
   .team-feature { min-height: 0; }
   .team-feature-art {
     min-height: 285px;
@@ -759,7 +587,6 @@
   .team-feature-statement { font-size: 26px; }
   .team-feature-description { font-size: 15px; }
   .team-feature-footer span:nth-child(2) { letter-spacing: .05em; }
-  .team-leadership-bottom { align-items: flex-start; flex-direction: column; gap: 12px; }
   .team-collab-heading { margin-bottom: 29px; }
   .team-collab-heading > p:last-child { font-size: 16px; }
   .team-collab-card { padding: 20px; gap: 27px; }
@@ -767,8 +594,6 @@
   .team-collab-mark > span:nth-child(2) { font-size: 120px; }
   .team-collab-content h3 { font-size: clamp(39px, 10vw, 57px); }
   .team-collab-content > p:not(.team-collab-label) { font-size: 16px; }
-  .team-approach-photo { aspect-ratio: 1.13; }
-  .team-approach-lead { font-size: 16px; }
   .team-closing-inner { padding-block: 67px; gap: 28px; }
   .team-closing h2 { font-size: clamp(44px, 10.8vw, 70px); }
   .team-closing-copy > p:last-child { font-size: 16px; }
@@ -803,7 +628,6 @@
   .team-hero .team-eyebrow { animation: team-rise .65s ease both; }
   .team-hero-title { animation: team-rise .8s ease .1s both; }
   .team-hero-aside { animation: team-rise .85s ease .25s both; }
-  .team-hero-scroll { animation: team-rise .8s ease .38s both; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -812,15 +636,10 @@
   .team-feature-initial,
   .team-feature-orbit,
   .team-feature-topline svg,
-  .team-approach-image,
-  .team-hero-scroll,
-  .team-hero-scroll svg,
-  .team-method-link svg,
   .team-closing-link,
   .team-closing-link svg { transition: none !important; }
   .team-feature:hover,
   .team-feature:hover .team-feature-initial,
   .team-feature:hover .team-feature-orbit-one,
-  .team-approach-figure:hover .team-approach-image,
   .team-closing-link:hover { transform: none !important; }
 }

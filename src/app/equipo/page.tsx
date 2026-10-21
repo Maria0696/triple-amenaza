@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Target } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Target } from "lucide-react";
 
 import "./equipo.css";
 
@@ -34,12 +33,6 @@ const direccion = [
     description:
       "Edu es socio de la academia y comparte con Jose la dirección del proyecto y la organización de sus actividades. Los dos apuestan por un proceso de aprendizaje en el que los objetivos estén claros y las mejoras tengan sentido dentro del juego.",
   },
-] as const;
-
-const principios = [
-  "Escuchar y conocer el punto de partida.",
-  "Entrenar con objetivos claros.",
-  "Trasladar lo aprendido al partido.",
 ] as const;
 
 export default function EquipoPage() {
@@ -78,10 +71,6 @@ export default function EquipoPage() {
             </div>
           </div>
 
-          <a className="team-hero-scroll" href="#direccion">
-            CONOCE AL EQUIPO
-            <ArrowDownRight size={19} strokeWidth={1.8} aria-hidden="true" />
-          </a>
         </div>
       </section>
 
@@ -93,21 +82,10 @@ export default function EquipoPage() {
       >
         <div className="container">
           <div className="team-section-heading team-leadership-heading">
-            <div>
-              <p className="team-eyebrow">01 / LAS PERSONAS DETRÁS DE ATA</p>
-              <h2 id="team-leadership-title" className="team-section-title">
-                EL PROYECTO <em>TIENE NOMBRES.</em>
-              </h2>
-            </div>
-            <div className="team-leadership-aside">
-              <span className="team-leadership-count" aria-label="Dos personas al frente del proyecto">
-                02<span> / ATA</span>
-              </span>
-              <p className="team-section-intro">
-                Jose y Edu impulsan Triple Amenaza. Dos personas al frente de
-                un proyecto en el que el jugador y su progreso son lo primero.
-              </p>
-            </div>
+            <p className="team-eyebrow">01 / LAS PERSONAS DETRÁS DE ATA</p>
+            <h2 id="team-leadership-title" className="team-section-title">
+              EL PROYECTO <em>TIENE NOMBRES.</em>
+            </h2>
           </div>
 
           <div className="team-features">
@@ -166,10 +144,6 @@ export default function EquipoPage() {
             ))}
           </div>
 
-          <div className="team-leadership-bottom">
-            <span>JUNTOS, DETRÁS DE CADA PASO.</span>
-            <p>JOSE <span aria-hidden="true">+</span> EDU</p>
-          </div>
         </div>
       </section>
 
@@ -215,56 +189,6 @@ export default function EquipoPage() {
               </div>
             </div>
           </article>
-        </div>
-      </section>
-
-      {/* Imagen ya utilizada en Academia, sin atribuir identidades a los retratados. */}
-      <section className="team-approach" aria-labelledby="team-approach-title">
-        <div className="container team-approach-grid">
-          <figure className="team-approach-figure">
-            <div className="team-approach-photo">
-              <Image
-                src="/imagenes/grupo-ata.webp"
-                alt="Jugadores y entrenadores reunidos durante una sesión de Academia Triple Amenaza"
-                width={1500}
-                height={1000}
-                sizes="(max-width: 880px) calc(100vw - 32px), 48vw"
-                className="team-approach-image"
-              />
-              <span className="team-photo-stamp" aria-hidden="true">
-                ATA / EN PISTA
-              </span>
-            </div>
-            <figcaption>
-              Sesión grupal de Triple Amenaza · Fotografía: R1kman_fotografia
-            </figcaption>
-          </figure>
-
-          <div className="team-approach-copy">
-            <p className="team-eyebrow">03 / NUESTRA FORMA DE TRABAJAR</p>
-            <h2 id="team-approach-title" className="team-section-title">
-              CADA JUGADOR. <em>SU CAMINO.</em>
-            </h2>
-            <p className="team-approach-lead">
-              No buscamos entrenar por entrenar. Queremos que el jugador
-              comprenda qué está trabajando, por qué y cómo puede utilizarlo
-              cuando vuelva a competir.
-            </p>
-
-            <ul className="team-principles">
-              {principios.map((principio, index) => (
-                <li key={principio}>
-                  <span aria-hidden="true">0{index + 1}</span>
-                  {principio}
-                </li>
-              ))}
-            </ul>
-
-            <Link className="team-method-link" href="/metodo/">
-              Descubre nuestro método
-              <ArrowUpRight size={19} aria-hidden="true" />
-            </Link>
-          </div>
         </div>
       </section>
 
