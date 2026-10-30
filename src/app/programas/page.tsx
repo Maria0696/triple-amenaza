@@ -49,7 +49,7 @@ export default function ProgramasPage() {
               que mejor se adapta a tu objetivo y a tu manera de organizar el entrenamiento.
             </p>
           </div>
-          <div className="programs-page-hero-aside" aria-label="Los dos formatos de entrenamiento">
+          <div className="programs-page-hero-aside" role="group" aria-label="Los dos formatos de entrenamiento">
             <div className="programs-page-hero-aside-top">
               <span>UNA ACADEMIA</span>
               <span>02 FORMATOS</span>
@@ -167,7 +167,7 @@ export default function ProgramasPage() {
               ideas a la pista. Consulta el espacio de actividades para conocer
               las próximas novedades.
             </p>
-            <Link href="workshops/" className="programs-page-workshops-link">
+            <Link href="/programas/workshops/" className="programs-page-workshops-link">
               Descubre los workshops
               <ArrowUpRight size={19} aria-hidden="true" />
             </Link>

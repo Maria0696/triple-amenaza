@@ -54,7 +54,7 @@ export default function HomePage() {
             </p>
 
             <div className="home-hero-actions">
-              <Link href="/programas" className="home-action-primary">
+              <Link href="/programas/" className="home-action-primary">
                 Descubre nuestros programas
                 <ArrowUpRight size={19} aria-hidden="true" />
               </Link>
@@ -64,7 +64,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="home-hero-keywords" aria-label="Áreas de desarrollo">
+            <div className="home-hero-keywords" role="group" aria-label="Áreas de desarrollo">
               <span>Técnica</span>
               <span>Preparación física</span>
               <span>Desarrollo personal</span>

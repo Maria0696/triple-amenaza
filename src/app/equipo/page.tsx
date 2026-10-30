@@ -182,7 +182,7 @@ export default function EquipoPage() {
                 enfoque centrado en la técnica, la táctica individual y la toma
                 de decisiones.
               </p>
-              <div className="team-collab-tags" aria-label="Ámbitos de experiencia">
+              <div className="team-collab-tags" role="group" aria-label="Ámbitos de experiencia">
                 <span>Baloncesto 5x5</span>
                 <span>Baloncesto 3x3</span>
                 <span>Toma de decisiones</span>
