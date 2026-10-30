@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Target } from "lucide-react";
 
-import "./equipo.css";
+import styles from "./equipo.module.css";
 
 export const metadata: Metadata = {
   title: "Equipo",
@@ -39,33 +39,33 @@ export default function EquipoPage() {
   return (
     <>
       {/* Cabecera editorial con elementos decorativos no interactivos. */}
-      <section className="team-hero" aria-labelledby="team-title">
-        <div className="team-hero-art" aria-hidden="true">
-          <span className="team-hero-ring team-hero-ring-outer" />
-          <span className="team-hero-ring team-hero-ring-inner" />
-          <span className="team-hero-line" />
+      <section className={styles.hero} aria-labelledby="team-title">
+        <div className={styles.heroArt} aria-hidden="true">
+          <span className={`${styles.heroRing} ${styles.heroRingOuter}`} />
+          <span className={`${styles.heroRing} ${styles.heroRingInner}`} />
+          <span className={styles.heroLine} />
         </div>
 
-        <div className="container team-hero-inner">
-          <p className="team-eyebrow team-eyebrow-light">
-            <span className="team-eyebrow-dash" aria-hidden="true" />
+        <div className={`container ${styles.heroInner}`}>
+          <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+            <span className={styles.eyebrowDash} aria-hidden="true" />
             EQUIPO / ACADEMIA TRIPLE AMENAZA
           </p>
 
-          <div className="team-hero-grid">
-            <h1 id="team-title" className="team-hero-title">
+          <div className={styles.heroGrid}>
+            <h1 id="team-title" className={styles.heroTitle}>
               LAS PERSONAS
               <span>HACEN EL</span>
               <em>EQUIPO.</em>
             </h1>
 
-            <div className="team-hero-aside">
-              <span className="team-aside-index">ATA / PERSONAS</span>
+            <div className={styles.heroAside}>
+              <span className={styles.asideIndex}>ATA / PERSONAS</span>
               <p>
                 Detrás de cada entrenamiento hay una forma de entender el
                 baloncesto, acompañar al jugador y dar sentido a su progreso.
               </p>
-              <span className="team-aside-claim">
+              <span className={styles.asideClaim}>
                 EL JUGADOR, EN EL CENTRO.
               </span>
             </div>
@@ -77,65 +77,69 @@ export default function EquipoPage() {
       {/* Dirección: perfiles protagonistas, sin atribuir trayectorias no verificadas. */}
       <section
         id="direccion"
-        className="team-leadership"
+        className={styles.leadership}
         aria-labelledby="team-leadership-title"
       >
         <div className="container">
-          <div className="team-section-heading team-leadership-heading">
-            <p className="team-eyebrow">01 / LAS PERSONAS DETRÁS DE ATA</p>
-            <h2 id="team-leadership-title" className="team-section-title">
+          <div className={`${styles.sectionHeading} ${styles.leadershipHeading}`}>
+            <p className={styles.eyebrow}>01 / LAS PERSONAS DETRÁS DE ATA</p>
+            <h2 id="team-leadership-title" className={styles.sectionTitle}>
               EL PROYECTO <em>TIENE NOMBRES.</em>
             </h2>
           </div>
 
-          <div className="team-features">
+          <div className={styles.features}>
             {direccion.map((persona) => (
               <article
-                className={`team-feature team-feature--${persona.slug}`}
+                className={
+                  persona.slug === "edu"
+                    ? `${styles.feature} ${styles.featureEdu}`
+                    : styles.feature
+                }
                 key={persona.number}
                 aria-labelledby={`team-person-${persona.slug}`}
               >
                 {/* Panel gráfico preparado para sustituirse por un retrato autorizado. */}
-                <div className="team-feature-art" aria-hidden="true">
-                  <div className="team-feature-art-top">
+                <div className={styles.featureArt} aria-hidden="true">
+                  <div className={styles.featureArtTop}>
                     <span>ATA / PERSONAS</span>
                     <span>{persona.number} — 02</span>
                   </div>
-                  <div className="team-feature-art-center">
-                    <span className="team-feature-orbit team-feature-orbit-one" />
-                    <span className="team-feature-orbit team-feature-orbit-two" />
-                    <span className="team-feature-axis" />
-                    <span className="team-feature-initial">
+                  <div className={styles.featureArtCenter}>
+                    <span className={`${styles.featureOrbit} ${styles.featureOrbitOne}`} />
+                    <span className={`${styles.featureOrbit} ${styles.featureOrbitTwo}`} />
+                    <span className={styles.featureAxis} />
+                    <span className={styles.featureInitial}>
                       {persona.initials}
                     </span>
                   </div>
-                  <div className="team-feature-art-bottom">
+                  <div className={styles.featureArtBottom}>
                     <span>TRIPLE AMENAZA</span>
-                    <span className="team-feature-art-spark">✳</span>
+                    <span className={styles.featureArtSpark}>✳</span>
                   </div>
                 </div>
 
-                <div className="team-feature-content">
-                  <div className="team-feature-topline">
+                <div className={styles.featureContent}>
+                  <div className={styles.featureTopline}>
                     <span>{persona.number} / SOCIO · DIRECCIÓN ATA</span>
                     <ArrowUpRight size={26} strokeWidth={1.5} aria-hidden="true" />
                   </div>
 
-                  <div className="team-feature-main">
+                  <div className={styles.featureMain}>
                     <h3 id={`team-person-${persona.slug}`}>
                       {persona.name}<span aria-hidden="true">.</span>
                     </h3>
-                    <p className="team-feature-role">SOCIO Y DIRECCIÓN DEL PROYECTO</p>
-                    <p className="team-feature-statement">
+                    <p className={styles.featureRole}>SOCIO Y DIRECCIÓN DEL PROYECTO</p>
+                    <p className={styles.featureStatement}>
                       {persona.statement}
                     </p>
-                    <p className="team-feature-description">
+                    <p className={styles.featureDescription}>
                       {persona.description}
                     </p>
                   </div>
 
-                  <div className="team-feature-footer">
-                    <span className="team-feature-footer-rule" />
+                  <div className={styles.featureFooter}>
+                    <span className={styles.featureFooterRule} />
                     <span>PERSONAS QUE MUEVEN ATA</span>
                     <span>{persona.number} / 02</span>
                   </div>
@@ -149,15 +153,15 @@ export default function EquipoPage() {
 
       {/* Colaboradores: se diferencian del equipo de dirección. */}
       <section
-        className="team-collaborations"
+        className={styles.collaborations}
         aria-labelledby="team-collaborations-title"
       >
         <div className="container">
-          <div className="team-collab-heading">
-            <p className="team-eyebrow team-eyebrow-light">
+          <div className={styles.collabHeading}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
               02 / EXPERIENCIAS QUE SUMAN
             </p>
-            <h2 id="team-collaborations-title" className="team-section-title">
+            <h2 id="team-collaborations-title" className={styles.sectionTitle}>
               EL TALENTO <em>SE COMPARTE.</em>
             </h2>
             <p>
@@ -166,15 +170,15 @@ export default function EquipoPage() {
             </p>
           </div>
 
-          <article className="team-collab-card">
-            <div className="team-collab-mark" aria-hidden="true">
-              <span className="team-collab-mark-rim" />
+          <article className={styles.collabCard}>
+            <div className={styles.collabMark} aria-hidden="true">
+              <span className={styles.collabMarkRim} />
               <span>JH</span>
               <small>3×3 / 5×5</small>
             </div>
 
-            <div className="team-collab-content">
-              <p className="team-collab-label">COLABORADOR EN ACTIVIDADES ATA</p>
+            <div className={styles.collabContent}>
+              <p className={styles.collabLabel}>COLABORADOR EN ACTIVIDADES ATA</p>
               <h3>Javi Huertas</h3>
               <p>
                 Ha colaborado en actividades y entrenamientos de Triple Amenaza.
@@ -182,7 +186,7 @@ export default function EquipoPage() {
                 enfoque centrado en la técnica, la táctica individual y la toma
                 de decisiones.
               </p>
-              <div className="team-collab-tags" role="group" aria-label="Ámbitos de experiencia">
+              <div className={styles.collabTags} role="group" aria-label="Ámbitos de experiencia">
                 <span>Baloncesto 5x5</span>
                 <span>Baloncesto 3x3</span>
                 <span>Toma de decisiones</span>
@@ -193,10 +197,10 @@ export default function EquipoPage() {
       </section>
 
       {/* Una única acción final, dirigida al contacto existente. */}
-      <section className="team-closing" aria-labelledby="team-closing-title">
-        <div className="container team-closing-inner">
-          <div className="team-closing-copy">
-            <p className="team-eyebrow">TU SIGUIENTE PASO</p>
+      <section className={styles.closing} aria-labelledby="team-closing-title">
+        <div className={`container ${styles.closingInner}`}>
+          <div className={styles.closingCopy}>
+            <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
             <h2 id="team-closing-title">
               ¿HABLAMOS DE <em>TU PRÓXIMO RETO?</em>
             </h2>
@@ -205,11 +209,11 @@ export default function EquipoPage() {
               entrenamiento de la academia.
             </p>
           </div>
-          <Link href="/contacto/" className="team-closing-link">
+          <Link href="/contacto/" className={styles.closingLink}>
             Contactar con ATA
             <ArrowRight size={20} aria-hidden="true" />
           </Link>
-          <Target className="team-closing-decoration" size={330} strokeWidth={.5} aria-hidden="true" />
+          <Target className={styles.closingDecoration} size={330} strokeWidth={.5} aria-hidden="true" />
         </div>
       </section>
     </>
