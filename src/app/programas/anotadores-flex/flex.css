@@ -282,7 +282,6 @@
 .flex-page-closing-action > p { margin: 0 0 24px; color: #243126; font-size: 17px; line-height: 1.8; }
 .flex-page-closing-link { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 59px; padding: 17px 23px; background: var(--ink); color: var(--paper); border-radius: 3px; font-size: 13px; font-weight: 850; transition: background-color .2s ease, transform .2s ease; }
 .flex-page-closing-link svg { transition: transform .2s ease; }
-.flex-page-closing-action small { display: block; max-width: 360px; margin: 16px 0 0; color: #43593c; font-size: 11px; line-height: 1.6; }
 @media (min-width: 1251px) {
   .flex-page-closing h2 { white-space: nowrap; }
 }

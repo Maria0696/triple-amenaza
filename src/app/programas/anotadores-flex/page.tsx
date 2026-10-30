@@ -115,7 +115,7 @@ export default function AnotadoresFlexPage() {
             </p>
           </div>
 
-          <div className="flex-page-hero-board" aria-label="Tres claves de Anotadores Flex">
+          <div className="flex-page-hero-board" role="group" aria-label="Tres claves de Anotadores Flex">
             <div className="flex-page-hero-board-head">
               <span>ATA / MODALIDAD FLEX</span>
               <span>02 / 03</span>
@@ -283,7 +283,6 @@ export default function AnotadoresFlexPage() {
             <Link href="/contacto/" className="flex-page-closing-link">
               Ir a contacto <ArrowRight size={19} aria-hidden="true" />
             </Link>
-            <small>El canal de consultas de esta web todavía está en preparación.</small>
           </div>
         </div>
       </section>

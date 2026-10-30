@@ -186,9 +186,10 @@ function ValuationLink({ className, children }: { className: string; children: R
       className={className}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Solicitar información sobre la valoración inicial de Anotadores Élite por WhatsApp (se abre en una pestaña nueva)"
     >
       {children}
+      {/* El texto visible forma parte del nombre accesible (WCAG 2.5.3). */}
+      <span className="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
     </a>
   );
 }
@@ -213,7 +214,7 @@ export default function AnotadoresElitePage() {
               generar ventajas y tomar mejores decisiones frente a defensores,
               con el objetivo de llevar ese aprendizaje al partido.
             </p>
-            <div className="elite-commercial-facts" aria-label="Formato previsto del programa">
+            <div className="elite-commercial-facts" role="group" aria-label="Formato previsto del programa">
               <span><strong>{offer.durationWeeks}</strong> SEMANAS</span>
               <span><strong>{offer.totalSessions}</strong> SESIONES</span>
               <span><strong>{offer.sessionMinutes}′</strong> POR SESIÓN</span>
