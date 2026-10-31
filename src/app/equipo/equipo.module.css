@@ -15,7 +15,7 @@
   text-transform: uppercase;
 }
 
-.eyebrowLight { color: #edc3ab; }
+.eyebrowLight { color: var(--peach); }
 .eyebrowDash { width: 27px; height: 2px; background: var(--orange); flex: 0 0 27px; }
 
 .sectionTitle {
@@ -25,7 +25,7 @@
   font-size: clamp(41px, 5.1vw, 77px);
   line-height: 1.02;
   font-weight: 950;
-  letter-spacing: -.078em;
+  letter-spacing: -.04em;
   text-transform: uppercase;
   overflow-wrap: break-word;
 }
@@ -33,7 +33,7 @@
 .sectionTitle em {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
-  letter-spacing: -.06em;
+  letter-spacing: -.04em;
   text-transform: none;
 }
 
@@ -45,7 +45,7 @@
   color: var(--paper);
   background:
     radial-gradient(ellipse at 91% 38%, #5b76513b, transparent 62%),
-    linear-gradient(125deg, #1c211e, #29382d);
+    linear-gradient(125deg, var(--ink), #29382d);
 }
 
 .hero::before {
@@ -78,7 +78,7 @@
 }
 
 .heroRingOuter { inset: 0; }
-.heroRingInner { inset: 26%; border-color: #c8d88e70; }
+.heroRingInner { inset: 26%; border-color: var(--sage-line-strong); }
 .heroLine {
   position: absolute;
   display: block;
@@ -110,7 +110,7 @@
   margin: 0;
   font-size: clamp(56px, 7.4vw, 112px);
   font-weight: 950;
-  letter-spacing: -.09em;
+  letter-spacing: -.04em;
   line-height: .95;
   text-transform: uppercase;
 }
@@ -122,7 +122,7 @@
   color: var(--sage);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
-  letter-spacing: -.08em;
+  letter-spacing: -.04em;
 }
 
 .heroAside {
@@ -262,7 +262,7 @@
   font-size: clamp(230px, 28vw, 390px);
   line-height: .9;
   font-weight: 950;
-  letter-spacing: -.11em;
+  letter-spacing: -.04em;
   user-select: none;
   transition: transform .55s cubic-bezier(.2,.75,.25,1);
 }
@@ -270,7 +270,7 @@
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
   font-style: italic;
-  letter-spacing: -.08em;
+  letter-spacing: -.04em;
 }
 .featureArtSpark {
   font-size: 32px;
@@ -309,11 +309,14 @@
   padding: 32px 0 30px;
 }
 .featureMain h3 {
+  /* Hueco para el descendente de la J de Noto Sans sobre la etiqueta de rol
+     (padding y no margin: el margin colapsaría con el de .featureRole). */
   margin: 0 0 6px;
+  padding-bottom: .12em;
   color: var(--ink);
   font-size: clamp(95px, 11vw, 163px);
   font-weight: 950;
-  letter-spacing: -.105em;
+  letter-spacing: -.04em;
   line-height: .88;
   text-transform: uppercase;
 }
@@ -331,7 +334,7 @@
   color: #1e3024;
   font-size: clamp(24px, 2.4vw, 34px);
   line-height: 1.16;
-  letter-spacing: -.045em;
+  letter-spacing: -.04em;
   font-weight: 850;
 }
 .featureDescription {
@@ -345,7 +348,7 @@
   gap: 14px;
   padding-top: 22px;
   border-top: 1px solid #24382d36;
-  font-size: 10px;
+  font-size: 11px;
 }
 .featureFooterRule {
   width: 28px;
@@ -396,7 +399,7 @@
   min-width: 0;
   padding: clamp(25px, 4vw, 50px);
   align-items: center;
-  border: 1px solid #c8d88e48;
+  border: 1px solid var(--sage-line);
   background: #2f4135;
 }
 
@@ -424,7 +427,7 @@
   z-index: 1;
   font-size: clamp(105px, 13vw, 185px);
   font-weight: 950;
-  letter-spacing: -.1em;
+  letter-spacing: -.04em;
 }
 
 .collabMark small {
@@ -450,7 +453,7 @@
   font-size: clamp(43px, 5.5vw, 76px);
   font-weight: 950;
   line-height: 1;
-  letter-spacing: -.07em;
+  letter-spacing: -.04em;
 }
 
 .collabContent > p:not(.collabLabel) {
@@ -472,6 +475,7 @@
 
 /* Llamada final -------------------------------------------- */
 .closing { position: relative; overflow: hidden; background: var(--sage); }
+.closing .eyebrow { color: var(--orange-on-sage); }
 .closingInner {
   position: relative;
   display: grid;
@@ -486,7 +490,7 @@
   margin: 0;
   font-size: clamp(48px, 6.1vw, 89px);
   line-height: .98;
-  letter-spacing: -.08em;
+  letter-spacing: -.04em;
   font-weight: 950;
   overflow-wrap: break-word;
 }
@@ -514,7 +518,7 @@
   font-weight: 850;
   transition: transform .25s ease, background-color .25s ease;
 }
-.closingLink:focus-visible { outline-color: #164660; box-shadow: 0 0 0 6px #fff; }
+.closingLink:focus-visible { outline-color: var(--focus-color); box-shadow: 0 0 0 6px #fff; }
 .closingLink svg { transition: transform .25s ease; }
 .closingDecoration {
   position: absolute;
@@ -534,7 +538,7 @@
   .feature:hover .featureInitial { transform: translateY(-8px) scale(1.055); }
   .feature:hover .featureOrbitOne { transform: rotate(22deg) scale(1.08); }
   .feature:hover .featureTopline svg { transform: translate(4px, -4px); }
-  .closingLink:hover { background: #35453a; transform: translateY(-3px); }
+  .closingLink:hover { background: var(--ink-hover); transform: translateY(-3px); }
   .closingLink:hover svg { transform: translateX(4px); }
 }
 
@@ -609,8 +613,8 @@
   .featureContent { padding: 22px; }
   .featureMain h3 { font-size: clamp(76px, 20vw, 98px); }
   .featureArtTop,
-  .featureArtBottom { font-size: 10px; }
-  .featureFooter { font-size: 9px; }
+  .featureArtBottom { font-size: 11px; }
+  .featureFooter { font-size: 11px; }
 }
 
 /* Movimiento reducido ------------------------------------ */

@@ -22,14 +22,14 @@
   margin: 0;
   font-size: clamp(41px, 5.2vw, 77px);
   line-height: 1.025;
-  letter-spacing: -.077em;
+  letter-spacing: -.04em;
   font-weight: 950;
   text-transform: uppercase;
 }
 .programs-page-section-title em {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
-  letter-spacing: -.063em;
+  letter-spacing: -.04em;
   text-transform: none;
 }
 
@@ -48,7 +48,7 @@
   max-width: 780px;
   font-size: clamp(70px, 7.25vw, 114px);
   line-height: .93;
-  letter-spacing: -.09em;
+  letter-spacing: -.04em;
   font-weight: 950;
   text-transform: uppercase;
 }
@@ -73,7 +73,7 @@
   gap: 12px;
   padding: 21px 24px;
   color: var(--sage);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 850;
   letter-spacing: .12em;
 }
@@ -109,13 +109,13 @@
 .programs-page-hero-aside-row > span:first-child { color: var(--orange); font-weight: 850; font-size: 12px; }
 .programs-page-hero-aside-row strong {
   font-size: clamp(22px, 2.05vw, 30px);
-  letter-spacing: -.045em;
+  letter-spacing: -.04em;
   font-weight: 600;
   transition: color .25s ease, transform .25s ease;
 }
 .programs-page-hero-aside-row > span:last-child {
   color: #b9c6b9;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: .09em;
   transition: color .25s ease;
@@ -210,7 +210,7 @@
   display: inline-block;
   padding: 9px 12px;
   border: 1px solid currentColor;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 850;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -221,7 +221,7 @@
   margin: 23px 0 17px;
   font-size: clamp(38px, 3.8vw, 62px);
   line-height: 1.02;
-  letter-spacing: -.072em;
+  letter-spacing: -.04em;
   font-weight: 950;
 }
 .programs-page-duo-content p {
@@ -256,7 +256,7 @@
 .programs-page-duo-target span {
   position: absolute;
   display: block;
-  border: 2px solid #c8d88e;
+  border: 2px solid var(--sage);
   border-radius: 50%;
   inset: 0;
 }
@@ -352,7 +352,7 @@
 @media (hover: hover) and (pointer: fine) {
   /* El resumen del hero es informativo: no debe aparentar ser un enlace. */
   .programs-page-hero-copy:hover .programs-page-eyebrow-rule { transform: scaleX(1.45); }
-  .programs-page-hero-aside:hover { border-color: #c8d88e70; box-shadow: 0 16px 32px #09110b35; }
+  .programs-page-hero-aside:hover { border-color: var(--sage-line-strong); box-shadow: 0 16px 32px #09110b35; }
   .programs-page-hero-aside-row:hover { background: #ffffff0b; }
   .programs-page-hero-aside-row:hover::before { transform: scaleY(1); }
   .programs-page-hero-aside-row:hover strong { color: var(--sage); transform: translateX(6px); }
@@ -387,7 +387,7 @@
 }
 
 @media (max-width: 550px) {
-  .programs-page-eyebrow { font-size: 10px; letter-spacing: .12em; margin-bottom: 18px; }
+  .programs-page-eyebrow { font-size: 11px; letter-spacing: .12em; margin-bottom: 18px; }
   .programs-page-section-title { font-size: clamp(38px, 10vw, 56px); }
   .programs-page-hero-grid { padding-block: 44px 53px; gap: 27px; }
   .programs-page-hero-title { font-size: clamp(48px, 11.5vw, 67px); }
@@ -396,7 +396,7 @@
   .programs-page-hero-aside-bottom { padding: 16px; }
   .programs-page-hero-aside-row { min-height: 66px; padding: 13px 16px; gap: 10px; grid-template-columns: 24px minmax(0, 1fr) auto; }
   .programs-page-hero-aside-row strong { font-size: 22px; }
-  .programs-page-hero-aside-row > span:last-child { font-size: 9px; }
+  .programs-page-hero-aside-row > span:last-child { font-size: 11px; }
   .programs-page-offer,
   .programs-page-choice { padding-block: 65px; }
 
@@ -440,6 +440,7 @@
   color: var(--ink);
   padding-block: clamp(76px, 8vw, 118px);
 }
+.programs-page-workshops .programs-page-eyebrow { color: var(--orange-on-sage); }
 .programs-page-workshops-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
@@ -453,14 +454,14 @@
   font-size: clamp(58px, 6.8vw, 103px);
   line-height: .95;
   font-weight: 950;
-  letter-spacing: -.085em;
+  letter-spacing: -.04em;
 }
 .programs-page-workshops h2 em {
   display: block;
   color: #4f6849;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
-  letter-spacing: -.065em;
+  letter-spacing: -.04em;
 }
 .programs-page-workshops-content {
   min-width: 0;
@@ -505,7 +506,7 @@
 }
 .programs-page-workshops-link svg { transition: transform .2s ease; }
 @media (hover: hover) and (pointer: fine) {
-  .programs-page-workshops-link:hover { background: #34443a; transform: translateY(-2px); }
+  .programs-page-workshops-link:hover { background: var(--ink-hover); transform: translateY(-2px); }
   .programs-page-workshops-link:hover svg { transform: translate(3px, -2px); }
 }
 @media (max-width: 820px) {
@@ -517,7 +518,7 @@
   .programs-page-workshops { padding-block: 65px; }
   .programs-page-workshops-grid { gap: 29px; }
   .programs-page-workshops h2 { font-size: clamp(45px, 11vw, 67px); }
-  .programs-page-workshops-label { font-size: 10px; margin-bottom: 23px; }
+  .programs-page-workshops-label { font-size: 11px; margin-bottom: 23px; }
   .programs-page-workshops-lead { font-size: 19px; }
   .programs-page-workshops-detail { font-size: 14px; }
 }

@@ -104,6 +104,19 @@ textarea {
 
   --sage: #c8d88e;
   --muted: #676d66;
+  --ink-soft: #525e53;   /* texto secundario sobre fondos claros */
+  --ink-hover: #34443a;  /* hover de botones con fondo --ink */
+  --peach: #edc3ab;      /* etiquetas sobre fondos oscuros */
+
+  /* Líneas sobre fondos oscuros */
+  --sage-line: #c8d88e48;
+  --sage-line-strong: #c8d88e70;
+  --rule-on-dark: #ffffff37;
+
+  /* Variantes con contraste AA (≥4.5:1) sobre su fondo */
+  --green-label: #4b6a48;    /* etiquetas sobre tarjetas claras tintadas */
+  --orange-on-dark: #ec855c; /* naranja sobre superficies verde oscuro */
+  --orange-on-sage: #963d1d; /* naranja sobre --sage */
 
   /* Accesibilidad */
   --focus-color: #164660;
@@ -115,8 +128,17 @@ body {
   color: var(--ink);
   background: var(--cream);
 
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Segoe UI", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Saltos de línea: titulares equilibrados y párrafos sin palabras sueltas al final. */
+:is(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 a {
@@ -402,7 +424,7 @@ button, a {
 .section-title {
   font-size: clamp(36px, 4.2vw, 59px);
   font-weight: 900;
-  letter-spacing: -.07em;
+  letter-spacing: -.04em;
   line-height: 1.08;
   margin: 0;
 }
@@ -410,7 +432,7 @@ button, a {
 .section-title em {
   font-weight: 500;
   font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -.06em;
+  letter-spacing: -.04em;
 }
 
 /* =========================================
@@ -448,7 +470,7 @@ button, a {
   font-size: clamp(55px, 9vw, 115px);
   line-height: .95;
   font-weight: 950;
-  letter-spacing: -.09em;
+  letter-spacing: -.04em;
 
   overflow-wrap: break-word;
 }
@@ -492,13 +514,21 @@ button, a {
   font-size: clamp(36px, 6vw, 65px);
   margin: 0 0 20px;
   line-height: 1.1;
-  letter-spacing: -.07em;
+  letter-spacing: -.04em;
 }
 
-.simple-note > p:last-child {
+.simple-note > p:not(.eyebrow) {
   font-size: 17px;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.simple-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 32px;
 }
 
 .notice {
@@ -541,7 +571,7 @@ button, a {
   line-height: 1;
 
   font-weight: 900;
-  letter-spacing: -.07em;
+  letter-spacing: -.04em;
 
   margin: 0;
 }
@@ -645,7 +675,7 @@ button, a {
 .hub-placeholder-card h1 {
   font-size: clamp(55px, 10vw, 92px);
   font-weight: 950;
-  letter-spacing: -.09em;
+  letter-spacing: -.04em;
   line-height: 1;
   margin: 0;
 }
@@ -656,6 +686,10 @@ button, a {
 
   color: #f7f4e9b9;
   margin: 24px 0 35px;
+}
+
+.hub-placeholder-card .eyebrow {
+  color: var(--orange-on-dark);
 }
 
 /* =========================================
@@ -916,6 +950,13 @@ button, a {
 
 .site-header .desktop-nav .nav-link.active::after {
   transform: scaleX(1);
+}
+
+/* Amplía la zona táctil a 44px de alto sin mover el texto ni el subrayado. */
+.site-header .desktop-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  inset: -12px -6px;
 }
 
 /* =========================================

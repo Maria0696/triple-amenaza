@@ -124,7 +124,8 @@ export default function MetodoPage() {
                   aria-labelledby={`method-page-stage-title-${step.number}`}
                 >
                   <div className="method-page-stage-index">
-                    <span className="method-page-stage-big-number">{step.number}</span>
+                    {/* Decorativo: el número ya se anuncia en "ETAPA 0X / 04". */}
+                    <span className="method-page-stage-big-number" aria-hidden="true">{step.number}</span>
                     <div className="method-page-progress" aria-hidden="true">
                       {methodSteps.map((part, partIndex) => (
                         <span
