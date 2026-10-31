@@ -24,7 +24,7 @@ export function Logo({
       }}
     >
       <Image
-        src="/imagenes/icon.png"
+        src="/imagenes/logo-ata.webp"
         alt="Escudo de Academia Triple Amenaza"
         width={size}
         height={size}

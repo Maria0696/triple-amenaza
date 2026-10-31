@@ -169,8 +169,8 @@ export default function AcademiaPage() {
               <Image
                 src="/imagenes/sesion-ata.webp"
                 alt="Un entrenador de Triple Amenaza junto a un jugador con balón durante una sesión en pista"
-                width={1365}
-                height={2048}
+                width={1400}
+                height={2100}
                 sizes="(max-width: 860px) 100vw, 40vw"
                 className="academy-photo"
               />

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/web/page-intro";
 
-export const metadata: Metadata = { title: "Workshops y masterclasses" };
+export const metadata: Metadata = {
+  title: "Workshops y masterclasses",
+  description:
+    "Workshops y masterclasses de Academia Triple Amenaza sobre aspectos específicos del baloncesto y del desarrollo deportivo.",
+};
 
 export default function WorkshopsPage() {
   return (
