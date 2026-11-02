@@ -70,7 +70,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 | **Anotadores Flex** (`/programas/anotadores-flex`) | Funcionamiento flexible, condiciones y consulta/inscripción. | Alta |
 | **Workshops** (`/programas/workshops`) | Página informativa de talleres y masterclasses (sin calendario confirmado). | Media |
 | **Equipo** (`/equipo`) | Presentación de entrenadores, perfiles y experiencia, previa validación de datos y fotografías. | Media |
-| **Contacto** (`/contacto`) | Consultas por WhatsApp y correo electrónico; verificar el número antes del lanzamiento. | Alta |
+| **Contacto** (`/contacto`) | Consultas por WhatsApp y correo electrónico. | Alta |
 | **Preguntas frecuentes** (sin ruta propia) | Respuestas integradas en las páginas de los programas; evaluar si una página independiente aporta valor. | Posterior / opcional |
 | **Información legal** (`/legal/...`) | Privacidad, aviso legal y cookies según los servicios realmente utilizados. | Obligatoria antes del lanzamiento público |
 | **Noticias y recursos** (`/recursos`) | Artículos, novedades y contenido de valor. | Posterior / opcional |
@@ -175,7 +175,9 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 - [x] Páginas de Equipo y Contacto completas; contacto por WhatsApp y correo electrónico.
 - [x] Logo e imágenes iniciales incorporados; primeras preguntas frecuentes presentes en programas.
 - [x] Auditoría técnica en local: contraste AA, tipografía, imágenes optimizadas, 404 en español, Open Graph por página y sin desbordamientos de 320 a 1440 px.
-- [ ] Verificar el número de WhatsApp y el correo de contacto.
+- [x] Número de WhatsApp confirmado.
+- [ ] Confirmar el correo de contacto.
+- [ ] Mostrar el acceso a ATA Hub en la cabecera (`hubEnabled` en `src/lib/site.ts`) cuando el Hub tenga acceso real.
 - [ ] Revisar en dispositivos reales (iPhone y Android) y con conexión móvil.
 - [ ] Completar textos y mecanismos legales requeridos antes de publicar (aviso legal, privacidad) y los consentimientos de imagen de menores.
 - [ ] Al publicar: definir `NEXT_PUBLIC_SITE_URL`, quitar `noindex` y añadir `sitemap.xml` y `robots.txt`.

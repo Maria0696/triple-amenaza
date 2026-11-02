@@ -307,6 +307,23 @@ button, a {
   gap: 12px;
 }
 
+/* En escritorio, dos columnas laterales iguales mantienen el menú centrado en la
+   página, con o sin el acceso a ATA Hub (hubEnabled). */
+@media (min-width: 861px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .brand {
+    justify-self: start;
+  }
+
+  .header-actions {
+    justify-self: end;
+  }
+}
+
 .hub-link {
   display: inline-flex;
   justify-content: center;

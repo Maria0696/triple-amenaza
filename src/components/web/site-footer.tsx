@@ -25,7 +25,7 @@ export function SiteFooter() {
       </div>
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} Academia Triple Amenaza</span>
-        <span>Sitio en desarrollo · Información comercial pendiente de confirmar</span>
+        <span>Sitio en desarrollo</span>
       </div>
     </footer>
   );
