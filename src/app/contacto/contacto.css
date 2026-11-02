@@ -133,7 +133,7 @@
 }
 
 /* El título y la descripción utilizan el mismo ancho que las dos tarjetas. */
-@media (min-width: 1100px) {
+@media (min-width: 1061px) {
   .contact-section-heading h2,
   .contact-section-heading > p {
     white-space: nowrap;
@@ -361,7 +361,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 860px) {
   .contact-hero-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -384,7 +384,7 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 600px) {
   .contact-hero-container {
     padding-top: 28px;
     padding-bottom: 52px;
@@ -459,7 +459,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .contact-hero-title {
     font-size: 41px;
   }
@@ -821,7 +821,7 @@
 }
 
 /* Responsive: reducir ornamentos para que no compitan con el contenido. */
-@media (max-width: 1000px) {
+@media (max-width: 860px) {
   .contact-hero-art {
     right: -41%;
     top: -16%;
@@ -830,7 +830,7 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 600px) {
   .contact-hero-art {
     width: 580px;
     right: -300px;
@@ -854,7 +854,7 @@
 }
 
 /* Evitar que los efectos resten legibilidad en zoom o pantallas estrechas. */
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .contact-hero-art {
     opacity: .12;
   }

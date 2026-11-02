@@ -385,7 +385,7 @@
 }
 
 /* En escritorio, título y descripción completos en una sola línea. */
-@media (min-width: 1051px) {
+@media (min-width: 1061px) {
   .collabHeading .sectionTitle,
   .collabHeading > p:last-child {
     white-space: nowrap;
@@ -543,7 +543,7 @@
 }
 
 /* Responsive ------------------------------------------------ */
-@media (max-width: 1050px) {
+@media (max-width: 1060px) {
   .heroGrid { grid-template-columns: minmax(0, 1fr) minmax(230px, .65fr); gap: 35px; }
   .heroTitle { font-size: clamp(55px, 7.8vw, 93px); }
   .feature { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
@@ -553,7 +553,7 @@
   .closingLink { justify-self: start; }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 860px) {
   .heroGrid { grid-template-columns: minmax(0, 1fr); }
   .heroGrid { gap: 42px; }
   .heroAside { max-width: 590px; }
@@ -571,7 +571,7 @@
   .collabMark > span:nth-child(2) { font-size: 150px; }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 600px) {
   .heroInner { padding-block: 53px 55px; }
   .heroTitle { font-size: clamp(46px, 11.4vw, 74px); }
   .heroGrid { gap: 32px; }

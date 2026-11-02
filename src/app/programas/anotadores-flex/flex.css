@@ -132,7 +132,7 @@
   margin-bottom: 45px;
 }
 .flex-page-value .flex-page-heading em { display: block; }
-@media (min-width: 851px) {
+@media (min-width: 861px) {
   .flex-page-value .flex-page-heading em { white-space: nowrap; }
 }
 .flex-page-section-head > p {
@@ -305,7 +305,7 @@
   .flex-page-closing-link:hover svg { transform: translateX(4px); }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1060px) {
   .flex-page-hero-grid { gap: 42px; }
   .flex-page-hero-title { font-size: clamp(55px, 7.2vw, 84px); }
   .flex-page-hero-board-core strong { font-size: clamp(95px, 14vw, 150px); }
@@ -313,7 +313,7 @@
   .flex-page-strength { min-height: 365px; gap: 75px; }
   .flex-page-value .flex-page-section-head { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   .flex-page-hero-grid,
   .flex-page-section-head,
   .flex-page-steps-grid,
@@ -361,7 +361,7 @@
   .flex-page-closing h2 { font-size: clamp(46px, 11.7vw, 66px); }
   .flex-page-closing-action > p { font-size: 15px; }
 }
-@media (max-width: 400px) {
+@media (max-width: 380px) {
   .flex-page-hero-title { font-size: clamp(49px, 12.2vw, 60px); }
   .flex-page-hero-board-core strong { font-size: 23vw; }
   .flex-page-board-bottom { font-size: 11px; letter-spacing: .04em; }
@@ -403,7 +403,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .flex-page-hero .flex-page-hero-title {
     max-width: 100%;
     font-size: clamp(39px, 11.5vw, 46px);

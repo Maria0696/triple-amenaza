@@ -73,7 +73,7 @@
 .elite-foundations-heading > p { max-width: 570px; margin: 24px 0 0 auto; }
 .elite-foundations-heading > div, .elite-section-head > div { min-width: 0; }
 .elite-foundations-heading > p, .elite-section-head > p { flex: 0 0 285px; margin: 0 0 7px; color: #566158; font-size: 16px; line-height: 1.75; }
-@media (min-width: 1101px) {
+@media (min-width: 1061px) {
   .elite-foundations-heading .elite-heading {
     white-space: nowrap;
   }
@@ -494,7 +494,7 @@
   .elite-commercial-deliverable:hover { transform: translateY(-4px); background: #dbe7d3; }
   .elite-commercial-method-link:hover { transform: translateX(4px); }
 }
-@media (max-width: 1050px) {
+@media (max-width: 1060px) {
   .elite-commercial-pricing-layout { grid-template-columns: minmax(0, 1fr); }
   .elite-commercial-pricing-copy .elite-heading { max-width: 940px; }
   .elite-commercial-pricing-copy > p:not(.elite-eyebrow) { max-width: 760px; }
@@ -539,7 +539,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .elite-hero .elite-hero-title {
     max-width: 100%;
     font-size: clamp(39px, 11.5vw, 46px);
