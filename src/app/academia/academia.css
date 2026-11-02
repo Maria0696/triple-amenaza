@@ -205,7 +205,7 @@
   .academy-club-photo { max-height: 530px; aspect-ratio: 1.2; }
   .academy-club-photo .academy-photo { object-position: center 48%; }
 }
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .academy-eyebrow { font-size: 11px; letter-spacing: .11em; gap: 8px; margin-bottom: 17px; }
   .academy-hero-grid { padding-block: 43px 48px; gap: 30px; }
   .academy-hero-title { font-size: clamp(48px,12vw,66px); letter-spacing: -.04em; }
@@ -294,7 +294,7 @@
   .academy-outline-link:hover svg,
   .academy-next-link:hover svg { transform: translate(3px, -2px); }
 }
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .academy-principle-dash { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -309,7 +309,7 @@
 }
 
 /* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .academy-hero .academy-hero-lead,
   .academy-approach .academy-principle p {
     font-size: 16px;
@@ -322,7 +322,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .academy-hero .academy-hero-title {
     max-width: 100%;
     font-size: clamp(39px, 11.5vw, 46px);
