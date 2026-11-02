@@ -5,7 +5,13 @@ export const navigation = [
   { label: "Contacto", href: "/contacto/" },
 ] as const;
 
-/** Canales de contacto públicos. Comprobar el número antes del lanzamiento. */
+/**
+ * Muestra el acceso a ATA Hub en la cabecera (escritorio y menú móvil).
+ * Desactivado hasta que el Hub tenga acceso real; la ruta /hub/ sigue existiendo.
+ */
+export const hubEnabled = false;
+
+/** Canales de contacto públicos. */
 export const contact = {
   whatsappNumber: "34618599976",
   phoneDisplay: "618 599 976",

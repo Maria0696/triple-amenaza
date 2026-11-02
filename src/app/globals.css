@@ -307,6 +307,13 @@ button, a {
   gap: 12px;
 }
 
+/* En escritorio, sin acceso al Hub (hubEnabled), el menú se alinea a la derecha. */
+@media (min-width: 861px) {
+  .header-actions:not(:has(.hub-link)) {
+    display: none;
+  }
+}
+
 .hub-link {
   display: inline-flex;
   justify-content: center;

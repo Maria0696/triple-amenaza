@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
-import { isNavigationActive, navigation, normalizePath } from "@/lib/site";
+import { hubEnabled, isNavigationActive, navigation, normalizePath } from "@/lib/site";
 import { Logo } from "@/components/ui/logo";
 
 export function SiteHeader() {
@@ -95,9 +95,11 @@ export function SiteHeader() {
           </nav>
 
           <div className="header-actions">
-            <Link href="/hub/" className="hub-link" onClick={closeMenu}>
-              ATA Hub
-            </Link>
+            {hubEnabled && (
+              <Link href="/hub/" className="hub-link" onClick={closeMenu}>
+                ATA Hub
+              </Link>
+            )}
 
             <button
               ref={menuButtonRef}
@@ -134,10 +136,12 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          <Link className="mobile-hub" href="/hub/" onClick={closeMenu}>
-            Acceder a ATA Hub
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </Link>
+          {hubEnabled && (
+            <Link className="mobile-hub" href="/hub/" onClick={closeMenu}>
+              Acceder a ATA Hub
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </Link>
+          )}
         </nav>
       </header>
     </>
