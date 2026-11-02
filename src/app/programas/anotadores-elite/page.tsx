@@ -202,7 +202,7 @@ export default function AnotadoresElitePage() {
           <div className={styles.heroCopy}>
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
               <span className={styles.eyebrowRule} aria-hidden="true" />
-              PROGRAMA 01 / ANOTADORES ÉLITE
+              ANOTADORES ÉLITE
             </p>
             <h1 id="elite-title" className={styles.heroTitle}>
               ANOTAR NO ES SOLO TIRAR.
@@ -252,9 +252,8 @@ export default function AnotadoresElitePage() {
         <div className="container">
           <div className={styles.commercialIncludesHead}>
             <div>
-              <p className={styles.eyebrow}>01 / TODO LO QUE INCLUYE</p>
               <h2 id="elite-includes-title" className={styles.heading}>
-                {offer.durationWeeks} SEMANAS. <em>UN OBJETIVO CLARO.</em>
+                {offer.durationWeeks} SEMANAS. <em className={styles.plainEm}>UN OBJETIVO CLARO.</em>
               </h2>
             </div>
             <p>
@@ -267,7 +266,6 @@ export default function AnotadoresElitePage() {
             {deliverables.map((item) => (
               <article key={item.number} className={styles.commercialDeliverable}>
                 <div className={styles.commercialDeliverableTop}>
-                  <span>{item.number} / 06</span>
                   <Check size={21} strokeWidth={1.8} aria-hidden="true" />
                 </div>
                 <div>
@@ -289,7 +287,6 @@ export default function AnotadoresElitePage() {
       <section className={styles.commercialPricing} id="elite-condiciones" aria-labelledby="elite-pricing-title">
         <div className={`container ${styles.commercialPricingLayout}`}>
           <div className={styles.commercialPricingCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / CONDICIONES DEL PROGRAMA</p>
             <h2 id="elite-pricing-title" className={styles.heading}>
               UNA APUESTA POR <em>TU PROGRESO.</em>
             </h2>
@@ -304,13 +301,13 @@ export default function AnotadoresElitePage() {
           </div>
           <div className={styles.commercialPriceCards}>
             <article className={`${styles.commercialPriceCard} ${styles.commercialPriceCardFeatured}`}>
-              <span className={styles.commercialPriceLabel}>01 / PAGO ÚNICO</span>
+              <span className={styles.commercialPriceLabel}>PAGO ÚNICO</span>
               <h3>Una sola cuota.</h3>
               <p className={styles.commercialPriceAmount}>{offer.singlePayment} €</p>
               <p>Pago completo del programa en una única operación.</p>
             </article>
             <article className={styles.commercialPriceCard}>
-              <span className={styles.commercialPriceLabel}>02 / PAGO FRACCIONADO</span>
+              <span className={styles.commercialPriceLabel}>PAGO FRACCIONADO</span>
               <h3>En tres pagos.</h3>
               <p className={styles.commercialPriceAmount}>{offer.installmentTotal} €</p>
               <p>Consulta con ATA los plazos y condiciones de este formato de pago.</p>
@@ -328,7 +325,6 @@ export default function AnotadoresElitePage() {
         <div className="container">
           <div className={styles.foundationsHeading}>
             <div>
-              <p className={styles.eyebrow}>03 / POR QUÉ ANOTADORES ÉLITE</p>
               <h2 id="elite-foundations-title" className={styles.heading}>
                 NO PARTIMOS DEL EJERCICIO.
                 <em> PARTIMOS DEL JUGADOR.</em>
@@ -343,7 +339,6 @@ export default function AnotadoresElitePage() {
             {foundations.map((item) => (
               <article className={styles.foundation} key={item.number}>
                 <div className={styles.foundationTop}>
-                  <span>{item.number} / 03</span>
                   <span className={styles.foundationDash} aria-hidden="true" />
                 </div>
                 <h3>{item.title}</h3>
@@ -362,9 +357,8 @@ export default function AnotadoresElitePage() {
         <div className="container">
           <div className={`${styles.sectionHead} ${styles.areasHead}`}>
             <div>
-              <p className={styles.eyebrow}>04 / DESARROLLO ANOTADOR</p>
               <h2 id="elite-areas-title" className={styles.heading}>
-                MÁS RECURSOS. <em>MEJORES DECISIONES.</em>
+                MÁS RECURSOS. <em className={styles.plainEm}>MEJORES DECISIONES.</em>
               </h2>
             </div>
             <p>
@@ -378,7 +372,6 @@ export default function AnotadoresElitePage() {
               return (
                 <article className={styles.area} key={area.number}>
                   <div className={styles.areaTop}>
-                    <span>{area.number} / 07</span>
                     <Icon size={27} strokeWidth={1.6} aria-hidden="true" />
                   </div>
                   <div>
@@ -395,9 +388,8 @@ export default function AnotadoresElitePage() {
       {/* Mantener la comunicación prudente hasta que se confirme el pasaporte. */}
       <section className={styles.passport} aria-labelledby="elite-passport-title">
         <div className={`container ${styles.passportInner}`}>
-          <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>05 / SEGUIMIENTO CON SENTIDO</p>
           <h2 id="elite-passport-title" className={styles.heading}>
-            PROGRESAR TAMBIÉN ES <em>SABER HACIA DÓNDE.</em>
+            PROGRESAR TAMBIÉN ES <em className={styles.plainEm}>SABER HACIA DÓNDE.</em>
           </h2>
           <div className={styles.passportLower}>
             <p className={styles.passportDescription}>
@@ -421,15 +413,13 @@ export default function AnotadoresElitePage() {
       <section className={styles.faq} aria-labelledby="elite-faq-title">
         <div className={`container ${styles.faqGrid}`}>
           <div>
-            <p className={styles.eyebrow}>06 / RESOLVEMOS TUS DUDAS</p>
-            <h2 id="elite-faq-title" className={styles.heading}>ANTES DE <em>EMPEZAR.</em></h2>
+            <h2 id="elite-faq-title" className={styles.heading}>ANTES DE <em className={styles.plainEm}>EMPEZAR.</em></h2>
             <p className={styles.faqIntro}>Todo lo que conviene tener claro antes de dar el siguiente paso.</p>
           </div>
           <div className={styles.faqQuestions}>
-            {questions.map((question, index) => (
+            {questions.map((question) => (
               <details key={question.title} className={styles.faqItem}>
                 <summary>
-                  <span className={styles.faqNumber}>0{index + 1}</span>
                   <span>{question.title}</span>
                   <ChevronDown size={20} aria-hidden="true" />
                 </summary>
@@ -444,8 +434,7 @@ export default function AnotadoresElitePage() {
       <section className={styles.closing} aria-labelledby="elite-closing-title">
         <div className={`container ${styles.closingGrid}`}>
           <div>
-            <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
-            <h2 id="elite-closing-title">CADA JUGADOR. <em>SU PROPIO CAMINO.</em></h2>
+            <h2 id="elite-closing-title">EMPIEZA POR <em>LA VALORACIÓN.</em></h2>
             <p>
               Cuéntanos en qué quiere mejorar el jugador y te explicaremos cómo
               planteamos la valoración inicial y las opciones de incorporación.

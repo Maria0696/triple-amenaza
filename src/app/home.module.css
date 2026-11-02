@@ -135,17 +135,7 @@
   background: linear-gradient(125deg, #192c2440, transparent 54%);
   pointer-events: none;
 }
-.heroMediaTop {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 26px;
-  color: white;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .13em;
-}
+
 .heroPhotoCaption {
   position: absolute;
   bottom: 51px;
@@ -170,12 +160,12 @@
 .introGrid { display: grid; grid-template-columns: minmax(180px, .3fr) 1fr; gap: clamp(25px, 4vw, 55px); align-items: start; }
 .introTitle {
   margin: 0;
-  font-size: clamp(43px, 5vw, 74px);
+  font-size: clamp(34px, 4vw, 56px);
   font-weight: 900;
   letter-spacing: -.04em;
   line-height: 1.06;
 }
-.introTitle em { font-family: Georgia, serif; font-weight: 500; }
+.introTitle em { font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .introCopy { max-width: 640px; margin: 24px 0 18px; font-size: 17px; line-height: 1.72; color: var(--ink-soft); }
 
 .programs { padding: clamp(64px, 6vw, 96px) 0; background: var(--cream); }
@@ -183,7 +173,7 @@
 .sectionTitle {
   margin: 0;
   font-weight: 940;
-  font-size: clamp(39px, 4.7vw, 69px);
+  font-size: clamp(34px, 4vw, 56px);
   letter-spacing: -.04em;
   line-height: 1.06;
   text-transform: uppercase;
@@ -313,14 +303,14 @@
 .pillarList { border-top: 1px solid var(--line); }
 .pillar { display: grid; grid-template-columns: 36px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
 .pillar > svg { color: var(--orange-dark); margin-top: 7px; }
-.pillarNumber { display: block; margin-bottom: 6px; color: var(--orange-dark); font-size: 11px; letter-spacing: .14em; font-weight: 900; }
+
 .pillar h3 { margin: 0 0 7px; font-size: clamp(22px, 2vw, 27px); letter-spacing: -.04em; line-height: 1.2; }
 .pillar p { margin: 0; line-height: 1.7; font-size: 15px; color: var(--ink-soft); }
 
 .closing { background: var(--sage); padding: clamp(68px, 6vw, 105px) 0; }
 .closing .eyebrow { color: var(--orange-on-sage); }
 .closingInner h2 { max-width: 1050px; margin: 12px 0 25px; font-size: clamp(50px, 7vw, 101px); font-weight: 950; line-height: .97; letter-spacing: -.04em; text-transform: uppercase; }
-.closingInner h2 em { color: #4f6847; font-family: Georgia, serif; font-weight: 500; }
+.closingInner h2 em { color: #4f6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .closingInner > p:not(.eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
 .actionDark { color: #fff; background: var(--ink); }
 @media (hover: hover) and (pointer: fine) {
@@ -361,7 +351,7 @@
   .heroKeywords { margin-top: 27px; font-size: 11px; }
   .heroMedia { min-height: 350px; }
   .heroPhoto { --home-hero-image: url("/imagenes/sesion-ata-800.webp"); }
-  .heroMediaTop { padding: 18px; font-size: 8px; }
+
   .heroPhotoCaption { left: 18px; right: 18px; bottom: 53px; }
   .heroPhotoCaption strong { font-size: clamp(27px, 6.5vw, 36px); }
   .heroImageCredit { left: 18px; right: 18px; }
@@ -645,11 +635,6 @@
     font-size: 12px;
   }
 
-  .hero .heroMediaTop {
-    flex-wrap: wrap;
-    gap: 6px 12px;
-    font-size: 11px;
-  }
 }
 
 @media (max-width: 380px) {

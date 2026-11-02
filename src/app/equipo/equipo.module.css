@@ -2,27 +2,11 @@
    EQUIPO · ACADEMIA TRIPLE AMENAZA
    ========================================= */
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 23px;
-  color: var(--orange-dark);
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: 850;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.eyebrowLight { color: var(--peach); }
-.eyebrowDash { width: 27px; height: 2px; background: var(--orange); flex: 0 0 27px; }
-
 .sectionTitle {
   max-width: 100%;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(41px, 5.1vw, 77px);
+  font-size: clamp(34px, 4vw, 56px);
   line-height: 1.02;
   font-weight: 950;
   letter-spacing: -.04em;
@@ -31,7 +15,7 @@
 }
 
 .sectionTitle em {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
   text-transform: none;
@@ -120,7 +104,7 @@
 .heroTitle em {
   width: fit-content;
   color: var(--sage);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
@@ -131,7 +115,6 @@
   padding-top: 23px;
 }
 
-.asideIndex,
 .asideClaim {
   font-size: 12px;
   font-weight: 850;
@@ -267,7 +250,7 @@
   transition: transform .55s cubic-bezier(.2,.75,.25,1);
 }
 .featureEdu .featureInitial {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   font-style: italic;
   letter-spacing: -.04em;
@@ -286,7 +269,6 @@
   justify-content: space-between;
   padding: clamp(28px, 3.6vw, 53px);
 }
-.featureTopline,
 .featureFooter {
   display: flex;
   align-items: center;
@@ -297,14 +279,7 @@
   letter-spacing: .13em;
   color: #49614a;
 }
-.featureTopline {
-  padding-bottom: 21px;
-  border-bottom: 1px solid #24382d36;
-}
-.featureTopline svg {
-  flex: 0 0 auto;
-  transition: transform .3s ease;
-}
+
 .featureMain {
   padding: 32px 0 30px;
 }
@@ -355,9 +330,6 @@
   height: 2px;
   flex: 0 0 28px;
   background: var(--orange-dark);
-}
-.featureFooter span:last-child {
-  margin-left: auto;
 }
 
 /* Colaboraciones ------------------------------------------ */
@@ -475,7 +447,7 @@
 
 /* Llamada final -------------------------------------------- */
 .closing { position: relative; overflow: hidden; background: var(--sage); }
-.closing .eyebrow { color: var(--orange-on-sage); }
+
 .closingInner {
   position: relative;
   display: grid;
@@ -494,7 +466,7 @@
   font-weight: 950;
   overflow-wrap: break-word;
 }
-.closing h2 em { display: block; color: #496443; font-family: Georgia, serif; font-weight: 500; }
+.closing h2 em { display: block; color: #496443; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .closingCopy > p:last-child {
   max-width: 650px;
   margin: 24px 0 0;
@@ -537,7 +509,7 @@
   }
   .feature:hover .featureInitial { transform: translateY(-8px) scale(1.055); }
   .feature:hover .featureOrbitOne { transform: rotate(22deg) scale(1.08); }
-  .feature:hover .featureTopline svg { transform: translate(4px, -4px); }
+
   .closingLink:hover { background: var(--ink-hover); transform: translateY(-3px); }
   .closingLink:hover svg { transform: translateX(4px); }
 }
@@ -629,7 +601,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero .eyebrow { animation: team-rise .65s ease both; }
+
   .heroTitle { animation: team-rise .8s ease .1s both; }
   .heroAside { animation: team-rise .85s ease .25s both; }
 }
@@ -639,11 +611,19 @@
   .feature,
   .featureInitial,
   .featureOrbit,
-  .featureTopline svg,
   .closingLink,
   .closingLink svg { transition: none !important; }
   .feature:hover,
   .feature:hover .featureInitial,
   .feature:hover .featureOrbitOne,
   .closingLink:hover { transform: none !important; }
+}
+
+/* Acento sin cursiva: la serif en cursiva se reserva para pocos titulares por página. */
+.sectionTitle em.plainEm {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }

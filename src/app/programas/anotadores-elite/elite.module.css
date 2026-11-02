@@ -4,8 +4,8 @@
 .eyebrow { display: flex; align-items: center; gap: 11px; margin: 0 0 23px; color: var(--orange-dark); font-size: 11px; line-height: 1.5; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
 .eyebrowLight { color: #f3c5a6; }
 .eyebrowRule { display: block; flex: 0 0 27px; width: 27px; height: 2px; background: var(--orange); }
-.heading { max-width: 930px; margin: 0; font-size: clamp(41px, 5.1vw, 77px); font-weight: 950; line-height: 1.04; letter-spacing: -.04em; text-transform: uppercase; }
-.heading em, .closing h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -.04em; text-transform: none; }
+.heading { max-width: 930px; margin: 0; font-size: clamp(34px, 4vw, 56px); font-weight: 950; line-height: 1.04; letter-spacing: -.04em; text-transform: uppercase; }
+.heading em, .closing h2 em { font-family: var(--font-serif), Georgia, serif; font-weight: 500; letter-spacing: -.04em; text-transform: none; }
 .heading em { display: block; }
 
 /* Apertura */
@@ -119,7 +119,6 @@
 .passport .heading {
   max-width: 1120px;
   margin: 0;
-  font-size: clamp(48px, 6.3vw, 91px);
 }
 .passport .heading em {
   display: block;
@@ -172,9 +171,8 @@
 .faqIntro { color: #59665c; max-width: 360px; margin: 24px 0 0; line-height: 1.75; }
 .faqQuestions { border-top: 1px solid #d8dfd4; }
 .faqItem { border-bottom: 1px solid #d8dfd4; }
-.faqItem summary { display: grid; grid-template-columns: 35px minmax(0, 1fr) 21px; gap: 15px; align-items: center; padding: 25px 12px; cursor: pointer; list-style: none; font-size: clamp(19px, 1.8vw, 25px); font-weight: 750; line-height: 1.25; letter-spacing: -.03em; }
+.faqItem summary { display: grid; grid-template-columns: minmax(0, 1fr) 21px; gap: 15px; align-items: center; padding: 25px 12px; cursor: pointer; list-style: none; font-size: clamp(19px, 1.8vw, 25px); font-weight: 750; line-height: 1.25; letter-spacing: -.03em; }
 .faqItem summary::-webkit-details-marker { display: none; }
-.faqNumber { color: var(--orange-dark); font-size: 11px; font-weight: 850; letter-spacing: .08em; }
 .faqItem summary svg { color: var(--orange-dark); transition: transform .2s ease; }
 .faqItem[open] summary svg { transform: rotate(180deg); }
 .faqItem > p { max-width: 590px; margin: -7px 40px 27px 62px; color: #526156; font-size: 15px; line-height: 1.78; }
@@ -258,7 +256,7 @@
   .foundation h3 { font-size: 33px; }
   .area { min-height: 170px; gap: 32px; padding: 23px; }
   .area h3 { font-size: 29px; }
-  .faqItem summary { font-size: 19px; padding: 22px 8px; gap: 10px; grid-template-columns: 22px minmax(0, 1fr) 20px; }
+  .faqItem summary { font-size: 19px; padding: 22px 8px; gap: 10px; grid-template-columns: minmax(0, 1fr) 20px; }
   .faqItem > p { margin: -4px 30px 25px 40px; font-size: 14px; }
   .closing h2 { font-size: clamp(46px, 11.5vw, 71px); }
   .closingGrid > div > p:not(.eyebrow) { font-size: 15px; }
@@ -545,4 +543,13 @@
     font-size: clamp(39px, 11.5vw, 46px);
     overflow-wrap: break-word;
   }
+}
+
+/* Acento sin cursiva: la serif en cursiva se reserva para pocos titulares por página. */
+.heading em.plainEm {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: normal;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }

@@ -85,12 +85,7 @@ export default function HomePage() {
               role="img"
               aria-label="Entrenador de Academia Triple Amenaza trabajando con un jugador durante una sesión de baloncesto"
             />
-            <div className={styles.heroMediaTop} aria-hidden="true">
-              <span>ATA / DESARROLLO DEL JUGADOR</span>
-              <Crosshair size={24} />
-            </div>
             <div className={styles.heroPhotoCaption}>
-              <span>EL JUEGO NO SE DETIENE.</span>
               <strong>PREPÁRATE PARA EL SIGUIENTE MOVIMIENTO.</strong>
             </div>
             <span className={styles.heroImageCredit}>
@@ -104,7 +99,6 @@ export default function HomePage() {
       <section className={styles.intro} aria-labelledby="home-intro-title">
         <div className={`container ${styles.introGrid}`}>
           <div className={styles.introAside}>
-            <p className={styles.eyebrow}>01 / NUESTRA FORMA DE ENTRENAR</p>
             <div className={styles.introDiagram} aria-hidden="true">
               <span className={`${styles.introDiagramRing} ${styles.introDiagramRingLarge}`} />
               <span className={`${styles.introDiagramRing} ${styles.introDiagramRingSmall}`} />
@@ -135,10 +129,9 @@ export default function HomePage() {
         <div className="container">
           <div className={styles.sectionHead}>
             <div>
-              <p className={styles.eyebrow}>02 / ENCUENTRA TU ENTRENAMIENTO</p>
               <h2 id="home-programs-title" className={styles.sectionTitle}>
-                DIFERENTES CAMINOS.
-                <span> MISMO PROPÓSITO.</span>
+                ENCUENTRA
+                <span> TU FORMATO.</span>
               </h2>
             </div>
           </div>
@@ -154,13 +147,13 @@ export default function HomePage() {
                   className={featured ? `${styles.programCard} ${styles.programCardFeatured}` : styles.programCard}
                 >
                   <div className={styles.programCardTop}>
-                    <span>{program.number} / {program.label}</span>
+                    <span>{program.label}</span>
                     <ArrowUpRight size={23} aria-hidden="true" />
                   </div>
 
                   {featured && (
                     <div className={styles.programFeatureArt} aria-hidden="true">
-                      <span className={`${styles.programRing} home-program-ring-outer`} />
+                      <span className={styles.programRing} />
                       <span className={`${styles.programRing} ${styles.programRingMiddle}`} />
                       <span className={`${styles.programRing} ${styles.programRingCenter}`} />
                       <span className={`${styles.programCross} ${styles.programCrossHorizontal}`} />
@@ -199,7 +192,6 @@ export default function HomePage() {
         <div className="container">
           <div className={styles.methodHeading}>
             <div>
-              <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>03 / MÉTODO ATA</p>
               <h2 id="home-method-title" className={styles.sectionTitle}>
                 NO ES SOLO REPETIR.
                 <span> ES APRENDER A JUGAR.</span>
@@ -251,7 +243,6 @@ export default function HomePage() {
       <section className={styles.pillars} aria-labelledby="home-pillars-title">
         <div className={`container ${styles.pillarsLayout}`}>
           <div>
-            <p className={styles.eyebrow}>04 / UNA VISIÓN COMPLETA</p>
             <h2 id="home-pillars-title" className={styles.sectionTitle}>
               MÁS ALLÁ
               <span> DEL BOTE.</span>
@@ -264,15 +255,15 @@ export default function HomePage() {
           <div className={styles.pillarList}>
             <div className={styles.pillar}>
               <Target size={25} aria-hidden="true" />
-              <div><span className={styles.pillarNumber}>01 / TÉCNICA</span><h3>Técnica con intención</h3><p>Recursos y lecturas para responder a las situaciones del juego.</p></div>
+              <div><h3>Técnica con intención</h3><p>Recursos y lecturas para responder a las situaciones del juego.</p></div>
             </div>
             <div className={styles.pillar}>
               <Dumbbell size={25} aria-hidden="true" />
-              <div><span className={styles.pillarNumber}>02 / FÍSICO</span><h3>Preparación física</h3><p>Desarrollo físico al servicio de las demandas del baloncesto.</p></div>
+              <div><h3>Preparación física</h3><p>Desarrollo físico al servicio de las demandas del baloncesto.</p></div>
             </div>
             <div className={styles.pillar}>
               <Crosshair size={25} aria-hidden="true" />
-              <div><span className={styles.pillarNumber}>03 / PERSONA</span><h3>Desarrollo personal</h3><p>Hábitos, confianza y compromiso con el proceso de mejora.</p></div>
+              <div><h3>Desarrollo personal</h3><p>Hábitos, confianza y compromiso con el proceso de mejora.</p></div>
             </div>
           </div>
         </div>
@@ -286,7 +277,6 @@ export default function HomePage() {
           <span className={styles.closingCourtLine} />
         </div>
         <div className={`container ${styles.closingInner}`}>
-          <p className={styles.eyebrow}>TU SIGUIENTE JUGADA</p>
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
           <p>Conoce los programas y encuentra el punto de partida que mejor encaja con tus objetivos.</p>
           <Link href="/programas/" className={styles.actionDark}>

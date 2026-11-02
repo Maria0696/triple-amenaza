@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Target } from "lucide-react";
+import { ArrowRight, Target } from "lucide-react";
 
 import styles from "./equipo.module.css";
 import { pageMetadata } from "@/lib/metadata";
@@ -48,11 +48,6 @@ export default function EquipoPage() {
         </div>
 
         <div className={`container ${styles.heroInner}`}>
-          <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-            <span className={styles.eyebrowDash} aria-hidden="true" />
-            EQUIPO / ACADEMIA TRIPLE AMENAZA
-          </p>
-
           <div className={styles.heroGrid}>
             <h1 id="team-title" className={styles.heroTitle}>
               LAS PERSONAS
@@ -61,7 +56,6 @@ export default function EquipoPage() {
             </h1>
 
             <div className={styles.heroAside}>
-              <span className={styles.asideIndex}>ATA / PERSONAS</span>
               <p>
                 Detrás de cada entrenamiento hay una forma de entender el
                 baloncesto, acompañar al jugador y dar sentido a su progreso.
@@ -83,7 +77,6 @@ export default function EquipoPage() {
       >
         <div className="container">
           <div className={`${styles.sectionHeading} ${styles.leadershipHeading}`}>
-            <p className={styles.eyebrow}>01 / LAS PERSONAS DETRÁS DE ATA</p>
             <h2 id="team-leadership-title" className={styles.sectionTitle}>
               EL PROYECTO <em>TIENE NOMBRES.</em>
             </h2>
@@ -102,10 +95,7 @@ export default function EquipoPage() {
               >
                 {/* Panel gráfico preparado para sustituirse por un retrato autorizado. */}
                 <div className={styles.featureArt} aria-hidden="true">
-                  <div className={styles.featureArtTop}>
-                    <span>ATA / PERSONAS</span>
-                    <span>{persona.number} — 02</span>
-                  </div>
+                  <div className={styles.featureArtTop} />
                   <div className={styles.featureArtCenter}>
                     <span className={`${styles.featureOrbit} ${styles.featureOrbitOne}`} />
                     <span className={`${styles.featureOrbit} ${styles.featureOrbitTwo}`} />
@@ -121,11 +111,6 @@ export default function EquipoPage() {
                 </div>
 
                 <div className={styles.featureContent}>
-                  <div className={styles.featureTopline}>
-                    <span>{persona.number} / SOCIO · DIRECCIÓN ATA</span>
-                    <ArrowUpRight size={26} strokeWidth={1.5} aria-hidden="true" />
-                  </div>
-
                   <div className={styles.featureMain}>
                     <h3 id={`team-person-${persona.slug}`}>
                       {persona.name}<span aria-hidden="true">.</span>
@@ -142,7 +127,6 @@ export default function EquipoPage() {
                   <div className={styles.featureFooter}>
                     <span className={styles.featureFooterRule} />
                     <span>PERSONAS QUE MUEVEN ATA</span>
-                    <span>{persona.number} / 02</span>
                   </div>
                 </div>
               </article>
@@ -159,11 +143,8 @@ export default function EquipoPage() {
       >
         <div className="container">
           <div className={styles.collabHeading}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-              02 / EXPERIENCIAS QUE SUMAN
-            </p>
             <h2 id="team-collaborations-title" className={styles.sectionTitle}>
-              EL TALENTO <em>SE COMPARTE.</em>
+              EL TALENTO <em className={styles.plainEm}>SE COMPARTE.</em>
             </h2>
             <p>
               Las colaboraciones en actividades y entrenamientos aportan otras
@@ -201,7 +182,6 @@ export default function EquipoPage() {
       <section className={styles.closing} aria-labelledby="team-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <div className={styles.closingCopy}>
-            <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
             <h2 id="team-closing-title">
               ¿HABLAMOS DE <em>TU PRÓXIMO RETO?</em>
             </h2>

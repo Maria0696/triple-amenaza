@@ -572,8 +572,7 @@ button, a {
   margin: 0;
 }
 
-.footer-copy,
-.footer-note {
+.footer-copy{
   color: #c7d0c6;
   font-size: 13px;
   line-height: 1.75;
@@ -855,11 +854,6 @@ button, a {
     gap: 13px;
     font-size: 14px;
     min-width: 0;
-  }
-
-  .footer-note {
-    font-size: 13px;
-    overflow-wrap: anywhere;
   }
 
   .footer-bottom {

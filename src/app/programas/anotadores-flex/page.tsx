@@ -103,7 +103,7 @@ export default function AnotadoresFlexPage() {
           <div className={styles.heroCopy}>
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
               <span className={styles.eyebrowLine} aria-hidden="true" />
-              PROGRAMA 02 / ANOTADORES FLEX
+              ANOTADORES FLEX
             </p>
             <h1 id="flex-page-title" className={styles.heroTitle}>
               TU JUEGO.
@@ -118,8 +118,7 @@ export default function AnotadoresFlexPage() {
 
           <div className={styles.heroBoard} role="group" aria-label="Tres claves de Anotadores Flex">
             <div className={styles.heroBoardHead}>
-              <span>ATA / MODALIDAD FLEX</span>
-              <span>02 / 03</span>
+              <span>MODALIDAD FLEX</span>
             </div>
             <div className={styles.heroBoardCore} aria-hidden="true">
               <span className={styles.boardLabel}>LA CLAVE NO ES CUÁNDO.</span>
@@ -139,7 +138,6 @@ export default function AnotadoresFlexPage() {
         <div className="container">
           <div className={styles.sectionHead}>
             <div>
-              <p className={styles.eyebrow}>01 / QUÉ ES FLEX</p>
               <h2 id="flex-page-value-title" className={styles.heading}>
                 FLEXIBILIDAD. <em>CON INTENCIÓN.</em>
               </h2>
@@ -155,7 +153,6 @@ export default function AnotadoresFlexPage() {
             {strengths.map(({ number, label, title, description, icon: Icon }) => (
               <article className={styles.strength} key={number}>
                 <div className={styles.strengthTop}>
-                  <span>{number} / 03</span>
                   <Icon size={31} strokeWidth={1.45} aria-hidden="true" />
                 </div>
                 <div className={styles.strengthBottom}>
@@ -172,9 +169,8 @@ export default function AnotadoresFlexPage() {
       <section className={styles.steps} aria-labelledby="flex-page-steps-title">
         <div className={`container ${styles.stepsGrid}`}>
           <div className={styles.stepsIntro}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / ASÍ FUNCIONA</p>
             <h2 id="flex-page-steps-title" className={styles.heading}>
-              SIN HORARIO FIJO. <em>CON UN PROPÓSITO CLARO.</em>
+              SIN HORARIO FIJO. <em className={styles.plainEm}>CON UN PROPÓSITO CLARO.</em>
             </h2>
             <p>
               La planificación de las sesiones sigue teniendo sentido.
@@ -201,7 +197,6 @@ export default function AnotadoresFlexPage() {
       <section className={styles.compare} aria-labelledby="flex-page-compare-title">
         <div className="container">
           <div className={styles.compareHeading}>
-            <p className={styles.eyebrow}>03 / ENCUENTRA TU FORMATO</p>
             <h2 id="flex-page-compare-title" className={styles.heading}>
               DOS FORMATOS. <em>UNA MISMA FILOSOFÍA.</em>
             </h2>
@@ -213,7 +208,6 @@ export default function AnotadoresFlexPage() {
           <div className={styles.compareGrid}>
             <div className={`${styles.compareCard} ${styles.compareFlex}`}>
               <div className={styles.compareCardHead}>
-                <span>02 / FLEX</span>
                 <Layers3 size={25} aria-hidden="true" />
               </div>
               <h3>Anotadores Flex</h3>
@@ -225,7 +219,6 @@ export default function AnotadoresFlexPage() {
             </div>
             <div className={`${styles.compareCard} ${styles.compareElite}`}>
               <div className={styles.compareCardHead}>
-                <span>01 / ÉLITE</span>
                 <Crosshair size={25} aria-hidden="true" />
               </div>
               <h3>Anotadores Élite</h3>
@@ -244,9 +237,8 @@ export default function AnotadoresFlexPage() {
       <section className={styles.faq} aria-labelledby="flex-page-faq-title">
         <div className={`container ${styles.faqGrid}`}>
           <div>
-            <p className={styles.eyebrow}>04 / RESOLVEMOS TUS DUDAS</p>
             <h2 id="flex-page-faq-title" className={styles.heading}>
-              PREGUNTAS <em>FRECUENTES.</em>
+              PREGUNTAS <em className={styles.plainEm}>FRECUENTES.</em>
             </h2>
             <p className={styles.faqIntro}>
               Lo importante es encontrar el entrenamiento adecuado
@@ -254,10 +246,9 @@ export default function AnotadoresFlexPage() {
             </p>
           </div>
           <div className={styles.faqList}>
-            {faqs.map((item, index) => (
+            {faqs.map((item) => (
               <details className={styles.faqItem} key={item.title}>
                 <summary>
-                  <span className={styles.faqNumber}>0{index + 1}</span>
                   <span>{item.title}</span>
                   <ChevronDown size={22} strokeWidth={1.8} aria-hidden="true" />
                 </summary>
@@ -271,7 +262,6 @@ export default function AnotadoresFlexPage() {
       <section className={styles.closing} aria-labelledby="flex-page-closing-title">
         <div className={`container ${styles.closingGrid}`}>
           <div>
-            <p className={styles.eyebrow}>TU SIGUIENTE ENTRENAMIENTO</p>
             <h2 id="flex-page-closing-title">
               ENCUENTRA TU MOMENTO. <em>SIGUE JUGANDO.</em>
             </h2>

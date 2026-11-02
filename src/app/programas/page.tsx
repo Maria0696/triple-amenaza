@@ -38,10 +38,6 @@ export default function ProgramasPage() {
       <section className={styles.hero} aria-labelledby="programs-page-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-              <span className={styles.eyebrowRule} aria-hidden="true" />
-              PROGRAMAS / TRIPLE AMENAZA
-            </p>
             <h1 id="programs-page-title" className={styles.heroTitle}>
               TU FORMA <span>DE ENTRENAR.</span>
             </h1>
@@ -53,13 +49,13 @@ export default function ProgramasPage() {
           <div className={styles.heroAside} role="group" aria-label="Los dos formatos de entrenamiento">
             <div className={styles.heroAsideTop}>
               <span>UNA ACADEMIA</span>
-              <span>02 FORMATOS</span>
+              <span>DOS FORMATOS</span>
             </div>
             <div className={styles.heroAsideRow}>
-              <span>01</span><strong>Continuidad</strong><span>ÉLITE</span>
+              <strong>Continuidad</strong><span>ÉLITE</span>
             </div>
             <div className={styles.heroAsideRow}>
-              <span>02</span><strong>Flexibilidad</strong><span>FLEX</span>
+              <strong>Flexibilidad</strong><span>FLEX</span>
             </div>
             <div className={styles.heroAsideBottom}>
               DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
@@ -72,7 +68,6 @@ export default function ProgramasPage() {
         <div className="container">
           <div className={styles.offerHeading}>
             <div>
-              <p className={styles.eyebrow}>01 / ENCUENTRA TU FORMATO</p>
               <h2 id="programs-page-offer-title" className={`${styles.sectionTitle} ${styles.duoTitle}`} >
                 <span>DIFERENTES CAMINOS.</span>
                 <span>MISMO PROPÓSITO.</span>
@@ -87,7 +82,7 @@ export default function ProgramasPage() {
           <div className={styles.duoGrid}>
             <Link className={`${styles.duoCard} ${styles.duoElite}`} href={elite.href}>
               <div className={styles.duoTop}>
-                <span>01 / 02 — {elite.label}</span>
+                <span>{elite.label}</span>
                 <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
               <div className={styles.duoTarget} aria-hidden="true">
@@ -105,7 +100,7 @@ export default function ProgramasPage() {
 
             <Link className={`${styles.duoCard} ${styles.duoFlex}`} href={flex.href}>
               <div className={styles.duoTop}>
-                <span>02 / 02 — {flex.label}</span>
+                <span>{flex.label}</span>
                 <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
               <CalendarRange className={styles.duoSymbol} size={108} strokeWidth={1.1} aria-hidden="true" />
@@ -128,7 +123,6 @@ export default function ProgramasPage() {
       <section className={styles.choice} aria-labelledby="programs-page-choice-title">
         <div className={`container ${styles.choiceGrid}`}>
           <div className={styles.choiceIntro}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / ANTES DE ELEGIR</p>
             <h2 id="programs-page-choice-title" className={styles.sectionTitle}>
               ELIGE CON <em>INTENCIÓN.</em>
             </h2>
@@ -137,7 +131,6 @@ export default function ProgramasPage() {
           <div className={styles.questions}>
             {selectionQuestions.map((question) => (
               <article className={styles.question} key={question.number}>
-                <span className={styles.questionNumber}>{question.number}</span>
                 <div>
                   <h3>{question.title}</h3>
                   <p>{question.text}</p>
@@ -152,7 +145,6 @@ export default function ProgramasPage() {
       <section className={styles.workshops} aria-labelledby="programs-page-workshops-title">
         <div className={`container ${styles.workshopsGrid}`}>
           <div className={styles.workshopsHeading}>
-            <p className={styles.eyebrow}>03 / MÁS ALLÁ DE LOS PROGRAMAS</p>
             <h2 id="programs-page-workshops-title">
               HAY MÁS JUEGO <em>POR DESCUBRIR.</em>
             </h2>

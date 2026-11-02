@@ -61,10 +61,6 @@ export default function MetodoPage() {
       <section className={styles.hero} aria-labelledby="method-page-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-              <span className={styles.eyebrowRule} aria-hidden="true" />
-              MÉTODO ATA / CÓMO TRABAJAMOS
-            </p>
             <h1 id="method-page-title" className={styles.heroTitle}>
               CADA SESIÓN.
               <span>CON UN PORQUÉ.</span>
@@ -104,7 +100,6 @@ export default function MetodoPage() {
         <div className="container">
           <div className={styles.processHeading}>
             <div>
-              <p className={styles.eyebrow}>EL PROCESO / 04 ETAPAS</p>
               <h2 id="method-page-process-title" className={styles.heading}>
                 LA MEJORA <em>SE CONSTRUYE.</em>
               </h2>
@@ -167,7 +162,6 @@ export default function MetodoPage() {
       <section className={styles.practice} aria-labelledby="method-page-practice-title">
         <div className={`container ${styles.practiceGrid}`}>
           <div>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>EL SENTIDO DE LA PRÁCTICA</p>
             <h2 id="method-page-practice-title" className={styles.heading}>
               NO SE TRATA DE REPETIR MÁS.
               <em> SE TRATA DE RESOLVER MEJOR.</em>
@@ -189,9 +183,8 @@ export default function MetodoPage() {
       {/* Próximo paso: un único enlace a programas. */}
       <section className={styles.closing} aria-labelledby="method-page-closing-title">
         <div className={`container ${styles.closingInner}`}>
-          <p className={styles.eyebrow}>EL SIGUIENTE PASO</p>
           <h2 id="method-page-closing-title">
-            UN MÉTODO. <em>DIFERENTES CAMINOS.</em>
+            UN MÉTODO. <em>DOS PROGRAMAS.</em>
           </h2>
           <p>
             El punto de partida de cada jugador es distinto. Descubre los formatos
