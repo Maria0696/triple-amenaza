@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
 import { pageMetadata } from "@/lib/metadata";
 import { programs } from "@/lib/site";
-import "./programas.css";
+import styles from "./programas.module.css";
 
 export const metadata = pageMetadata({
   title: "Programas",
@@ -35,45 +35,45 @@ const selectionQuestions = [
 export default function ProgramasPage() {
   return (
     <>
-      <section className="programs-page-hero" aria-labelledby="programs-page-title">
-        <div className="container programs-page-hero-grid">
-          <div className="programs-page-hero-copy">
-            <p className="programs-page-eyebrow programs-page-eyebrow-light">
-              <span className="programs-page-eyebrow-rule" aria-hidden="true" />
+      <section className={styles.hero} aria-labelledby="programs-page-title">
+        <div className={`container ${styles.heroGrid}`}>
+          <div className={styles.heroCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+              <span className={styles.eyebrowRule} aria-hidden="true" />
               PROGRAMAS / TRIPLE AMENAZA
             </p>
-            <h1 id="programs-page-title" className="programs-page-hero-title">
+            <h1 id="programs-page-title" className={styles.heroTitle}>
               TU FORMA <span>DE ENTRENAR.</span>
             </h1>
-            <p className="programs-page-hero-lead">
+            <p className={styles.heroLead}>
               No todos los jugadores necesitan lo mismo. Encuentra el formato
               que mejor se adapta a tu objetivo y a tu manera de organizar el entrenamiento.
             </p>
           </div>
-          <div className="programs-page-hero-aside" role="group" aria-label="Los dos formatos de entrenamiento">
-            <div className="programs-page-hero-aside-top">
+          <div className={styles.heroAside} role="group" aria-label="Los dos formatos de entrenamiento">
+            <div className={styles.heroAsideTop}>
               <span>UNA ACADEMIA</span>
               <span>02 FORMATOS</span>
             </div>
-            <div className="programs-page-hero-aside-row">
+            <div className={styles.heroAsideRow}>
               <span>01</span><strong>Continuidad</strong><span>ÉLITE</span>
             </div>
-            <div className="programs-page-hero-aside-row">
+            <div className={styles.heroAsideRow}>
               <span>02</span><strong>Flexibilidad</strong><span>FLEX</span>
             </div>
-            <div className="programs-page-hero-aside-bottom">
+            <div className={styles.heroAsideBottom}>
               DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
             </div>
           </div>
         </div>
       </section>
 
-      <section className="programs-page-offer" id="formatos" aria-labelledby="programs-page-offer-title">
+      <section className={styles.offer} id="formatos" aria-labelledby="programs-page-offer-title">
         <div className="container">
-          <div className="programs-page-offer-heading">
+          <div className={styles.offerHeading}>
             <div>
-              <p className="programs-page-eyebrow">01 / ENCUENTRA TU FORMATO</p>
-              <h2 id="programs-page-offer-title" className="programs-page-section-title programs-page-duo-title" >
+              <p className={styles.eyebrow}>01 / ENCUENTRA TU FORMATO</p>
+              <h2 id="programs-page-offer-title" className={`${styles.sectionTitle} ${styles.duoTitle}`} >
                 <span>DIFERENTES CAMINOS.</span>
                 <span>MISMO PROPÓSITO.</span>
               </h2>
@@ -84,60 +84,60 @@ export default function ProgramasPage() {
             </p>
           </div>
 
-          <div className="programs-page-duo-grid">
-            <Link className="programs-page-duo-card programs-page-duo-elite" href={elite.href}>
-              <div className="programs-page-duo-top">
+          <div className={styles.duoGrid}>
+            <Link className={`${styles.duoCard} ${styles.duoElite}`} href={elite.href}>
+              <div className={styles.duoTop}>
                 <span>01 / 02 — {elite.label}</span>
                 <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
-              <div className="programs-page-duo-target" aria-hidden="true">
+              <div className={styles.duoTarget} aria-hidden="true">
                 <span /><span /><span />
               </div>
-              <div className="programs-page-duo-content">
-                <span className="programs-page-duo-tag">{elite.tag}</span>
+              <div className={styles.duoContent}>
+                <span className={styles.duoTag}>{elite.tag}</span>
                 <h3>{elite.title}</h3>
                 <p>{elite.description}</p>
-                <span className="programs-page-duo-link">
+                <span className={styles.duoLink}>
                   Descubrir el programa <ArrowRight size={19} aria-hidden="true" />
                 </span>
               </div>
             </Link>
 
-            <Link className="programs-page-duo-card programs-page-duo-flex" href={flex.href}>
-              <div className="programs-page-duo-top">
+            <Link className={`${styles.duoCard} ${styles.duoFlex}`} href={flex.href}>
+              <div className={styles.duoTop}>
                 <span>02 / 02 — {flex.label}</span>
                 <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
-              <CalendarRange className="programs-page-duo-symbol" size={108} strokeWidth={1.1} aria-hidden="true" />
-              <div className="programs-page-duo-content">
-                <span className="programs-page-duo-tag">{flex.tag}</span>
+              <CalendarRange className={styles.duoSymbol} size={108} strokeWidth={1.1} aria-hidden="true" />
+              <div className={styles.duoContent}>
+                <span className={styles.duoTag}>{flex.tag}</span>
                 <h3>{flex.title}</h3>
                 <p>{flex.description}</p>
-                <span className="programs-page-duo-link">
+                <span className={styles.duoLink}>
                   Descubrir el programa <ArrowRight size={19} aria-hidden="true" />
                 </span>
               </div>
             </Link>
           </div>
-          <p className="programs-page-duo-note">
+          <p className={styles.duoNote}>
             Las condiciones, fechas y plazas se confirmarán directamente con la academia.
           </p>
         </div>
       </section>
 
-      <section className="programs-page-choice" aria-labelledby="programs-page-choice-title">
-        <div className="container programs-page-choice-grid">
-          <div className="programs-page-choice-intro">
-            <p className="programs-page-eyebrow programs-page-eyebrow-light">02 / ANTES DE ELEGIR</p>
-            <h2 id="programs-page-choice-title" className="programs-page-section-title">
+      <section className={styles.choice} aria-labelledby="programs-page-choice-title">
+        <div className={`container ${styles.choiceGrid}`}>
+          <div className={styles.choiceIntro}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / ANTES DE ELEGIR</p>
+            <h2 id="programs-page-choice-title" className={styles.sectionTitle}>
               ELIGE CON <em>INTENCIÓN.</em>
             </h2>
             <p>No se trata de encontrar el programa más exigente, sino el que tenga sentido para tu momento deportivo.</p>
           </div>
-          <div className="programs-page-questions">
+          <div className={styles.questions}>
             {selectionQuestions.map((question) => (
-              <article className="programs-page-question" key={question.number}>
-                <span className="programs-page-question-number">{question.number}</span>
+              <article className={styles.question} key={question.number}>
+                <span className={styles.questionNumber}>{question.number}</span>
                 <div>
                   <h3>{question.title}</h3>
                   <p>{question.text}</p>
@@ -149,26 +149,26 @@ export default function ProgramasPage() {
       </section>
 
       {/* Cierre editorial: actividades puntuales, diferenciadas de los programas. */}
-      <section className="programs-page-workshops" aria-labelledby="programs-page-workshops-title">
-        <div className="container programs-page-workshops-grid">
-          <div className="programs-page-workshops-heading">
-            <p className="programs-page-eyebrow">03 / MÁS ALLÁ DE LOS PROGRAMAS</p>
+      <section className={styles.workshops} aria-labelledby="programs-page-workshops-title">
+        <div className={`container ${styles.workshopsGrid}`}>
+          <div className={styles.workshopsHeading}>
+            <p className={styles.eyebrow}>03 / MÁS ALLÁ DE LOS PROGRAMAS</p>
             <h2 id="programs-page-workshops-title">
               HAY MÁS JUEGO <em>POR DESCUBRIR.</em>
             </h2>
           </div>
-          <div className="programs-page-workshops-content">
-            <p className="programs-page-workshops-label">WORKSHOPS / MASTERCLASSES</p>
-            <p className="programs-page-workshops-lead">
+          <div className={styles.workshopsContent}>
+            <p className={styles.workshopsLabel}>WORKSHOPS / MASTERCLASSES</p>
+            <p className={styles.workshopsLead}>
               Además de nuestros programas habituales, organizamos actividades
               dedicadas a aspectos concretos del baloncesto y del desarrollo deportivo.
             </p>
-            <p className="programs-page-workshops-detail">
+            <p className={styles.workshopsDetail}>
               Encuentros para profundizar, compartir experiencias y llevarse nuevas
               ideas a la pista. Consulta el espacio de actividades para conocer
               las próximas novedades.
             </p>
-            <Link href="/programas/workshops/" className="programs-page-workshops-link">
+            <Link href="/programas/workshops/" className={styles.workshopsLink}>
               Descubre los workshops
               <ArrowUpRight size={19} aria-hidden="true" />
             </Link>

@@ -1,0 +1,661 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: stretch;
+  gap: clamp(26px, 3.5vw, 60px);
+  min-height: min(710px, 84vh);
+  padding-block: clamp(36px, 5vw, 78px) 44px;
+}
+
+.heroContent {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 16px 30px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 850;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+}
+.eyebrowLight { color: #eec4a8; }
+.eyebrowBar { width: 27px; height: 2px; background: var(--orange); flex: 0 0 auto; }
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  max-width: 850px;
+  font-size: clamp(66px, 7.6vw, 128px);
+  font-weight: 950;
+  letter-spacing: -.04em;
+  line-height: .9;
+  text-transform: uppercase;
+}
+.heroTitleOutline { color: var(--paper); }
+.heroTitleAccent { color: var(--sage); }
+.heroLead {
+  max-width: 560px;
+  margin: 30px 0 34px;
+  color: #d7ddd5;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.8;
+}
+.heroActions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px 26px; }
+.actionPrimary,
+.actionOutline,
+.actionDark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  min-height: 54px;
+  font-size: 13px;
+  font-weight: 850;
+  border-radius: 3px;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.actionPrimary { background: var(--orange); color: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .actionPrimary:hover { background: #ff935f; transform: translateY(-2px); }
+}
+.actionText,
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid currentColor;
+  padding-block: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.actionText { color: #fff; }
+.actionText:hover { color: var(--sage); }
+.inlineLink:hover { color: var(--orange-dark); }
+.heroKeywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 13px;
+  margin-top: 34px;
+  color: #b9c0b6;
+  font-size: 12px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.heroKeywords span + span::before { content: "•"; color: var(--orange); padding-right: 13px; }
+
+.heroMedia {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 480px;
+  background: #34443a;
+  box-shadow: 13px 13px 0 #f6f3ec0b;
+}
+.heroPhoto {
+  /* En móvil se sustituye por una versión de 800px (ver max-width: 550px). */
+  --home-hero-image: url("/imagenes/sesion-ata.webp");
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+  linear-gradient(
+    0deg,
+    rgba(14, 22, 18, .96),
+    rgba(13, 21, 17, .1) 65%
+  ),
+  var(--home-hero-image);
+  background-position: center, 51% center;
+  background-size: cover;
+  filter: saturate(.65);
+  transform: scale(1.015);
+}
+.heroMedia::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(125deg, #192c2440, transparent 54%);
+  pointer-events: none;
+}
+.heroMediaTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 26px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+.heroPhotoCaption {
+  position: absolute;
+  bottom: 51px;
+  left: 28px;
+  right: 28px;
+  display: grid;
+  gap: 9px;
+}
+.heroPhotoCaption > span { color: var(--sage); font-size: 11px; font-weight: 850; letter-spacing: .14em; }
+.heroPhotoCaption strong { max-width: 510px; font-size: clamp(26px, 2.65vw, 39px); letter-spacing: -.04em; line-height: 1.08; }
+.heroImageCredit {
+  position: absolute;
+  bottom: 15px;
+  left: 28px;
+  right: 20px;
+  font-size: 12px;
+  color: #e8ebe5;
+}
+.heroImageCredit a { text-decoration: underline; text-underline-offset: 2px; }
+
+.intro { background: var(--paper); padding: clamp(58px, 6vw, 94px) 0; }
+.introGrid { display: grid; grid-template-columns: minmax(180px, .3fr) 1fr; gap: clamp(25px, 4vw, 55px); align-items: start; }
+.introTitle {
+  margin: 0;
+  font-size: clamp(43px, 5vw, 74px);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1.06;
+}
+.introTitle em { font-family: Georgia, serif; font-weight: 500; }
+.introCopy { max-width: 640px; margin: 24px 0 18px; font-size: 17px; line-height: 1.72; color: var(--ink-soft); }
+
+.programs { padding: clamp(64px, 6vw, 96px) 0; background: var(--cream); }
+.sectionHead { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 31px; }
+.sectionTitle {
+  margin: 0;
+  font-weight: 940;
+  font-size: clamp(39px, 4.7vw, 69px);
+  letter-spacing: -.04em;
+  line-height: 1.06;
+  text-transform: uppercase;
+}
+.sectionTitle span { color: var(--orange-dark); }
+.programs .sectionTitle span { display: block; }
+@media (min-width: 861px) {
+  .programs .sectionTitle span {
+    white-space: nowrap;
+  }
+}
+
+.programCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.programCard {
+  min-height: 415px;
+  padding: clamp(24px, 2.4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  background: #e3e8d6;
+  border: 1px solid #d7dccd;
+  transition: transform .22s ease, background-color .22s ease, box-shadow .22s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .programCard:hover { transform: translateY(-4px); background: #dce4ca; box-shadow: 0 15px 32px #1c211e13; }
+}
+.programCardFeatured {
+  grid-column: auto;
+  min-height: 415px;
+  color: #f8f5ed;
+  background: linear-gradient(110deg, #1d2621 14%, #334339 100%);
+  border-color: #33453b;
+}
+@media (hover: hover) and (pointer: fine) {
+  .programCardFeatured:hover { background: linear-gradient(110deg, #27352c 14%, #394b3e 100%); box-shadow: 0 16px 35px #16291e26; }
+}
+.programCardTop,
+.programCardBody { position: relative; z-index: 1; }
+.programCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-weight: 850;
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.programCardBody { max-width: 555px; }
+.programCardFeatured .programCardBody { max-width: 100%; }
+.programTag { display: inline-block; border: 1px solid currentColor; padding: 7px 9px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.programCard h3 { font-size: clamp(31px, 3.8vw, 58px); font-weight: 940; line-height: 1; letter-spacing: -.04em; margin: 14px 0; }
+.programCard p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
+.programMore { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
+.programMore svg, .programCardTop svg { transition: transform .2s ease; }
+.programCard:focus-visible .programMore svg { transform: translate(3px, -2px); }
+@media (hover: hover) and (pointer: fine) {
+  .programCard:hover .programMore svg { transform: translate(3px, -2px); }
+}
+/* Gráfico puramente decorativo: no debe sugerir interacción. */
+.programFeatureArt {
+  position: absolute;
+  top: 50%;
+  right: -13%;
+  width: 55%;
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--sage);
+  opacity: .12;
+}
+.programRing { position: absolute; border: 2px solid #b9d28c88; border-radius: 50%; inset: 0; }
+.programRingMiddle { inset: 16%; border-width: 2px; border-color: #b9d28c9a; }
+.programRingCenter { inset: 35%; border-width: 3px; border-color: var(--sage); background: #c8d88e14; }
+.programCross { position: absolute; background: #b9d28c60; }
+.programCrossHorizontal { height: 1px; width: 120%; left: -10%; top: 50%; }
+.programCrossVertical { width: 1px; height: 120%; left: 50%; top: -10%; }
+.programsNote { margin: 21px 0 0; font-size: 13px; color: #596359; }
+
+.method { background: #28352d; color: #fff; padding: clamp(68px, 6vw, 98px) 0; }
+.methodHeading { display: flex; justify-content: space-between; gap: 45px; align-items: end; }
+.methodHeading .sectionTitle { max-width: none; }
+.methodHeading .sectionTitle span { display: block; }
+@media (min-width: 861px) {
+  .methodHeading .sectionTitle span {
+    white-space: nowrap;
+  }
+}
+.methodHeading .sectionTitle span { color: var(--sage); }
+.methodSteps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule-on-dark); margin: 35px 0 26px; }
+.methodStep { min-height: 222px; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; border-right: 1px solid var(--rule-on-dark); }
+.methodStep:last-child { border-right: 0; }
+.methodStepTop { display: flex; align-items: center; justify-content: space-between; color: var(--sage); font-size: 12px; font-weight: 850; }
+.methodProgress {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+}
+.methodProgressSegment {
+  display: block;
+  width: clamp(13px, 1.45vw, 19px);
+  height: 3px;
+  border-radius: 99px;
+  background: #c8d88e40;
+}
+.methodProgressSegment.isActive {
+  background: var(--sage);
+}
+
+.methodStep h3 { font-size: 28px; letter-spacing: -.04em; line-height: 1.1; margin: 0 0 10px; }
+.methodStep p { color: #dce7d8; line-height: 1.65; font-size: 14px; margin: 0; }
+.actionOutline { border: 1px solid #ffffff99; color: white; }
+@media (hover: hover) and (pointer: fine) {
+  .actionOutline:hover { background: #ffffff1b; transform: translateY(-2px); }
+}
+
+.pillars { padding: clamp(58px, 6vw, 94px) 0; background: var(--paper); }
+.pillarsLayout { display: grid; grid-template-columns: minmax(0, .83fr) minmax(0, 1.17fr); gap: clamp(35px, 5vw, 75px); align-items: center; }
+.pillarsLead { max-width: 370px; margin: 24px 0 0; font-size: 16px; line-height: 1.75; color: var(--ink-soft); }
+.pillarList { border-top: 1px solid var(--line); }
+.pillar { display: grid; grid-template-columns: 36px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.pillar > svg { color: var(--orange-dark); margin-top: 7px; }
+.pillarNumber { display: block; margin-bottom: 6px; color: var(--orange-dark); font-size: 11px; letter-spacing: .14em; font-weight: 900; }
+.pillar h3 { margin: 0 0 7px; font-size: clamp(22px, 2vw, 27px); letter-spacing: -.04em; line-height: 1.2; }
+.pillar p { margin: 0; line-height: 1.7; font-size: 15px; color: var(--ink-soft); }
+
+.closing { background: var(--sage); padding: clamp(68px, 6vw, 105px) 0; }
+.closing .eyebrow { color: var(--orange-on-sage); }
+.closingInner h2 { max-width: 1050px; margin: 12px 0 25px; font-size: clamp(50px, 7vw, 101px); font-weight: 950; line-height: .97; letter-spacing: -.04em; text-transform: uppercase; }
+.closingInner h2 em { color: #4f6847; font-family: Georgia, serif; font-weight: 500; }
+.closingInner > p:not(.eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
+.actionDark { color: #fff; background: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .actionDark:hover { background: var(--ink-hover); transform: translateY(-2px); }
+}
+
+@media (max-width: 1060px) {
+  .heroGrid { grid-template-columns: 1fr 1fr; }
+  .heroTitle { font-size: clamp(60px, 7vw, 95px); }
+  .methodHeading { display: block; }
+  .methodStep { padding: 18px; }
+}
+
+@media (max-width: 860px) {
+  .heroGrid { grid-template-columns: 1fr; min-height: unset; padding-top: 54px; }
+  .heroContent { padding-bottom: 0; }
+  .heroTitle { font-size: clamp(64px, 10vw, 100px); }
+  .heroMedia { min-height: 430px; }
+  .introGrid, .pillarsLayout { grid-template-columns: 1fr; gap: 23px; }
+  .methodSteps { grid-template-columns: repeat(2, 1fr); }
+  .methodStep:nth-child(2) { border-right: 0; }
+  .methodStep:nth-child(-n + 2) { border-bottom: 1px solid var(--rule-on-dark); }
+}
+
+@media (max-width: 860px) {
+  .programCards { grid-template-columns: minmax(0, 1fr); }
+  .programCard { min-height: 345px; }
+}
+
+@media (max-width: 600px) {
+  .heroGrid { padding-top: 42px; padding-bottom: 26px; gap: 27px; }
+  .heroContent { padding-top: 0; }
+  .hero .eyebrow { font-size: 11px; letter-spacing: .085em; gap: 8px; }
+  .heroTitle { font-size: clamp(49px, 12vw, 74px); }
+  .heroLead { margin: 24px 0 27px; font-size: 15px; }
+  .heroActions { align-items: stretch; gap: 15px; }
+  .actionPrimary { width: 100%; }
+  .heroKeywords { margin-top: 27px; font-size: 11px; }
+  .heroMedia { min-height: 350px; }
+  .heroPhoto { --home-hero-image: url("/imagenes/sesion-ata-800.webp"); }
+  .heroMediaTop { padding: 18px; font-size: 8px; }
+  .heroPhotoCaption { left: 18px; right: 18px; bottom: 53px; }
+  .heroPhotoCaption strong { font-size: clamp(27px, 6.5vw, 36px); }
+  .heroImageCredit { left: 18px; right: 18px; }
+  
+  .introCopy { font-size: 16px; }
+  .programsNote { font-size: 14px; line-height: 1.65; }
+  .sectionHead { display: block; }
+
+  .programCards { grid-template-columns: 1fr; }
+  .programCardFeatured { grid-column: auto; min-height: 345px; }
+  .programCardFeatured .programCardBody { max-width: 100%; }
+  .programCard { min-height: 345px; }
+  .programFeatureArt { top: 32%; right: -13%; width: 55%; transform: translateY(-50%); opacity: .12; }
+  .methodSteps { grid-template-columns: 1fr; }
+    .methodStep {
+    min-height: 0;
+    justify-content: flex-start;
+    gap: 13px;
+    padding: 19px 21px 21px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule-on-dark);
+  }
+  .methodStep:nth-child(-n + 2) { border-bottom: 1px solid var(--rule-on-dark); }
+  .methodStep:last-child { border-bottom: 0; }
+  .methodStep h3 { margin: 0 0 7px; font-size: 26px; }
+  .methodStep p { font-size: 14px; line-height: 1.55; }
+  .pillar { gap: 14px; }
+  .pillarsLead { margin-top: 16px; font-size: 15px; }
+  .closingInner > p:not(.eyebrow) { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .actionPrimary,
+  .actionOutline,
+  .actionDark,
+  .programCard { transition: none; }
+}
+
+/* Interacciones con foco visible y reducción de movimiento. */
+.programCard:focus-visible,
+.actionPrimary:focus-visible,
+.actionOutline:focus-visible,
+.actionDark:focus-visible,
+.inlineLink:focus-visible,
+.actionText:focus-visible {
+  outline: 3px solid #76bdf1;
+  outline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pillar { transition: background-color .2s ease, padding-left .2s ease; }
+  .pillar:hover { background: #f5f3e9; padding-left: 8px; }
+}
+@media (max-width: 860px) {
+  .programFeatureArt { opacity: .28; right: 3%; width: 40%; }
+  .pillarsLayout { align-items: start; }
+}
+@media (max-width: 600px) {
+  .programFeatureArt { opacity: .13; right: -13%; width: 55%; }
+  .sectionTitle { font-size: clamp(35px, 9vw, 47px); }
+  .programCardTop { font-size: 11px; }
+  .programCardFeatured p { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .programCard:hover,
+  .actionPrimary:hover,
+  .actionOutline:hover,
+  .actionDark:hover,
+  .programCard:hover .programMore svg,
+  .programCard:focus-visible .programMore svg,
+  .pillar:hover { transform: none; }
+  .programMore svg,
+  .programCardTop svg,
+  .pillar { transition: none; }
+}
+
+/* Motivos decorativos en CSS, independientes de las imágenes de contenido. */
+
+/* Diagrama de la filosofía */
+.introAside {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.introDiagram {
+  position: relative;
+  width: clamp(110px, 13vw, 180px);
+  aspect-ratio: 1;
+  margin: 21px 0 18px;
+  isolation: isolate;
+}
+.introDiagramRing {
+  position: absolute;
+  border: 2px solid #d1a471;
+  border-radius: 50%;
+}
+.introDiagramRingLarge { inset: 0; }
+.introDiagramRingSmall { inset: 27%; border-color: var(--orange-dark); }
+.introDiagramCenter {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--orange-dark);
+  transform: translate(-50%, -50%);
+}
+.introDiagramAxis {
+  position: absolute;
+  height: 1px;
+  width: 116%;
+  top: 50%; left: -8%;
+  background: #d1a471;
+  transform: rotate(-28deg);
+  z-index: -1;
+}
+
+/* Acento visual de las tarjetas */
+.programCard::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--orange-dark);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .3s ease;
+  z-index: 2;
+}
+.programCard:focus-visible::before { transform: scaleY(1); }
+@media (hover: hover) and (pointer: fine) {
+  .programCard:hover::before { transform: scaleY(1); }
+}
+.programCardSymbol {
+  position: absolute;
+  right: 5%; top: 27%;
+  color: #51664a;
+  opacity: .23;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.programCard:focus-visible .programCardSymbol {
+  transform: translateY(-6px) rotate(-4deg);
+  opacity: .35;
+}
+@media (hover: hover) and (pointer: fine) {
+  .programCard:hover .programCardSymbol {
+    transform: translateY(-6px) rotate(-4deg);
+    opacity: .35;
+  }
+}
+.programFeatureArt {
+  transition: transform .35s ease, opacity .35s ease;
+}
+.programCardFeatured:focus-visible .programFeatureArt {
+  transform: translateY(-50%) scale(1.05) rotate(5deg);
+  opacity: .18;
+}
+@media (hover: hover) and (pointer: fine) {
+  .programCardFeatured:hover .programFeatureArt {
+    transform: translateY(-50%) scale(1.05) rotate(5deg);
+    opacity: .18;
+  }
+}
+
+/* Iconografía del método */
+.methodStep {
+  position: relative;
+  transition: background-color .23s ease;
+}
+.methodStep::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .methodStep:hover { background: #ffffff0a; }
+  .methodStep:hover::before { transform: scaleX(1); }
+}
+.methodSymbol {
+  display: inline-grid;
+  place-items: center;
+  align-self: flex-start;
+  width: 44px; height: 44px;
+  margin: 16px 0 18px;
+  border: 1px solid #c8d88e68;
+  border-radius: 50%;
+  color: var(--sage);
+  background: #c8d88e0c;
+  transition: background-color .25s ease, transform .25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .methodStep:hover .methodSymbol {
+    transform: translateY(-3px);
+    background: #c8d88e18;
+  }
+}
+
+/* Pista decorativa en el cierre */
+.closing { position: relative; isolation: isolate; overflow: hidden; }
+.closingInner { position: relative; z-index: 1; }
+.closingCourt {
+  position: absolute;
+  top: 50%; right: -5%;
+  width: min(43vw, 620px);
+  aspect-ratio: 1;
+  opacity: .17;
+  transform: translateY(-50%) rotate(-22deg);
+  pointer-events: none;
+  z-index: 0;
+}
+.closingCourtOuter,
+.closingCourtInner {
+  position: absolute;
+  display: block;
+  border: 7px solid #283c28;
+  border-radius: 50%;
+}
+.closingCourtOuter { inset: 0; }
+.closingCourtInner { inset: 31%; }
+.closingCourtLine {
+  position: absolute;
+  top: 50%; left: -10%;
+  width: 120%; height: 7px;
+  background: #283c28;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 860px) {
+  .introDiagram { width: 105px; margin-block: 2px 12px; }
+
+  .closingCourt { width: 60vw; right: -20%; opacity: .11; }
+}
+@media (max-width: 600px) {
+  /* Se reduce el diagrama en móvil para no añadir altura innecesaria. */
+  .introAside { flex-direction: row; align-items: center; gap: 14px; }
+  .introAside .eyebrow { margin-bottom: 0; }
+  .introDiagram { width: 42px; margin: 0; flex: 0 0 42px; }
+  .introDiagramRing { border-width: 1px; }
+  .introDiagramCenter { width: 5px; height: 5px; }
+  .programCardSymbol { right: 8%; top: 24%; opacity: .13; }
+  .methodSymbol { width: 39px; height: 39px; margin: 0; }
+  .closingCourt { width: 88vw; right: -48%; opacity: .08; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .programCard::before,
+  .programCardSymbol,
+  .programFeatureArt,
+  .methodStep,
+  .methodStep::before,
+  .methodSymbol { transition: none !important; }
+  .programCard:hover .programCardSymbol,
+  .programCard:focus-visible .programCardSymbol,
+  .programCardFeatured:hover .programFeatureArt,
+  .programCardFeatured:focus-visible .programFeatureArt,
+  .methodStep:hover .methodSymbol { transform: none !important; }
+}
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 860px) {
+  .actionText,
+  .inlineLink {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .heroLead {
+    font-size: 16px;
+  }
+
+  .hero .heroKeywords,
+  .hero .heroPhotoCaption > span,
+  .programCard .programTag,
+  .programCard .programCardTop {
+    font-size: 12px;
+  }
+
+  .hero .heroMediaTop {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .heroTitle {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
+}

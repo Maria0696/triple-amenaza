@@ -15,7 +15,7 @@ import {
 
 import { pageMetadata } from "@/lib/metadata";
 import { whatsappLink } from "@/lib/site";
-import "./elite.css";
+import styles from "./elite.module.css";
 
 export const metadata = pageMetadata({
   title: "Anotadores Élite",
@@ -197,44 +197,44 @@ export default function AnotadoresElitePage() {
   return (
     <>
       {/* Cabecera: mismo diseño, ahora con información práctica y CTA específico. */}
-      <section className="elite-hero" aria-labelledby="elite-title">
-        <div className="container elite-hero-grid">
-          <div className="elite-hero-copy">
-            <p className="elite-eyebrow elite-eyebrow-light">
-              <span className="elite-eyebrow-rule" aria-hidden="true" />
+      <section className={styles.hero} aria-labelledby="elite-title">
+        <div className={`container ${styles.heroGrid}`}>
+          <div className={styles.heroCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+              <span className={styles.eyebrowRule} aria-hidden="true" />
               PROGRAMA 01 / ANOTADORES ÉLITE
             </p>
-            <h1 id="elite-title" className="elite-hero-title">
+            <h1 id="elite-title" className={styles.heroTitle}>
               ANOTAR NO ES SOLO TIRAR.
               <span>ES SABER DECIDIR.</span>
             </h1>
-            <p className="elite-hero-lead">
+            <p className={styles.heroLead}>
               Un proceso de tecnificación para desarrollar recursos anotadores,
               generar ventajas y tomar mejores decisiones frente a defensores,
               con el objetivo de llevar ese aprendizaje al partido.
             </p>
-            <div className="elite-commercial-facts" role="group" aria-label="Formato previsto del programa">
+            <div className={styles.commercialFacts} role="group" aria-label="Formato previsto del programa">
               <span><strong>{offer.durationWeeks}</strong> SEMANAS</span>
               <span><strong>{offer.totalSessions}</strong> SESIONES</span>
               <span><strong>{offer.sessionMinutes}′</strong> POR SESIÓN</span>
             </div>
-            <div className="elite-commercial-hero-actions">
-              <ValuationLink className="elite-button elite-commercial-primary">
+            <div className={styles.commercialHeroActions}>
+              <ValuationLink className={`${styles.button} ${styles.commercialPrimary}`}>
                 Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
               </ValuationLink>
             </div>
           </div>
 
-          <aside className="elite-profile" aria-label="Las siete áreas del perfil anotador">
-            <div className="elite-profile-top">
+          <aside className={styles.profile} aria-label="Las siete áreas del perfil anotador">
+            <div className={styles.profileTop}>
               <span>ATA / PERFIL DEL ANOTADOR</span>
               <span>07 ÁREAS</span>
             </div>
-            <div className="elite-profile-title">
+            <div className={styles.profileTitle}>
               <span>UNA VISIÓN</span>
               <strong>COMPLETA DEL JUEGO.</strong>
             </div>
-            <ol className="elite-profile-areas">
+            <ol className={styles.profileAreas}>
               {areas.map((area) => (
                 <li key={area.number}>
                   <span>{area.number}</span>
@@ -242,18 +242,18 @@ export default function AnotadoresElitePage() {
                 </li>
               ))}
             </ol>
-            <p className="elite-profile-foot">La selección del trabajo depende del punto de partida de cada jugador.</p>
+            <p className={styles.profileFoot}>La selección del trabajo depende del punto de partida de cada jugador.</p>
           </aside>
         </div>
       </section>
 
       {/* Bloque comercial más importante: qué recibe la familia. */}
-      <section className="elite-commercial-includes" id="elite-incluye" aria-labelledby="elite-includes-title">
+      <section className={styles.commercialIncludes} id="elite-incluye" aria-labelledby="elite-includes-title">
         <div className="container">
-          <div className="elite-commercial-includes-head">
+          <div className={styles.commercialIncludesHead}>
             <div>
-              <p className="elite-eyebrow">01 / TODO LO QUE INCLUYE</p>
-              <h2 id="elite-includes-title" className="elite-heading">
+              <p className={styles.eyebrow}>01 / TODO LO QUE INCLUYE</p>
+              <h2 id="elite-includes-title" className={styles.heading}>
                 {offer.durationWeeks} SEMANAS. <em>UN OBJETIVO CLARO.</em>
               </h2>
             </div>
@@ -263,10 +263,10 @@ export default function AnotadoresElitePage() {
             </p>
           </div>
 
-          <div className="elite-commercial-includes-grid">
+          <div className={styles.commercialIncludesGrid}>
             {deliverables.map((item) => (
-              <article key={item.number} className="elite-commercial-deliverable">
-                <div className="elite-commercial-deliverable-top">
+              <article key={item.number} className={styles.commercialDeliverable}>
+                <div className={styles.commercialDeliverableTop}>
                   <span>{item.number} / 06</span>
                   <Check size={21} strokeWidth={1.8} aria-hidden="true" />
                 </div>
@@ -278,7 +278,7 @@ export default function AnotadoresElitePage() {
             ))}
           </div>
 
-          <p className="elite-commercial-format-note">
+          <p className={styles.commercialFormatNote}>
             Formato de referencia: una sesión semanal de 60 minutos durante 12 semanas.
             Las fechas, el grupo y las condiciones definitivas se confirmarán con ATA.
           </p>
@@ -286,11 +286,11 @@ export default function AnotadoresElitePage() {
       </section>
 
       {/* Tarifas históricas solicitadas por ATA; confirmar condiciones adicionales antes de publicar. */}
-      <section className="elite-commercial-pricing" id="elite-condiciones" aria-labelledby="elite-pricing-title">
-        <div className="container elite-commercial-pricing-layout">
-          <div className="elite-commercial-pricing-copy">
-            <p className="elite-eyebrow elite-eyebrow-light">02 / CONDICIONES DEL PROGRAMA</p>
-            <h2 id="elite-pricing-title" className="elite-heading">
+      <section className={styles.commercialPricing} id="elite-condiciones" aria-labelledby="elite-pricing-title">
+        <div className={`container ${styles.commercialPricingLayout}`}>
+          <div className={styles.commercialPricingCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / CONDICIONES DEL PROGRAMA</p>
+            <h2 id="elite-pricing-title" className={styles.heading}>
               UNA APUESTA POR <em>TU PROGRESO.</em>
             </h2>
             <p>
@@ -298,24 +298,24 @@ export default function AnotadoresElitePage() {
               la inscripción te explicaremos la valoración, los grupos y las
               condiciones de asistencia.
             </p>
-            <ValuationLink className="elite-button elite-commercial-primary">
+            <ValuationLink className={`${styles.button} ${styles.commercialPrimary}`}>
               Consultar condiciones <ArrowUpRight size={19} aria-hidden="true" />
             </ValuationLink>
           </div>
-          <div className="elite-commercial-price-cards">
-            <article className="elite-commercial-price-card elite-commercial-price-card-featured">
-              <span className="elite-commercial-price-label">01 / PAGO ÚNICO</span>
+          <div className={styles.commercialPriceCards}>
+            <article className={`${styles.commercialPriceCard} ${styles.commercialPriceCardFeatured}`}>
+              <span className={styles.commercialPriceLabel}>01 / PAGO ÚNICO</span>
               <h3>Una sola cuota.</h3>
-              <p className="elite-commercial-price-amount">{offer.singlePayment} €</p>
+              <p className={styles.commercialPriceAmount}>{offer.singlePayment} €</p>
               <p>Pago completo del programa en una única operación.</p>
             </article>
-            <article className="elite-commercial-price-card">
-              <span className="elite-commercial-price-label">02 / PAGO FRACCIONADO</span>
+            <article className={styles.commercialPriceCard}>
+              <span className={styles.commercialPriceLabel}>02 / PAGO FRACCIONADO</span>
               <h3>En tres pagos.</h3>
-              <p className="elite-commercial-price-amount">{offer.installmentTotal} €</p>
+              <p className={styles.commercialPriceAmount}>{offer.installmentTotal} €</p>
               <p>Consulta con ATA los plazos y condiciones de este formato de pago.</p>
             </article>
-            <p className="elite-commercial-pricing-notice">
+            <p className={styles.commercialPricingNotice}>
               IVA incluido en ambos importes. El posible coste de la valoración inicial,
               las plazas y las condiciones de asistencia se confirmarán antes de la inscripción.
             </p>
@@ -324,12 +324,12 @@ export default function AnotadoresElitePage() {
       </section>
 
       {/* Diferenciadores: conserva la rejilla visual original. */}
-      <section className="elite-foundations" aria-labelledby="elite-foundations-title">
+      <section className={styles.foundations} aria-labelledby="elite-foundations-title">
         <div className="container">
-          <div className="elite-foundations-heading">
+          <div className={styles.foundationsHeading}>
             <div>
-              <p className="elite-eyebrow">03 / POR QUÉ ANOTADORES ÉLITE</p>
-              <h2 id="elite-foundations-title" className="elite-heading">
+              <p className={styles.eyebrow}>03 / POR QUÉ ANOTADORES ÉLITE</p>
+              <h2 id="elite-foundations-title" className={styles.heading}>
                 NO PARTIMOS DEL EJERCICIO.
                 <em> PARTIMOS DEL JUGADOR.</em>
               </h2>
@@ -339,31 +339,31 @@ export default function AnotadoresElitePage() {
               Lo importante es transformar el entrenamiento en respuestas útiles para competir.
             </p>
           </div>
-          <div className="elite-foundations-grid">
+          <div className={styles.foundationsGrid}>
             {foundations.map((item) => (
-              <article className="elite-foundation" key={item.number}>
-                <div className="elite-foundation-top">
+              <article className={styles.foundation} key={item.number}>
+                <div className={styles.foundationTop}>
                   <span>{item.number} / 03</span>
-                  <span className="elite-foundation-dash" aria-hidden="true" />
+                  <span className={styles.foundationDash} aria-hidden="true" />
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </article>
             ))}
           </div>
-          <Link className="elite-commercial-method-link" href="/metodo/">
+          <Link className={styles.commercialMethodLink} href="/metodo/">
             Descubre cómo trabajamos: Método ATA
             <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
 
-      <section className="elite-areas" id="elite-areas" aria-labelledby="elite-areas-title">
+      <section className={styles.areas} id="elite-areas" aria-labelledby="elite-areas-title">
         <div className="container">
-          <div className="elite-section-head elite-areas-head">
+          <div className={`${styles.sectionHead} ${styles.areasHead}`}>
             <div>
-              <p className="elite-eyebrow">04 / DESARROLLO ANOTADOR</p>
-              <h2 id="elite-areas-title" className="elite-heading">
+              <p className={styles.eyebrow}>04 / DESARROLLO ANOTADOR</p>
+              <h2 id="elite-areas-title" className={styles.heading}>
                 MÁS RECURSOS. <em>MEJORES DECISIONES.</em>
               </h2>
             </div>
@@ -372,12 +372,12 @@ export default function AnotadoresElitePage() {
               necesita trabajar, sin obligar a todos a seguir el mismo ritmo.
             </p>
           </div>
-          <div className="elite-areas-grid">
+          <div className={styles.areasGrid}>
             {areas.map((area) => {
               const Icon = area.icon;
               return (
-                <article className="elite-area" key={area.number}>
-                  <div className="elite-area-top">
+                <article className={styles.area} key={area.number}>
+                  <div className={styles.areaTop}>
                     <span>{area.number} / 07</span>
                     <Icon size={27} strokeWidth={1.6} aria-hidden="true" />
                   </div>
@@ -393,20 +393,20 @@ export default function AnotadoresElitePage() {
       </section>
 
       {/* Mantener la comunicación prudente hasta que se confirme el pasaporte. */}
-      <section className="elite-passport" aria-labelledby="elite-passport-title">
-        <div className="container elite-passport-inner">
-          <p className="elite-eyebrow elite-eyebrow-light">05 / SEGUIMIENTO CON SENTIDO</p>
-          <h2 id="elite-passport-title" className="elite-heading">
+      <section className={styles.passport} aria-labelledby="elite-passport-title">
+        <div className={`container ${styles.passportInner}`}>
+          <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>05 / SEGUIMIENTO CON SENTIDO</p>
+          <h2 id="elite-passport-title" className={styles.heading}>
             PROGRESAR TAMBIÉN ES <em>SABER HACIA DÓNDE.</em>
           </h2>
-          <div className="elite-passport-lower">
-            <p className="elite-passport-description">
+          <div className={styles.passportLower}>
+            <p className={styles.passportDescription}>
               A lo largo del programa revisamos los objetivos y el aprendizaje
               en pista. Al cierre, compartimos una devolución del trabajo y
               orientamos los siguientes pasos.
             </p>
-            <div className="elite-passport-development">
-              <span className="elite-passport-development-label">HERRAMIENTA EN PREPARACIÓN</span>
+            <div className={styles.passportDevelopment}>
+              <span className={styles.passportDevelopmentLabel}>HERRAMIENTA EN PREPARACIÓN</span>
               <h3>Pasaporte del Anotador</h3>
               <p>
                 Estamos terminando una herramienta visual para acompañar el
@@ -418,18 +418,18 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      <section className="elite-faq" aria-labelledby="elite-faq-title">
-        <div className="container elite-faq-grid">
+      <section className={styles.faq} aria-labelledby="elite-faq-title">
+        <div className={`container ${styles.faqGrid}`}>
           <div>
-            <p className="elite-eyebrow">06 / RESOLVEMOS TUS DUDAS</p>
-            <h2 id="elite-faq-title" className="elite-heading">ANTES DE <em>EMPEZAR.</em></h2>
-            <p className="elite-faq-intro">Todo lo que conviene tener claro antes de dar el siguiente paso.</p>
+            <p className={styles.eyebrow}>06 / RESOLVEMOS TUS DUDAS</p>
+            <h2 id="elite-faq-title" className={styles.heading}>ANTES DE <em>EMPEZAR.</em></h2>
+            <p className={styles.faqIntro}>Todo lo que conviene tener claro antes de dar el siguiente paso.</p>
           </div>
-          <div className="elite-faq-questions">
+          <div className={styles.faqQuestions}>
             {questions.map((question, index) => (
-              <details key={question.title} className="elite-faq-item">
+              <details key={question.title} className={styles.faqItem}>
                 <summary>
-                  <span className="elite-faq-number">0{index + 1}</span>
+                  <span className={styles.faqNumber}>0{index + 1}</span>
                   <span>{question.title}</span>
                   <ChevronDown size={20} aria-hidden="true" />
                 </summary>
@@ -441,21 +441,21 @@ export default function AnotadoresElitePage() {
       </section>
 
       {/* CTA de contacto directo, sin simular un sistema de inscripciones. */}
-      <section className="elite-closing" aria-labelledby="elite-closing-title">
-        <div className="container elite-closing-grid">
+      <section className={styles.closing} aria-labelledby="elite-closing-title">
+        <div className={`container ${styles.closingGrid}`}>
           <div>
-            <p className="elite-eyebrow">TU SIGUIENTE PASO</p>
+            <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
             <h2 id="elite-closing-title">CADA JUGADOR. <em>SU PROPIO CAMINO.</em></h2>
             <p>
               Cuéntanos en qué quiere mejorar el jugador y te explicaremos cómo
               planteamos la valoración inicial y las opciones de incorporación.
             </p>
-            <p className="elite-closing-note">
+            <p className={styles.closingNote}>
               El posible coste de la valoración, la composición de los grupos y las
               condiciones de asistencia se confirmarán antes de la inscripción.
             </p>
           </div>
-          <ValuationLink className="elite-button elite-button-dark">
+          <ValuationLink className={`${styles.button} ${styles.buttonDark}`}>
             Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
           </ValuationLink>
         </div>

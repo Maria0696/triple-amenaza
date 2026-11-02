@@ -10,7 +10,7 @@ import {
 
 import { pageMetadata } from "@/lib/metadata";
 import { methodDescription, methodSteps } from "@/lib/site";
-import "./metodo.css";
+import styles from "./metodo.module.css";
 
 export const metadata = pageMetadata({
   title: "Método ATA",
@@ -58,26 +58,26 @@ export default function MetodoPage() {
   return (
     <>
       {/* Introducción: resumen navegable de las etapas. */}
-      <section className="method-page-hero" aria-labelledby="method-page-title">
-        <div className="container method-page-hero-grid">
-          <div className="method-page-hero-copy">
-            <p className="method-page-eyebrow method-page-eyebrow-light">
-              <span className="method-page-eyebrow-rule" aria-hidden="true" />
+      <section className={styles.hero} aria-labelledby="method-page-title">
+        <div className={`container ${styles.heroGrid}`}>
+          <div className={styles.heroCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+              <span className={styles.eyebrowRule} aria-hidden="true" />
               MÉTODO ATA / CÓMO TRABAJAMOS
             </p>
-            <h1 id="method-page-title" className="method-page-hero-title">
+            <h1 id="method-page-title" className={styles.heroTitle}>
               CADA SESIÓN.
               <span>CON UN PORQUÉ.</span>
             </h1>
-            <p className="method-page-hero-lead">
+            <p className={styles.heroLead}>
               Un buen entrenamiento empieza por entender qué necesita el jugador.
               A partir de ahí, damos sentido a cada tarea y buscamos que lo
               aprendido sea útil en competición.
             </p>
           </div>
 
-          <nav className="method-page-index" aria-label="Ir a una etapa del Método ATA">
-            <div className="method-page-index-top">
+          <nav className={styles.index} aria-label="Ir a una etapa del Método ATA">
+            <div className={styles.indexTop}>
               <span>EL RECORRIDO</span>
               <span>01 — 04</span>
             </div>
@@ -85,14 +85,14 @@ export default function MetodoPage() {
               {methodSteps.map((step) => (
                 <li key={step.number}>
                   <a href={`#etapa-${step.number}`}>
-                    <span className="method-page-index-number">{step.number}</span>
-                    <span className="method-page-index-name">{step.title}</span>
+                    <span className={styles.indexNumber}>{step.number}</span>
+                    <span className={styles.indexName}>{step.title}</span>
                     <ArrowUpRight size={20} aria-hidden="true" />
                   </a>
                 </li>
               ))}
             </ol>
-            <p className="method-page-index-bottom">
+            <p className={styles.indexBottom}>
               CUATRO ETAPAS <span>·</span> UN PROCESO CONECTADO
             </p>
           </nav>
@@ -100,56 +100,56 @@ export default function MetodoPage() {
       </section>
 
       {/* Las cuatro etapas oficiales, con información adicional para cada una. */}
-      <section className="method-page-process" id="etapas" aria-labelledby="method-page-process-title">
+      <section className={styles.process} id="etapas" aria-labelledby="method-page-process-title">
         <div className="container">
-          <div className="method-page-process-heading">
+          <div className={styles.processHeading}>
             <div>
-              <p className="method-page-eyebrow">EL PROCESO / 04 ETAPAS</p>
-              <h2 id="method-page-process-title" className="method-page-heading">
+              <p className={styles.eyebrow}>EL PROCESO / 04 ETAPAS</p>
+              <h2 id="method-page-process-title" className={styles.heading}>
                 LA MEJORA <em>SE CONSTRUYE.</em>
               </h2>
             </div>
             <p>{methodDescription}</p>
           </div>
 
-          <div className="method-page-stages">
+          <div className={styles.stages}>
             {methodSteps.map((step, index) => {
               const detail = stageDetails[index];
               const Icon = detail.icon;
 
               return (
                 <article
-                  className="method-page-stage"
+                  className={styles.stage}
                   id={`etapa-${step.number}`}
                   key={step.number}
                   aria-labelledby={`method-page-stage-title-${step.number}`}
                 >
-                  <div className="method-page-stage-index">
+                  <div className={styles.stageIndex}>
                     {/* Decorativo: el número ya se anuncia en "ETAPA 0X / 04". */}
-                    <span className="method-page-stage-big-number" aria-hidden="true">{step.number}</span>
-                    <div className="method-page-progress" aria-hidden="true">
+                    <span className={styles.stageBigNumber} aria-hidden="true">{step.number}</span>
+                    <div className={styles.progress} aria-hidden="true">
                       {methodSteps.map((part, partIndex) => (
                         <span
                           key={part.number}
-                          className={partIndex <= index ? "is-filled" : ""}
+                          className={partIndex <= index ? styles.isFilled : undefined}
                         />
                       ))}
                     </div>
-                    <span className="method-page-stage-count">ETAPA {step.number} / 04</span>
+                    <span className={styles.stageCount}>ETAPA {step.number} / 04</span>
                   </div>
 
-                  <div className="method-page-stage-main">
-                    <p className="method-page-stage-kicker">{detail.kicker}</p>
+                  <div className={styles.stageMain}>
+                    <p className={styles.stageKicker}>{detail.kicker}</p>
                     <h3 id={`method-page-stage-title-${step.number}`}>{step.title}</h3>
-                    <p className="method-page-stage-summary">{step.detail}</p>
-                    <p className="method-page-stage-text">{detail.explanation}</p>
+                    <p className={styles.stageSummary}>{step.detail}</p>
+                    <p className={styles.stageText}>{detail.explanation}</p>
                   </div>
 
-                  <div className="method-page-stage-aside">
-                    <span className="method-page-stage-icon" aria-hidden="true">
+                  <div className={styles.stageAside}>
+                    <span className={styles.stageIcon} aria-hidden="true">
                       <Icon size={29} strokeWidth={1.6} />
                     </span>
-                    <span className="method-page-stage-question-label">PREGUNTA CLAVE</span>
+                    <span className={styles.stageQuestionLabel}>PREGUNTA CLAVE</span>
                     <p>{detail.question}</p>
                   </div>
                 </article>
@@ -157,23 +157,23 @@ export default function MetodoPage() {
             })}
           </div>
 
-          <p className="method-page-process-note">
+          <p className={styles.processNote}>
             El contenido y la dificultad de las tareas se adaptan al programa y al punto de partida de cada jugador.
           </p>
         </div>
       </section>
 
       {/* Idea central del método, sin repetir los cuatro pasos. */}
-      <section className="method-page-practice" aria-labelledby="method-page-practice-title">
-        <div className="container method-page-practice-grid">
+      <section className={styles.practice} aria-labelledby="method-page-practice-title">
+        <div className={`container ${styles.practiceGrid}`}>
           <div>
-            <p className="method-page-eyebrow method-page-eyebrow-light">EL SENTIDO DE LA PRÁCTICA</p>
-            <h2 id="method-page-practice-title" className="method-page-heading">
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>EL SENTIDO DE LA PRÁCTICA</p>
+            <h2 id="method-page-practice-title" className={styles.heading}>
               NO SE TRATA DE REPETIR MÁS.
               <em> SE TRATA DE RESOLVER MEJOR.</em>
             </h2>
           </div>
-          <div className="method-page-practice-copy">
+          <div className={styles.practiceCopy}>
             <p>
               Una tarea tiene valor cuando ayuda al jugador a reconocer una situación,
               elegir una respuesta y ejecutarla con intención.
@@ -187,9 +187,9 @@ export default function MetodoPage() {
       </section>
 
       {/* Próximo paso: un único enlace a programas. */}
-      <section className="method-page-closing" aria-labelledby="method-page-closing-title">
-        <div className="container method-page-closing-inner">
-          <p className="method-page-eyebrow">EL SIGUIENTE PASO</p>
+      <section className={styles.closing} aria-labelledby="method-page-closing-title">
+        <div className={`container ${styles.closingInner}`}>
+          <p className={styles.eyebrow}>EL SIGUIENTE PASO</p>
           <h2 id="method-page-closing-title">
             UN MÉTODO. <em>DIFERENTES CAMINOS.</em>
           </h2>
@@ -198,7 +198,7 @@ export default function MetodoPage() {
             de entrenamiento de Triple Amenaza y encuentra el que mejor se adapta
             a lo que buscas.
           </p>
-          <Link className="method-page-closing-link" href="/programas/">
+          <Link className={styles.closingLink} href="/programas/">
             Explorar programas
             <ArrowRight size={19} aria-hidden="true" />
           </Link>

@@ -30,7 +30,7 @@
 ## Tecnologías
 
 - **Next.js + React + TypeScript:** estructura de la aplicación.
-- **CSS:** variables de diseño (colores, contraste) y estilos compartidos en `src/app/globals.css`, más un archivo por página. Equipo ya usa **CSS Modules** (`equipo.module.css`), el formato al que se irán migrando las demás páginas.
+- **CSS:** variables de diseño (colores, contraste) y estilos compartidos en `src/app/globals.css`, más un archivo por página. Cada página usa **CSS Modules** (`*.module.css`), así que sus clases quedan aisladas y no chocan con las de otras páginas.
 - **Tipografía:** Noto Sans, autoalojada con `next/font` (no se carga desde servidores de Google).
 - **Metadatos:** `src/lib/metadata.ts` genera título, URL canónica y vista previa al compartir (Open Graph) de cada página.
 - **Firebase:** las reglas `firestore.rules` están preparadas para ATA Hub; el paquete `firebase` se instalará cuando empiece su desarrollo.

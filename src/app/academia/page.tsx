@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 import { pageMetadata } from "@/lib/metadata";
-import "./academia.css";
+import styles from "./academia.module.css";
 
 export const metadata = pageMetadata({
   title: "Academia",
@@ -67,24 +67,24 @@ export default function AcademiaPage() {
   return (
     <>
       {/* Cabecera de la academia. Se mantiene el header compartido. */}
-      <section className="academy-hero" aria-labelledby="academy-title">
-        <div className="container academy-hero-grid">
-          <div className="academy-hero-copy">
-            <p className="academy-eyebrow academy-eyebrow-light">
-              <span className="academy-eyebrow-line" aria-hidden="true" />
+      <section className={styles.hero} aria-labelledby="academy-title">
+        <div className={`container ${styles.heroGrid}`}>
+          <div className={styles.heroCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+              <span className={styles.eyebrowLine} aria-hidden="true" />
               ACADEMIA / TRIPLE AMENAZA
             </p>
-            <h1 id="academy-title" className="academy-hero-title">
+            <h1 id="academy-title" className={styles.heroTitle}>
               MÁS ALLÁ <span>DE ENTRENAR.</span>
             </h1>
-            <p className="academy-hero-lead">
+            <p className={styles.heroLead}>
               Queremos que cada jugador entienda mejor el juego, tome decisiones
               con confianza y utilice en competición lo que aprende en cada sesión.
             </p>
           </div>
 
-          <figure className="academy-hero-figure">
-            <div className="academy-photo-wrap academy-hero-photo">
+          <figure className={styles.heroFigure}>
+            <div className={`${styles.photoWrap} ${styles.heroPhoto}`}>
               <Image
                 src="/imagenes/grupo-ata.webp"
                 alt="Jugadores y entrenadores de la academia reuniéndose en la pista y levantando las manos"
@@ -92,9 +92,9 @@ export default function AcademiaPage() {
                 height={1000}
                 sizes="(max-width: 860px) 100vw, 52vw"
                 priority
-                className="academy-photo"
+                className={styles.photo}
               />
-              <span className="academy-photo-stamp" aria-hidden="true">
+              <span className={styles.photoStamp} aria-hidden="true">
                 ATA / EN EQUIPO
               </span>
             </div>
@@ -104,11 +104,11 @@ export default function AcademiaPage() {
       </section>
 
       {/* Filosofía: tres ideas, diferentes de las etapas oficiales del método. */}
-      <section className="academy-approach" aria-labelledby="academy-approach-title">
-        <div className="container academy-approach-grid">
-          <div className="academy-approach-intro">
-            <p className="academy-eyebrow">01 / NUESTRA FILOSOFÍA</p>
-            <h2 id="academy-approach-title" className="academy-section-title">
+      <section className={styles.approach} aria-labelledby="academy-approach-title">
+        <div className={`container ${styles.approachGrid}`}>
+          <div className={styles.approachIntro}>
+            <p className={styles.eyebrow}>01 / NUESTRA FILOSOFÍA</p>
+            <h2 id="academy-approach-title" className={styles.sectionTitle}>
               EL PROGRESO <em>TIENE UN PORQUÉ.</em>
             </h2>
             <p>
@@ -117,15 +117,15 @@ export default function AcademiaPage() {
               personal, sin perder de vista lo esencial: jugar mejor.
             </p>
           </div>
-          <div className="academy-principles">
+          <div className={styles.principles}>
             {principles.map((principle) => (
-              <article className="academy-principle" key={principle.number}>
-                <span className="academy-item-number">{principle.number}</span>
+              <article className={styles.principle} key={principle.number}>
+                <span className={styles.itemNumber}>{principle.number}</span>
                 <div>
                   <h3>{principle.title}</h3>
                   <p>{principle.description}</p>
                 </div>
-                <span className="academy-principle-dash" aria-hidden="true" />
+                <span className={styles.principleDash} aria-hidden="true" />
               </article>
             ))}
           </div>
@@ -133,25 +133,25 @@ export default function AcademiaPage() {
       </section>
 
       {/* Tres pilares de la academia; no equivalen a las cuatro etapas de ATA. */}
-      <section className="academy-pillars" aria-labelledby="academy-pillars-title">
+      <section className={styles.pillars} aria-labelledby="academy-pillars-title">
         <div className="container">
-          <div className="academy-pillars-heading">
-            <p className="academy-eyebrow">02 / UNA VISIÓN COMPLETA</p>
-            <h2 id="academy-pillars-title" className="academy-section-title">
+          <div className={styles.pillarsHeading}>
+            <p className={styles.eyebrow}>02 / UNA VISIÓN COMPLETA</p>
+            <h2 id="academy-pillars-title" className={styles.sectionTitle}>
               TRES ÁREAS. <span>UN MISMO PROPÓSITO.</span>
             </h2>
           </div>
-          <div className="academy-pillars-grid">
+          <div className={styles.pillarsGrid}>
             {pillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
-                <article className="academy-pillar" key={pillar.number}>
-                  <div className="academy-pillar-top">
+                <article className={styles.pillar} key={pillar.number}>
+                  <div className={styles.pillarTop}>
                     <span>{pillar.number} / 03</span>
                     <Icon size={32} strokeWidth={1.6} aria-hidden="true" />
                   </div>
                   <div>
-                    <span className="academy-pillar-subtitle">{pillar.subtitle}</span>
+                    <span className={styles.pillarSubtitle}>{pillar.subtitle}</span>
                     <h3>{pillar.title}</h3>
                     <p>{pillar.text}</p>
                   </div>
@@ -163,25 +163,25 @@ export default function AcademiaPage() {
       </section>
 
       {/* Relación de ATA con la competición y los entrenamientos del club. */}
-      <section className="academy-club" aria-labelledby="academy-club-title">
-        <div className="container academy-club-grid">
-          <figure className="academy-club-figure">
-            <div className="academy-photo-wrap academy-club-photo">
+      <section className={styles.club} aria-labelledby="academy-club-title">
+        <div className={`container ${styles.clubGrid}`}>
+          <figure className={styles.clubFigure}>
+            <div className={`${styles.photoWrap} ${styles.clubPhoto}`}>
               <Image
                 src="/imagenes/sesion-ata.webp"
                 alt="Un entrenador de Triple Amenaza junto a un jugador con balón durante una sesión en pista"
                 width={1400}
                 height={2100}
                 sizes="(max-width: 860px) 100vw, 40vw"
-                className="academy-photo"
+                className={styles.photo}
               />
-              <span className="academy-club-photo-mark" aria-hidden="true">ATA / EN PISTA</span>
+              <span className={styles.clubPhotoMark} aria-hidden="true">ATA / EN PISTA</span>
             </div>
             <figcaption>Trabajo en pista · Fotografía: R1kman_fotografia</figcaption>
           </figure>
-          <div className="academy-club-copy">
-            <p className="academy-eyebrow academy-eyebrow-light">03 / SUMAMOS AL EQUIPO</p>
-            <h2 id="academy-club-title" className="academy-section-title">
+          <div className={styles.clubCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>03 / SUMAMOS AL EQUIPO</p>
+            <h2 id="academy-club-title" className={styles.sectionTitle}>
               EL CLUB ES PARTE <span>DEL CAMINO.</span>
             </h2>
             <p>
@@ -194,7 +194,7 @@ export default function AcademiaPage() {
               El objetivo es que el jugador crezca con recursos propios,
               comprenda mejor sus decisiones y se sienta preparado para los retos de la competición.
             </p>
-            <Link href="/metodo/" className="academy-outline-link">
+            <Link href="/metodo/" className={styles.outlineLink}>
               Conoce el Método ATA <ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </div>
@@ -202,13 +202,13 @@ export default function AcademiaPage() {
       </section>
 
       {/* CTA única de cierre, sin inscripciones ni plazas no confirmadas. */}
-      <section className="academy-next" aria-labelledby="academy-next-title">
-        <div className="container academy-next-inner">
-          <div className="academy-next-court" aria-hidden="true"><span /></div>
-          <p className="academy-eyebrow">TU SIGUIENTE PASO</p>
+      <section className={styles.next} aria-labelledby="academy-next-title">
+        <div className={`container ${styles.nextInner}`}>
+          <div className={styles.nextCourt} aria-hidden="true"><span /></div>
+          <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
           <h2 id="academy-next-title">CADA JUGADOR. <em>SU CAMINO.</em></h2>
           <p>Descubre nuestros programas y encuentra el formato que mejor se adapta a tu punto de partida.</p>
-          <Link href="/programas/" className="academy-next-link">
+          <Link href="/programas/" className={styles.nextLink}>
             Conoce los programas <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>

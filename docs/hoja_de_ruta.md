@@ -96,7 +96,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 - **Lenguaje:** TypeScript.
 - **Aplicación:** Next.js + React, en **un solo repositorio** llamado `triple-amenaza`.
-- **Diseño:** variables de diseño y estilos compartidos en `src/app/globals.css`, CSS específico por página (migrando a CSS Modules, ya aplicado en Equipo) y Noto Sans autoalojada; responsive y componentes reutilizables.
+- **Diseño:** variables de diseño y estilos compartidos en `src/app/globals.css`, un CSS Module por página y Noto Sans autoalojada; responsive y componentes reutilizables.
 - **Control de versiones:** Git y GitHub (repositorio privado durante el desarrollo).
 - **Autenticación inicial del Hub:** Google mediante Firebase Authentication.
 - **Datos del Hub:** Cloud Firestore, con reglas por rol y relaciones jugador–entrenador.
@@ -126,7 +126,7 @@ triple-amenaza/
 │   │   │   ├── anotadores-elite/
 │   │   │   ├── anotadores-flex/
 │   │   │   └── workshops/
-│   │   ├── equipo/                  # CSS Modules
+│   │   ├── equipo/
 │   │   ├── contacto/
 │   │   ├── hub/                     # Provisional; sin login
 │   │   ├── not-found.tsx            # Página 404
@@ -176,7 +176,7 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 - [x] Logo e imágenes iniciales incorporados; primeras preguntas frecuentes presentes en programas.
 - [x] Auditoría técnica en local: contraste AA, tipografía, imágenes optimizadas, 404 en español, Open Graph por página y sin desbordamientos de 320 a 1440 px.
 - [x] Número de WhatsApp confirmado.
-- [ ] Confirmar el correo de contacto.
+- [x] Correo de contacto confirmado (`tripleamenaza.info@gmail.com`).
 - [ ] Mostrar el acceso a ATA Hub en la cabecera (`hubEnabled` en `src/lib/site.ts`) cuando el Hub tenga acceso real.
 - [ ] Revisar en dispositivos reales (iPhone y Android) y con conexión móvil.
 - [ ] Completar textos y mecanismos legales requeridos antes de publicar (aviso legal, privacidad) y los consentimientos de imagen de menores.
