@@ -1,0 +1,29 @@
+# Dependabot: solo actualizaciones de seguridad.
+#
+# open-pull-requests-limit: 0 desactiva las actualizaciones normales de versión;
+# las de seguridad se siguen abriendo cuando GitHub detecta una vulnerabilidad
+# (requiere "Dependabot security updates" activado en Settings → Code security).
+# Nota: GitHub abre las PR de seguridad contra la rama por defecto (main).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    commit-message:
+      prefix: "fix(deps)"
+    labels:
+      - dependencias
+      - seguridad
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    commit-message:
+      prefix: "fix(ci)"
+    labels:
+      - dependencias
+      - seguridad
