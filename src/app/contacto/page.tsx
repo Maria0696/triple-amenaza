@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-react";
 
+import { CopyButton } from "@/components/ui/copy-button";
 import { pageMetadata } from "@/lib/metadata";
-import { contact, whatsappLink } from "@/lib/site";
+import { contact, location, whatsappLink } from "@/lib/site";
 import styles from "./contacto.module.css";
 
 export const metadata = pageMetadata({
@@ -46,10 +47,16 @@ export default function ContactoPage() {
                 ¿Tienes dudas sobre la academia, Anotadores Élite o Anotadores
                 Flex? Cuéntanos qué necesitas y te ayudaremos a orientarte.
               </p>
-              <span className={styles.asideLabel}>
-                <span className={styles.asideDot} aria-hidden="true" />
-                EL PRIMER PASO ES HABLAR.
-              </span>
+              {/* Una persona concreta y un plazo: la consulta no se pierde. */}
+              <div className={styles.responder}>
+                <span className={styles.responderInitial} aria-hidden="true">
+                  {contact.responder.charAt(0)}
+                </span>
+                <div className={styles.responderText}>
+                  <strong>Te responde {contact.responder}</strong>
+                  <span>En un máximo de {contact.responseTime}.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -60,12 +67,12 @@ export default function ContactoPage() {
           <div className={styles.sectionHeading}>
             <div>
               <h2 id="contact-section-title">
-                ESTAMOS <em>AL OTRO LADO.</em>
+                ELIGE CÓMO <em>ESCRIBIRNOS.</em>
               </h2>
             </div>
             <p>
-              Dos formas sencillas de ponerte en contacto con el equipo de
-              Triple Amenaza. Elige la que te resulte más cómoda.
+              WhatsApp es la vía más rápida. Si prefieres contarlo con calma,
+              escríbenos un correo.
             </p>
           </div>
 
@@ -80,7 +87,7 @@ export default function ContactoPage() {
               aria-describedby="contact-whatsapp-description"
             >
               <div className={styles.cardTop}>
-                <span>MENSAJERÍA</span>
+                <span>LA VÍA MÁS RÁPIDA</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
@@ -118,7 +125,7 @@ export default function ContactoPage() {
               aria-describedby="contact-email-description"
             >
               <div className={styles.cardTop}>
-                <span>CORREO ELECTRÓNICO</span>
+                <span>CON MÁS DETALLE</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
@@ -153,10 +160,21 @@ export default function ContactoPage() {
           </div>
 
           <div className={styles.sectionFooter}>
-            <p className={styles.helpLine}>
-              <span className={styles.helpDot} aria-hidden="true" />
-              ¿Tienes dudas sobre los entrenamientos, las valoraciones o qué programa
-              elegir? Cuéntanoslo y te orientamos.
+            {/* Alternativa si el enlace mailto no abre ninguna aplicación. */}
+            <div className={styles.copyRow}>
+              <span>¿No se abre tu aplicación de correo?</span>
+              <CopyButton
+                text={contact.email}
+                label="Copiar el correo"
+                copiedMessage={`Correo ${contact.email} copiado al portapapeles.`}
+                className={styles.copyButton}
+              />
+            </div>
+            <p className={styles.location}>
+              <MapPin size={17} aria-hidden="true" />
+              <span>
+                Entrenamos en el <strong>{location.place}</strong>, en {location.city} ({location.region}).
+              </span>
             </p>
             <p className={styles.sectionNote}>
               Al elegir una tarjeta se abrirá WhatsApp o tu aplicación de correo.

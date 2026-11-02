@@ -572,14 +572,18 @@ button, a {
   margin: 0;
 }
 
-.footer-copy{
+.footer-copy {
+  margin-top: 20px;
   color: #c7d0c6;
   font-size: 13px;
   line-height: 1.75;
 }
 
-.footer-copy {
-  margin-top: 20px;
+/* Lugar de entrenamiento, bajo los datos de contacto. */
+.footer-place {
+  color: #c7d0c6;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .footer-links {

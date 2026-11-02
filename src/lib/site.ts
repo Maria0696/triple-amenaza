@@ -16,6 +16,16 @@ export const contact = {
   whatsappNumber: "34618599976",
   phoneDisplay: "618 599 976",
   email: "tripleamenaza.info@gmail.com",
+  /** Persona que atiende las consultas y plazo máximo de respuesta. */
+  responder: "Jose García Fernández",
+  responseTime: "24 horas",
+} as const;
+
+/** Lugar de entrenamiento actual. */
+export const location = {
+  place: "Colegio Humanitas",
+  city: "Torrejón de Ardoz",
+  region: "Madrid",
 } as const;
 
 export function whatsappLink(message: string): string {
