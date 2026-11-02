@@ -5,6 +5,17 @@ export const navigation = [
   { label: "Contacto", href: "/contacto/" },
 ] as const;
 
+/** Canales de contacto públicos. Comprobar el número antes del lanzamiento. */
+export const contact = {
+  whatsappNumber: "34618599976",
+  phoneDisplay: "618 599 976",
+  email: "tripleamenaza.info@gmail.com",
+} as const;
+
+export function whatsappLink(message: string): string {
+  return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
 /** El pie amplía la navegación pública y mantiene Contacto como último enlace. */
 export const footerNavigation = [
   ...navigation.filter(({ href }) => href !== "/contacto/"),
@@ -13,10 +24,15 @@ export const footerNavigation = [
   ...navigation.filter(({ href }) => href === "/contacto/"),
 ] as const;
 
+/** Unifica la barra final para comparar rutas ("/metodo" y "/metodo/" son la misma). */
+export function normalizePath(path: string): string {
+  return path === "/" ? "/" : `${path.replace(/\/+$/, "")}/`;
+}
+
 /** Activa la ruta y sus hijas. La barra final impide falsos positivos por prefijos. */
 export function isNavigationActive(pathname: string, href: string): boolean {
-  const current = pathname === "/" ? "/" : `${pathname.replace(/\/+$/, "")}/`;
-  const target = href === "/" ? "/" : `${href.replace(/\/+$/, "")}/`;
+  const current = normalizePath(pathname);
+  const target = normalizePath(href);
 
   return current === target || (target !== "/" && current.startsWith(target));
 }

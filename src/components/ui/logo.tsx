@@ -1,28 +1,13 @@
-
 import Image from "next/image";
 import Link from "next/link";
 
 type LogoProps = {
-  showText?: boolean;
   size?: number;
 };
 
-export function Logo({
-  showText = false,
-  size = 64,
-}: LogoProps) {
+export function Logo({ size = 64 }: LogoProps) {
   return (
-    <Link
-      href="/"
-      aria-label="Ir al inicio de Triple Amenaza"
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "12px",
-        flexShrink: 0,
-        width: "fit-content",
-      }}
-    >
+    <Link href="/" className="logo" aria-label="Ir al inicio de Triple Amenaza">
       <Image
         src="/imagenes/logo-ata.webp"
         alt="Escudo de Academia Triple Amenaza"
@@ -30,25 +15,8 @@ export function Logo({
         height={size}
         priority
         unoptimized
-        style={{
-          display: "block",
-          maxWidth: "none",
-          objectFit: "contain",
-          flexShrink: 0,
-        }}
+        className="logo-image"
       />
-
-      {showText && (
-        <span
-          style={{
-            fontWeight: 800,
-            color: "white",
-            fontSize: "16px",
-          }}
-        >
-          TRIPLE AMENAZA
-        </span>
-      )}
     </Link>
   );
 }

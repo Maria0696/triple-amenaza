@@ -134,7 +134,9 @@
 }
 .academy-pillar:nth-child(2) { background: #ebdfd3; border-color: #e5d8ca; }
 .academy-pillar:nth-child(3) { background: #d9e4cc; border-color: #d1dbbf; }
-.academy-pillar:hover { transform: translateY(-4px); background: #dce5ce; }
+@media (hover: hover) and (pointer: fine) {
+  .academy-pillar:hover { transform: translateY(-4px); background: #dce5ce; }
+}
 .academy-pillar-top { display: flex; justify-content: space-between; align-items: start; color: var(--green-label); }
 .academy-pillar-top span { font-size: 11px; font-weight: 850; letter-spacing: .12em; }
 .academy-pillar-subtitle { font-size: 11px; font-weight: 850; letter-spacing: .12em; color: var(--green-label); text-transform: uppercase; }
@@ -161,7 +163,9 @@
   font-weight: 850;
   transition: background-color .2s;
 }
-.academy-outline-link:hover { background: #ffffff14; }
+@media (hover: hover) and (pointer: fine) {
+  .academy-outline-link:hover { background: #ffffff14; }
+}
 
 /* Cierre */
 .academy-next { position: relative; background: var(--sage); overflow: hidden; padding: clamp(68px,7vw,106px) 0; }
@@ -176,7 +180,9 @@
 }
 .academy-next-inner > p:not(.academy-eyebrow) { max-width: 740px; font-size: 17px; line-height: 1.7; margin: 0 0 30px; }
 .academy-next-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; background: var(--ink); color: white; min-height: 56px; padding: 16px 22px; border-radius: 3px; font-weight: 850; font-size: 13px; transition: transform .2s,background-color .2s; }
-.academy-next-link:hover { background: var(--ink-hover); transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) {
+  .academy-next-link:hover { background: var(--ink-hover); transform: translateY(-2px); }
+}
 .academy-next-court { position: absolute; top: 0; right: -7%; width: 410px; aspect-ratio: 1; opacity: .1; border: 7px solid var(--ink); border-radius: 50%; pointer-events: none; }
 .academy-next-court::after { content: ""; position: absolute; top: 50%; left: -15%; width: 130%; height: 7px; background: var(--ink); transform: rotate(-24deg); }
 .academy-next-court span { position: absolute; inset: 30%; border: 7px solid var(--ink); border-radius: 50%; }
@@ -300,4 +306,26 @@
   .academy-pillar:hover .academy-pillar-top svg,
   .academy-outline-link:hover,
   .academy-outline-link:hover svg, .academy-next-link:hover svg { transform: none !important; }
+}
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 550px) {
+  .academy-hero .academy-hero-lead,
+  .academy-approach .academy-principle p {
+    font-size: 16px;
+  }
+
+  .academy-hero .academy-eyebrow,
+  body .academy-hero-figure figcaption,
+  body .academy-club-figure figcaption {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .academy-hero .academy-hero-title {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
 }

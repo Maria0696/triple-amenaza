@@ -528,3 +528,25 @@
   .programs-page-workshops-link:hover,
   .programs-page-workshops-link:hover svg { transform: none !important; }
 }
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 550px) {
+  .programs-page-hero .programs-page-hero-lead,
+  body .programs-page-question p,
+  .programs-page-workshops .programs-page-workshops-detail {
+    font-size: 16px;
+  }
+
+  .programs-page-hero .programs-page-eyebrow,
+  .programs-page-workshops .programs-page-workshops-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .programs-page-hero .programs-page-hero-title {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
+}

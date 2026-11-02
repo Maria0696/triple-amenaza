@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
-import { isNavigationActive, navigation } from "@/lib/site";
+import { isNavigationActive, navigation, normalizePath } from "@/lib/site";
 import { Logo } from "@/components/ui/logo";
 
 export function SiteHeader() {
@@ -58,10 +58,7 @@ export function SiteHeader() {
   }, [open]);
 
   function isCurrentPage(href: string) {
-    const normalize = (value: string) =>
-      value === "/" ? "/" : `${value.replace(/\/+$/, "")}/`;
-
-    return normalize(pathname) === normalize(href);
+    return normalizePath(pathname) === normalizePath(href);
   }
 
   function closeMenu() {
@@ -77,7 +74,7 @@ export function SiteHeader() {
       <header ref={headerRef} className="site-header">
         <div className="container header-inner">
           <div className="brand">
-            <Logo showText={false} size={90} />
+            <Logo size={90} />
           </div>
 
           <nav className="desktop-nav" aria-label="Navegación principal">

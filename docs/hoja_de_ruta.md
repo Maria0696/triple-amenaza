@@ -3,8 +3,8 @@
 > **Proyecto:** Plataforma web integral de Academia Triple Amenaza (ATA)  
 > **Repositorio:** `triple-amenaza`  
 > **Área privada:** `ATA Hub`  
-> **Versión del plan:** 2.1 · 20 de octubre de 2026  
-> **Estado:** web pública desarrollada en código, CI de calidad configurado; páginas provisionales y ATA Hub pendientes de completar.
+> **Versión del plan:** 2.2 · 2 de noviembre de 2026  
+> **Estado:** web pública completa en código y auditada (accesibilidad, rendimiento, responsive); pendientes los textos legales, la publicación y ATA Hub.
 
 ## 1. Visión y objetivo
 
@@ -47,7 +47,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 | **Workshops / masterclasses** | Actividades complementarias dentro de Programas | Página informativa creada; fechas e inscripciones pendientes de confirmación. |
 | **Otras futuras modalidades** | Ampliaciones posteriores | No se publicarán programas, horarios o prestaciones sin confirmación. |
 
-**Nota comercial:** por ahora solo se presentan públicamente **Anotadores Élite** y **Anotadores Flex** como programas. El entrenamiento individual se retiró de la oferta pública. No publicar precios, plazas ni horarios sin confirmación.
+**Nota comercial:** por ahora solo se presentan públicamente **Anotadores Élite** y **Anotadores Flex** como programas. El entrenamiento individual se retiró de la oferta pública. A petición de ATA, la página de Élite muestra sus tarifas (240 € en pago único o 255 € fraccionado, IVA incluido); confirmarlas antes del lanzamiento. No publicar plazas ni horarios sin confirmación.
 
 ### Valoraciones y gamificación conocidas
 
@@ -70,7 +70,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 | **Anotadores Flex** (`/programas/anotadores-flex`) | Funcionamiento flexible, condiciones y consulta/inscripción. | Alta |
 | **Workshops** (`/programas/workshops`) | Página informativa de talleres y masterclasses (sin calendario confirmado). | Media |
 | **Equipo** (`/equipo`) | Presentación de entrenadores, perfiles y experiencia, previa validación de datos y fotografías. | Media |
-| **Contacto** (`/contacto`) | Página provisional; falta definir un canal de consultas funcional. | Alta |
+| **Contacto** (`/contacto`) | Consultas por WhatsApp y correo electrónico; verificar el número antes del lanzamiento. | Alta |
 | **Preguntas frecuentes** (sin ruta propia) | Respuestas integradas en las páginas de los programas; evaluar si una página independiente aporta valor. | Posterior / opcional |
 | **Información legal** (`/legal/...`) | Privacidad, aviso legal y cookies según los servicios realmente utilizados. | Obligatoria antes del lanzamiento público |
 | **Noticias y recursos** (`/recursos`) | Artículos, novedades y contenido de valor. | Posterior / opcional |
@@ -96,7 +96,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 - **Lenguaje:** TypeScript.
 - **Aplicación:** Next.js + React, en **un solo repositorio** llamado `triple-amenaza`.
-- **Diseño:** CSS tradicional, estilos globales en `src/app/globals.css` y CSS específico por página; responsive y componentes reutilizables.
+- **Diseño:** variables de diseño y estilos compartidos en `src/app/globals.css`, CSS específico por página (migrando a CSS Modules, ya aplicado en Equipo) y Noto Sans autoalojada; responsive y componentes reutilizables.
 - **Control de versiones:** Git y GitHub (repositorio privado durante el desarrollo).
 - **Autenticación inicial del Hub:** Google mediante Firebase Authentication.
 - **Datos del Hub:** Cloud Firestore, con reglas por rol y relaciones jugador–entrenador.
@@ -126,14 +126,17 @@ triple-amenaza/
 │   │   │   ├── anotadores-elite/
 │   │   │   ├── anotadores-flex/
 │   │   │   └── workshops/
-│   │   ├── equipo/                  # Provisional
-│   │   ├── contacto/                # Provisional
+│   │   ├── equipo/                  # CSS Modules
+│   │   ├── contacto/
 │   │   ├── hub/                     # Provisional; sin login
+│   │   ├── not-found.tsx            # Página 404
 │   │   ├── layout.tsx
 │   │   └── globals.css
 │   ├── components/web/
 │   ├── components/ui/
-│   └── lib/site.ts
+│   └── lib/
+│       ├── site.ts                  # Navegación, programas y contacto
+│       └── metadata.ts              # Metadatos y Open Graph por página
 ├── firestore.rules                 # Reglas previstas para Hub
 ├── next.config.ts                  # Exportación estática
 ├── package.json
@@ -169,11 +172,13 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 - [x] Portada de Triple Amenaza, navegación y pie de página responsive desarrollados.
 - [x] Páginas públicas de Academia, Método, Programas, Anotadores Élite y Anotadores Flex creadas.
 - [x] Página informativa de Workshops bajo `/programas/workshops/`.
-- [x] Páginas provisionales de Equipo y Contacto creadas.
+- [x] Páginas de Equipo y Contacto completas; contacto por WhatsApp y correo electrónico.
 - [x] Logo e imágenes iniciales incorporados; primeras preguntas frecuentes presentes en programas.
-- [ ] Completar Equipo, Contacto y su canal de consultas verificado.
-- [ ] Verificar responsive, accesibilidad, rendimiento, imágenes y SEO en condiciones reales.
-- [ ] Completar textos y mecanismos legales requeridos antes de publicar.
+- [x] Auditoría técnica en local: contraste AA, tipografía, imágenes optimizadas, 404 en español, Open Graph por página y sin desbordamientos de 320 a 1440 px.
+- [ ] Verificar el número de WhatsApp y el correo de contacto.
+- [ ] Revisar en dispositivos reales (iPhone y Android) y con conexión móvil.
+- [ ] Completar textos y mecanismos legales requeridos antes de publicar (aviso legal, privacidad) y los consentimientos de imagen de menores.
+- [ ] Al publicar: definir `NEXT_PUBLIC_SITE_URL`, quitar `noindex` y añadir `sitemap.xml` y `robots.txt`.
 - [ ] Publicar la primera versión en un servicio compatible con el uso comercial y el presupuesto.
 
 **Hito de salida:** web pública navegable, usable en móvil y con contacto funcional.
@@ -287,8 +292,8 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 ## 8. Próximo paso inmediato
 
-1. Terminar los ajustes de mantenimiento y revisar el diseño tras retirar Tailwind.
-2. Completar la web pública: Equipo, Contacto, accesibilidad y contenido legal necesario.
+1. Redactar el aviso legal y la política de privacidad, y reunir los consentimientos de imagen.
+2. Verificar los datos de contacto y revisar la web en dispositivos reales.
 3. Elegir un hosting estático que permita uso comercial y validar la exportación de `out/`.
 4. Diseñar la arquitectura de ATA Hub (roles, permisos, fichas y valoraciones) antes de introducir datos reales.
 5. Preparar Firebase de prueba y verificar sus reglas de acceso con datos ficticios.

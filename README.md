@@ -25,13 +25,15 @@
 
 **Anotadores Élite** ofrece un proceso estructurado de tecnificación y seguimiento. **Anotadores Flex** permite participar en sesiones con mayor flexibilidad. Los **workshops y masterclasses** se presentan como actividades puntuales dentro de Programas.
 
-Las condiciones comerciales, fechas y plazas se comunicarán cuando estén confirmadas. Las páginas de **Equipo** y **Contacto** siguen en preparación; no hay un sistema de inscripciones o acceso al Hub habilitado en esta versión.
+**Anotadores Élite** muestra sus tarifas; el resto de condiciones, fechas y plazas se comunicarán cuando estén confirmadas. **Equipo** presenta a la dirección y a los colaboradores, y **Contacto** funciona por WhatsApp y correo electrónico. No hay sistema de inscripciones ni acceso al Hub habilitado en esta versión.
 
 ## Tecnologías
 
 - **Next.js + React + TypeScript:** estructura de la aplicación.
-- **CSS tradicional:** estilos globales en `src/app/globals.css` y estilos propios de cada página.
-- **Firebase:** dependencia y reglas de seguridad preparadas para futuras funciones de ATA Hub; la autenticación todavía no está conectada a la web publicada.
+- **CSS:** variables de diseño (colores, contraste) y estilos compartidos en `src/app/globals.css`, más un archivo por página. Equipo ya usa **CSS Modules** (`equipo.module.css`), el formato al que se irán migrando las demás páginas.
+- **Tipografía:** Noto Sans, autoalojada con `next/font` (no se carga desde servidores de Google).
+- **Metadatos:** `src/lib/metadata.ts` genera título, URL canónica y vista previa al compartir (Open Graph) de cada página.
+- **Firebase:** las reglas `firestore.rules` están preparadas para ATA Hub; el paquete `firebase` se instalará cuando empiece su desarrollo.
 - **GitHub Actions:** comprueba ESLint, tipos de Next.js/TypeScript y compilación.
 
 El proyecto usa actualmente **exportación estática** (`output: "export"`): `npm run build` genera la carpeta `out/`, que podrá alojarse en un servidor de archivos estáticos compatible con el uso comercial.
@@ -58,6 +60,8 @@ npm run build
 `npm run typecheck` genera automáticamente las declaraciones de Next.js mediante `next typegen`. Por eso `next-env.d.ts` no se versiona: **Next.js lo recrea localmente y en CI**.
 
 No usamos `next start` porque el proyecto exporta HTML/CSS/JS estáticos. Para desarrollar utiliza `npm run dev`; para publicar, utiliza el contenido de `out/`.
+
+Para la compilación de producción hay que definir `NEXT_PUBLIC_SITE_URL` (el dominio público, sin barra final). Sin ella, las URLs canónicas y las vistas previas al compartir apuntan a `localhost`. Consulta `.env.example`.
 
 ## Documentación
 
