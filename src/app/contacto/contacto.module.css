@@ -2,29 +2,29 @@
    CONTACTO · ACADEMIA TRIPLE AMENAZA
    ========================================= */
 
-.contact-hero {
+.hero {
   color: var(--paper);
   background: var(--ink);
 }
 
-.contact-hero-container {
+.heroContainer {
   padding-top: 50px;
   padding-bottom: clamp(56px, 6vw, 96px);
 }
 
-.contact-hero-grid {
+.heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.75fr) minmax(270px, .65fr);
   align-items: end;
   gap: clamp(30px, 5vw, 95px);
 }
 
-.contact-hero-main,
-.contact-hero-aside {
+.heroMain,
+.heroAside {
   min-width: 0;
 }
 
-.contact-eyebrow {
+.eyebrow {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -37,18 +37,18 @@
   text-transform: uppercase;
 }
 
-.contact-eyebrow-light {
+.eyebrowLight {
   color: var(--peach);
 }
 
-.contact-eyebrow-line {
+.eyebrowLine {
   width: 27px;
   height: 2px;
   flex: 0 0 auto;
   background: var(--orange);
 }
 
-.contact-hero-title {
+.heroTitle {
   margin: 0;
   font-size: clamp(52px, 6.5vw, 107px);
   line-height: .96;
@@ -57,20 +57,20 @@
   overflow-wrap: break-word;
 }
 
-.contact-hero-title em {
+.heroTitle em {
   color: var(--sage);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
 
-.contact-hero-aside {
+.heroAside {
   padding-top: 24px;
   border-top: 1px solid #ffffff44;
 }
 
-.contact-aside-number,
-.contact-aside-label {
+.asideNumber,
+.asideLabel {
   display: block;
   color: var(--sage);
   font-size: 12px;
@@ -78,7 +78,7 @@
   letter-spacing: .12em;
 }
 
-.contact-hero-aside p {
+.heroAside p {
   margin: 25px 0 25px;
   color: #d4dfd6;
   font-size: 17px;
@@ -89,24 +89,24 @@
    CANALES DE CONTACTO
    ========================================= */
 
-.contact-section {
+.section {
   padding: clamp(72px, 8vw, 118px) 0;
   background: var(--cream);
 }
 
-.contact-section-heading {
+.sectionHeading {
   display: block;
   width: 100%;
   margin-bottom: 42px;
 }
 
-.contact-section-heading > div,
-.contact-section-heading > p {
+.sectionHeading > div,
+.sectionHeading > p {
   min-width: 0;
 }
 
-.contact-section-heading h2,
-.contact-closing h2 {
+.sectionHeading h2,
+.closing h2 {
   margin: 0;
   font-size: clamp(42px, 5vw, 75px);
   line-height: 1.04;
@@ -114,14 +114,14 @@
   letter-spacing: -.04em;
 }
 
-.contact-section-heading h2 em,
-.contact-closing h2 em {
+.sectionHeading h2 em,
+.closing h2 em {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
 
-.contact-section-heading > p {
+.sectionHeading > p {
   display: block;
   width: 100%;
   max-width: none;
@@ -134,19 +134,19 @@
 
 /* El título y la descripción utilizan el mismo ancho que las dos tarjetas. */
 @media (min-width: 1061px) {
-  .contact-section-heading h2,
-  .contact-section-heading > p {
+  .sectionHeading h2,
+  .sectionHeading > p {
     white-space: nowrap;
   }
 }
 
-.contact-cards {
+.cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
-.contact-card {
+.card {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -156,17 +156,17 @@
   cursor: pointer;
 }
 
-.contact-card-whatsapp {
+.cardWhatsapp {
   background: var(--sage);
   color: var(--ink);
 }
 
-.contact-card-email {
+.cardEmail {
   background: var(--paper);
   color: var(--ink);
 }
 
-.contact-card-top {
+.cardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,12 +178,12 @@
   letter-spacing: .12em;
 }
 
-.contact-card-content {
+.cardContent {
   padding-top: 31px;
   padding-bottom: 32px;
 }
 
-.contact-card-icon {
+.cardIcon {
   display: inline-grid;
   place-items: center;
   width: 60px;
@@ -193,7 +193,7 @@
   border-radius: 50%;
 }
 
-.contact-card h3 {
+.card h3 {
   margin: 0 0 18px;
   font-size: clamp(35px, 4vw, 59px);
   line-height: 1;
@@ -201,7 +201,7 @@
   letter-spacing: -.04em;
 }
 
-.contact-card-content p {
+.cardContent p {
   max-width: 460px;
   margin: 0;
   color: #39483a;
@@ -209,14 +209,14 @@
   line-height: 1.75;
 }
 
-.contact-card-bottom {
+.cardBottom {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: auto;
 }
 
-.contact-card-detail {
+.cardDetail {
   display: block;
   min-width: 0;
   font-size: 16px;
@@ -224,11 +224,11 @@
   line-height: 1.4;
 }
 
-.contact-card-email-address {
+.cardEmailAddress {
   overflow-wrap: anywhere;
 }
 
-.contact-card-action {
+.cardAction {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -242,20 +242,20 @@
   transition: background-color .2s ease, transform .2s ease;
 }
 
-.contact-card-action-dark,
-.contact-card-action-light {
+.cardActionDark,
+.cardActionLight {
   color: var(--paper);
   background: var(--ink);
 }
 
 /* La tarjeta completa es un enlace: el foco se dibuja alrededor de ella. */
-.contact-card:focus-visible {
+.card:focus-visible {
   outline: 3px solid var(--focus-color);
   outline-offset: 5px;
   box-shadow: 0 0 0 8px var(--paper);
 }
 
-.contact-section-footer {
+.sectionFooter {
   display: grid;
   gap: 8px;
   margin-top: 24px;
@@ -263,7 +263,7 @@
   border-top: 1px solid #1c211e24;
 }
 
-.contact-help-line {
+.helpLine {
   display: flex;
   align-items: baseline;
   gap: 11px;
@@ -274,7 +274,7 @@
   line-height: 1.65;
 }
 
-.contact-help-dot {
+.helpDot {
   flex: 0 0 7px;
   width: 7px;
   height: 7px;
@@ -282,7 +282,7 @@
   background: var(--orange-dark);
 }
 
-.contact-section-note {
+.sectionNote {
   max-width: 900px;
   margin: 0 0 0 18px;
   color: #58645b;
@@ -294,29 +294,29 @@
    CTA FINAL
    ========================================= */
 
-.contact-closing {
+.closing {
   background: #2a382e;
   color: var(--paper);
   padding: clamp(75px, 8vw, 110px) 0;
 }
 
-.contact-closing-inner {
+.closingInner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   gap: 35px;
 }
 
-.contact-closing h2 {
+.closing h2 {
   max-width: 780px;
   font-size: clamp(42px, 5vw, 74px);
 }
 
-.contact-closing h2 em {
+.closing h2 em {
   color: var(--sage);
 }
 
-.contact-closing-inner > div > p:last-child {
+.closingInner > div > p:last-child {
   max-width: 640px;
   margin: 23px 0 0;
   color: #d2dfd4;
@@ -324,7 +324,7 @@
   line-height: 1.75;
 }
 
-.contact-closing-link {
+.closingLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -340,7 +340,7 @@
   transition: background-color .2s ease, transform .2s ease;
 }
 
-.contact-closing-link:focus-visible {
+.closingLink:focus-visible {
   outline-color: var(--focus-light);
   box-shadow: 0 0 0 6px var(--ink);
 }
@@ -350,137 +350,137 @@
    ========================================= */
 
 @media (hover: hover) and (pointer: fine) {
-  .contact-card:hover .contact-card-action {
+  .card:hover .cardAction {
     background: #3a493e;
     transform: translateY(-2px);
   }
 
-  .contact-closing-link:hover {
+  .closingLink:hover {
     background: #dceaa8;
     transform: translateY(-2px);
   }
 }
 
 @media (max-width: 860px) {
-  .contact-hero-grid {
+  .heroGrid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .contact-hero-aside {
+  .heroAside {
     max-width: 570px;
   }
 
-  .contact-section-heading h2,
-  .contact-section-heading > p {
+  .sectionHeading h2,
+  .sectionHeading > p {
     white-space: normal;
   }
 
-  .contact-closing-inner {
+  .closingInner {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .contact-closing-link {
+  .closingLink {
     justify-self: start;
   }
 }
 
 @media (max-width: 600px) {
-  .contact-hero-container {
+  .heroContainer {
     padding-top: 28px;
     padding-bottom: 52px;
   }
 
-  .contact-hero-grid {
+  .heroGrid {
     gap: 37px;
   }
 
-  .contact-hero-title {
+  .heroTitle {
     font-size: clamp(43px, 10.5vw, 67px);
   }
 
-  .contact-hero-aside p {
+  .heroAside p {
     margin: 15px 0 18px;
     font-size: 16px;
   }
 
-  .contact-section {
+  .section {
     padding: 66px 0;
   }
 
-  .contact-section-heading {
+  .sectionHeading {
     margin-bottom: 29px;
   }
 
-  .contact-section-heading > p {
+  .sectionHeading > p {
     margin-top: 16px;
   }
 
-  .contact-section-footer {
+  .sectionFooter {
     margin-top: 19px;
     padding-top: 17px;
   }
 
-  .contact-help-line {
+  .helpLine {
     font-size: 14px;
   }
 
-  .contact-section-note {
+  .sectionNote {
     margin-left: 18px;
   }
 
-  .contact-section-heading h2 {
+  .sectionHeading h2 {
     font-size: clamp(38px, 9.4vw, 56px);
   }
 
-  .contact-cards {
+  .cards {
     grid-template-columns: minmax(0, 1fr);
     gap: 13px;
   }
 
-  .contact-card {
+  .card {
     min-height: 390px;
     padding: 26px;
   }
 
-  .contact-card h3 {
+  .card h3 {
     font-size: clamp(38px, 9vw, 52px);
   }
 
-  .contact-closing {
+  .closing {
     padding: 68px 0;
   }
 
-  .contact-closing h2 {
+  .closing h2 {
     font-size: clamp(38px, 9vw, 58px);
   }
 
-  .contact-closing-link {
+  .closingLink {
     width: 100%;
   }
 }
 
 @media (max-width: 380px) {
-  .contact-hero-title {
+  .heroTitle {
     font-size: 41px;
   }
 
-  .contact-card {
+  .card {
     padding: 20px;
   }
 
-  .contact-card-detail {
+  .cardDetail {
     font-size: 15px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .contact-card-action,
-  .contact-closing-link {
+  .cardAction,
+  .closingLink {
     transition: none;
   }
 
-  .contact-card:hover .contact-card-action,
-  .contact-closing-link:hover {
+  .card:hover .cardAction,
+  .closingLink:hover {
     transform: none;
   }
 }
@@ -490,7 +490,7 @@
    ========================================= */
 
 /* Fondo gráfico: líneas orbitales inspiradas en la cancha de baloncesto. */
-.contact-hero {
+.hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -499,7 +499,7 @@
     linear-gradient(120deg, var(--ink) 10%, #26352b 100%);
 }
 
-.contact-hero::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -514,12 +514,12 @@
   );
 }
 
-.contact-hero-container {
+.heroContainer {
   position: relative;
   z-index: 1;
 }
 
-.contact-hero-art {
+.heroArt {
   position: absolute;
   z-index: 0;
   width: min(70vw, 920px);
@@ -531,7 +531,7 @@
   animation: contact-orbit-float 18s ease-in-out infinite alternate;
 }
 
-.contact-hero-orbit {
+.heroOrbit {
   position: absolute;
   inset: 0;
   display: block;
@@ -539,12 +539,12 @@
   border-radius: 50%;
 }
 
-.contact-hero-orbit-inner {
+.heroOrbitInner {
   inset: 21%;
   border-color: var(--sage-line);
 }
 
-.contact-hero-orbit-outer::after {
+.heroOrbitOuter::after {
   content: "";
   position: absolute;
   width: 1px;
@@ -555,7 +555,7 @@
   transform: rotate(-28deg);
 }
 
-.contact-hero-orbit-point {
+.heroOrbitPoint {
   position: absolute;
   display: block;
   width: 12px;
@@ -568,32 +568,32 @@
 }
 
 /* Entrada escalonada del titular y el texto. */
-.contact-hero .contact-eyebrow,
-.contact-hero .contact-hero-aside {
+.hero .eyebrow,
+.hero .heroAside {
   animation: contact-rise-in .75s cubic-bezier(.2,.75,.25,1) both;
 }
 
-.contact-hero .contact-eyebrow { animation-delay: .14s; }
-.contact-hero .contact-hero-aside { animation-delay: .48s; }
+.hero .eyebrow { animation-delay: .14s; }
+.hero .heroAside { animation-delay: .48s; }
 
-.contact-hero-title-line {
+.heroTitleLine {
   display: block;
   width: fit-content;
   max-width: 100%;
   animation: contact-rise-in .82s cubic-bezier(.2,.75,.25,1) both;
 }
 
-.contact-hero-title-line:nth-child(1) { animation-delay: .18s; }
-.contact-hero-title-line:nth-child(2) { animation-delay: .29s; }
-.contact-hero-title-line:nth-child(3) { animation-delay: .4s; }
+.heroTitleLine:nth-child(1) { animation-delay: .18s; }
+.heroTitleLine:nth-child(2) { animation-delay: .29s; }
+.heroTitleLine:nth-child(3) { animation-delay: .4s; }
 
-.contact-hero-title em {
+.heroTitle em {
   position: relative;
   display: inline-block;
   max-width: 100%;
 }
 
-.contact-hero-title em::after {
+.heroTitle em::after {
   content: "";
   position: absolute;
   height: 3px;
@@ -606,13 +606,13 @@
   animation: contact-underline-reveal .65s ease-out .9s both;
 }
 
-.contact-aside-label {
+.asideLabel {
   display: inline-flex;
   align-items: center;
   gap: 11px;
 }
 
-.contact-aside-dot {
+.asideDot {
   display: inline-block;
   width: 7px;
   height: 7px;
@@ -623,13 +623,13 @@
 }
 
 /* Aparición suave de los bloques, sin depender de JavaScript. */
-.contact-section-heading,
-.contact-section-note,
-.contact-closing-inner {
+.sectionHeading,
+.sectionNote,
+.closingInner {
   animation: contact-fade-in .85s ease both;
 }
 
-.contact-card {
+.card {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -640,11 +640,11 @@
   animation: contact-fade-in .8s ease both;
 }
 
-.contact-card-whatsapp { animation-delay: .11s; }
-.contact-card-email { animation-delay: .22s; }
+.cardWhatsapp { animation-delay: .11s; }
+.cardEmail { animation-delay: .22s; }
 
 /* Línea de borde que se ilumina suavemente al interactuar. */
-.contact-card::before {
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -656,7 +656,7 @@
 }
 
 /* Reflejo diagonal sobre la tarjeta; solo se activa con hover. */
-.contact-card::after {
+.card::after {
   content: "";
   position: absolute;
   z-index: 0;
@@ -671,18 +671,18 @@
   transition: left .75s ease, opacity .3s ease;
 }
 
-.contact-card-top,
-.contact-card-content,
-.contact-card-bottom {
+.cardTop,
+.cardContent,
+.cardBottom {
   position: relative;
   z-index: 1;
 }
 
-.contact-card-top svg {
+.cardTop svg {
   transition: transform .35s ease;
 }
 
-.contact-card-icon {
+.cardIcon {
   position: relative;
   transition:
     transform .45s cubic-bezier(.2,.75,.25,1),
@@ -690,7 +690,7 @@
     box-shadow .35s ease;
 }
 
-.contact-card-icon::after {
+.cardIcon::after {
   content: "";
   position: absolute;
   inset: -7px;
@@ -701,7 +701,7 @@
   transition: transform .4s ease, opacity .4s ease;
 }
 
-.contact-card-action {
+.cardAction {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -711,7 +711,7 @@
     box-shadow .3s ease;
 }
 
-.contact-card-action::before {
+.cardAction::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -721,14 +721,14 @@
   transition: transform .65s ease;
 }
 
-.contact-card-action svg,
-.contact-closing-link svg {
+.cardAction svg,
+.closingLink svg {
   flex: 0 0 auto;
   transition: transform .3s ease;
 }
 
 /* Decoración de la sección final. */
-.contact-closing {
+.closing {
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -737,7 +737,7 @@
     linear-gradient(120deg, #253329, #34483a);
 }
 
-.contact-closing::before {
+.closing::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -753,76 +753,76 @@
   pointer-events: none;
 }
 
-.contact-closing-inner {
+.closingInner {
   position: relative;
   z-index: 1;
 }
 
-.contact-closing-link {
+.closingLink {
   position: relative;
   overflow: hidden;
 }
 
 /* Hover reservado a dispositivos con ratón o puntero fino. */
 @media (hover: hover) and (pointer: fine) {
-  .contact-card:hover {
+  .card:hover {
     transform: translateY(-9px);
     box-shadow: 0 28px 55px #1c211e21;
     border-color: #1c211e70;
   }
 
-  .contact-card:hover::before,
-  .contact-card:focus-within::before {
+  .card:hover::before,
+  .card:focus-within::before {
     opacity: 1;
   }
 
-  .contact-card:hover::after {
+  .card:hover::after {
     left: 150%;
     opacity: .65;
   }
 
-  .contact-card:hover .contact-card-icon {
+  .card:hover .cardIcon {
     transform: rotate(-9deg) scale(1.09);
     background-color: #ffffff45;
     box-shadow: 0 11px 22px #1c211e16;
   }
 
-  .contact-card:hover .contact-card-icon::after {
+  .card:hover .cardIcon::after {
     opacity: 1;
     transform: scale(1);
   }
 
-  .contact-card:hover .contact-card-top svg {
+  .card:hover .cardTop svg {
     transform: translate(4px, -4px);
   }
 
-  .contact-card:hover .contact-card-action,
-  .contact-card:focus-visible .contact-card-action {
+  .card:hover .cardAction,
+  .card:focus-visible .cardAction {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px #1c211e20;
   }
 
-  .contact-card:hover .contact-card-action::before,
-  .contact-card:focus-visible .contact-card-action::before {
+  .card:hover .cardAction::before,
+  .card:focus-visible .cardAction::before {
     transform: translateX(110%);
   }
 
-  .contact-card:hover .contact-card-action svg,
-  .contact-card:focus-visible .contact-card-action svg,
-  .contact-closing-link:hover svg,
-  .contact-closing-link:focus-visible svg {
+  .card:hover .cardAction svg,
+  .card:focus-visible .cardAction svg,
+  .closingLink:hover svg,
+  .closingLink:focus-visible svg {
     transform: translate(4px, -3px);
   }
 }
 
 /* El foco se mantiene visible incluso sin hover. */
-.contact-card:focus-visible::before {
+.card:focus-visible::before {
   opacity: 1;
 }
 
 /* Responsive: reducir ornamentos para que no compitan con el contenido. */
 @media (max-width: 860px) {
-  .contact-hero-art {
+  .heroArt {
     right: -41%;
     top: -16%;
     width: min(100vw, 680px);
@@ -831,22 +831,22 @@
 }
 
 @media (max-width: 600px) {
-  .contact-hero-art {
+  .heroArt {
     width: 580px;
     right: -300px;
     top: 8%;
     opacity: .2;
   }
 
-  .contact-hero-title em::after {
+  .heroTitle em::after {
     height: 2px;
   }
 
-  .contact-card {
+  .card {
     box-shadow: 0 10px 25px #1c211e0b;
   }
 
-  .contact-closing::before {
+  .closing::before {
     right: -80%;
     top: -10%;
     opacity: .55;
@@ -855,7 +855,7 @@
 
 /* Evitar que los efectos resten legibilidad en zoom o pantallas estrechas. */
 @media (max-width: 380px) {
-  .contact-hero-art {
+  .heroArt {
     opacity: .12;
   }
 }
@@ -888,51 +888,51 @@
 
 /* Accesibilidad: no imponer animaciones a quien prefiera reducir movimiento. */
 @media (prefers-reduced-motion: reduce) {
-  .contact-hero-art,
-  .contact-hero .contact-eyebrow,
-  .contact-hero .contact-hero-aside,
-  .contact-hero-title-line,
-  .contact-hero-title em::after,
-  .contact-section-heading,
-  .contact-section-note,
-  .contact-closing-inner,
-  .contact-card {
+  .heroArt,
+  .hero .eyebrow,
+  .hero .heroAside,
+  .heroTitleLine,
+  .heroTitle em::after,
+  .sectionHeading,
+  .sectionNote,
+  .closingInner,
+  .card {
     animation: none !important;
   }
 
-  .contact-hero-title em::after {
+  .heroTitle em::after {
     transform: scaleX(1);
   }
 
-  .contact-card,
-  .contact-card::before,
-  .contact-card::after,
-  .contact-card-icon,
-  .contact-card-icon::after,
-  .contact-card-top svg,
-  .contact-card-action,
-  .contact-card-action::before,
-  .contact-card-action svg,
-  .contact-closing-link,
-  .contact-closing-link svg {
+  .card,
+  .card::before,
+  .card::after,
+  .cardIcon,
+  .cardIcon::after,
+  .cardTop svg,
+  .cardAction,
+  .cardAction::before,
+  .cardAction svg,
+  .closingLink,
+  .closingLink svg {
     transition: none !important;
   }
 
-  .contact-card:hover,
-  .contact-card:hover .contact-card-action,
-  .contact-closing-link:hover {
+  .card:hover,
+  .card:hover .cardAction,
+  .closingLink:hover {
     transform: none !important;
   }
 
-  .contact-card:hover::after,
-  .contact-card:hover .contact-card-action::before {
+  .card:hover::after,
+  .card:hover .cardAction::before {
     opacity: 0;
   }
 
-  .contact-card:hover .contact-card-icon,
-  .contact-card:hover .contact-card-top svg,
-  .contact-card:hover .contact-card-action svg,
-  .contact-closing-link:hover svg {
+  .card:hover .cardIcon,
+  .card:hover .cardTop svg,
+  .card:hover .cardAction svg,
+  .closingLink:hover svg {
     transform: none !important;
   }
 }

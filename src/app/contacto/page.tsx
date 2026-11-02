@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 
 import { pageMetadata } from "@/lib/metadata";
 import { contact, whatsappLink } from "@/lib/site";
-import "./contacto.css";
+import styles from "./contacto.module.css";
 
 export const metadata = pageMetadata({
   title: "Contacto",
@@ -21,39 +21,39 @@ const emailHref = `mailto:${contact.email}?subject=${encodeURIComponent(emailSub
 export default function ContactoPage() {
   return (
     <>
-      <section className="contact-hero" aria-labelledby="contact-title">
+      <section className={styles.hero} aria-labelledby="contact-title">
         {/* Elementos puramente decorativos, no interactivos. */}
-        <div className="contact-hero-art" aria-hidden="true">
-          <span className="contact-hero-orbit contact-hero-orbit-outer" />
-          <span className="contact-hero-orbit contact-hero-orbit-inner" />
-          <span className="contact-hero-orbit-point" />
+        <div className={styles.heroArt} aria-hidden="true">
+          <span className={`${styles.heroOrbit} ${styles.heroOrbitOuter}`} />
+          <span className={`${styles.heroOrbit} ${styles.heroOrbitInner}`} />
+          <span className={styles.heroOrbitPoint} />
         </div>
 
-        <div className="container contact-hero-container">
-          <div className="contact-hero-grid">
-            <div className="contact-hero-main">
-              <p className="contact-eyebrow contact-eyebrow-light">
-                <span className="contact-eyebrow-line" aria-hidden="true" />
+        <div className={`container ${styles.heroContainer}`}>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroMain}>
+              <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
+                <span className={styles.eyebrowLine} aria-hidden="true" />
                 CONTACTO / TRIPLE AMENAZA
               </p>
 
-              <h1 id="contact-title" className="contact-hero-title">
-                <span className="contact-hero-title-line">HABLEMOS.</span>
-                <span className="contact-hero-title-line">
+              <h1 id="contact-title" className={styles.heroTitle}>
+                <span className={styles.heroTitleLine}>HABLEMOS.</span>
+                <span className={styles.heroTitleLine}>
                   <em>EMPEZAMOS</em>
                 </span>
-                <span className="contact-hero-title-line">CONTIGO.</span>
+                <span className={styles.heroTitleLine}>CONTIGO.</span>
               </h1>
             </div>
 
-            <div className="contact-hero-aside">
-              <span className="contact-aside-number">ATA / 01</span>
+            <div className={styles.heroAside}>
+              <span className={styles.asideNumber}>ATA / 01</span>
               <p>
                 ¿Tienes dudas sobre la academia, Anotadores Élite o Anotadores
                 Flex? Cuéntanos qué necesitas y te ayudaremos a orientarte.
               </p>
-              <span className="contact-aside-label">
-                <span className="contact-aside-dot" aria-hidden="true" />
+              <span className={styles.asideLabel}>
+                <span className={styles.asideDot} aria-hidden="true" />
                 EL PRIMER PASO ES HABLAR.
               </span>
             </div>
@@ -61,11 +61,11 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <section className="contact-section" aria-labelledby="contact-section-title">
+      <section className={styles.section} aria-labelledby="contact-section-title">
         <div className="container">
-          <div className="contact-section-heading">
+          <div className={styles.sectionHeading}>
             <div>
-              <p className="contact-eyebrow">01 / ELIGE CÓMO CONTACTAR</p>
+              <p className={styles.eyebrow}>01 / ELIGE CÓMO CONTACTAR</p>
               <h2 id="contact-section-title">
                 ESTAMOS <em>AL OTRO LADO.</em>
               </h2>
@@ -76,9 +76,9 @@ export default function ContactoPage() {
             </p>
           </div>
 
-          <div className="contact-cards">
+          <div className={styles.cards}>
             <a
-              className="contact-card contact-card-whatsapp"
+              className={`${styles.card} ${styles.cardWhatsapp}`}
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
@@ -86,13 +86,13 @@ export default function ContactoPage() {
               aria-labelledby="contact-whatsapp-title contact-whatsapp-detail contact-whatsapp-action"
               aria-describedby="contact-whatsapp-description"
             >
-              <div className="contact-card-top">
+              <div className={styles.cardTop}>
                 <span>01 / MENSAJERÍA</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
-              <div className="contact-card-content">
-                <span className="contact-card-icon" aria-hidden="true">
+              <div className={styles.cardContent}>
+                <span className={styles.cardIcon} aria-hidden="true">
                   <MessageCircle size={34} strokeWidth={1.7} />
                 </span>
                 <h3 id="contact-whatsapp-title">WHATSAPP.</h3>
@@ -102,13 +102,13 @@ export default function ContactoPage() {
                 </p>
               </div>
 
-              <div className="contact-card-bottom">
-                <span id="contact-whatsapp-detail" className="contact-card-detail">
+              <div className={styles.cardBottom}>
+                <span id="contact-whatsapp-detail" className={styles.cardDetail}>
                   {contact.phoneDisplay}
                 </span>
                 <span
                   id="contact-whatsapp-action"
-                  className="contact-card-action contact-card-action-dark"
+                  className={`${styles.cardAction} ${styles.cardActionDark}`}
                   aria-hidden="true"
                 >
                   Escribir por WhatsApp
@@ -119,18 +119,18 @@ export default function ContactoPage() {
             </a>
 
             <a
-              className="contact-card contact-card-email"
+              className={`${styles.card} ${styles.cardEmail}`}
               href={emailHref}
               aria-labelledby="contact-email-title contact-email-address contact-email-action"
               aria-describedby="contact-email-description"
             >
-              <div className="contact-card-top">
+              <div className={styles.cardTop}>
                 <span>02 / CORREO ELECTRÓNICO</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
-              <div className="contact-card-content">
-                <span className="contact-card-icon" aria-hidden="true">
+              <div className={styles.cardContent}>
+                <span className={styles.cardIcon} aria-hidden="true">
                   <Mail size={34} strokeWidth={1.7} />
                 </span>
                 <h3 id="contact-email-title">EMAIL.</h3>
@@ -140,16 +140,16 @@ export default function ContactoPage() {
                 </p>
               </div>
 
-              <div className="contact-card-bottom">
+              <div className={styles.cardBottom}>
                 <span
                   id="contact-email-address"
-                  className="contact-card-detail contact-card-email-address"
+                  className={`${styles.cardDetail} ${styles.cardEmailAddress}`}
                 >
                   {contact.email}
                 </span>
                 <span
                   id="contact-email-action"
-                  className="contact-card-action contact-card-action-light"
+                  className={`${styles.cardAction} ${styles.cardActionLight}`}
                   aria-hidden="true"
                 >
                   Enviar un correo
@@ -159,13 +159,13 @@ export default function ContactoPage() {
             </a>
           </div>
 
-          <div className="contact-section-footer">
-            <p className="contact-help-line">
-              <span className="contact-help-dot" aria-hidden="true" />
+          <div className={styles.sectionFooter}>
+            <p className={styles.helpLine}>
+              <span className={styles.helpDot} aria-hidden="true" />
               ¿Tienes dudas sobre los entrenamientos, las valoraciones o qué programa
               elegir? Cuéntanoslo y te orientamos.
             </p>
-            <p className="contact-section-note">
+            <p className={styles.sectionNote}>
               Al elegir una tarjeta se abrirá WhatsApp o tu aplicación de correo.
               Evita incluir información médica u otros datos sensibles en el primer mensaje.
             </p>
@@ -173,10 +173,10 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <section className="contact-closing" aria-labelledby="contact-closing-title">
-        <div className="container contact-closing-inner">
+      <section className={styles.closing} aria-labelledby="contact-closing-title">
+        <div className={`container ${styles.closingInner}`}>
           <div>
-            <p className="contact-eyebrow contact-eyebrow-light">02 / DESCUBRE TU CAMINO</p>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / DESCUBRE TU CAMINO</p>
             <h2 id="contact-closing-title">
               ¿AÚN NO SABES <em>QUÉ PROGRAMA ELEGIR?</em>
             </h2>
@@ -186,7 +186,7 @@ export default function ContactoPage() {
             </p>
           </div>
 
-          <Link className="contact-closing-link" href="/programas/">
+          <Link className={styles.closingLink} href="/programas/">
             Explorar programas
             <ArrowRight size={19} aria-hidden="true" />
           </Link>

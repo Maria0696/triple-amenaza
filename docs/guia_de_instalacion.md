@@ -98,7 +98,7 @@ La **web pública** tiene páginas de Inicio, Academia, Método, Programas, Anot
 Los estilos se escriben en CSS (sin Tailwind):
 
 - Colores y variantes con contraste suficiente se definen como variables en `globals.css` (`--ink`, `--sage`, `--green-label`…). Usa la variable en lugar de escribir el color a mano.
-- Cada página tiene su propio CSS. Equipo usa **CSS Modules** (`*.module.css`): las clases quedan aisladas a la página. Las demás páginas se irán migrando a este formato.
+- Cada página tiene su propio **CSS Module** (`*.module.css`), importado como `import styles from "./pagina.module.css"` y usado como `className={styles.heroTitle}`. Las clases quedan aisladas a la página. Las clases compartidas (`container`, `sr-only`, `button`…) siguen en `globals.css` y se usan como texto normal.
 - Los efectos `:hover` que mueven o cambian el fondo van dentro de `@media (hover: hover) and (pointer: fine)` para que no se queden "pegados" en pantallas táctiles.
 - Los puntos de corte siguen una escala única. Usa solo estos valores (y `min-width` con el valor siguiente, por ejemplo `861px`):
 
