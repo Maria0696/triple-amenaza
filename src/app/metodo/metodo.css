@@ -303,3 +303,26 @@
   .method-page-index li a, .method-page-index li svg, .method-page-stage, .method-page-stage-icon, .method-page-closing-link, .method-page-closing-link svg { transition: none !important; }
   .method-page-index li a:hover svg, .method-page-closing-link:hover, .method-page-closing-link:hover svg { transform: none !important; }
 }
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 550px) {
+  .method-page-hero .method-page-hero-lead,
+  .method-page-stage .method-page-stage-text,
+  body .method-page-practice-copy p,
+  body .method-page-closing-inner > p:not(.method-page-eyebrow) {
+    font-size: 16px;
+  }
+
+  .method-page-hero .method-page-eyebrow,
+  .method-page-index .method-page-index-bottom {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .method-page-hero .method-page-hero-title {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
+}

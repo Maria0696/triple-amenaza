@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Target } from "lucide-react";
 
 import styles from "./equipo.module.css";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Equipo",
   description:
     "Conoce a las personas que impulsan Academia Triple Amenaza y a los colaboradores que aportan su experiencia al desarrollo de jugadores de baloncesto.",
-};
+  path: "/equipo/",
+});
 
 /**
  * Perfiles sin fotografías individuales hasta disponer de imágenes autorizadas.

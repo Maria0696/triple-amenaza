@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import {
@@ -14,13 +13,16 @@ import {
   Target,
 } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
+import { whatsappLink } from "@/lib/site";
 import "./elite.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Anotadores Élite",
   description:
     "Conoce Anotadores Élite de Academia Triple Amenaza: un programa de 12 semanas de tecnificación, objetivos y seguimiento para trasladar los recursos al partido.",
-};
+  path: "/programas/anotadores-elite/",
+});
 
 /**
  * Tarifas de Anotadores Élite utilizadas anteriormente por ATA.
@@ -35,12 +37,9 @@ const offer = {
   installmentTotal: 255,
 } as const;
 
-// Se mantiene el canal de contacto configurado en /contacto/.
-// Comprobar el número antes del lanzamiento público.
-const whatsappNumber = "34618599976";
-const whatsappMessage =
-  "Hola, quiero información sobre la valoración inicial de Anotadores Élite. ¿Podéis indicarme cómo funciona y las próximas opciones disponibles?";
-const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappHref = whatsappLink(
+  "Hola, quiero información sobre la valoración inicial de Anotadores Élite. ¿Podéis indicarme cómo funciona y las próximas opciones disponibles?",
+);
 
 const deliverables = [
   {

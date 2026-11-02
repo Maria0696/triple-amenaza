@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,8 +12,15 @@ import {
   Zap,
 } from "lucide-react";
 
+import { baseOpenGraph } from "@/lib/metadata";
 import { methodSteps, programs } from "@/lib/site";
 import "./home.css";
+
+// Título y descripción generales del layout; aquí solo la URL canónica.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { ...baseOpenGraph, url: "/" },
+};
 
 /**
  * Portada pública de Triple Amenaza.

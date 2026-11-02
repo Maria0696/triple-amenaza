@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,13 +8,15 @@ import {
   Target,
 } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
 import "./academia.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Academia",
   description:
     "Conoce Academia Triple Amenaza: tecnificación de baloncesto, preparación física y desarrollo personal, con el objetivo de transferir cada mejora al partido.",
-};
+  path: "/academia/",
+});
 
 const principles = [
   {

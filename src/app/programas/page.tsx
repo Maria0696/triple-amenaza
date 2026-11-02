@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
 import { programs } from "@/lib/site";
 import "./programas.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Programas",
   description:
     "Conoce Anotadores Élite y Anotadores Flex de Academia Triple Amenaza. Dos maneras de entrenar con intención y desarrollar tu juego.",
-};
+  path: "/programas/",
+});
 
 const [elite, flex] = programs;
 

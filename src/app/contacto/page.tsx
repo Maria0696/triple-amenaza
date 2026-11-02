@@ -1,23 +1,22 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
+import { contact, whatsappLink } from "@/lib/site";
 import "./contacto.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contacto",
   description:
     "Contacta con Academia Triple Amenaza por WhatsApp o correo electrónico para consultar información sobre nuestros programas y entrenamientos de baloncesto.",
-};
+  path: "/contacto/",
+});
 
-const whatsappNumber = "34618599976";
-const whatsappMessage =
-  "Hola, me gustaría recibir información sobre Academia Triple Amenaza.";
-
-const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-const emailAddress = "tripleamenaza.info@gmail.com";
+const whatsappHref = whatsappLink(
+  "Hola, me gustaría recibir información sobre Academia Triple Amenaza.",
+);
 const emailSubject = "Consulta - Academia Triple Amenaza";
-const emailHref = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}`;
+const emailHref = `mailto:${contact.email}?subject=${encodeURIComponent(emailSubject)}`;
 
 export default function ContactoPage() {
   return (
@@ -83,7 +82,8 @@ export default function ContactoPage() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Escribir a Triple Amenaza por WhatsApp (se abre en una pestaña nueva)"
+              // Nombre accesible = textos visibles de la tarjeta (WCAG 2.5.3).
+              aria-labelledby="contact-whatsapp-title contact-whatsapp-detail contact-whatsapp-action"
               aria-describedby="contact-whatsapp-description"
             >
               <div className="contact-card-top">
@@ -103,9 +103,16 @@ export default function ContactoPage() {
               </div>
 
               <div className="contact-card-bottom">
-                <span className="contact-card-detail">618 599 976</span>
-                <span className="contact-card-action contact-card-action-dark" aria-hidden="true">
+                <span id="contact-whatsapp-detail" className="contact-card-detail">
+                  {contact.phoneDisplay}
+                </span>
+                <span
+                  id="contact-whatsapp-action"
+                  className="contact-card-action contact-card-action-dark"
+                  aria-hidden="true"
+                >
                   Escribir por WhatsApp
+                  <span className="sr-only"> (se abre en una pestaña nueva)</span>
                   <ArrowUpRight size={19} />
                 </span>
               </div>
@@ -114,7 +121,7 @@ export default function ContactoPage() {
             <a
               className="contact-card contact-card-email"
               href={emailHref}
-              aria-label="Enviar un correo electrónico a Triple Amenaza"
+              aria-labelledby="contact-email-title contact-email-address contact-email-action"
               aria-describedby="contact-email-description"
             >
               <div className="contact-card-top">
@@ -134,10 +141,17 @@ export default function ContactoPage() {
               </div>
 
               <div className="contact-card-bottom">
-                <span className="contact-card-detail contact-card-email-address">
-                  {emailAddress}
+                <span
+                  id="contact-email-address"
+                  className="contact-card-detail contact-card-email-address"
+                >
+                  {contact.email}
                 </span>
-                <span className="contact-card-action contact-card-action-light" aria-hidden="true">
+                <span
+                  id="contact-email-action"
+                  className="contact-card-action contact-card-action-light"
+                  aria-hidden="true"
+                >
                   Enviar un correo
                   <ArrowUpRight size={19} />
                 </span>

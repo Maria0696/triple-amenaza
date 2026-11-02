@@ -257,6 +257,21 @@ button, a {
   flex-shrink: 0;
 }
 
+/* Escudo enlazado al inicio */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: fit-content;
+}
+
+.logo-image {
+  display: block;
+  max-width: none;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .site-header .brand img {
   display: block;
   width: 88px;
@@ -311,8 +326,10 @@ button, a {
   white-space: nowrap;
 }
 
-.hub-link:hover {
-  background: #dceaa8;
+@media (hover: hover) and (pointer: fine) {
+  .hub-link:hover {
+    background: #dceaa8;
+  }
 }
 
 /* Botón de menú móvil */
@@ -377,8 +394,10 @@ button, a {
   transition: transform .2s, background .2s;
 }
 
-.button:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .button-orange {
@@ -386,8 +405,10 @@ button, a {
   color: var(--ink);
 }
 
-.button-orange:hover {
-  background: #ff8c5a;
+@media (hover: hover) and (pointer: fine) {
+  .button-orange:hover {
+    background: #ff8c5a;
+  }
 }
 
 /* Enlaces de texto */
@@ -419,20 +440,6 @@ button, a {
 
 .section-cream {
   background: var(--cream);
-}
-
-.section-title {
-  font-size: clamp(36px, 4.2vw, 59px);
-  font-weight: 900;
-  letter-spacing: -.04em;
-  line-height: 1.08;
-  margin: 0;
-}
-
-.section-title em {
-  font-weight: 500;
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: -.04em;
 }
 
 /* =========================================
@@ -485,26 +492,6 @@ button, a {
   line-height: 1.7;
 }
 
-.content-split {
-  display: grid;
-  grid-template-columns: .85fr 1fr;
-  gap: 100px;
-}
-
-.prose {
-  color: #5a6258;
-  font-size: 17px;
-  line-height: 1.9;
-}
-
-.prose p {
-  margin: 0 0 23px;
-}
-
-.prose .text-link {
-  color: var(--ink);
-}
-
 /* Páginas provisionales */
 .simple-note {
   max-width: 780px;
@@ -529,14 +516,6 @@ button, a {
   align-items: center;
   gap: 16px 28px;
   margin-top: 32px;
-}
-
-.notice {
-  border-left: 4px solid var(--orange);
-  background: white;
-
-  padding: 16px 20px;
-  font-size: 14px;
 }
 
 /* =========================================
@@ -704,10 +683,6 @@ button, a {
   .nav-link {
     font-size: 12px;
   }
-
-  .content-split {
-    gap: 40px;
-  }
 }
 
 /* =========================================
@@ -771,11 +746,6 @@ button, a {
 
   .section {
     padding: 79px 0;
-  }
-
-  .content-split {
-    grid-template-columns: 1fr;
-    gap: 35px;
   }
 
   .footer-grid {
@@ -1021,5 +991,12 @@ button, a {
 
   .site-header .hub-link:hover {
     transform: none;
+  }
+}
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 820px) {
+  .site-footer .footer-links a {
+    min-height: 44px;
   }
 }

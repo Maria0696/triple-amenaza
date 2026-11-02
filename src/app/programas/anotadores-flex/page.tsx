@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,13 +9,15 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
 import "./flex.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Anotadores Flex",
   description:
     "Anotadores Flex de Academia Triple Amenaza: sesiones de tecnificación de baloncesto con mayor libertad de asistencia, sin perder la intención del entrenamiento.",
-};
+  path: "/programas/anotadores-flex/",
+});
 
 const strengths = [
   {

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,14 +8,16 @@ import {
   Target,
 } from "lucide-react";
 
+import { pageMetadata } from "@/lib/metadata";
 import { methodDescription, methodSteps } from "@/lib/site";
 import "./metodo.css";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Método ATA",
   description:
     "Así trabajamos en Academia Triple Amenaza: observar, definir, entrenar y transferir. Cuatro etapas conectadas para llevar el aprendizaje al juego real.",
-};
+  path: "/metodo/",
+});
 
 /**
  * Contenido ampliado de cada etapa. Los nombres, números y descripciones

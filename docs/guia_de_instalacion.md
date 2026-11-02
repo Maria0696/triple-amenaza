@@ -80,9 +80,12 @@ triple-amenaza/
 │   ├── app/                    # Inicio, Academia, Método, Programas, Equipo, Contacto y Hub
 │   │   ├── programas/          # Élite, Flex y workshops
 │   │   ├── globals.css         # Normalización, variables y estilos compartidos
-│   │   └── layout.tsx
+│   │   ├── not-found.tsx       # Página 404
+│   │   └── layout.tsx          # Fuente, metadatos generales, cabecera y pie
 │   ├── components/             # Componentes de la web
-│   └── lib/                    # Datos y navegación compartidos
+│   └── lib/
+│       ├── site.ts             # Navegación, programas, método y datos de contacto
+│       └── metadata.ts         # Título, URL canónica y Open Graph de cada página
 ├── .env.example
 ├── firestore.rules
 ├── next.config.ts
@@ -90,13 +93,19 @@ triple-amenaza/
 └── README.md
 ```
 
-La **web pública** tiene páginas de Inicio, Academia, Método, Programas, Anotadores Élite y Anotadores Flex. Workshops está en `/programas/workshops/`; Equipo y Contacto tienen páginas provisionales. `/hub/` es una página de presentación **sin autenticación todavía**.
+La **web pública** tiene páginas de Inicio, Academia, Método, Programas, Anotadores Élite, Anotadores Flex, Equipo y Contacto. Workshops está en `/programas/workshops/`. `/hub/` es una página de presentación **sin autenticación todavía**.
 
-Los estilos se escriben en CSS tradicional; **Tailwind ya no forma parte del proyecto**.
+Los estilos se escriben en CSS (sin Tailwind):
+
+- Colores y variantes con contraste suficiente se definen como variables en `globals.css` (`--ink`, `--sage`, `--green-label`…). Usa la variable en lugar de escribir el color a mano.
+- Cada página tiene su propio CSS. Equipo usa **CSS Modules** (`*.module.css`): las clases quedan aisladas a la página. Las demás páginas se irán migrando a este formato.
+- Los efectos `:hover` que mueven o cambian el fondo van dentro de `@media (hover: hover) and (pointer: fine)` para que no se queden "pegados" en pantallas táctiles.
+
+Cada página pública declara sus metadatos con `pageMetadata({ title, description, path })` de `src/lib/metadata.ts`, que añade la URL canónica y la vista previa al compartir.
 
 ## 5. Preparar Firebase (fase futura de ATA Hub)
 
-La aplicación incluye el paquete `firebase`, la plantilla `.env.example` y `firestore.rules`, pero **la web actual no implementa inicio de sesión, fichas ni valoraciones funcionales**. Los siguientes datos solo harán falta cuando integremos realmente el Hub.
+El repositorio incluye la plantilla `.env.example` y `firestore.rules`, pero **la web actual no implementa inicio de sesión, fichas ni valoraciones funcionales**. El paquete `firebase` se instalará (`npm install firebase`) cuando empiece el desarrollo del Hub. Los siguientes datos solo harán falta entonces.
 
 En [Firebase Console](https://console.firebase.google.com/), registra una aplicación web y copia los valores públicos de configuración. Después, en la raíz del proyecto, crea `.env.local` a partir de `.env.example`:
 
@@ -146,6 +155,8 @@ npm run build
 ```
 
 Next.js genera `out/` con HTML, CSS, JavaScript y recursos públicos. Esa carpeta es la salida que se sirve en un **hosting estático**; hay que comprobar que el proveedor respete las rutas con barra final.
+
+En el hosting hay que definir la variable `NEXT_PUBLIC_SITE_URL` con el dominio público, sin barra final (por ejemplo, `https://tu-dominio.es`). Se usa para las URLs canónicas y para las vistas previas al compartir enlaces; sin ella apuntan a `localhost`.
 
 **No utilices `npm start` ni `next start`**: son para un servidor Next.js, y esta aplicación se está exportando como sitio estático. Si en el futuro necesitamos funcionalidades de servidor, revisaremos la estrategia de despliegue antes de activarlas.
 

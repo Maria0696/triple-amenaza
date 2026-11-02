@@ -370,3 +370,43 @@
   .flex-page-strength, .flex-page-strength::before, .flex-page-strength-top svg, .flex-page-step, .flex-page-step::before, .flex-page-compare-card, .flex-page-compare-link, .flex-page-compare-link svg, .flex-page-faq-item summary, .flex-page-faq-item summary svg, .flex-page-closing-link, .flex-page-closing-link svg { transition: none !important; }
   .flex-page-strength:hover, .flex-page-strength:hover .flex-page-strength-top svg, .flex-page-compare-link:hover svg, .flex-page-closing-link:hover, .flex-page-closing-link:hover svg { transform: none !important; }
 }
+
+/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+@media (max-width: 600px) {
+  .flex-page-hero .flex-page-hero-lead,
+  body .flex-page-steps-intro > p:last-child,
+  body .flex-page-compare-heading > p:last-child,
+  body .flex-page-compare-card > p,
+  body .flex-page-faq-item > p,
+  body .flex-page-closing-action > p {
+    font-size: 16px;
+  }
+
+  .flex-page-hero .flex-page-eyebrow,
+  body .flex-page-board-label,
+  body .flex-page-board-underline {
+    font-size: 12px;
+  }
+
+  body .flex-page-hero-board-head,
+  body .flex-page-board-bottom {
+    font-size: 11px;
+  }
+
+  body .flex-page-board-bottom {
+    row-gap: 10px;
+  }
+
+  body .flex-page-board-bottom span {
+    flex: 1 1 95px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 360px) {
+  .flex-page-hero .flex-page-hero-title {
+    max-width: 100%;
+    font-size: clamp(39px, 11.5vw, 46px);
+    overflow-wrap: break-word;
+  }
+}

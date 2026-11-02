@@ -12,10 +12,6 @@
   padding-bottom: clamp(56px, 6vw, 96px);
 }
 
-.contact-back-link {
-  margin-bottom: clamp(42px, 5vw, 80px);
-}
-
 .contact-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.75fr) minmax(270px, .65fr);
@@ -394,10 +390,6 @@
     padding-bottom: 52px;
   }
 
-  .contact-back-link {
-    margin-bottom: 38px;
-  }
-
   .contact-hero-grid {
     gap: 37px;
   }
@@ -577,12 +569,10 @@
 
 /* Entrada escalonada del titular y el texto. */
 .contact-hero .contact-eyebrow,
-.contact-hero .contact-back-link,
 .contact-hero .contact-hero-aside {
   animation: contact-rise-in .75s cubic-bezier(.2,.75,.25,1) both;
 }
 
-.contact-hero .contact-back-link { animation-delay: .04s; }
 .contact-hero .contact-eyebrow { animation-delay: .14s; }
 .contact-hero .contact-hero-aside { animation-delay: .48s; }
 
@@ -900,7 +890,6 @@
 @media (prefers-reduced-motion: reduce) {
   .contact-hero-art,
   .contact-hero .contact-eyebrow,
-  .contact-hero .contact-back-link,
   .contact-hero .contact-hero-aside,
   .contact-hero-title-line,
   .contact-hero-title em::after,
