@@ -1,7 +1,7 @@
 import { PublicChrome } from "@/components/web/public-chrome";
 import { baseOpenGraph, siteDescription, siteTitle } from "@/lib/metadata";
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Gelasio, Noto_Sans } from "next/font/google";
 
 import "./globals.css";
 
@@ -9,6 +9,15 @@ import "./globals.css";
 const notoSans = Noto_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+// Cursiva de los acentos en titulares. Gelasio tiene las métricas de Georgia,
+// pero autoalojada se ve igual también en Android (que no incluye Georgia).
+const gelasio = Gelasio({
+  subsets: ["latin"],
+  style: ["italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -40,7 +49,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={notoSans.variable} data-scroll-behavior="smooth">
+    <html lang="es" className={`${notoSans.variable} ${gelasio.variable}`} data-scroll-behavior="smooth">
       <body>
         <PublicChrome>{children}</PublicChrome>
       </body>

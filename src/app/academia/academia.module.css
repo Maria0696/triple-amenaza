@@ -1,27 +1,14 @@
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 22px;
-  color: var(--orange-dark);
-  font-size: 11px;
-  font-weight: 850;
-  line-height: 1.5;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
-.eyebrowLight { color: #edc1a5; }
-.eyebrowLine { flex: 0 0 28px; width: 28px; height: 2px; background: var(--orange); }
+
 .sectionTitle {
   margin: 0;
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(34px, 4vw, 56px);
   line-height: 1.04;
   letter-spacing: -.04em;
   font-weight: 940;
   text-transform: uppercase;
 }
-.sectionTitle em { font-family: Georgia, "Times New Roman", serif; font-weight: 500; text-transform: none; }
+.sectionTitle em { font-family: var(--font-serif), Georgia, serif; font-weight: 500; text-transform: none; }
 .sectionTitle span { color: var(--orange-dark); }
 
 /* Apertura */
@@ -64,16 +51,7 @@
   background: linear-gradient(0deg,#122018b0,transparent);
   pointer-events: none;
 }
-.photoStamp {
-  position: absolute;
-  left: 21px;
-  top: 19px;
-  z-index: 1;
-  color: white;
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .16em;
-}
+
 .heroFigure figcaption,
 .clubFigure figcaption {
   padding-top: 18px;
@@ -148,7 +126,7 @@
 .clubGrid { display: grid; grid-template-columns: minmax(0,.84fr) minmax(0,1.16fr); gap: clamp(45px,8vw,130px); align-items: center; }
 .clubPhoto { aspect-ratio: .75; max-height: 670px; }
 .clubPhoto .photo { object-position: center 52%; }
-.clubPhotoMark { position: absolute; left: 20px; top: 20px; color: #fff; font-size: 11px; font-weight: 850; letter-spacing: .15em; }
+
 .clubCopy .sectionTitle span { color: var(--sage); }
 .clubCopy > p:not(.eyebrow) { max-width: 630px; color: #d4dfd6; font-size: 17px; line-height: 1.78; margin: 24px 0 0; }
 .outlineLink {
@@ -169,10 +147,10 @@
 
 /* Cierre */
 .next { position: relative; background: var(--sage); overflow: hidden; padding: clamp(68px,7vw,106px) 0; }
-.next .eyebrow { color: var(--orange-on-sage); }
+
 .nextInner { position: relative; z-index: 1; }
 .next h2 { margin: 0 0 22px; max-width: 1100px; font-size: clamp(53px,7.2vw,111px); line-height: .98; font-weight: 950; letter-spacing: -.04em; }
-.next h2 em { display: block; color: #4e6847; font-family: Georgia, serif; font-weight: 500; }
+.next h2 em { display: block; color: #4e6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 @media (min-width: 861px) {
   .next h2 em {
     white-space: nowrap;
@@ -206,12 +184,12 @@
   .clubPhoto .photo { object-position: center 48%; }
 }
 @media (max-width: 600px) {
-  .eyebrow { font-size: 11px; letter-spacing: .11em; gap: 8px; margin-bottom: 17px; }
+
   .heroGrid { padding-block: 43px 48px; gap: 30px; }
   .heroTitle { font-size: clamp(48px,12vw,66px); letter-spacing: -.04em; }
   .heroLead { font-size: 15px; line-height: 1.75; margin: 22px 0; }
   .heroPhoto { aspect-ratio: 1.16; }
-  .photoStamp { font-size: 11px; top: 15px; left: 15px; }
+
   .heroFigure figcaption, .clubFigure figcaption { font-size: 11px; }
   .approach, .pillars, .club, .next { padding-block: 64px; }
   .sectionTitle { font-size: clamp(37px,10vw,57px); }
@@ -315,7 +293,6 @@
     font-size: 16px;
   }
 
-  .hero .eyebrow,
   body .heroFigure figcaption,
   body .clubFigure figcaption {
     font-size: 12px;

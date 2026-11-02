@@ -70,10 +70,6 @@ export default function AcademiaPage() {
       <section className={styles.hero} aria-labelledby="academy-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-              <span className={styles.eyebrowLine} aria-hidden="true" />
-              ACADEMIA / TRIPLE AMENAZA
-            </p>
             <h1 id="academy-title" className={styles.heroTitle}>
               MÁS ALLÁ <span>DE ENTRENAR.</span>
             </h1>
@@ -94,9 +90,6 @@ export default function AcademiaPage() {
                 priority
                 className={styles.photo}
               />
-              <span className={styles.photoStamp} aria-hidden="true">
-                ATA / EN EQUIPO
-              </span>
             </div>
             <figcaption>Sesión grupal de Triple Amenaza · Fotografía: R1kman_fotografia</figcaption>
           </figure>
@@ -107,7 +100,6 @@ export default function AcademiaPage() {
       <section className={styles.approach} aria-labelledby="academy-approach-title">
         <div className={`container ${styles.approachGrid}`}>
           <div className={styles.approachIntro}>
-            <p className={styles.eyebrow}>01 / NUESTRA FILOSOFÍA</p>
             <h2 id="academy-approach-title" className={styles.sectionTitle}>
               EL PROGRESO <em>TIENE UN PORQUÉ.</em>
             </h2>
@@ -136,9 +128,8 @@ export default function AcademiaPage() {
       <section className={styles.pillars} aria-labelledby="academy-pillars-title">
         <div className="container">
           <div className={styles.pillarsHeading}>
-            <p className={styles.eyebrow}>02 / UNA VISIÓN COMPLETA</p>
             <h2 id="academy-pillars-title" className={styles.sectionTitle}>
-              TRES ÁREAS. <span>UN MISMO PROPÓSITO.</span>
+              TRES ÁREAS. <span>UN JUGADOR.</span>
             </h2>
           </div>
           <div className={styles.pillarsGrid}>
@@ -147,7 +138,6 @@ export default function AcademiaPage() {
               return (
                 <article className={styles.pillar} key={pillar.number}>
                   <div className={styles.pillarTop}>
-                    <span>{pillar.number} / 03</span>
                     <Icon size={32} strokeWidth={1.6} aria-hidden="true" />
                   </div>
                   <div>
@@ -175,12 +165,10 @@ export default function AcademiaPage() {
                 sizes="(max-width: 860px) 100vw, 40vw"
                 className={styles.photo}
               />
-              <span className={styles.clubPhotoMark} aria-hidden="true">ATA / EN PISTA</span>
             </div>
             <figcaption>Trabajo en pista · Fotografía: R1kman_fotografia</figcaption>
           </figure>
           <div className={styles.clubCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>03 / SUMAMOS AL EQUIPO</p>
             <h2 id="academy-club-title" className={styles.sectionTitle}>
               EL CLUB ES PARTE <span>DEL CAMINO.</span>
             </h2>
@@ -205,7 +193,6 @@ export default function AcademiaPage() {
       <section className={styles.next} aria-labelledby="academy-next-title">
         <div className={`container ${styles.nextInner}`}>
           <div className={styles.nextCourt} aria-hidden="true"><span /></div>
-          <p className={styles.eyebrow}>TU SIGUIENTE PASO</p>
           <h2 id="academy-next-title">CADA JUGADOR. <em>SU CAMINO.</em></h2>
           <p>Descubre nuestros programas y encuentra el formato que mejor se adapta a tu punto de partida.</p>
           <Link href="/programas/" className={styles.nextLink}>

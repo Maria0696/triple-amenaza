@@ -4,30 +4,16 @@
   .choice,
   .workshops { overflow: hidden; }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin: 0 0 23px;
-  color: var(--orange-dark);
-  font-size: 11px;
-  font-weight: 850;
-  line-height: 1.45;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-.eyebrowLight { color: #f0c4aa; }
-.eyebrowRule { width: 29px; height: 2px; background: var(--orange); flex: 0 0 29px; transform-origin: left center; transition: transform .25s ease; }
 .sectionTitle {
   margin: 0;
-  font-size: clamp(41px, 5.2vw, 77px);
+  font-size: clamp(34px, 4vw, 56px);
   line-height: 1.025;
   letter-spacing: -.04em;
   font-weight: 950;
   text-transform: uppercase;
 }
 .sectionTitle em {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
   text-transform: none;
@@ -85,7 +71,7 @@
 }
 .heroAsideRow {
   display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 14px;
   border-top: 1px solid #ffffff30;
@@ -106,7 +92,6 @@
   transform-origin: center;
   transition: transform .25s ease;
 }
-.heroAsideRow > span:first-child { color: var(--orange); font-weight: 850; font-size: 12px; }
 .heroAsideRow strong {
   font-size: clamp(22px, 2.05vw, 30px);
   letter-spacing: -.04em;
@@ -325,7 +310,7 @@
 .questions { border-top: 1px solid #ffffff42; }
 .question {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   border-bottom: 1px solid #ffffff42;
   padding: 28px 16px;
@@ -345,13 +330,12 @@
   transform-origin: center;
   transition: transform .25s ease;
 }
-.questionNumber { color: var(--sage); font-size: 12px; font-weight: 850; transition: color .25s ease; }
 .question h3 { margin: 0 0 13px; font-size: clamp(23px, 2.15vw, 30px); line-height: 1.1; letter-spacing: -.04em; font-weight: 600; transition: color .25s ease, transform .25s ease; }
 .question p { max-width: 540px; margin: 0; color: #c5d2c6; font-size: 15px; line-height: 1.75; }
 
 @media (hover: hover) and (pointer: fine) {
   /* El resumen del hero es informativo: no debe aparentar ser un enlace. */
-  .heroCopy:hover .eyebrowRule { transform: scaleX(1.45); }
+
   .heroAside:hover { border-color: var(--sage-line-strong); box-shadow: 0 16px 32px #09110b35; }
   .heroAsideRow:hover { background: #ffffff0b; }
   .heroAsideRow:hover::before { transform: scaleY(1); }
@@ -361,7 +345,6 @@
   /* Las preguntas son informativas, no controles interactivos. */
   .question:hover { background-color: #ffffff0a; }
   .question:hover::before { transform: scaleY(1); }
-  .question:hover .questionNumber { color: #f1a67d; }
   .question:hover h3 { color: var(--sage); transform: translateX(5px); }
 
 }
@@ -387,21 +370,21 @@
 }
 
 @media (max-width: 600px) {
-  .eyebrow { font-size: 11px; letter-spacing: .12em; margin-bottom: 18px; }
+
   .sectionTitle { font-size: clamp(38px, 10vw, 56px); }
   .heroGrid { padding-block: 44px 53px; gap: 27px; }
   .heroTitle { font-size: clamp(48px, 11.5vw, 67px); }
   .heroLead { font-size: 15px; margin-top: 21px; }
   .heroAsideTop,
   .heroAsideBottom { padding: 16px; }
-  .heroAsideRow { min-height: 66px; padding: 13px 16px; gap: 10px; grid-template-columns: 24px minmax(0, 1fr) auto; }
+  .heroAsideRow { min-height: 66px; padding: 13px 16px; gap: 10px; grid-template-columns: minmax(0, 1fr) auto; }
   .heroAsideRow strong { font-size: 22px; }
   .heroAsideRow > span:last-child { font-size: 11px; }
   .offer,
   .choice { padding-block: 65px; }
 
   .choiceIntro > p:not(.eyebrow) { font-size: 15px; }
-  .question { grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 23px 12px; margin-inline: -12px; }
+  .question { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 23px 12px; margin-inline: -12px; }
   .question h3 { font-size: 24px; }
   .question p { font-size: 14px; }
 }
@@ -409,14 +392,11 @@
   .question,
   .question::before,
   .question h3,
-  .questionNumber,
   .heroAside,
   .heroAsideRow,
   .heroAsideRow::before,
   .heroAsideRow strong,
-  .heroAsideRow > span:last-child,
-  .eyebrowRule { transition: none !important; }
-  .heroCopy:hover .eyebrowRule,
+  .heroAsideRow > span:last-child{ transition: none !important; }
   .heroAsideRow:hover::before,
   .heroAsideRow:hover strong,
   .question:hover::before,
@@ -433,14 +413,13 @@
   .heroAside { animation: programs-page-rise .65s .12s ease-out both; }
 }
 
-
 /* Workshops y masterclasses: actividades, no un tercer programa. */
 .workshops {
   background: var(--sage);
   color: var(--ink);
   padding-block: clamp(76px, 8vw, 118px);
 }
-.workshops .eyebrow { color: var(--orange-on-sage); }
+
 .workshopsGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
@@ -459,7 +438,7 @@
 .workshops h2 em {
   display: block;
   color: #4f6849;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
@@ -537,7 +516,6 @@
     font-size: 16px;
   }
 
-  .hero .eyebrow,
   .workshops .workshopsLabel {
     font-size: 12px;
   }

@@ -24,30 +24,6 @@
   min-width: 0;
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 24px;
-  color: var(--orange-dark);
-  font-size: 12px;
-  font-weight: 850;
-  line-height: 1.5;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
-
-.eyebrowLight {
-  color: var(--peach);
-}
-
-.eyebrowLine {
-  width: 27px;
-  height: 2px;
-  flex: 0 0 auto;
-  background: var(--orange);
-}
-
 .heroTitle {
   margin: 0;
   font-size: clamp(52px, 6.5vw, 107px);
@@ -59,7 +35,7 @@
 
 .heroTitle em {
   color: var(--sage);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
@@ -69,7 +45,6 @@
   border-top: 1px solid #ffffff44;
 }
 
-.asideNumber,
 .asideLabel {
   display: block;
   color: var(--sage);
@@ -114,9 +89,13 @@
   letter-spacing: -.04em;
 }
 
+.sectionHeading h2 {
+  font-size: clamp(34px, 4vw, 56px);
+}
+
 .sectionHeading h2 em,
 .closing h2 em {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
@@ -568,12 +547,10 @@
 }
 
 /* Entrada escalonada del titular y el texto. */
-.hero .eyebrow,
 .hero .heroAside {
   animation: contact-rise-in .75s cubic-bezier(.2,.75,.25,1) both;
 }
 
-.hero .eyebrow { animation-delay: .14s; }
 .hero .heroAside { animation-delay: .48s; }
 
 .heroTitleLine {
@@ -889,7 +866,6 @@
 /* Accesibilidad: no imponer animaciones a quien prefiera reducir movimiento. */
 @media (prefers-reduced-motion: reduce) {
   .heroArt,
-  .hero .eyebrow,
   .hero .heroAside,
   .heroTitleLine,
   .heroTitle em::after,

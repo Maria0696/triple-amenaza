@@ -32,11 +32,6 @@ export default function ContactoPage() {
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.heroGrid}>
             <div className={styles.heroMain}>
-              <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
-                <span className={styles.eyebrowLine} aria-hidden="true" />
-                CONTACTO / TRIPLE AMENAZA
-              </p>
-
               <h1 id="contact-title" className={styles.heroTitle}>
                 <span className={styles.heroTitleLine}>HABLEMOS.</span>
                 <span className={styles.heroTitleLine}>
@@ -47,7 +42,6 @@ export default function ContactoPage() {
             </div>
 
             <div className={styles.heroAside}>
-              <span className={styles.asideNumber}>ATA / 01</span>
               <p>
                 ¿Tienes dudas sobre la academia, Anotadores Élite o Anotadores
                 Flex? Cuéntanos qué necesitas y te ayudaremos a orientarte.
@@ -65,7 +59,6 @@ export default function ContactoPage() {
         <div className="container">
           <div className={styles.sectionHeading}>
             <div>
-              <p className={styles.eyebrow}>01 / ELIGE CÓMO CONTACTAR</p>
               <h2 id="contact-section-title">
                 ESTAMOS <em>AL OTRO LADO.</em>
               </h2>
@@ -87,7 +80,7 @@ export default function ContactoPage() {
               aria-describedby="contact-whatsapp-description"
             >
               <div className={styles.cardTop}>
-                <span>01 / MENSAJERÍA</span>
+                <span>MENSAJERÍA</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
@@ -125,7 +118,7 @@ export default function ContactoPage() {
               aria-describedby="contact-email-description"
             >
               <div className={styles.cardTop}>
-                <span>02 / CORREO ELECTRÓNICO</span>
+                <span>CORREO ELECTRÓNICO</span>
                 <ArrowUpRight size={23} strokeWidth={1.7} aria-hidden="true" />
               </div>
 
@@ -176,7 +169,6 @@ export default function ContactoPage() {
       <section className={styles.closing} aria-labelledby="contact-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <div>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>02 / DESCUBRE TU CAMINO</p>
             <h2 id="contact-closing-title">
               ¿AÚN NO SABES <em>QUÉ PROGRAMA ELEGIR?</em>
             </h2>
