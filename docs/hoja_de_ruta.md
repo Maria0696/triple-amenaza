@@ -272,7 +272,8 @@ Convención: `[x]` código o documento existente; `[ ]` trabajo pendiente. Un ar
 
 - [ ] Confirmar uso y autorizaciones de imágenes y recursos antes de publicar (los archivos iniciales ya están incorporados).
 - [ ] Biografías definitivas del equipo, colaboradores y datos que se puedan publicar.
-- [ ] Datos de contacto y redes sociales oficiales; ubicación, disponibilidad y sedes variables.
+- [x] Datos de contacto (WhatsApp, correo, responde Jose García Fernández en un máximo de 24 horas) y ubicación actual: Colegio Humanitas, Torrejón de Ardoz.
+- [ ] Redes sociales oficiales, horarios y posibles nuevas sedes.
 - [ ] Condiciones comerciales, precios vigentes, horarios y plazas reales por programa.
 - [ ] Encabezados exactos de los formularios y archivos de respuestas.
 - [ ] Estructura real de la rúbrica: se hablaron de **23 campos**, pero **19 indicadores + 2 fortalezas + 1 prioridad + 2 misiones suman 24**; hay que resolverlo con la fuente original.

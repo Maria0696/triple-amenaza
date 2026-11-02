@@ -45,12 +45,39 @@
   border-top: 1px solid #ffffff44;
 }
 
-.asideLabel {
-  display: block;
-  color: var(--sage);
-  font-size: 12px;
-  font-weight: 850;
-  letter-spacing: .12em;
+/* Quién responde y en cuánto tiempo. */
+.responder {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.responderInitial {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--sage);
+  color: var(--ink);
+  font-size: 26px;
+  font-weight: 950;
+}
+
+.responderText {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  color: #d4dfd6;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.responderText strong {
+  color: var(--paper);
+  font-size: 17px;
+  font-weight: 800;
 }
 
 .heroAside p {
@@ -119,9 +146,10 @@
   }
 }
 
+/* WhatsApp es la vía principal: algo más ancha que el correo. */
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 18px;
 }
 
@@ -236,34 +264,58 @@
 
 .sectionFooter {
   display: grid;
-  gap: 8px;
+  gap: 14px;
   margin-top: 24px;
   padding-top: 22px;
   border-top: 1px solid #1c211e24;
 }
 
-.helpLine {
+/* Alternativa al enlace mailto: copiar la dirección. */
+.copyRow {
   display: flex;
-  align-items: baseline;
-  gap: 11px;
-  margin: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
   color: var(--ink);
   font-size: 15px;
   font-weight: 650;
-  line-height: 1.65;
 }
 
-.helpDot {
-  flex: 0 0 7px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--orange-dark);
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #1c211e40;
+  border-radius: 3px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+.location {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.location svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--orange-dark);
 }
 
 .sectionNote {
   max-width: 900px;
-  margin: 0 0 0 18px;
+  margin: 0;
   color: #58645b;
   font-size: 13px;
   line-height: 1.7;
@@ -397,14 +449,6 @@
   .sectionFooter {
     margin-top: 19px;
     padding-top: 17px;
-  }
-
-  .helpLine {
-    font-size: 14px;
-  }
-
-  .sectionNote {
-    margin-left: 18px;
   }
 
   .sectionHeading h2 {
@@ -583,22 +627,6 @@
   animation: contact-underline-reveal .65s ease-out .9s both;
 }
 
-.asideLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.asideDot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: var(--sage);
-  box-shadow: 0 0 0 5px #c8d88e20;
-}
-
 /* Aparición suave de los bloques, sin depender de JavaScript. */
 .sectionHeading,
 .sectionNote,
@@ -742,6 +770,11 @@
 
 /* Hover reservado a dispositivos con ratón o puntero fino. */
 @media (hover: hover) and (pointer: fine) {
+  .copyButton:hover {
+    border-color: var(--ink);
+    background: #fff;
+  }
+
   .card:hover {
     transform: translateY(-9px);
     box-shadow: 0 28px 55px #1c211e21;

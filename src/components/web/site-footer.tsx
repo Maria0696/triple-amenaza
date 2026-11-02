@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { contact, footerNavigation, hubEnabled, whatsappLink } from "@/lib/site";
+import { contact, footerNavigation, hubEnabled, location, whatsappLink } from "@/lib/site";
 
 const footerWhatsapp = whatsappLink(
   "Hola, me gustaría recibir información sobre Academia Triple Amenaza.",
@@ -34,6 +34,11 @@ export function SiteFooter() {
           <a href={`mailto:${contact.email}`}>
             {emailUser}<wbr />@{emailDomain}
           </a>
+          <span className="footer-place">
+            {location.place}
+            <br />
+            {location.city}
+          </span>
           {hubEnabled && (
             <Link href="/hub/">ATA Hub <ArrowUpRight size={14} aria-hidden="true" /></Link>
           )}
