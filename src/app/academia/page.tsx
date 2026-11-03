@@ -10,7 +10,7 @@ import {
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { whatsappMessages } from "@/lib/site";
+import { academyAreas, whatsappMessages } from "@/lib/site";
 import styles from "./academia.module.css";
 
 export const metadata = pageMetadata({
@@ -41,24 +41,22 @@ const principles = [
   },
 ] as const;
 
+/** Los nombres de las áreas vienen de academyAreas (los mismos que en Inicio). */
 const pillars = [
   {
     number: "01",
-    title: "Baloncesto",
     subtitle: "Entender y resolver",
     text: "Recursos técnicos, lectura del juego y capacidad para generar y aprovechar ventajas.",
     icon: Target,
   },
   {
     number: "02",
-    title: "Preparación física",
     subtitle: "Moverse con propósito",
     text: "El desarrollo de las capacidades físicas como apoyo a las demandas del baloncesto.",
     icon: Dumbbell,
   },
   {
     number: "03",
-    title: "Desarrollo personal",
     subtitle: "Crecer durante el proceso",
     text: "Hábitos, confianza, autonomía y compromiso con el aprendizaje a largo plazo.",
     icon: BrainCircuit,
@@ -135,7 +133,7 @@ export default function AcademiaPage() {
             </h2>
           </div>
           <div className={styles.pillarsGrid}>
-            {pillars.map((pillar) => {
+            {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
                 <article className={styles.pillar} key={pillar.number}>
@@ -144,7 +142,7 @@ export default function AcademiaPage() {
                   </div>
                   <div>
                     <span className={styles.pillarSubtitle}>{pillar.subtitle}</span>
-                    <h3>{pillar.title}</h3>
+                    <h3>{academyAreas[index]}</h3>
                     <p>{pillar.text}</p>
                   </div>
                 </article>

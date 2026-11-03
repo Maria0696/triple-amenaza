@@ -3,10 +3,11 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  BrainCircuit,
   CalendarRange,
-  Crosshair,
   Eye,
   ListChecks,
+  MapPin,
   Dumbbell,
   MoveUpRight,
   Target,
@@ -14,7 +15,7 @@ import {
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { baseOpenGraph } from "@/lib/metadata";
-import { methodSteps, programs, whatsappMessages } from "@/lib/site";
+import { academyAreas, location, methodSteps, programs, whatsappMessages } from "@/lib/site";
 import styles from "./home.module.css";
 
 // Título y descripción generales del layout; aquí solo la URL canónica.
@@ -37,6 +38,13 @@ const methodIcons = {
   "03": Dumbbell,
   "04": MoveUpRight,
 } as const;
+
+/** Descripciones de las tres áreas; los nombres vienen de academyAreas (iguales en Academia). */
+const pillars = [
+  { text: "Recursos y lecturas para responder a las situaciones del juego.", icon: Target },
+  { text: "Desarrollo físico al servicio de las demandas del baloncesto.", icon: Dumbbell },
+  { text: "Hábitos, confianza y compromiso con el proceso de mejora.", icon: BrainCircuit },
+] as const;
 
 export default function HomePage() {
   return (
@@ -73,11 +81,17 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className={styles.heroKeywords} role="group" aria-label="Áreas de desarrollo">
-              <span>Técnica</span>
-              <span>Preparación física</span>
-              <span>Desarrollo personal</span>
-            </div>
+            {/* Dónde y cómo: lo primero que pregunta una familia. */}
+            <ul className={styles.heroFacts}>
+              <li>
+                <MapPin size={17} aria-hidden="true" />
+                {location.place} · {location.city}
+              </li>
+              <li>
+                <CalendarRange size={17} aria-hidden="true" />
+                12 semanas con Élite o sesiones sueltas con Flex
+              </li>
+            </ul>
           </div>
 
           <div className={styles.heroMedia}>
@@ -254,18 +268,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className={styles.pillarList}>
-            <div className={styles.pillar}>
-              <Target size={25} aria-hidden="true" />
-              <div><h3>Técnica con intención</h3><p>Recursos y lecturas para responder a las situaciones del juego.</p></div>
-            </div>
-            <div className={styles.pillar}>
-              <Dumbbell size={25} aria-hidden="true" />
-              <div><h3>Preparación física</h3><p>Desarrollo físico al servicio de las demandas del baloncesto.</p></div>
-            </div>
-            <div className={styles.pillar}>
-              <Crosshair size={25} aria-hidden="true" />
-              <div><h3>Desarrollo personal</h3><p>Hábitos, confianza y compromiso con el proceso de mejora.</p></div>
-            </div>
+            {pillars.map(({ text, icon: Icon }, index) => (
+              <div className={styles.pillar} key={academyAreas[index]}>
+                <Icon size={25} aria-hidden="true" />
+                <div><h3>{academyAreas[index]}</h3><p>{text}</p></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -363,6 +363,13 @@ button, a {
   }
 }
 
+/* Escritorio estrecho: con el texto largo el botón desplazaría el menú del centro. */
+@media (min-width: 861px) and (max-width: 1060px) {
+  .header-whatsapp-extra {
+    display: none;
+  }
+}
+
 .hub-link {
   display: inline-flex;
   justify-content: center;

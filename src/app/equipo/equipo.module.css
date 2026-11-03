@@ -319,6 +319,35 @@
   font-size: 16px;
   line-height: 1.77;
 }
+/* Experiencia verificada (opcional): una línea por dato. */
+.featureExperience {
+  display: grid;
+  gap: 8px;
+  max-width: 535px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.featureExperience li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 10px;
+}
+.featureExperience li::before {
+  content: "";
+  width: 14px;
+  height: 2px;
+  margin-top: .75em;
+  background: var(--orange-dark);
+}
+/* Retrato autorizado (opcional): ocupa todo el panel en lugar del monograma. */
+.featureArtPhoto,
+.collabMarkPhoto { padding: 0; }
+.featurePhoto { object-fit: cover; }
 .featureFooter {
   gap: 14px;
   padding-top: 22px;

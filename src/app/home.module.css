@@ -89,17 +89,19 @@
 .actionText { color: #fff; }
 .actionText:hover { color: var(--sage); }
 .inlineLink:hover { color: var(--orange-dark); }
-.heroKeywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 13px;
-  margin-top: 34px;
-  color: #b9c0b6;
-  font-size: 12px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+/* Dónde y cómo se entrena: texto normal (no versalitas), para leerse de un vistazo. */
+.heroFacts {
+  display: grid;
+  gap: 10px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #d8e0d6;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.heroKeywords span + span::before { content: "•"; color: var(--orange); padding-right: 13px; }
+.heroFacts li { display: flex; align-items: center; gap: 10px; }
+.heroFacts svg { flex: none; color: var(--orange); }
 
 .heroMedia {
   position: relative;
@@ -350,7 +352,7 @@
   .heroLead { margin: 24px 0 27px; font-size: 15px; }
   .heroActions { align-items: stretch; gap: 15px; }
   .actionPrimary { width: 100%; }
-  .heroKeywords { margin-top: 27px; font-size: 11px; }
+  .heroFacts { margin-top: 27px; }
   .heroMedia { min-height: 350px; }
   .heroPhoto { --home-hero-image: url("/imagenes/sesion-ata-800.webp"); }
 
@@ -630,7 +632,7 @@
     font-size: 16px;
   }
 
-  .hero .heroKeywords,
+  .hero .heroFacts,
   .hero .heroPhotoCaption > span,
   .programCard .programTag,
   .programCard .programCardTop {

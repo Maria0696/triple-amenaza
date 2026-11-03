@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, Target } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
@@ -13,10 +14,26 @@ export const metadata = pageMetadata({
 });
 
 /**
- * Perfiles sin fotografías individuales hasta disponer de imágenes autorizadas.
+ * Huecos preparados para cuando la academia los facilite:
+ * - photo: retrato autorizado en public/imagenes/ (vertical, ~1200×1500). Sustituye
+ *   al monograma. Ejemplo: { src: "/imagenes/equipo-jose.webp", alt: "Jose en la pista" }
+ * - experience: líneas cortas y verificadas (titulación, años, categorías entrenadas).
+ *   Ejemplo: ["Entrenador superior de baloncesto", "10 años en categorías de formación"]
+ * Mientras estén vacíos se muestra el monograma y no aparece ningún hueco en blanco.
  * No publicar apellidos, formación o cargos adicionales sin verificarlos.
  */
-const direccion = [
+type Persona = {
+  number: string;
+  slug: string;
+  name: string;
+  initials: string;
+  statement: string;
+  description: string;
+  photo?: { src: string; alt: string };
+  experience?: readonly string[];
+};
+
+const direccion: readonly Persona[] = [
   {
     number: "01",
     slug: "jose",
@@ -35,7 +52,10 @@ const direccion = [
     description:
       "Edu es socio de la academia y comparte con Jose la dirección del proyecto y la organización de sus actividades. Los dos apuestan por un proceso de aprendizaje en el que los objetivos estén claros y las mejoras tengan sentido dentro del juego.",
   },
-] as const;
+];
+
+/** Colaborador: mismo hueco opcional de foto (sustituye al monograma JH). */
+const collaborator: { photo?: { src: string; alt: string } } = {};
 
 export default function EquipoPage() {
   return (
@@ -94,22 +114,34 @@ export default function EquipoPage() {
                 key={persona.number}
                 aria-labelledby={`team-person-${persona.slug}`}
               >
-                {/* Panel gráfico preparado para sustituirse por un retrato autorizado. */}
-                <div className={styles.featureArt} aria-hidden="true">
-                  <div className={styles.featureArtTop} />
-                  <div className={styles.featureArtCenter}>
-                    <span className={`${styles.featureOrbit} ${styles.featureOrbitOne}`} />
-                    <span className={`${styles.featureOrbit} ${styles.featureOrbitTwo}`} />
-                    <span className={styles.featureAxis} />
-                    <span className={styles.featureInitial}>
-                      {persona.initials}
-                    </span>
+                {persona.photo ? (
+                  <div className={`${styles.featureArt} ${styles.featureArtPhoto}`}>
+                    <Image
+                      src={persona.photo.src}
+                      alt={persona.photo.alt}
+                      fill
+                      sizes="(max-width: 860px) 100vw, 45vw"
+                      className={styles.featurePhoto}
+                    />
                   </div>
-                  <div className={styles.featureArtBottom}>
-                    <span>TRIPLE AMENAZA</span>
-                    <span className={styles.featureArtSpark}>✳</span>
+                ) : (
+                  // Monograma decorativo mientras no haya retrato autorizado.
+                  <div className={styles.featureArt} aria-hidden="true">
+                    <div className={styles.featureArtTop} />
+                    <div className={styles.featureArtCenter}>
+                      <span className={`${styles.featureOrbit} ${styles.featureOrbitOne}`} />
+                      <span className={`${styles.featureOrbit} ${styles.featureOrbitTwo}`} />
+                      <span className={styles.featureAxis} />
+                      <span className={styles.featureInitial}>
+                        {persona.initials}
+                      </span>
+                    </div>
+                    <div className={styles.featureArtBottom}>
+                      <span>TRIPLE AMENAZA</span>
+                      <span className={styles.featureArtSpark}>✳</span>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className={styles.featureContent}>
                   <div className={styles.featureMain}>
@@ -123,6 +155,13 @@ export default function EquipoPage() {
                     <p className={styles.featureDescription}>
                       {persona.description}
                     </p>
+                    {persona.experience && persona.experience.length > 0 && (
+                      <ul className={styles.featureExperience} aria-label={`Experiencia de ${persona.name}`}>
+                        {persona.experience.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
 
                   <div className={styles.featureFooter}>
@@ -154,11 +193,23 @@ export default function EquipoPage() {
           </div>
 
           <article className={styles.collabCard}>
-            <div className={styles.collabMark} aria-hidden="true">
-              <span className={styles.collabMarkRim} />
-              <span>JH</span>
-              <small>3×3 / 5×5</small>
-            </div>
+            {collaborator.photo ? (
+              <div className={`${styles.collabMark} ${styles.collabMarkPhoto}`}>
+                <Image
+                  src={collaborator.photo.src}
+                  alt={collaborator.photo.alt}
+                  fill
+                  sizes="(max-width: 860px) 100vw, 30vw"
+                  className={styles.featurePhoto}
+                />
+              </div>
+            ) : (
+              <div className={styles.collabMark} aria-hidden="true">
+                <span className={styles.collabMarkRim} />
+                <span>JH</span>
+                <small>3×3 / 5×5</small>
+              </div>
+            )}
 
             <div className={styles.collabContent}>
               <p className={styles.collabLabel}>COLABORADOR EN ACTIVIDADES ATA</p>

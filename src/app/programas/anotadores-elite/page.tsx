@@ -133,6 +133,15 @@ const areas = [
   },
 ] as const;
 
+/** Ficha de la cabecera: lo esencial del programa, sin repetir las siete áreas de la pista. */
+const programSheet = [
+  { label: "Duración", value: `${offer.durationWeeks} semanas` },
+  { label: "Sesiones", value: `${offer.totalSessions} de ${offer.sessionMinutes} minutos, una por semana` },
+  { label: "Grupos", value: "Reducidos, con jugadores de nivel similar" },
+  { label: "Primer paso", value: "Valoración inicial" },
+  { label: "Precio", value: `${offer.singlePayment} € en un pago, IVA incluido` },
+] as const;
+
 const courtAreas = areas.filter((area) => area.court);
 const everywhereAreas = areas.filter((area) => !area.court);
 
@@ -145,21 +154,21 @@ const questions = [
   {
     title: "¿La valoración inicial obliga a inscribirse?",
     answer:
-      "No. La valoración es un paso para conocer al jugador y conversar sobre su posible incorporación. Las condiciones y, en su caso, el coste de esa valoración deben consultarse previamente con ATA.",
+      "No. La valoración sirve para conocer al jugador y hablar de su posible incorporación. Si tiene algún coste, te lo decimos antes.",
   },
   {
     title: "¿Cuánto cuesta y cómo se paga?",
-    answer: `El precio del programa es de ${offer.singlePayment} € con pago único o ${offer.installmentTotal} € con pago fraccionado, IVA incluido. Para conocer los importes y las fechas de cada plazo, la valoración inicial y las condiciones de inscripción, consúltanos directamente.`,
+    answer: `El programa cuesta ${offer.singlePayment} € en un pago único o ${offer.installmentTotal} € en total si lo fraccionas en tres pagos, IVA incluido. Las fechas de cada plazo te las indicamos al inscribirte.`,
   },
   {
     title: "¿Qué ocurre si no puedo asistir a una sesión?",
     answer:
-      "La política de avisos, ausencias y posibles recuperaciones se comunica antes de la inscripción. Consulta tu caso concreto con la academia.",
+      "Antes de inscribirte te explicamos cómo funcionan los avisos y las posibles recuperaciones. Si ya sabes que faltarás a alguna sesión, cuéntanoslo.",
   },
   {
     title: "¿Son sesiones individuales?",
     answer:
-      "El programa se plantea en grupos reducidos y buscando niveles de juego similares. Consulta con ATA la composición del grupo y los cupos disponibles.",
+      "No. Se entrena en grupos reducidos, con jugadores de un nivel de juego similar.",
   },
   {
     title: "¿Sustituye los entrenamientos de mi club?",
@@ -171,7 +180,7 @@ const questions = [
 export default function AnotadoresElitePage() {
   return (
     <>
-      {/* Cabecera: mismo diseño, ahora con información práctica y CTA específico. */}
+      {/* Cabecera: mensaje, llamada a la valoración y ficha con lo esencial del programa. */}
       <section className={styles.hero} aria-labelledby="elite-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
@@ -188,11 +197,6 @@ export default function AnotadoresElitePage() {
               generar ventajas y tomar mejores decisiones frente a defensores,
               con el objetivo de llevar ese aprendizaje al partido.
             </p>
-            <div className={styles.commercialFacts} role="group" aria-label="Formato previsto del programa">
-              <span><strong>{offer.durationWeeks}</strong> SEMANAS</span>
-              <span><strong>{offer.totalSessions}</strong> SESIONES</span>
-              <span><strong>{offer.sessionMinutes}′</strong> POR SESIÓN</span>
-            </div>
             <div className={styles.commercialHeroActions}>
               <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary}`}>
                 Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
@@ -200,24 +204,26 @@ export default function AnotadoresElitePage() {
             </div>
           </div>
 
-          <aside className={styles.profile} aria-label="Las siete áreas del perfil anotador">
+          <aside className={styles.profile} aria-label="Anotadores Élite de un vistazo">
             <div className={styles.profileTop}>
-              <span>ATA / PERFIL DEL ANOTADOR</span>
-              <span>07 ÁREAS</span>
+              <span>ATA / ANOTADORES ÉLITE</span>
+              <span>FICHA</span>
             </div>
             <div className={styles.profileTitle}>
-              <span>UNA VISIÓN</span>
-              <strong>COMPLETA DEL JUEGO.</strong>
+              <span>EL PROGRAMA</span>
+              <strong>DE UN VISTAZO.</strong>
             </div>
-            <ol className={styles.profileAreas}>
-              {areas.map((area) => (
-                <li key={area.number}>
-                  <span>{area.number}</span>
-                  <span>{area.title}</span>
-                </li>
+            <dl className={styles.profileAreas}>
+              {programSheet.map((item) => (
+                <div key={item.label}>
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
               ))}
-            </ol>
-            <p className={styles.profileFoot}>La selección del trabajo depende del punto de partida de cada jugador.</p>
+            </dl>
+            <p className={styles.profileFoot}>
+              También en tres pagos: {offer.installmentTotal} € en total.
+            </p>
           </aside>
         </div>
       </section>
@@ -251,10 +257,6 @@ export default function AnotadoresElitePage() {
             ))}
           </div>
 
-          <p className={styles.commercialFormatNote}>
-            Formato de referencia: una sesión semanal de 60 minutos durante 12 semanas.
-            Las fechas, el grupo y las condiciones definitivas se confirmarán con ATA.
-          </p>
         </div>
       </section>
 
@@ -266,9 +268,9 @@ export default function AnotadoresElitePage() {
               UNA APUESTA POR <em>TU PROGRESO.</em>
             </h2>
             <p>
-              Elige el formato de pago que mejor encaje contigo. Antes de formalizar
-              la inscripción te explicaremos la valoración, los grupos y las
-              condiciones de asistencia.
+              Elige el formato de pago que mejor encaje contigo. Antes de
+              inscribirte, te explicamos cómo es la valoración inicial y cómo se
+              forman los grupos.
             </p>
             <WhatsappLink message={whatsappMessages.eliteConditions} className={`${styles.button} ${styles.commercialPrimary}`}>
               Consultar condiciones <ArrowUpRight size={19} aria-hidden="true" />
@@ -426,10 +428,6 @@ export default function AnotadoresElitePage() {
             <p>
               Cuéntanos en qué quiere mejorar el jugador y te explicaremos cómo
               planteamos la valoración inicial y las opciones de incorporación.
-            </p>
-            <p className={styles.closingNote}>
-              El posible coste de la valoración, la composición de los grupos y las
-              condiciones de asistencia se confirmarán antes de la inscripción.
             </p>
           </div>
           <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.buttonDark}`}>
