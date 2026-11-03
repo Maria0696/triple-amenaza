@@ -32,9 +32,7 @@ export function SiteFooter() {
             {emailUser}<wbr />@{emailDomain}
           </a>
           <span className="footer-place">
-            {location.place}
-            <br />
-            {location.city}
+            {location.place} · {location.city}
           </span>
           {hubEnabled && (
             <Link href="/hub/">ATA Hub <ArrowUpRight size={14} aria-hidden="true" /></Link>

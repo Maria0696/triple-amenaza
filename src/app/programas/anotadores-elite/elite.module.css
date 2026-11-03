@@ -74,7 +74,8 @@
 .sectionHead { display: flex; align-items: end; justify-content: space-between; gap: 38px; margin-bottom: 41px; }
 .foundationsHeading { margin-bottom: 41px; }
 .foundationsHeading .heading { max-width: none; font-size: clamp(42px, 5vw, 77px); }
-.foundationsHeading > p { max-width: 570px; margin: 24px 0 0 auto; }
+/* Entradilla en una línea que llega hasta el final de la tercera tarjeta. */
+.foundationsHeading > p { max-width: none; margin: 24px 0 0; }
 .foundationsHeading > div, .sectionHead > div { min-width: 0; }
 .foundationsHeading > p, .sectionHead > p { flex: 0 0 285px; margin: 0 0 7px; color: #566158; font-size: 16px; line-height: 1.75; }
 @media (min-width: 1061px) {
