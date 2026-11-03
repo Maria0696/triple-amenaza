@@ -96,7 +96,7 @@ La plataforma tendrá **dos grandes espacios** que compartirán marca, diseño y
 
 - **Lenguaje:** TypeScript.
 - **Aplicación:** Next.js + React, en **un solo repositorio** llamado `triple-amenaza`.
-- **Diseño:** variables de diseño y estilos compartidos en `src/app/globals.css`, un CSS Module por página y Noto Sans autoalojada; responsive y componentes reutilizables.
+- **Diseño:** variables de diseño y estilos compartidos en `src/app/globals.css`, un CSS Module por página y Noto Sans y Gelasio autoalojadas; responsive y componentes reutilizables.
 - **Control de versiones:** Git y GitHub (repositorio privado durante el desarrollo).
 - **Autenticación inicial del Hub:** Google mediante Firebase Authentication.
 - **Datos del Hub:** Cloud Firestore, con reglas por rol y relaciones jugador–entrenador.
@@ -119,7 +119,7 @@ triple-amenaza/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx                 # Inicio
-│   │   ├── home.css
+│   │   ├── home.module.css
 │   │   ├── academia/
 │   │   ├── metodo/
 │   │   ├── programas/

@@ -8,7 +8,9 @@ import {
   Target,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
+import { academyAreas, whatsappMessages } from "@/lib/site";
 import styles from "./academia.module.css";
 
 export const metadata = pageMetadata({
@@ -39,24 +41,22 @@ const principles = [
   },
 ] as const;
 
+/** Los nombres de las áreas vienen de academyAreas (los mismos que en Inicio). */
 const pillars = [
   {
     number: "01",
-    title: "Baloncesto",
     subtitle: "Entender y resolver",
     text: "Recursos técnicos, lectura del juego y capacidad para generar y aprovechar ventajas.",
     icon: Target,
   },
   {
     number: "02",
-    title: "Preparación física",
     subtitle: "Moverse con propósito",
     text: "El desarrollo de las capacidades físicas como apoyo a las demandas del baloncesto.",
     icon: Dumbbell,
   },
   {
     number: "03",
-    title: "Desarrollo personal",
     subtitle: "Crecer durante el proceso",
     text: "Hábitos, confianza, autonomía y compromiso con el aprendizaje a largo plazo.",
     icon: BrainCircuit,
@@ -133,7 +133,7 @@ export default function AcademiaPage() {
             </h2>
           </div>
           <div className={styles.pillarsGrid}>
-            {pillars.map((pillar) => {
+            {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
                 <article className={styles.pillar} key={pillar.number}>
@@ -142,7 +142,7 @@ export default function AcademiaPage() {
                   </div>
                   <div>
                     <span className={styles.pillarSubtitle}>{pillar.subtitle}</span>
-                    <h3>{pillar.title}</h3>
+                    <h3>{academyAreas[index]}</h3>
                     <p>{pillar.text}</p>
                   </div>
                 </article>
@@ -183,21 +183,26 @@ export default function AcademiaPage() {
               comprenda mejor sus decisiones y se sienta preparado para los retos de la competición.
             </p>
             <Link href="/metodo/" className={styles.outlineLink}>
-              Conoce el Método ATA <ArrowUpRight size={18} aria-hidden="true" />
+              Conoce el Método ATA <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA única de cierre, sin inscripciones ni plazas no confirmadas. */}
+      {/* Cierre: hablar con la academia primero; los programas, como alternativa. */}
       <section className={styles.next} aria-labelledby="academy-next-title">
         <div className={`container ${styles.nextInner}`}>
           <div className={styles.nextCourt} aria-hidden="true"><span /></div>
           <h2 id="academy-next-title">CADA JUGADOR. <em>SU CAMINO.</em></h2>
-          <p>Descubre nuestros programas y encuentra el formato que mejor se adapta a tu punto de partida.</p>
-          <Link href="/programas/" className={styles.nextLink}>
-            Conoce los programas <ArrowRight size={19} aria-hidden="true" />
-          </Link>
+          <p>Cuéntanos el punto de partida del jugador y te ayudamos a encontrar el formato que mejor se adapta.</p>
+          <div className={styles.nextActions}>
+            <WhatsappLink className={styles.nextLink} message={whatsappMessages.general} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
+            <Link href="/programas/" className="text-link">
+              Ver los programas <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

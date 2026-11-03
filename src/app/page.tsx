@@ -3,17 +3,19 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  Crosshair,
+  BrainCircuit,
+  CalendarRange,
   Eye,
   ListChecks,
+  MapPin,
   Dumbbell,
   MoveUpRight,
   Target,
-  Zap,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { baseOpenGraph } from "@/lib/metadata";
-import { methodSteps, programs } from "@/lib/site";
+import { academyAreas, location, methodSteps, programs, whatsappMessages } from "@/lib/site";
 import styles from "./home.module.css";
 
 // Título y descripción generales del layout; aquí solo la URL canónica.
@@ -36,6 +38,13 @@ const methodIcons = {
   "03": Dumbbell,
   "04": MoveUpRight,
 } as const;
+
+/** Descripciones de las tres áreas; los nombres vienen de academyAreas (iguales en Academia). */
+const pillars = [
+  { text: "Recursos y lecturas para responder a las situaciones del juego.", icon: Target },
+  { text: "Desarrollo físico al servicio de las demandas del baloncesto.", icon: Dumbbell },
+  { text: "Hábitos, confianza y compromiso con el proceso de mejora.", icon: BrainCircuit },
+] as const;
 
 export default function HomePage() {
   return (
@@ -64,7 +73,7 @@ export default function HomePage() {
             <div className={styles.heroActions}>
               <Link href="/programas/" className={styles.actionPrimary}>
                 Descubre nuestros programas
-                <ArrowUpRight size={19} aria-hidden="true" />
+                <ArrowRight size={19} aria-hidden="true" />
               </Link>
               <Link href="/metodo/" className={styles.actionText}>
                 Conoce nuestro método
@@ -72,11 +81,17 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className={styles.heroKeywords} role="group" aria-label="Áreas de desarrollo">
-              <span>Técnica</span>
-              <span>Preparación física</span>
-              <span>Desarrollo personal</span>
-            </div>
+            {/* Dónde y cómo: lo primero que pregunta una familia. */}
+            <ul className={styles.heroFacts}>
+              <li>
+                <MapPin size={17} aria-hidden="true" />
+                {location.place} · {location.city}
+              </li>
+              <li>
+                <CalendarRange size={17} aria-hidden="true" />
+                12 semanas con Élite o sesiones sueltas con Flex
+              </li>
+            </ul>
           </div>
 
           <div className={styles.heroMedia}>
@@ -118,7 +133,7 @@ export default function HomePage() {
               cuando el partido lo exige.
             </p>
             <Link href="/academia/" className={styles.inlineLink}>
-              Descubre la academia <ArrowUpRight size={19} aria-hidden="true" />
+              Descubre la academia <ArrowRight size={19} aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -148,7 +163,7 @@ export default function HomePage() {
                 >
                   <div className={styles.programCardTop}>
                     <span>{program.label}</span>
-                    <ArrowUpRight size={23} aria-hidden="true" />
+                    <ArrowRight size={23} aria-hidden="true" />
                   </div>
 
                   {featured && (
@@ -163,7 +178,7 @@ export default function HomePage() {
 
                   {!featured && (
                     <span className={styles.programCardSymbol} aria-hidden="true">
-                      <Zap size={76} strokeWidth={1.15} />
+                      <CalendarRange size={76} strokeWidth={1.15} />
                     </span>
                   )}
 
@@ -234,7 +249,7 @@ export default function HomePage() {
           </div>
 
           <Link href="/metodo/" className={styles.actionOutline}>
-            Conoce el método completo <ArrowUpRight size={19} aria-hidden="true" />
+            Conoce el método completo <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>
       </section>
@@ -253,18 +268,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className={styles.pillarList}>
-            <div className={styles.pillar}>
-              <Target size={25} aria-hidden="true" />
-              <div><h3>Técnica con intención</h3><p>Recursos y lecturas para responder a las situaciones del juego.</p></div>
-            </div>
-            <div className={styles.pillar}>
-              <Dumbbell size={25} aria-hidden="true" />
-              <div><h3>Preparación física</h3><p>Desarrollo físico al servicio de las demandas del baloncesto.</p></div>
-            </div>
-            <div className={styles.pillar}>
-              <Crosshair size={25} aria-hidden="true" />
-              <div><h3>Desarrollo personal</h3><p>Hábitos, confianza y compromiso con el proceso de mejora.</p></div>
-            </div>
+            {pillars.map(({ text, icon: Icon }, index) => (
+              <div className={styles.pillar} key={academyAreas[index]}>
+                <Icon size={25} aria-hidden="true" />
+                <div><h3>{academyAreas[index]}</h3><p>{text}</p></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -278,10 +287,15 @@ export default function HomePage() {
         </div>
         <div className={`container ${styles.closingInner}`}>
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
-          <p>Conoce los programas y encuentra el punto de partida que mejor encaja con tus objetivos.</p>
-          <Link href="/programas/" className={styles.actionDark}>
-            Explorar programas <ArrowUpRight size={19} aria-hidden="true" />
-          </Link>
+          <p>Cuéntanos qué quiere mejorar el jugador y te orientamos hacia el programa que mejor encaja con sus objetivos.</p>
+          <div className={styles.closingActions}>
+            <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
+            <Link href="/programas/" className="text-link">
+              Ver los programas <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

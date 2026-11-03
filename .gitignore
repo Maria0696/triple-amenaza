@@ -11,3 +11,7 @@ out/
 
 # Archivos temporales del plugin de Playwright
 .playwright-mcp/
+
+# Instantáneas locales de las revisiones de diseño (impeccable); sus conclusiones
+# quedan en las descripciones de las PR.
+.impeccable/

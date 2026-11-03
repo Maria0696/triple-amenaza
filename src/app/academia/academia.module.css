@@ -113,7 +113,8 @@
 .pillar:nth-child(2) { background: #ebdfd3; border-color: #e5d8ca; }
 .pillar:nth-child(3) { background: #d9e4cc; border-color: #d1dbbf; }
 @media (hover: hover) and (pointer: fine) {
-  .pillar:hover { transform: translateY(-4px); background: #dce5ce; }
+  /* Tarjetas informativas, no enlaces: cambian de tono pero no se levantan. */
+  .pillar:hover { background: #dce5ce; }
 }
 .pillarTop { display: flex; justify-content: space-between; align-items: start; color: var(--green-label); }
 .pillarTop span { font-size: 11px; font-weight: 850; letter-spacing: .12em; }
@@ -149,6 +150,7 @@
 .next { position: relative; background: var(--sage); overflow: hidden; padding: clamp(68px,7vw,106px) 0; }
 
 .nextInner { position: relative; z-index: 1; }
+.nextActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 .next h2 { margin: 0 0 22px; max-width: 1100px; font-size: clamp(53px,7.2vw,111px); line-height: .98; font-weight: 950; letter-spacing: -.04em; }
 .next h2 em { display: block; color: #4e6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 @media (min-width: 861px) {
@@ -261,15 +263,12 @@
 @media (hover: hover) and (pointer: fine) {
   .principle:hover { background-color: #edf0e8; }
   .principle:hover::before { transform: scaleY(1); }
-  .principle:hover h3 { color: var(--orange-dark); }
   .principle:hover .principleDash { opacity: 1; width: 28px; }
-  .pillar:hover { box-shadow: 0 16px 35px #18201917; }
   .pillar:hover::before { transform: scaleX(1); }
-  .pillar:hover .pillarTop svg { transform: translateY(-3px) rotate(-7deg); }
   .pillar:nth-child(2):hover { background: #e6d7ca; }
   .pillar:nth-child(3):hover { background: #d2e0c4; }
   .outlineLink:hover { border-color: var(--sage); transform: translateY(-2px); }
-  .outlineLink:hover svg,
+  .outlineLink:hover svg { transform: translateX(4px); }
   .nextLink:hover svg { transform: translate(3px, -2px); }
 }
 @media (max-width: 600px) {

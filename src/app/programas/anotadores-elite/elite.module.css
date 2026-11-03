@@ -23,19 +23,20 @@
 .profileTitle { padding: 32px 25px 27px; display: grid; gap: 5px; }
 .profileTitle span { color: #becbbd; font-size: 12px; font-weight: 850; letter-spacing: .12em; }
 .profileTitle strong { max-width: none; color: var(--paper); font-size: clamp(26px, 2.45vw, 38px); line-height: 1.04; letter-spacing: -.04em; white-space: nowrap; }
-.profileAreas { padding: 0; margin: 0; list-style: none; }
-.profileAreas li {
+/* Ficha del programa: cada fila es un par dato / valor. */
+.profileAreas { padding: 0; margin: 0; }
+.profileAreas > div {
   position: relative;
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
-  align-items: center;
-  gap: 9px;
+  grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
   padding: 14px 25px;
   border-top: 1px solid #ffffff20;
   font-size: 15px;
   transition: background-color .24s ease;
 }
-.profileAreas li::before {
+.profileAreas > div::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
@@ -45,13 +46,16 @@
   transform-origin: top;
   transition: transform .25s ease;
 }
-.profileAreas li span:first-child {
+.profileAreas dt {
   font-size: 11px;
   font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
   color: var(--orange-on-dark);
 }
-.profileAreas li span:last-child {
-  transition: transform .25s ease, color .25s ease;
+.profileAreas dd {
+  margin: 0;
+  transition: color .25s ease;
 }
 .profileFoot { margin: 0; padding: 20px 25px; border-top: 1px solid #ffffff2a; font-size: 12px; line-height: 1.6; color: #c4d1c3; }
 
@@ -123,7 +127,7 @@
 .everywhere { grid-area: all; min-width: 0; padding: 26px 28px 28px; background: #293b31; }
 .everywhereLabel { margin: 0 0 18px; color: var(--orange-on-dark); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 /* Columnas al ancho de su texto: cada descripción cabe en una línea en escritorio. */
-.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
+.everywhere ol { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
 /* El número va en la línea del título; la descripción ocupa todo el ancho de la columna. */
 .everywhere li { display: grid; grid-template-columns: 30px auto; justify-content: start; align-items: center; column-gap: 12px; }
 .everywhere li p { grid-column: 1 / -1; margin-top: 10px; color: #c4d1c3; }
@@ -140,7 +144,7 @@
   .zoneList li { align-items: start; }
 }
 @container elite-areas (max-width: 600px) {
-  .everywhere ul { grid-template-columns: minmax(0, 1fr); }
+  .everywhere ol { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Leyenda y pista enlazadas por data-zone: al pasar por una fila (o por su marca,
@@ -266,7 +270,6 @@
   .closing h2 em { white-space: nowrap; }
 }
 .closingGrid > div > p:not(.eyebrow) { max-width: 690px; margin: 0 0 15px; font-size: 16px; line-height: 1.75; }
-.closingGrid > div > .closingNote { font-size: 12px !important; line-height: 1.6 !important; color: #41563c; }
 .buttonDark { flex-shrink: 0; margin-bottom: 12px; color: var(--paper); background: var(--ink); }
 @media (hover: hover) and (pointer: fine) {
   .buttonDark:hover { background: #35483c; transform: translateY(-2px); }
@@ -274,11 +277,12 @@
 
 /* Los efectos de hover se reservan a tarjetas y textos, no a fotografías. */
 @media (hover: hover) and (pointer: fine) {
-  /* La lista describe áreas de trabajo: no es una navegación. */
-  .profileAreas li:hover { background-color: #3a4e40; }
-  .profileAreas li:hover::before { transform: scaleY(1); }
-  .profileAreas li:hover span:last-child { transform: translateX(5px); color: #fffdf5; }
-  .foundation:hover { transform: translateY(-4px); background: #e0e8d4; }
+  /* La ficha es informativa, no una navegación: solo se marca la fila. */
+  .profileAreas > div:hover { background-color: #3a4e40; }
+  .profileAreas > div:hover::before { transform: scaleY(1); }
+  .profileAreas > div:hover dd { color: #fffdf5; }
+  /* Tarjetas informativas, no enlaces: cambian de tono sin levantarse. */
+  .foundation:hover { background: #e0e8d4; }
   .foundation:nth-child(2):hover { background: #e6d5c8; }
   .foundation:nth-child(3):hover { background: #d4e2c4; }
   .foundation:hover::before { transform: scaleX(1); }
@@ -317,7 +321,7 @@
   .heroTitle { font-size: clamp(49px, 12vw, 69px); }
   .heroTitle span { margin-top: 6px; }
   .heroLead { margin: 23px 0; font-size: 15px; }
-  .profileTop, .profileAreas li { padding-inline: 18px; }
+  .profileTop, .profileAreas > div { padding-inline: 18px; }
   .profileTitle { padding: 26px 18px 20px; }
   .profileFoot { padding-inline: 18px; }
   .profileTitle strong { font-size: 31px; white-space: normal; }
@@ -336,13 +340,12 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .button, .foundation, .foundation::before,
-  .faqItem summary svg, .profileAreas li,
-  .profileAreas li::before, .profileAreas li span:last-child {
+  .faqItem summary svg, .profileAreas > div,
+  .profileAreas > div::before, .profileAreas dd {
     transition: none !important;
   }
   .heroCopy, .profile { animation: none !important; }
-  .profileAreas li:hover span:last-child,
-  .profileAreas li:hover::before,
+  .profileAreas > div:hover::before,
   .button:hover, .foundation:hover{ transform: none !important; }
 }
 
@@ -350,31 +353,6 @@
    Estilos integrados en la hoja principal de la página. */
 
 /* Resumen + llamadas a la acción dentro de la cabecera existente */
-.commercialFacts {
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  margin-top: 26px;
-  gap: 8px;
-}
-.commercialFacts > span {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 7px;
-  min-height: 46px;
-  padding: 12px 14px;
-  border: 1px solid #c8d88e58;
-  color: #e8efe3;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .1em;
-}
-.commercialFacts strong {
-  color: var(--sage);
-  font-size: 20px;
-  font-weight: 950;
-  letter-spacing: -.04em;
-}
 .commercialHeroActions {
   display: flex;
   align-items: center;
@@ -454,14 +432,6 @@
   color: #4d5e51;
   font-size: 14px;
   line-height: 1.73;
-}
-.commercialFormatNote {
-  margin: 23px 0 0;
-  padding-top: 19px;
-  border-top: 1px solid #dce4d4;
-  color: #556457;
-  font-size: 13px;
-  line-height: 1.7;
 }
 
 /* 02 — Presentación comercial: tarifas acordadas previamente con ATA */
@@ -564,7 +534,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .commercialPrimary:hover { transform: translateY(-2px); background: #dceaa8; }
-  .commercialDeliverable:hover { transform: translateY(-4px); background: #dbe7d3; }
+  .commercialDeliverable:hover { background: #dbe7d3; }
   .commercialMethodLink:hover { transform: translateX(4px); }
 }
 @media (max-width: 1060px) {
@@ -578,9 +548,6 @@
   .commercialIncludesGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
-  .commercialFacts { gap: 6px; }
-  .commercialFacts > span { padding: 9px 11px; font-size: 11px; }
-  .commercialFacts strong { font-size: 18px; }
   .commercialHeroActions { display: grid; gap: 17px; }
   .commercialPrimary { width: 100%; }
   .commercialIncludesGrid,

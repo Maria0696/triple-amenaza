@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-re
 
 import { CopyButton } from "@/components/ui/copy-button";
 import { pageMetadata } from "@/lib/metadata";
-import { contact, location, whatsappLink } from "@/lib/site";
+import { contact, location, whatsappLink, whatsappMessages } from "@/lib/site";
 import styles from "./contacto.module.css";
 
 export const metadata = pageMetadata({
@@ -13,9 +13,7 @@ export const metadata = pageMetadata({
   path: "/contacto/",
 });
 
-const whatsappHref = whatsappLink(
-  "Hola, me gustaría recibir información sobre Academia Triple Amenaza.",
-);
+const whatsappHref = whatsappLink(whatsappMessages.general);
 const emailSubject = "Consulta - Academia Triple Amenaza";
 const emailHref = `mailto:${contact.email}?subject=${encodeURIComponent(emailSubject)}`;
 

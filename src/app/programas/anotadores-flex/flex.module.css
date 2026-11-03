@@ -231,7 +231,6 @@
 .compareCard > p { margin: 0 0 34px; max-width: 470px; font-size: 17px; line-height: 1.73; }
 .compareFlex > p { color: #465d4c; }
 .compareElite > p { color: #d5ded1; }
-.compareFoot { margin-top: auto; font-size: 11px; letter-spacing: .09em; color: #47654b; font-weight: 850; }
 .compareLink {
   margin-top: auto;
   align-self: flex-start;
@@ -246,6 +245,9 @@
   transition: color .25s ease, border-color .25s ease;
 }
 .compareLink svg { transition: transform .25s ease; }
+.compareFlex .compareLink { color: var(--ink); border-color: #47654b; }
+/* Contacto directo desde la cabecera: mismo naranja que el botón primario de Inicio. */
+.heroAction { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 54px; padding: 16px 20px; border-radius: 3px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 850; transition: background-color .2s ease; }
 
 /* Preguntas frecuentes */
 .faq { background: var(--cream); padding-block: clamp(75px, 8vw, 118px); }
@@ -294,13 +296,13 @@
 
 @media (hover: hover) and (pointer: fine) {
   .compareLink:hover { color: var(--sage); border-color: var(--sage); }
-  .compareLink:hover svg { transform: translate(4px, -2px); }
-  .strength:hover { transform: translateY(-4px); box-shadow: 0 15px 32px #213b2815; }
+  .compareFlex .compareLink:hover { color: var(--orange-dark); border-color: var(--orange-dark); }
+  .compareLink:hover svg { transform: translateX(4px); }
+  .heroAction:hover { background: #ff935f; }
+  /* Tarjetas informativas (no son enlaces): solo se marca la franja, sin levantarlas. */
   .strength:hover::before { transform: scaleX(1); }
-  .strength:hover .strengthTop svg { transform: translateY(-3px); }
-  .step:hover { background-color: #ffffff0d; padding-left: 14px; }
+  .step:hover { background-color: #ffffff0d; }
   .step:hover::before { transform: scaleY(1); }
-  .compareCard:hover { box-shadow: 0 16px 35px #24382a14; }
   .faqItem summary:hover { color: var(--orange-dark); }
   .closingLink:hover { background: #344136; transform: translateY(-2px); }
   .closingLink:hover svg { transform: translateX(4px); }

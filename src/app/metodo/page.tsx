@@ -1,15 +1,17 @@
 import Link from "next/link";
 import {
+  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   Dumbbell,
   Eye,
+  ListChecks,
   MoveUpRight,
-  Target,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { methodDescription, methodSteps } from "@/lib/site";
+import { methodDescription, methodSteps, whatsappMessages } from "@/lib/site";
 import styles from "./metodo.module.css";
 
 export const metadata = pageMetadata({
@@ -36,7 +38,7 @@ const stageDetails = [
     explanation:
       "Convertimos lo observado en prioridades concretas. Un objetivo claro ayuda a que las tareas tengan un propósito y el jugador comprenda qué está intentando conseguir.",
     question: "¿Qué merece más atención ahora?",
-    icon: Target,
+    icon: ListChecks,
   },
   {
     kicker: "DAR SENTIDO A LA PRÁCTICA",
@@ -83,7 +85,7 @@ export default function MetodoPage() {
                   <a href={`#etapa-${step.number}`}>
                     <span className={styles.indexNumber}>{step.number}</span>
                     <span className={styles.indexName}>{step.title}</span>
-                    <ArrowUpRight size={20} aria-hidden="true" />
+                    <ArrowDown size={20} aria-hidden="true" />
                   </a>
                 </li>
               ))}
@@ -191,10 +193,15 @@ export default function MetodoPage() {
             de entrenamiento de Triple Amenaza y encuentra el que mejor se adapta
             a lo que buscas.
           </p>
-          <Link className={styles.closingLink} href="/programas/">
-            Explorar programas
-            <ArrowRight size={19} aria-hidden="true" />
-          </Link>
+          <div className={styles.closingActions}>
+            <Link className={styles.closingLink} href="/programas/">
+              Explorar programas
+              <ArrowRight size={19} aria-hidden="true" />
+            </Link>
+            <WhatsappLink className="text-link" message={whatsappMessages.programChoice}>
+              ¿Dudas? Te ayudamos a elegir <ArrowUpRight size={18} aria-hidden="true" />
+            </WhatsappLink>
+          </div>
         </div>
       </section>
     </>

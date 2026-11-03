@@ -319,6 +319,35 @@
   font-size: 16px;
   line-height: 1.77;
 }
+/* Experiencia verificada (opcional): una línea por dato. */
+.featureExperience {
+  display: grid;
+  gap: 8px;
+  max-width: 535px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.featureExperience li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 10px;
+}
+.featureExperience li::before {
+  content: "";
+  width: 14px;
+  height: 2px;
+  margin-top: .75em;
+  background: var(--orange-dark);
+}
+/* Retrato autorizado (opcional): ocupa todo el panel en lugar del monograma. */
+.featureArtPhoto,
+.collabMarkPhoto { padding: 0; }
+.featurePhoto { object-fit: cover; }
 .featureFooter {
   gap: 14px;
   padding-top: 22px;
@@ -503,15 +532,13 @@
 
 /* Efectos solo para dispositivos con cursor fino ---------- */
 @media (hover: hover) and (pointer: fine) {
-  .feature:hover {
-    border-color: #253d2c66;
-    box-shadow: 0 24px 48px #1c211e14;
-  }
-  .feature:hover .featureInitial { transform: translateY(-8px) scale(1.055); }
+  /* La tarjeta no es un enlace: se marca el borde, sin sombra de elevación. */
+  .feature:hover { border-color: #253d2c66; }
+  .feature:hover .featureInitial { transform: scale(1.04); }
   .feature:hover .featureOrbitOne { transform: rotate(22deg) scale(1.08); }
 
   .closingLink:hover { background: var(--ink-hover); transform: translateY(-3px); }
-  .closingLink:hover svg { transform: translateX(4px); }
+  .closingLink:hover svg { transform: translate(3px, -3px); }
 }
 
 /* Responsive ------------------------------------------------ */
@@ -553,10 +580,11 @@
   .sectionHeading { margin-bottom: 29px; }
   .feature { min-height: 0; }
   .featureArt {
-    min-height: 285px;
+    min-height: 300px;
     padding: 23px;
   }
-  .featureInitial { font-size: clamp(185px, 50vw, 275px); }
+  /* Más pequeña que el panel: la inicial no debe montarse sobre "TRIPLE AMENAZA". */
+  .featureInitial { font-size: clamp(150px, 40vw, 230px); }
   .featureContent { min-height: 0; padding: 26px; }
   .featureMain { padding-block: 38px; }
   .featureMain h3 { font-size: clamp(91px, 21vw, 128px); }

@@ -2,6 +2,7 @@ export const navigation = [
   { label: "Academia", href: "/academia/" },
   { label: "Método", href: "/metodo/" },
   { label: "Programas", href: "/programas/" },
+  { label: "Equipo", href: "/equipo/" },
   { label: "Contacto", href: "/contacto/" },
 ] as const;
 
@@ -32,13 +33,26 @@ export function whatsappLink(message: string): string {
   return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-/** El pie amplía la navegación pública y mantiene Contacto como último enlace. */
-export const footerNavigation = [
-  ...navigation.filter(({ href }) => href !== "/contacto/"),
-  { label: "Workshops", href: "/programas/workshops/" },
-  { label: "Equipo", href: "/equipo/" },
-  ...navigation.filter(({ href }) => href === "/contacto/"),
-] as const;
+/** Mensajes precargados: cada enlace abre la conversación con el contexto de su página. */
+export const whatsappMessages = {
+  general: "Hola, me gustaría recibir información sobre Academia Triple Amenaza.",
+  programChoice:
+    "Hola, tengo dudas entre Anotadores Élite y Anotadores Flex. ¿Podéis ayudarme a elegir el formato que mejor encaja?",
+  eliteValuation:
+    "Hola, quiero información sobre la valoración inicial de Anotadores Élite. ¿Podéis indicarme cómo funciona y las próximas opciones disponibles?",
+  eliteConditions:
+    "Hola, quiero información sobre el precio y las condiciones de Anotadores Élite. ¿Podéis indicarme los plazos del pago fraccionado y las próximas fechas?",
+  flex: "Hola, quiero información sobre Anotadores Flex. ¿Qué sesiones y bonos hay disponibles?",
+  workshops:
+    "Hola, me gustaría que me avisarais cuando publiquéis las próximas fechas de workshops y masterclasses.",
+} as const;
+
+/** El pie amplía la navegación pública con Workshops, justo después de Programas. */
+export const footerNavigation = navigation.flatMap((item) =>
+  item.href === "/programas/"
+    ? [item, { label: "Workshops", href: "/programas/workshops/" }]
+    : [item],
+);
 
 /** Unifica la barra final para comparar rutas ("/metodo" y "/metodo/" son la misma). */
 export function normalizePath(path: string): string {
@@ -82,6 +96,9 @@ export const programs: Program[] = [
     tag: "Formato flexible",
   },
 ];
+
+/** Fuente única de los nombres de las tres áreas de la academia (Inicio y Academia). */
+export const academyAreas = ["Técnica", "Preparación física", "Desarrollo personal"] as const;
 
 /** Fuente única de los nombres y el orden de las cuatro etapas del Método ATA. */
 export const methodSteps = [

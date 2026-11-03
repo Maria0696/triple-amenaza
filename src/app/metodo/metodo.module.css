@@ -194,6 +194,7 @@
 .closing { background: var(--sage); padding-block: clamp(72px, 7vw, 109px); }
 
 .closingInner { max-width: 1220px; }
+.closingActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 .closing h2 {
   max-width: none;
   margin: 0;
@@ -231,7 +232,7 @@
 @media (hover: hover) and (pointer: fine) {
 
   .index li a:hover { background: var(--ink-hover); }
-  .index li a:hover svg { transform: translate(3px, -3px); }
+  .index li a:hover svg { transform: translateY(3px); }
   .stage:hover { background: #f1f4ec; }
   .stage:hover .stageIcon { background: #dce9d4; }
   .closingLink:hover { background: var(--ink-hover); transform: translateY(-2px); }
