@@ -269,11 +269,11 @@
 .method { background: #28352d; color: #fff; padding: clamp(68px, 6vw, 98px) 0; }
 .methodHeading { display: flex; justify-content: space-between; gap: 45px; align-items: end; }
 .methodHeading .sectionTitle { max-width: none; }
-.methodHeading .sectionTitle span { display: block; }
-@media (min-width: 861px) {
-  .methodHeading .sectionTitle span {
-    white-space: nowrap;
-  }
+/* Escritorio: "DEL ENTRENAMIENTO AL PARTIDO." en una línea; en móvil, en dos. */
+.methodHeading .sectionTitle { white-space: nowrap; }
+@media (max-width: 860px) {
+  .methodHeading .sectionTitle { white-space: normal; }
+  .methodHeading .sectionTitle span { display: block; }
 }
 .methodHeading .sectionTitle span { color: var(--sage); }
 .methodSteps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule-on-dark); margin: 35px 0 26px; }
