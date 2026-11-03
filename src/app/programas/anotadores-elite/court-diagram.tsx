@@ -5,10 +5,6 @@ import styles from "./elite.module.css";
  * con la línea de fondo arriba. Aro a 1,575 m del fondo, zona de 4,9 × 5,8 m,
  * línea de tres a 6,75 m y esquinas a 0,9 m de la banda.
  * Las marcas numeradas coinciden con la leyenda de la sección.
- *
- * Se dibuja la pista completa (28 m) y el SVG recorta por abajo ("slice"):
- * siempre se ve al menos la media pista, y si la leyenda es más alta la
- * imagen continúa por el medio campo hasta igualarla, sin deformarse.
  */
 const RIM = { x: 250, y: 52.5 };
 
@@ -21,19 +17,13 @@ const zones = [
 
 export function CourtDiagram() {
   return (
-    <svg
-      className={styles.courtSvg}
-      viewBox="-1.5 -1.5 503 937"
-      preserveAspectRatio="xMidYMin slice"
-      aria-hidden="true"
-      focusable="false"
-    >
+    <svg className={styles.courtSvg} viewBox="-1.5 -1.5 503 470" aria-hidden="true" focusable="false">
       <defs>
         <clipPath id="elite-court-floor">
           <rect x="0" y="0" width="500" height="467" />
         </clipPath>
       </defs>
-      <rect className={styles.courtFloor} x="0" y="0" width="500" height="934" />
+      <rect className={styles.courtFloor} x="0" y="0" width="500" height="467" />
 
       {/* Zonas de trabajo, bajo las líneas y recortadas a la pista */}
       <g clipPath="url(#elite-court-floor)">
@@ -43,20 +33,17 @@ export function CourtDiagram() {
       </g>
 
       <g className={styles.courtLines}>
-        <rect x="0" y="0" width="500" height="934" />
-        <line x1="0" y1="467" x2="500" y2="467" />
-        <circle cx="250" cy="467" r="60" />
-        <g id="elite-court-half">
-          <rect x="168.3" y="0" width="163.4" height="193.3" />
-          <path d="M190 193.3 A60 60 0 0 0 310 193.3" />
-          <path className={styles.courtLineDashed} d="M190 193.3 A60 60 0 0 1 310 193.3" />
-          <line x1="220" y1="40" x2="280" y2="40" />
-          <circle cx={RIM.x} cy={RIM.y} r="7.5" />
-          <path d="M208.3 52.5 A41.7 41.7 0 0 0 291.7 52.5" />
-          <path d="M30 0 V99.7 A225 225 0 0 0 470 99.7 V0" />
-        </g>
-        {/* La otra mitad, simétrica respecto al medio campo */}
-        <use href="#elite-court-half" transform="translate(0 934) scale(1 -1)" />
+        {/* Contorno: el lado inferior es la línea de medio campo */}
+        <rect x="0" y="0" width="500" height="467" />
+        <rect x="168.3" y="0" width="163.4" height="193.3" />
+        <path d="M190 193.3 A60 60 0 0 0 310 193.3" />
+        <path className={styles.courtLineDashed} d="M190 193.3 A60 60 0 0 1 310 193.3" />
+        <line x1="220" y1="40" x2="280" y2="40" />
+        <circle cx={RIM.x} cy={RIM.y} r="7.5" />
+        <path d="M208.3 52.5 A41.7 41.7 0 0 0 291.7 52.5" />
+        <path d="M30 0 V99.7 A225 225 0 0 0 470 99.7 V0" />
+        {/* Medio círculo central, sobre la línea de medio campo */}
+        <path d="M190 467 A60 60 0 0 1 310 467" />
       </g>
 
       {/* Trayectoria del tiro en movimiento: desde el bote hasta el codo */}
