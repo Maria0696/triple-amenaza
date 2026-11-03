@@ -17,7 +17,7 @@ const zones = [
 
 export function CourtDiagram() {
   return (
-    <svg className={styles.courtSvg} viewBox="-6 -6 512 479" aria-hidden="true" focusable="false">
+    <svg className={styles.courtSvg} viewBox="-1.5 -1.5 503 470" aria-hidden="true" focusable="false">
       <defs>
         <clipPath id="elite-court-floor">
           <rect x="0" y="0" width="500" height="467" />

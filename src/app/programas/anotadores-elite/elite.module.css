@@ -98,9 +98,9 @@
 .areasHead > p { flex-basis: 300px; }
 
 /* Desarrollo anotador: media pista con las zonas de trabajo y su leyenda. */
-.court { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.court { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
 .courtFigure { min-width: 0; }
-.courtSvg { display: block; width: 100%; max-width: 560px; height: auto; margin-inline: auto; }
+.courtSvg { display: block; width: 100%; max-width: 560px; height: auto; }
 .courtFloor { fill: #fbfaf3; }
 .courtZone { fill: #c8d88e66; }
 .courtLines { fill: none; stroke: #2d4a35; stroke-width: 2.4; stroke-linejoin: round; }
@@ -339,7 +339,10 @@
   gap: 28px 48px;
   margin-bottom: 44px;
 }
-.commercialIncludesHead .heading em { color: #607e51; }
+/* Segunda línea del titular en verde en las secciones claras (sin cursiva). */
+.commercialIncludesHead .heading em,
+.areas .heading em,
+.faq .heading em { color: #607e51; }
 .commercialIncludesHead > p {
   min-width: 0;
   max-width: 390px;
