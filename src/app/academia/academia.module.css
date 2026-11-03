@@ -10,6 +10,8 @@
 }
 .sectionTitle em { font-family: var(--font-serif), Georgia, serif; font-weight: 500; text-transform: none; }
 .sectionTitle span { color: var(--orange-dark); }
+/* Segunda línea en color, como en el resto de titulares sobre fondo claro. */
+.approach .sectionTitle em { color: var(--orange-dark); }
 
 /* Apertura */
 .hero { background: var(--ink); color: var(--paper); overflow: hidden; }

@@ -80,6 +80,13 @@
   font-weight: 800;
 }
 
+/* Escritorio: "Te responde Jose García Fernández" en una línea; la columna lateral
+   se ensancha lo justo para que quepa (min-content con el nombre sin partir). */
+@media (min-width: 861px) {
+  .heroGrid { grid-template-columns: minmax(0, 1.75fr) minmax(min-content, .65fr); }
+  .responderText strong { white-space: nowrap; }
+}
+
 .heroAside p {
   margin: 25px 0 25px;
   color: #d4dfd6;

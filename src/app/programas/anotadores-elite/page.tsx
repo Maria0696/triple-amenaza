@@ -308,8 +308,8 @@ export default function AnotadoresElitePage() {
               </h2>
             </div>
             <p>
-              Dos jugadores pueden querer anotar más y necesitar caminos distintos.
-              Lo importante es transformar el entrenamiento en respuestas útiles para competir.
+              Dos jugadores pueden querer anotar más y necesitar caminos distintos:
+              convertimos el entrenamiento en respuestas útiles para competir.
             </p>
           </div>
           <div className={styles.foundationsGrid}>

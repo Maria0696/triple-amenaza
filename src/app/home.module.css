@@ -181,11 +181,11 @@
   text-transform: uppercase;
 }
 .sectionTitle span { color: var(--orange-dark); }
-.programs .sectionTitle span { display: block; }
-@media (min-width: 861px) {
-  .programs .sectionTitle span {
-    white-space: nowrap;
-  }
+/* Escritorio: "ENCUENTRA TU FORMATO." en una línea; en móvil, en dos. */
+.programs .sectionTitle { white-space: nowrap; }
+@media (max-width: 860px) {
+  .programs .sectionTitle { white-space: normal; }
+  .programs .sectionTitle span { display: block; }
 }
 
 .programCards {

@@ -90,20 +90,29 @@
 
 /* Etapas del método */
 .process { background: var(--paper); padding-block: clamp(75px, 8vw, 120px); scroll-margin-top: 100px; }
+/* Titular y entradilla apilados; en escritorio, cada uno en una línea. */
 .processHeading {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-  align-items: end;
-  gap: clamp(30px, 7vw, 110px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
   padding-bottom: 48px;
 }
-.processHeading .heading em { display: block; color: var(--orange-dark); }
+.processHeading .heading em { color: var(--orange-dark); }
 .processHeading > p {
-  max-width: 440px;
   color: #546258;
   font-size: 17px;
   line-height: 1.8;
-  margin: 0 0 5px;
+  margin: 0;
+}
+@media (min-width: 1061px) {
+  .processHeading .heading { white-space: nowrap; }
+}
+/* La entradilla solo cabe en una línea con el contenedor a su ancho máximo. */
+@media (min-width: 1251px) {
+  .processHeading > p { white-space: nowrap; }
+}
+@media (max-width: 1060px) {
+  .processHeading .heading em { display: block; }
 }
 .stages { border-top: 1px solid #cbd2c9; }
 .stage {
