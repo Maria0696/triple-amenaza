@@ -123,7 +123,7 @@
 .everywhere { grid-area: all; min-width: 0; padding: 26px 28px 28px; background: #293b31; }
 .everywhereLabel { margin: 0 0 18px; color: var(--orange-on-dark); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 /* Columnas al ancho de su texto: cada descripción cabe en una línea en escritorio. */
-.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
+.everywhere ol { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
 /* El número va en la línea del título; la descripción ocupa todo el ancho de la columna. */
 .everywhere li { display: grid; grid-template-columns: 30px auto; justify-content: start; align-items: center; column-gap: 12px; }
 .everywhere li p { grid-column: 1 / -1; margin-top: 10px; color: #c4d1c3; }
@@ -140,7 +140,7 @@
   .zoneList li { align-items: start; }
 }
 @container elite-areas (max-width: 600px) {
-  .everywhere ul { grid-template-columns: minmax(0, 1fr); }
+  .everywhere ol { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Leyenda y pista enlazadas por data-zone: al pasar por una fila (o por su marca,
@@ -277,8 +277,9 @@
   /* La lista describe áreas de trabajo: no es una navegación. */
   .profileAreas li:hover { background-color: #3a4e40; }
   .profileAreas li:hover::before { transform: scaleY(1); }
-  .profileAreas li:hover span:last-child { transform: translateX(5px); color: #fffdf5; }
-  .foundation:hover { transform: translateY(-4px); background: #e0e8d4; }
+  .profileAreas li:hover span:last-child { color: #fffdf5; }
+  /* Tarjetas informativas, no enlaces: cambian de tono sin levantarse. */
+  .foundation:hover { background: #e0e8d4; }
   .foundation:nth-child(2):hover { background: #e6d5c8; }
   .foundation:nth-child(3):hover { background: #d4e2c4; }
   .foundation:hover::before { transform: scaleX(1); }
@@ -564,7 +565,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .commercialPrimary:hover { transform: translateY(-2px); background: #dceaa8; }
-  .commercialDeliverable:hover { transform: translateY(-4px); background: #dbe7d3; }
+  .commercialDeliverable:hover { background: #dbe7d3; }
   .commercialMethodLink:hover { transform: translateX(4px); }
 }
 @media (max-width: 1060px) {

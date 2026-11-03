@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 
-import { hubEnabled, isNavigationActive, navigation, normalizePath } from "@/lib/site";
+import { hubEnabled, isNavigationActive, navigation, normalizePath, whatsappMessages } from "@/lib/site";
 import { Logo } from "@/components/ui/logo";
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -38,7 +39,8 @@ export function SiteHeader() {
       }
     }
 
-    const desktopQuery = window.matchMedia("(min-width: 821px)");
+    // Mismo corte que el CSS (globals.css): a partir de 861px ya no hay menú móvil.
+    const desktopQuery = window.matchMedia("(min-width: 861px)");
 
     function handleViewportChange(event: MediaQueryListEvent) {
       if (event.matches) {
@@ -95,6 +97,12 @@ export function SiteHeader() {
           </nav>
 
           <div className="header-actions">
+            {/* WhatsApp es la vía principal de contacto: siempre visible en la cabecera fija. */}
+            <WhatsappLink className="header-whatsapp" message={whatsappMessages.general} namesChannel>
+              <MessageCircle size={17} aria-hidden="true" />
+              <span><span className="header-whatsapp-extra">Escribir por </span>WhatsApp</span>
+            </WhatsappLink>
+
             {hubEnabled && (
               <Link href="/hub/" className="hub-link" onClick={closeMenu}>
                 ATA Hub

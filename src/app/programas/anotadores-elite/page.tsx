@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { whatsappLink } from "@/lib/site";
+import { whatsappMessages } from "@/lib/site";
 import { CourtDiagram } from "./court-diagram";
 import styles from "./elite.module.css";
 
@@ -26,10 +26,6 @@ const offer = {
   singlePayment: 240,
   installmentTotal: 255,
 } as const;
-
-const whatsappHref = whatsappLink(
-  "Hola, quiero información sobre la valoración inicial de Anotadores Élite. ¿Podéis indicarme cómo funciona y las próximas opciones disponibles?",
-);
 
 const deliverables = [
   {
@@ -64,9 +60,9 @@ const deliverables = [
   },
   {
     number: "06",
-    title: "Cerramos con una devolución",
+    title: "Cerramos con un informe final",
     description:
-      "Un informe final que resume el trabajo realizado y orienta los siguientes pasos.",
+      "Resume el trabajo realizado y orienta los siguientes pasos.",
   },
 ] as const;
 
@@ -172,21 +168,6 @@ const questions = [
   },
 ] as const;
 
-function ValuationLink({ className, children }: { className: string; children: ReactNode }) {
-  return (
-    <a
-      href={whatsappHref}
-      className={className}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-      {/* El texto visible forma parte del nombre accesible (WCAG 2.5.3). */}
-      <span className="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
-    </a>
-  );
-}
-
 export default function AnotadoresElitePage() {
   return (
     <>
@@ -213,9 +194,9 @@ export default function AnotadoresElitePage() {
               <span><strong>{offer.sessionMinutes}′</strong> POR SESIÓN</span>
             </div>
             <div className={styles.commercialHeroActions}>
-              <ValuationLink className={`${styles.button} ${styles.commercialPrimary}`}>
+              <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary}`}>
                 Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
-              </ValuationLink>
+              </WhatsappLink>
             </div>
           </div>
 
@@ -289,9 +270,9 @@ export default function AnotadoresElitePage() {
               la inscripción te explicaremos la valoración, los grupos y las
               condiciones de asistencia.
             </p>
-            <ValuationLink className={`${styles.button} ${styles.commercialPrimary}`}>
+            <WhatsappLink message={whatsappMessages.eliteConditions} className={`${styles.button} ${styles.commercialPrimary}`}>
               Consultar condiciones <ArrowUpRight size={19} aria-hidden="true" />
-            </ValuationLink>
+            </WhatsappLink>
           </div>
           <div className={styles.commercialPriceCards}>
             <article className={`${styles.commercialPriceCard} ${styles.commercialPriceCardFeatured}`}>
@@ -304,7 +285,7 @@ export default function AnotadoresElitePage() {
               <span className={styles.commercialPriceLabel}>PAGO FRACCIONADO</span>
               <h3>En tres pagos.</h3>
               <p className={styles.commercialPriceAmount}>{offer.installmentTotal} €</p>
-              <p>Consulta con ATA los plazos y condiciones de este formato de pago.</p>
+              <p>Es el importe total, repartido en tres pagos. Consulta con ATA las fechas de cada plazo.</p>
             </article>
             <p className={styles.commercialPricingNotice}>
               IVA incluido en ambos importes. El posible coste de la valoración inicial,
@@ -342,7 +323,7 @@ export default function AnotadoresElitePage() {
           </div>
           <Link className={styles.commercialMethodLink} href="/metodo/">
             Descubre cómo trabajamos: Método ATA
-            <ArrowUpRight size={18} aria-hidden="true" />
+            <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
@@ -375,7 +356,7 @@ export default function AnotadoresElitePage() {
             </ol>
             <div className={styles.everywhere}>
                 <p className={styles.everywhereLabel}>En todas las zonas</p>
-                <ul>
+                <ol start={courtAreas.length + 1}>
                   {everywhereAreas.map((area, index) => (
                     <li key={area.number}>
                       {/* Continúan la numeración de la pista (5–7), sin zona propia. */}
@@ -386,7 +367,7 @@ export default function AnotadoresElitePage() {
                       <p>{area.description}</p>
                     </li>
                   ))}
-                </ul>
+                </ol>
             </div>
           </div>
         </div>
@@ -401,7 +382,7 @@ export default function AnotadoresElitePage() {
           <div className={styles.passportLower}>
             <p className={styles.passportDescription}>
               A lo largo del programa revisamos los objetivos y el aprendizaje
-              en pista. Al cierre, compartimos una devolución del trabajo y
+              en pista. Al cierre, te entregamos un informe del trabajo realizado y
               orientamos los siguientes pasos.
             </p>
             <div className={styles.passportDevelopment}>
@@ -451,9 +432,9 @@ export default function AnotadoresElitePage() {
               condiciones de asistencia se confirmarán antes de la inscripción.
             </p>
           </div>
-          <ValuationLink className={`${styles.button} ${styles.buttonDark}`}>
+          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.buttonDark}`}>
             Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
-          </ValuationLink>
+          </WhatsappLink>
         </div>
       </section>
     </>

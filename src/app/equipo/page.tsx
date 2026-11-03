@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { ArrowRight, Target } from "lucide-react";
+import { ArrowUpRight, Target } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import styles from "./equipo.module.css";
 import { pageMetadata } from "@/lib/metadata";
+import { whatsappMessages } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Equipo",
@@ -164,13 +165,13 @@ export default function EquipoPage() {
               <h3>Javi Huertas</h3>
               <p>
                 Ha colaborado en actividades y entrenamientos de Triple Amenaza.
-                Su trayectoria combina baloncesto profesional 5x5 y 3x3 con un
+                Su trayectoria combina baloncesto profesional 5×5 y 3×3 con un
                 enfoque centrado en la técnica, la táctica individual y la toma
                 de decisiones.
               </p>
               <div className={styles.collabTags} role="group" aria-label="Ámbitos de experiencia">
-                <span>Baloncesto 5x5</span>
-                <span>Baloncesto 3x3</span>
+                <span>Baloncesto 5×5</span>
+                <span>Baloncesto 3×3</span>
                 <span>Toma de decisiones</span>
               </div>
             </div>
@@ -178,7 +179,7 @@ export default function EquipoPage() {
         </div>
       </section>
 
-      {/* Una única acción final, dirigida al contacto existente. */}
+      {/* Una única acción final: escribir a la academia por WhatsApp. */}
       <section className={styles.closing} aria-labelledby="team-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <div className={styles.closingCopy}>
@@ -190,10 +191,10 @@ export default function EquipoPage() {
               entrenamiento de la academia.
             </p>
           </div>
-          <Link href="/contacto/" className={styles.closingLink}>
-            Contactar con ATA
-            <ArrowRight size={20} aria-hidden="true" />
-          </Link>
+          <WhatsappLink className={styles.closingLink} message={whatsappMessages.general} namesChannel>
+            Escribir por WhatsApp
+            <ArrowUpRight size={20} aria-hidden="true" />
+          </WhatsappLink>
           <Target className={styles.closingDecoration} size={330} strokeWidth={.5} aria-hidden="true" />
         </div>
       </section>

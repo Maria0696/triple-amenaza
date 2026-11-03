@@ -3,17 +3,18 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  CalendarRange,
   Crosshair,
   Eye,
   ListChecks,
   Dumbbell,
   MoveUpRight,
   Target,
-  Zap,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { baseOpenGraph } from "@/lib/metadata";
-import { methodSteps, programs } from "@/lib/site";
+import { methodSteps, programs, whatsappMessages } from "@/lib/site";
 import styles from "./home.module.css";
 
 // Título y descripción generales del layout; aquí solo la URL canónica.
@@ -64,7 +65,7 @@ export default function HomePage() {
             <div className={styles.heroActions}>
               <Link href="/programas/" className={styles.actionPrimary}>
                 Descubre nuestros programas
-                <ArrowUpRight size={19} aria-hidden="true" />
+                <ArrowRight size={19} aria-hidden="true" />
               </Link>
               <Link href="/metodo/" className={styles.actionText}>
                 Conoce nuestro método
@@ -118,7 +119,7 @@ export default function HomePage() {
               cuando el partido lo exige.
             </p>
             <Link href="/academia/" className={styles.inlineLink}>
-              Descubre la academia <ArrowUpRight size={19} aria-hidden="true" />
+              Descubre la academia <ArrowRight size={19} aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -148,7 +149,7 @@ export default function HomePage() {
                 >
                   <div className={styles.programCardTop}>
                     <span>{program.label}</span>
-                    <ArrowUpRight size={23} aria-hidden="true" />
+                    <ArrowRight size={23} aria-hidden="true" />
                   </div>
 
                   {featured && (
@@ -163,7 +164,7 @@ export default function HomePage() {
 
                   {!featured && (
                     <span className={styles.programCardSymbol} aria-hidden="true">
-                      <Zap size={76} strokeWidth={1.15} />
+                      <CalendarRange size={76} strokeWidth={1.15} />
                     </span>
                   )}
 
@@ -234,7 +235,7 @@ export default function HomePage() {
           </div>
 
           <Link href="/metodo/" className={styles.actionOutline}>
-            Conoce el método completo <ArrowUpRight size={19} aria-hidden="true" />
+            Conoce el método completo <ArrowRight size={19} aria-hidden="true" />
           </Link>
         </div>
       </section>
@@ -278,10 +279,15 @@ export default function HomePage() {
         </div>
         <div className={`container ${styles.closingInner}`}>
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
-          <p>Conoce los programas y encuentra el punto de partida que mejor encaja con tus objetivos.</p>
-          <Link href="/programas/" className={styles.actionDark}>
-            Explorar programas <ArrowUpRight size={19} aria-hidden="true" />
-          </Link>
+          <p>Cuéntanos qué quiere mejorar el jugador y te orientamos hacia el programa que mejor encaja con sus objetivos.</p>
+          <div className={styles.closingActions}>
+            <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
+            <Link href="/programas/" className="text-link">
+              Ver los programas <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

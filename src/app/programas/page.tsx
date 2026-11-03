@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { programs } from "@/lib/site";
+import { programs, whatsappMessages } from "@/lib/site";
 import styles from "./programas.module.css";
 
 export const metadata = pageMetadata({
@@ -83,7 +84,7 @@ export default function ProgramasPage() {
             <Link className={`${styles.duoCard} ${styles.duoElite}`} href={elite.href}>
               <div className={styles.duoTop}>
                 <span>{elite.label}</span>
-                <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
+                <ArrowRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
               <div className={styles.duoTarget} aria-hidden="true">
                 <span /><span /><span />
@@ -101,7 +102,7 @@ export default function ProgramasPage() {
             <Link className={`${styles.duoCard} ${styles.duoFlex}`} href={flex.href}>
               <div className={styles.duoTop}>
                 <span>{flex.label}</span>
-                <ArrowUpRight size={25} strokeWidth={1.8} aria-hidden="true" />
+                <ArrowRight size={25} strokeWidth={1.8} aria-hidden="true" />
               </div>
               <CalendarRange className={styles.duoSymbol} size={108} strokeWidth={1.1} aria-hidden="true" />
               <div className={styles.duoContent}>
@@ -127,6 +128,9 @@ export default function ProgramasPage() {
               ELIGE CON <em>INTENCIÓN.</em>
             </h2>
             <p>No se trata de encontrar el programa más exigente, sino el que tenga sentido para tu momento deportivo.</p>
+            <WhatsappLink className={styles.choiceAction} message={whatsappMessages.programChoice}>
+              ¿Dudas? Te ayudamos a elegir <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
           </div>
           <div className={styles.questions}>
             {selectionQuestions.map((question) => (
@@ -162,7 +166,7 @@ export default function ProgramasPage() {
             </p>
             <Link href="/programas/workshops/" className={styles.workshopsLink}>
               Descubre los workshops
-              <ArrowUpRight size={19} aria-hidden="true" />
+              <ArrowRight size={19} aria-hidden="true" />
             </Link>
           </div>
         </div>

@@ -8,7 +8,9 @@ import {
   Target,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
+import { whatsappMessages } from "@/lib/site";
 import styles from "./academia.module.css";
 
 export const metadata = pageMetadata({
@@ -183,21 +185,26 @@ export default function AcademiaPage() {
               comprenda mejor sus decisiones y se sienta preparado para los retos de la competición.
             </p>
             <Link href="/metodo/" className={styles.outlineLink}>
-              Conoce el Método ATA <ArrowUpRight size={18} aria-hidden="true" />
+              Conoce el Método ATA <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA única de cierre, sin inscripciones ni plazas no confirmadas. */}
+      {/* Cierre: hablar con la academia primero; los programas, como alternativa. */}
       <section className={styles.next} aria-labelledby="academy-next-title">
         <div className={`container ${styles.nextInner}`}>
           <div className={styles.nextCourt} aria-hidden="true"><span /></div>
           <h2 id="academy-next-title">CADA JUGADOR. <em>SU CAMINO.</em></h2>
-          <p>Descubre nuestros programas y encuentra el formato que mejor se adapta a tu punto de partida.</p>
-          <Link href="/programas/" className={styles.nextLink}>
-            Conoce los programas <ArrowRight size={19} aria-hidden="true" />
-          </Link>
+          <p>Cuéntanos el punto de partida del jugador y te ayudamos a encontrar el formato que mejor se adapta.</p>
+          <div className={styles.nextActions}>
+            <WhatsappLink className={styles.nextLink} message={whatsappMessages.general} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
+            <Link href="/programas/" className="text-link">
+              Ver los programas <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

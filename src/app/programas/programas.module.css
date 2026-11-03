@@ -268,7 +268,7 @@
   }
   .duoCard:hover::before { transform: scaleY(1); }
   .duoTop svg { transform-origin: center; }
-  .duoCard:hover .duoTop svg { transform: translate(3px, -3px); }
+  .duoCard:hover .duoTop svg { transform: translateX(4px); }
   .duoCard:hover .duoLink svg { transform: translateX(5px); }
 }
 .duoCard:focus-visible {
@@ -307,6 +307,11 @@
 .choiceIntro { min-width: 0; }
 .choice .sectionTitle em { color: var(--sage); }
 .choiceIntro > p:not(.eyebrow) { max-width: 455px; margin: 26px 0 0; font-size: 17px; line-height: 1.8; color: #d3ded3; }
+/* Punto de decisión: quien duda entre Élite y Flex puede preguntar sin salir de aquí. */
+.choiceAction { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 54px; margin-top: 32px; padding: 16px 20px; border-radius: 3px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 850; transition: background-color .2s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .choiceAction:hover { background: #ff935f; }
+}
 .questions { border-top: 1px solid #ffffff42; }
 .question {
   display: grid;
@@ -334,19 +339,12 @@
 .question p { max-width: 540px; margin: 0; color: #c5d2c6; font-size: 15px; line-height: 1.75; }
 
 @media (hover: hover) and (pointer: fine) {
-  /* El resumen del hero es informativo: no debe aparentar ser un enlace. */
-
-  .heroAside:hover { border-color: var(--sage-line-strong); box-shadow: 0 16px 32px #09110b35; }
+  /* El resumen del hero y las preguntas son informativos: al pasar solo se marca la
+     franja y el fondo, sin desplazar el texto ni cambiarlo de color como un enlace. */
   .heroAsideRow:hover { background: #ffffff0b; }
   .heroAsideRow:hover::before { transform: scaleY(1); }
-  .heroAsideRow:hover strong { color: var(--sage); transform: translateX(6px); }
-  .heroAsideRow:hover > span:last-child { color: #f1b692; }
-
-  /* Las preguntas son informativas, no controles interactivos. */
   .question:hover { background-color: #ffffff0a; }
   .question:hover::before { transform: scaleY(1); }
-  .question:hover h3 { color: var(--sage); transform: translateX(5px); }
-
 }
 
 @media (max-width: 1060px) {
@@ -486,7 +484,7 @@
 .workshopsLink svg { transition: transform .2s ease; }
 @media (hover: hover) and (pointer: fine) {
   .workshopsLink:hover { background: var(--ink-hover); transform: translateY(-2px); }
-  .workshopsLink:hover svg { transform: translate(3px, -2px); }
+  .workshopsLink:hover svg { transform: translateX(4px); }
 }
 @media (max-width: 860px) {
   .workshopsGrid { grid-template-columns: 1fr; gap: 37px; }

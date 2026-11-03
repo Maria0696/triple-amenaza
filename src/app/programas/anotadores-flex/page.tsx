@@ -9,7 +9,9 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
+import { whatsappMessages } from "@/lib/site";
 import styles from "./flex.module.css";
 
 export const metadata = pageMetadata({
@@ -57,7 +59,7 @@ const howItWorks = [
     number: "02",
     title: "Elige cómo asistir",
     description:
-      "La propuesta Flex contempla sesiones sueltas y bonos de cuatro. Consulta con ATA qué opciones y condiciones están vigentes.",
+      "Puedes venir a sesiones sueltas o con un bono de cuatro sesiones. Consulta con ATA qué opciones están abiertas ahora.",
   },
   {
     number: "03",
@@ -76,7 +78,7 @@ const faqs = [
   {
     title: "¿Puedo asistir solo a algunas sesiones?",
     answer:
-      "Sí, esa es la idea del formato flexible. La definición de Flex contempla sesiones sueltas y bonos de cuatro. Las fechas, las plazas y las condiciones concretas deben confirmarse con la academia.",
+      "Sí, esa es la idea del formato flexible: puedes venir a sesiones sueltas o con un bono de cuatro. Las fechas y las plazas se confirman con la academia.",
   },
   {
     title: "¿Tengo una plaza semanal reservada?",
@@ -114,6 +116,9 @@ export default function AnotadoresFlexPage() {
               que puedes encajar en tu temporada. Más libertad de asistencia,
               la misma intención de aprender y decidir mejor.
             </p>
+            <WhatsappLink className={styles.heroAction} message={whatsappMessages.flex}>
+              Consultar sesiones disponibles <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
           </div>
 
           <div className={styles.heroBoard} role="group" aria-label="Tres claves de Anotadores Flex">
@@ -215,7 +220,9 @@ export default function AnotadoresFlexPage() {
                 Sesiones de tecnificación con libertad de asistencia, sujetas
                 a las fechas y plazas disponibles.
               </p>
-              <div className={styles.compareFoot}>ELIGE CÓMO ENCAJAR EL ENTRENAMIENTO</div>
+              <WhatsappLink className={styles.compareLink} message={whatsappMessages.flex}>
+                Consultar sesiones <ArrowUpRight size={19} aria-hidden="true" />
+              </WhatsappLink>
             </div>
             <div className={`${styles.compareCard} ${styles.compareElite}`}>
               <div className={styles.compareCardHead}>
@@ -227,7 +234,7 @@ export default function AnotadoresFlexPage() {
                 prioridades individuales, continuidad y seguimiento.
               </p>
               <Link href="/programas/anotadores-elite/" className={styles.compareLink}>
-                Conoce Anotadores Élite <ArrowUpRight size={19} aria-hidden="true" />
+                Conoce Anotadores Élite <ArrowRight size={19} aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -268,12 +275,12 @@ export default function AnotadoresFlexPage() {
           </div>
           <div className={styles.closingAction}>
             <p>
-              ¿Quieres saber qué sesiones y modalidades están disponibles?
-              Consulta las opciones con la academia.
+              ¿Quieres saber qué sesiones y bonos están disponibles?
+              Escríbenos y te contamos las próximas fechas.
             </p>
-            <Link href="/contacto/" className={styles.closingLink}>
-              Ir a contacto <ArrowRight size={19} aria-hidden="true" />
-            </Link>
+            <WhatsappLink className={styles.closingLink} message={whatsappMessages.flex} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
           </div>
         </div>
       </section>

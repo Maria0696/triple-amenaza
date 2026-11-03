@@ -235,9 +235,9 @@
 .programCard p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
 .programMore { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
 .programMore svg, .programCardTop svg { transition: transform .2s ease; }
-.programCard:focus-visible .programMore svg { transform: translate(3px, -2px); }
+.programCard:focus-visible .programMore svg { transform: translateX(4px); }
 @media (hover: hover) and (pointer: fine) {
-  .programCard:hover .programMore svg { transform: translate(3px, -2px); }
+  .programCard:hover .programMore svg { transform: translateX(4px); }
 }
 /* Gráfico puramente decorativo: no debe sugerir interacción. */
 .programFeatureArt {
@@ -308,11 +308,13 @@
 .pillar p { margin: 0; line-height: 1.7; font-size: 15px; color: var(--ink-soft); }
 
 .closing { background: var(--sage); padding: clamp(68px, 6vw, 105px) 0; }
-.closing .eyebrow { color: var(--orange-on-sage); }
+
 .closingInner h2 { max-width: 1050px; margin: 12px 0 25px; font-size: clamp(50px, 7vw, 101px); font-weight: 950; line-height: .97; letter-spacing: -.04em; text-transform: uppercase; }
 .closingInner h2 em { color: #4f6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .closingInner > p:not(.eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
 .actionDark { color: #fff; background: var(--ink); }
+/* Cierre: WhatsApp como acción principal y los programas como alternativa. */
+.closingActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 @media (hover: hover) and (pointer: fine) {
   .actionDark:hover { background: var(--ink-hover); transform: translateY(-2px); }
 }
@@ -401,8 +403,8 @@
   outline-offset: 4px;
 }
 @media (hover: hover) and (pointer: fine) {
-  .pillar { transition: background-color .2s ease, padding-left .2s ease; }
-  .pillar:hover { background: #f5f3e9; padding-left: 8px; }
+  .pillar { transition: background-color .2s ease; }
+  .pillar:hover { background: #f5f3e9; }
 }
 @media (max-width: 860px) {
   .programFeatureArt { opacity: .28; right: 3%; width: 40%; }
@@ -549,8 +551,8 @@
   transition: background-color .25s ease, transform .25s ease;
 }
 @media (hover: hover) and (pointer: fine) {
+  /* Los pasos no son enlaces: el icono se ilumina, pero no se desplaza. */
   .methodStep:hover .methodSymbol {
-    transform: translateY(-3px);
     background: #c8d88e18;
   }
 }
@@ -593,7 +595,7 @@
 @media (max-width: 600px) {
   /* Se reduce el diagrama en móvil para no añadir altura innecesaria. */
   .introAside { flex-direction: row; align-items: center; gap: 14px; }
-  .introAside .eyebrow { margin-bottom: 0; }
+
   .introDiagram { width: 42px; margin: 0; flex: 0 0 42px; }
   .introDiagramRing { border-width: 1px; }
   .introDiagramCenter { width: 5px; height: 5px; }
