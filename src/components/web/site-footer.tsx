@@ -23,7 +23,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <p className="footer-heading">Contacto</p>
-          <WhatsappLink message={whatsappMessages.general} namesChannel>
+          <WhatsappLink message={whatsappMessages.general} namesChannel icon={false}>
             {/* Espacios no separables: el número no se parte. La flecha va dentro del
                 mismo texto para seguir al número cuando la línea se parte (móvil). */}
             <span className="footer-inline">WhatsApp · <span className="footer-nowrap">{contact.phoneDisplay.replace(/ /g, " ")}

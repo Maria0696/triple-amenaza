@@ -245,7 +245,8 @@
   transition: color .25s ease, border-color .25s ease;
 }
 .compareLink svg { transition: transform .25s ease; }
-.compareFlex .compareLink { color: var(--ink); border-color: #47654b; }
+/* Botón de WhatsApp de la tarjeta Flex, al pie como el enlace de la tarjeta Élite. */
+.compareAction { margin-top: auto; align-self: flex-start; }
 .stepsAction { margin-top: 30px; }
 /* Contacto directo desde la cabecera: mismo naranja que el botón primario de Inicio. */
 .heroAction { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 54px; padding: 16px 20px; border-radius: 3px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 850; transition: background-color .2s ease; }
@@ -299,7 +300,6 @@
 
 @media (hover: hover) and (pointer: fine) {
   .compareLink:hover { color: var(--sage); border-color: var(--sage); }
-  .compareFlex .compareLink:hover { color: var(--orange-dark); border-color: var(--orange-dark); }
   .compareLink:hover svg { transform: translateX(4px); }
   .heroAction:hover { background: #ff935f; }
   /* Tarjetas informativas (no son enlaces): solo se marca la franja, sin levantarlas. */

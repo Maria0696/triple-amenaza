@@ -2,7 +2,6 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  ArrowUpRight,
   Dumbbell,
   Eye,
   ListChecks,
@@ -192,9 +191,8 @@ export default function MetodoPage() {
             a lo que buscas.
           </p>
           <div className={styles.closingActions}>
-            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice}>
-              ¿Dudas? Te ayudamos a elegir
-              <ArrowUpRight size={19} aria-hidden="true" />
+            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice} namesChannel>
+              Consultar por WhatsApp
             </WhatsappLink>
             <Link className="text-link" href="/programas/">
               Explorar programas <ArrowRight size={18} aria-hidden="true" />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
@@ -187,8 +187,8 @@ export default function AnotadoresElitePage() {
               con el objetivo de llevar ese aprendizaje al partido.
             </p>
             <div className={styles.commercialHeroActions}>
-              <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary}`}>
-                Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
+              <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary}`} namesChannel>
+                Consultar valoración por WhatsApp
               </WhatsappLink>
             </div>
           </div>
@@ -251,8 +251,8 @@ export default function AnotadoresElitePage() {
               inscribirte, te explicamos cómo es la valoración inicial y cómo se
               forman los grupos.
             </p>
-            <WhatsappLink message={whatsappMessages.eliteConditions} className={`${styles.button} ${styles.commercialPrimary}`}>
-              Consultar condiciones <ArrowUpRight size={19} aria-hidden="true" />
+            <WhatsappLink message={whatsappMessages.eliteConditions} className={`${styles.button} ${styles.commercialPrimary}`} namesChannel>
+              Consultar por WhatsApp
             </WhatsappLink>
           </div>
           <div className={styles.commercialPriceCards}>
@@ -350,8 +350,8 @@ export default function AnotadoresElitePage() {
                 </ol>
             </div>
           </div>
-          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary} ${styles.areasAction}`}>
-            Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
+          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary} ${styles.areasAction}`} namesChannel>
+            Consultar valoración por WhatsApp
           </WhatsappLink>
         </div>
       </section>
@@ -411,8 +411,8 @@ export default function AnotadoresElitePage() {
               planteamos la valoración inicial y las opciones de incorporación.
             </p>
           </div>
-          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.buttonDark}`}>
-            Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
+          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.buttonDark}`} namesChannel>
+            Consultar valoración por WhatsApp
           </WhatsappLink>
         </div>
       </section>

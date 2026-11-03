@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
@@ -31,8 +31,8 @@ export default function WorkshopsPage() {
           </p>
           {/* Sin calendario todavía: la página no termina sin una salida. */}
           <div className="simple-note-actions">
-            <WhatsappLink className="button button-orange" message={whatsappMessages.workshops}>
-              Avísame de las próximas fechas <ArrowUpRight size={18} aria-hidden="true" />
+            <WhatsappLink className="button button-orange" message={whatsappMessages.workshops} namesChannel iconSize={18}>
+              Escribir por WhatsApp
             </WhatsappLink>
             <Link className="text-link" href="/programas/">
               Ver los programas <ArrowRight size={18} aria-hidden="true" />

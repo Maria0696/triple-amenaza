@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
+import { ArrowRight, CalendarRange } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
@@ -168,9 +168,8 @@ export default function ProgramasPage() {
               Cuéntanos qué quiere mejorar el jugador y cómo encaja en su temporada:
               te ayudamos a elegir el formato.
             </p>
-            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice}>
-              Te ayudamos a elegir
-              <ArrowUpRight size={19} aria-hidden="true" />
+            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice} namesChannel>
+              Consultar por WhatsApp
             </WhatsappLink>
           </div>
         </div>

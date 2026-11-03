@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   BrainCircuit,
   Dumbbell,
   Target,
@@ -194,7 +193,7 @@ export default function AcademiaPage() {
           <p>Cuéntanos el punto de partida del jugador y te ayudamos a encontrar el formato que mejor se adapta.</p>
           <div className={styles.nextActions}>
             <WhatsappLink className={styles.nextLink} message={whatsappMessages.general} namesChannel>
-              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+              Escribir por WhatsApp
             </WhatsappLink>
             <Link href="/programas/" className="text-link">
               Ver los programas <ArrowRight size={18} aria-hidden="true" />
