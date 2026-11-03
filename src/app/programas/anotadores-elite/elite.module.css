@@ -424,7 +424,7 @@
   line-height: 1.73;
 }
 
-/* 02 — Presentación comercial: tarifas acordadas previamente con ATA */
+/* 02 — Condiciones: sin importes; invita a preguntar por precio, fechas y valoración */
 .commercialPricing {
   padding-block: clamp(72px, 7vw, 110px);
   background: #26392d;
@@ -447,58 +447,35 @@
   line-height: 1.78;
   font-size: 17px;
 }
-.commercialPriceCards {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 13px;
-}
-.commercialPriceCard {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 285px;
-  padding: clamp(23px, 2.8vw, 33px);
-  border: 1px solid var(--sage-line);
-  background: #31473a;
-}
-.commercialPriceCardFeatured {
-  color: var(--ink);
-  background: var(--sage);
-  border-color: var(--sage);
-}
-.commercialPriceLabel {
-  font-size: 11px;
+/* Qué se cuenta al escribir: tres puntos numerados, sin importes. */
+.commercialAsk { min-width: 0; border-top: 1px solid var(--sage-line); }
+.commercialAskLabel {
+  margin: 20px 0 4px;
+  color: var(--sage);
+  font-size: 12px;
   font-weight: 850;
-  line-height: 1.55;
   letter-spacing: .12em;
+  text-transform: uppercase;
 }
-.commercialPriceCard h3 {
-  margin: 32px 0 16px;
-  font-size: clamp(25px, 2.8vw, 37px);
-  line-height: 1.06;
-  letter-spacing: -.04em;
+.commercialAsk ol { margin: 0; padding: 0; list-style: none; counter-reset: ask; }
+.commercialAsk li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 4px 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--sage-line);
+  counter-increment: ask;
 }
-.commercialPriceAmount {
-  margin: 0;
-  font-size: clamp(43px, 4.7vw, 71px);
-  font-weight: 950;
-  line-height: 1;
-  letter-spacing: -.04em;
-}
-.commercialPriceCard > p:last-child {
-  margin: auto 0 0;
-  padding-top: 27px;
+.commercialAsk li::before {
+  content: counter(ask, decimal-leading-zero);
+  grid-row: span 2;
+  color: var(--orange-on-dark);
   font-size: 13px;
-  line-height: 1.65;
+  font-weight: 850;
+  line-height: 1.9;
 }
-.commercialPricingNotice {
-  grid-column: 1 / -1;
-  margin: 5px 0 0;
-  color: #d5e2d0;
-  font-size: 13px;
-  line-height: 1.6;
-}
+.commercialAsk strong { color: var(--paper); font-size: clamp(19px, 1.6vw, 23px); letter-spacing: -.02em; }
+.commercialAsk span { color: #d5e2d0; font-size: 15px; line-height: 1.6; }
 .commercialMethodLink {
   display: inline-flex;
   align-items: center;
@@ -540,11 +517,8 @@
 @media (max-width: 600px) {
   .commercialHeroActions { display: grid; gap: 17px; }
   .commercialPrimary { width: 100%; }
-  .commercialIncludesGrid,
-  .commercialPriceCards { grid-template-columns: minmax(0, 1fr); }
+  .commercialIncludesGrid { grid-template-columns: minmax(0, 1fr); }
   .commercialDeliverable { min-height: 205px; gap: 28px; }
-  .commercialPriceCard { min-height: 240px; }
-  .commercialPricingNotice { grid-column: 1; }
   .commercialPricingCopy > p:not(.eyebrow) { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

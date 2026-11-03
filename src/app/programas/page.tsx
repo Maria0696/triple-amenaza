@@ -68,7 +68,7 @@ export default function ProgramasPage() {
                 ))}
               </tbody>
             </table>
-            <p className={styles.heroAsideBottom}>Precios con IVA incluido.</p>
+            <p className={styles.heroAsideBottom}>El precio y las formas de pago te los contamos al escribirnos.</p>
           </div>
         </div>
       </section>

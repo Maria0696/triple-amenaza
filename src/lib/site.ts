@@ -68,9 +68,9 @@ export function isNavigationActive(pathname: string, href: string): boolean {
 }
 
 /**
- * Tarifas de Anotadores Élite utilizadas anteriormente por ATA (IVA incluido).
- * Revisar antes del lanzamiento. El coste de la valoración, la política de faltas
- * y los cupos no están confirmados.
+ * Formato y tarifas de Anotadores Élite (IVA incluido). El precio NO se muestra en
+ * la web a propósito: se da al preguntar, y ese primer contacto ya es un paso. Se
+ * conserva aquí por si vuelve a publicarse.
  */
 export const eliteOffer = {
   durationWeeks: 12,
@@ -81,7 +81,7 @@ export const eliteOffer = {
 } as const;
 
 /** Los mismos tres datos en los dos programas, para poder compararlos de un vistazo. */
-export const programFactLabels = ["Formato", "Seguimiento", "Precio"] as const;
+export const programFactLabels = ["Formato", "Seguimiento", "Primer paso"] as const;
 
 export type Program = {
   number: string;
@@ -106,9 +106,9 @@ export const programs: Program[] = [
     facts: [
       `${eliteOffer.durationWeeks} semanas, una sesión de ${eliteOffer.sessionMinutes} min por semana`,
       "Valoración inicial, objetivos e informe final",
-      `${eliteOffer.singlePayment} € (${eliteOffer.installmentTotal} € en tres pagos)`,
+      "Valoración inicial",
     ],
-    highlights: [`${eliteOffer.durationWeeks} semanas`, "1 sesión semanal", `${eliteOffer.singlePayment} €`],
+    highlights: [`${eliteOffer.durationWeeks} semanas`, "1 sesión semanal", "Valoración inicial"],
   },
   {
     number: "02",
@@ -120,9 +120,9 @@ export const programs: Program[] = [
     facts: [
       "Sesiones sueltas o bono de cuatro",
       "Valoración aparte, si la quieres",
-      "A consultar",
+      "Consultar sesiones disponibles",
     ],
-    highlights: ["Sesiones sueltas", "Bono de cuatro", "Precio a consultar"],
+    highlights: ["Sesiones sueltas", "Bono de cuatro", "Sin plaza fija"],
   },
 ];
 
