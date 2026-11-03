@@ -129,7 +129,6 @@ const programSheet = [
   { label: "Sesiones", value: `${offer.totalSessions} de ${offer.sessionMinutes} minutos, una por semana` },
   { label: "Grupos", value: "Reducidos, con jugadores de nivel similar" },
   { label: "Primer paso", value: "Valoración inicial" },
-  { label: "Precio", value: `${offer.singlePayment} € en un pago, IVA incluido` },
 ] as const;
 
 const courtAreas = areas.filter((area) => area.court);
@@ -148,7 +147,8 @@ const questions = [
   },
   {
     title: "¿Cuánto cuesta y cómo se paga?",
-    answer: `El programa cuesta ${offer.singlePayment} € en un pago único o ${offer.installmentTotal} € en total si lo fraccionas en tres pagos, IVA incluido. Las fechas de cada plazo te las indicamos al inscribirte.`,
+    answer:
+      "Puedes pagarlo de una vez o en tres plazos, con el IVA incluido. Escríbenos por WhatsApp y te contamos el precio y las fechas de cada plazo.",
   },
   {
     title: "¿Qué ocurre si no puedo asistir a una sesión?",
@@ -247,31 +247,30 @@ export default function AnotadoresElitePage() {
               UNA APUESTA POR <em>TU PROGRESO.</em>
             </h2>
             <p>
-              Elige el formato de pago que mejor encaje contigo. Antes de
-              inscribirte, te explicamos cómo es la valoración inicial y cómo se
-              forman los grupos.
+              Escríbenos y te contamos el precio, las formas de pago y las próximas
+              fechas. Preguntar no te compromete a nada.
             </p>
             <WhatsappLink message={whatsappMessages.eliteConditions} className={`${styles.button} ${styles.commercialPrimary}`} namesChannel>
               Consultar por WhatsApp
             </WhatsappLink>
           </div>
-          <div className={styles.commercialPriceCards}>
-            <article className={`${styles.commercialPriceCard} ${styles.commercialPriceCardFeatured}`}>
-              <span className={styles.commercialPriceLabel}>PAGO ÚNICO</span>
-              <h3>Una sola cuota.</h3>
-              <p className={styles.commercialPriceAmount}>{offer.singlePayment} €</p>
-              <p>Pago completo del programa en una única operación.</p>
-            </article>
-            <article className={styles.commercialPriceCard}>
-              <span className={styles.commercialPriceLabel}>PAGO FRACCIONADO</span>
-              <h3>En tres pagos.</h3>
-              <p className={styles.commercialPriceAmount}>{offer.installmentTotal} €</p>
-              <p>Es el importe total, repartido en tres pagos. Consulta con ATA las fechas de cada plazo.</p>
-            </article>
-            <p className={styles.commercialPricingNotice}>
-              IVA incluido en ambos importes. El posible coste de la valoración inicial,
-              las plazas y las condiciones de asistencia se confirmarán antes de la inscripción.
-            </p>
+          {/* Sin importes a propósito: el precio se da al preguntar (ver eliteOffer en site.ts). */}
+          <div className={styles.commercialAsk}>
+            <p className={styles.commercialAskLabel}>Al escribirnos te contamos</p>
+            <ol>
+              <li>
+                <strong>Precio y formas de pago</strong>
+                <span>Pago único o en tres plazos, con el IVA incluido.</span>
+              </li>
+              <li>
+                <strong>Fechas y grupos</strong>
+                <span>Las próximas fechas y cómo se forman los grupos por nivel.</span>
+              </li>
+              <li>
+                <strong>La valoración inicial</strong>
+                <span>Cómo funciona y qué pasa después.</span>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
