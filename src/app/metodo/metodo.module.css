@@ -28,12 +28,13 @@
   align-items: center;
   padding-block: clamp(78px, 8vw, 116px);
 }
-.heroCopy { min-width: 0; }
+/* Titular sin salto de línea: se limita al ancho de su columna (cqi). */
+.heroCopy { min-width: 0; container-type: inline-size; }
 .heroTitle {
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-size: clamp(62px, 5.2vw, 88px);
+  font-size: min(clamp(62px, 5.2vw, 88px), 11.8cqi);
   font-weight: 950;
   line-height: .95;
   letter-spacing: -.04em;
@@ -283,7 +284,8 @@
   .stageQuestionLabel { margin-top: 7px; }
   .practice .heading { font-size: clamp(39px, 10vw, 57px); }
   .practiceCopy p { font-size: 15px; }
-  .closing h2 { font-size: clamp(48px, 11vw, 69px); }
+  /* Mínimo 40px: a 320px "PROGRAMAS." no cabe a 48px. */
+  .closing h2 { font-size: clamp(40px, 11vw, 69px); }
   .closingInner > p:not(.eyebrow) { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
