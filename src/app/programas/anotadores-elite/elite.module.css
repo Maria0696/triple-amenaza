@@ -95,18 +95,97 @@
 
 /* Áreas de desarrollo */
 .areas { padding-block: clamp(76px, 7vw, 115px); background: #eef0e7; scroll-margin-top: 100px; }
-.areasHead > p { flex-basis: 300px; }
-/* Rejilla de 12 columnas: cuatro tarjetas arriba y tres abajo, sin huecos. */
-.areasGrid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
-.area { grid-column: span 3; }
-.area:nth-child(n + 5) { grid-column: span 4; }
-.area { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 56px; padding: 24px; min-height: 245px; border: 1px solid #ced8c8; background: #fbfaf3; transition: background-color .22s ease, box-shadow .22s ease, transform .22s ease; }
-.area:nth-child(even) { background: #e1e9dc; }
-.area::before { position: absolute; content: ''; inset: 0 0 auto; width: 100%; height: 3px; background: var(--orange-dark); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-.areaTop { display: flex; justify-content: space-between; align-items: start; gap: 14px; color: var(--green-label); }
-.areaTop span { font-size: 11px; font-weight: 850; letter-spacing: .1em; }
-.area h3 { margin: 0 0 11px; font-size: clamp(24px, 2vw, 31px); line-height: 1.07; letter-spacing: -.04em; }
-.area p { margin: 0; color: #556356; font-size: 13px; line-height: 1.7; }
+/* Entradilla bajo el titular, en líneas largas hasta el borde de la leyenda. */
+.sectionHead.areasHead { flex-direction: column; align-items: flex-start; gap: 20px; }
+/* flex: none — en columna, el flex-basis de .sectionHead > p se aplicaría a la altura. */
+.sectionHead.areasHead > p { flex: none; max-width: none; margin: 0; }
+
+/* Desarrollo anotador: media pista y lista de zonas lado a lado, alineadas arriba y
+   abajo; "En todas las zonas" debajo de ambas, a todo el ancho. */
+.court { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); grid-template-areas: "figure list" "all all"; column-gap: clamp(28px, 4vw, 64px); row-gap: 28px; }
+.courtFigure { grid-area: figure; align-self: start; min-width: 0; }
+.courtSvg { display: block; width: 100%; height: auto; }
+.courtFloor { fill: #fbfaf3; }
+.courtZone { fill: #c8d88e66; }
+.courtLines { fill: none; stroke: #2d4a35; stroke-width: 2.4; stroke-linejoin: round; }
+.courtLineDashed { stroke-dasharray: 7 7; }
+.courtPath { fill: none; stroke: var(--orange-dark); stroke-width: 2.6; stroke-dasharray: 2 7; stroke-linecap: round; }
+.courtMarker circle { fill: var(--orange-dark); stroke: #fbfaf3; stroke-width: 3; }
+.courtMarker text { fill: var(--paper); font-family: var(--font-sans), sans-serif; font-size: 17px; font-weight: 900; }
+/* La lista ocupa el alto de la pista: las cuatro zonas se reparten el espacio. */
+.zoneList { grid-area: list; align-self: stretch; display: grid; grid-auto-rows: 1fr; min-width: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid #ced8c8; }
+.zoneList li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #ced8c8; }
+.zoneNumber { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--orange-dark); color: var(--paper); font-size: 14px; font-weight: 900; }
+.zoneList h3, .everywhere h3 { margin: 0 0 6px; font-size: clamp(21px, 1.7vw, 25px); line-height: 1.1; letter-spacing: -.03em; }
+.zoneList p, .everywhere li p { margin: 0; color: #556356; font-size: 14px; line-height: 1.6; }
+/* Las tres áreas transversales: banda oscura (el verde del panel del hero) para que
+   pesen tanto como las de la pista. Numeradas 5–7 con contorno: no tienen zona. */
+.everywhere { grid-area: all; min-width: 0; padding: 26px 28px 28px; background: #293b31; }
+.everywhereLabel { margin: 0 0 18px; color: var(--orange-on-dark); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+/* Columnas al ancho de su texto: cada descripción cabe en una línea en escritorio. */
+.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
+/* El número va en la línea del título; la descripción ocupa todo el ancho de la columna. */
+.everywhere li { display: grid; grid-template-columns: 30px auto; justify-content: start; align-items: center; column-gap: 12px; }
+.everywhere li p { grid-column: 1 / -1; margin-top: 10px; color: #c4d1c3; }
+.everywhere h3 { margin: 0; color: var(--paper); font-size: clamp(19px, 1.5vw, 23px); }
+.everywhereNumber { display: grid; place-items: center; width: 30px; height: 30px; border: 1.5px solid var(--orange-on-dark); border-radius: 50%; color: var(--orange-on-dark); font-size: 14px; font-weight: 900; }
+/* Por debajo de este ancho del bloque la media pista no alcanza el alto de la lista:
+   todo se apila. Depende del ancho del bloque, por eso es una container query. */
+.areas :global(.container) { container: elite-areas / inline-size; }
+@container elite-areas (max-width: 859px) {
+  .court { grid-template-columns: minmax(0, 1fr); grid-template-areas: "figure" "list" "all"; }
+  .courtFigure { max-width: 520px; }
+  .zoneList { grid-auto-rows: auto; }
+  /* Sin estirar, el número se alinea con el título y no con el centro del bloque. */
+  .zoneList li { align-items: start; }
+}
+@container elite-areas (max-width: 600px) {
+  .everywhere ul { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Leyenda y pista enlazadas por data-zone: al pasar por una fila (o por su marca,
+   zona o trayectoria) se resaltan ambas y las demás marcas se atenúan. */
+.zoneList li { position: relative; isolation: isolate; }
+/* Solo sobresale por la izquierda: a la derecha la fila termina en el borde de la lista. */
+.zoneList li::before { content: ""; position: absolute; inset: 0 0 0 -12px; z-index: -1; background: transparent; box-shadow: inset 0 0 0 transparent; transition: background-color .22s ease, box-shadow .22s ease; }
+.zoneNumber { transition: transform .22s ease; }
+.zoneList h3 { transition: transform .22s ease; }
+.courtZone { transition: fill .22s ease; }
+.courtMarker { transition: opacity .22s ease; }
+.courtMarker circle { transform-box: fill-box; transform-origin: center; transition: transform .22s ease; }
+@keyframes court-run { to { stroke-dashoffset: -18; } }
+@media (hover: hover) and (pointer: fine) {
+  .court:has([data-zone]:hover) .courtMarker { opacity: .4; }
+  .court:has([data-zone="1"]:hover) .courtMarker[data-zone="1"],
+  .court:has([data-zone="2"]:hover) .courtMarker[data-zone="2"],
+  .court:has([data-zone="3"]:hover) .courtMarker[data-zone="3"],
+  .court:has([data-zone="4"]:hover) .courtMarker[data-zone="4"] { opacity: 1; }
+  .court:has([data-zone="1"]:hover) .courtMarker[data-zone="1"] circle,
+  .court:has([data-zone="2"]:hover) .courtMarker[data-zone="2"] circle,
+  .court:has([data-zone="3"]:hover) .courtMarker[data-zone="3"] circle,
+  .court:has([data-zone="4"]:hover) .courtMarker[data-zone="4"] circle { transform: scale(1.22); }
+  .court:has([data-zone="1"]:hover) .courtZone[data-zone="1"],
+  .court:has([data-zone="2"]:hover) .courtZone[data-zone="2"],
+  .court:has([data-zone="3"]:hover) .courtZone[data-zone="3"] { fill: #b7cb6fb3; }
+  .court:has([data-zone="4"]:hover) .courtPath { animation: court-run .9s linear infinite; }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"]::before,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"]::before,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"]::before,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"]::before { background: #dfe7d1; box-shadow: inset 3px 0 0 var(--orange-dark); }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"] .zoneNumber,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"] .zoneNumber,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"] .zoneNumber,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"] .zoneNumber { transform: scale(1.12); }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"] h3,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"] h3,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"] h3,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"] h3 { transform: translateX(5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoneList li::before, .zoneNumber, .zoneList h3, .courtZone, .courtMarker, .courtMarker circle { transition: none; }
+  .court .courtPath { animation: none !important; }
+  .court .zoneNumber, .court .zoneList h3, .court .courtMarker circle { transform: none !important; }
+}
 
 /* Seguimiento editorial: el pasaporte todavía no es una función pública. */
 .passport {
@@ -203,8 +282,7 @@
   .foundation:nth-child(2):hover { background: #e6d5c8; }
   .foundation:nth-child(3):hover { background: #d4e2c4; }
   .foundation:hover::before { transform: scaleX(1); }
-  .area:hover { background: #e7f0dd; transform: translateY(-3px); box-shadow: 0 12px 20px #20312510; }
-  .area:hover::before { transform: scaleX(1); }
+
   .faqItem summary:hover { background: #ecf0e9; }
 }
 @media (max-width: 1060px) {
@@ -212,17 +290,13 @@
   .heroTitle { font-size: clamp(53px, 6vw, 85px); }
   .foundationsHeading > p, .sectionHead > p { flex-basis: 250px; }
   /* Tablet: distribución 3 + 2 + 2. */
-  .areasGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .area, .area:nth-child(n + 5) { grid-column: span 3; }
-  .area:nth-child(-n + 3) { grid-column: span 2; }
+
   .closingGrid { align-items: start; flex-direction: column; gap: 18px; }
 }
 @media (max-width: 860px) {
   .passportLower { grid-template-columns: 1fr; gap: 35px; }
   /* Móvil: la última tarjeta ocupa las dos columnas para evitar un hueco. */
-  .areasGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .area, .area:nth-child(-n + 3), .area:nth-child(n + 5) { grid-column: auto; }
-  .area:last-child { grid-column: 1 / -1; }
+
   .heroGrid, .faqGrid { grid-template-columns: 1fr; }
   .heroGrid { padding-block: 58px 70px; }
   .heroTitle { max-width: 750px; font-size: clamp(60px, 9vw, 91px); }
@@ -250,12 +324,11 @@
 .foundations, .areas, .passport, .faq, .closing { padding-block: 65px; }
   .foundationsHeading, .sectionHead { margin-bottom: 27px; }
   .foundationsHeading > p, .sectionHead > p { font-size: 15px; }
-  .foundationsGrid, .areasGrid { grid-template-columns: 1fr; }
-  .area:last-child { grid-column: auto; }
+  .foundationsGrid{ grid-template-columns: 1fr; }
+
   .foundation, .foundation:last-child { min-height: 230px; grid-column: auto; padding: 24px; }
   .foundation h3 { font-size: 33px; }
-  .area { min-height: 170px; gap: 32px; padding: 23px; }
-  .area h3 { font-size: 29px; }
+
   .faqItem summary { font-size: 19px; padding: 22px 8px; gap: 10px; grid-template-columns: minmax(0, 1fr) 20px; }
   .faqItem > p { margin: -4px 30px 25px 40px; font-size: 14px; }
   .closing h2 { font-size: clamp(46px, 11.5vw, 71px); }
@@ -263,7 +336,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .button, .foundation, .foundation::before,
-  .area, .area::before,
   .faqItem summary svg, .profileAreas li,
   .profileAreas li::before, .profileAreas li span:last-child {
     transition: none !important;
@@ -271,7 +343,7 @@
   .heroCopy, .profile { animation: none !important; }
   .profileAreas li:hover span:last-child,
   .profileAreas li:hover::before,
-  .button:hover, .foundation:hover, .area:hover { transform: none !important; }
+  .button:hover, .foundation:hover{ transform: none !important; }
 }
 
 /* ANOTADORES ÉLITE · BLOQUES COMERCIALES Y PRECIOS
@@ -330,7 +402,10 @@
   gap: 28px 48px;
   margin-bottom: 44px;
 }
-.commercialIncludesHead .heading em { color: #607e51; }
+/* Segunda línea del titular en verde en las secciones claras (sin cursiva). */
+.commercialIncludesHead .heading em,
+.areas .heading em,
+.faq .heading em { color: #607e51; }
 .commercialIncludesHead > p {
   min-width: 0;
   max-width: 390px;

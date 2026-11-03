@@ -249,6 +249,7 @@
 
 /* Preguntas frecuentes */
 .faq { background: var(--cream); padding-block: clamp(75px, 8vw, 118px); }
+.faq .heading em { color: #607e51; }
 .faqGrid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(40px, 8vw, 110px); }
 .faqIntro { max-width: 470px; margin: 24px 0 0; color: #58675b; font-size: 16px; line-height: 1.8; }
 .faqList { border-top: 1px solid #cdd2c7; }

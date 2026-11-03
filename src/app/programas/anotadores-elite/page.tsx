@@ -1,20 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  BrainCircuit,
-  Check,
-  ChevronDown,
-  Crosshair,
-  Dumbbell,
-  Footprints,
-  MoveUpRight,
-  ScanEye,
-  Target,
-} from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
 
 import { pageMetadata } from "@/lib/metadata";
 import { whatsappLink } from "@/lib/site";
+import { CourtDiagram } from "./court-diagram";
 import styles from "./elite.module.css";
 
 export const metadata = pageMetadata({
@@ -101,50 +91,54 @@ const foundations = [
   },
 ] as const;
 
+/** Las cuatro primeras tienen una zona en la pista (diagrama); las otras tres, en todas. */
 const areas = [
   {
     number: "01",
     title: "Manejo de balón",
     description: "Proteger, cambiar de ritmo y crear ventajas con bote.",
-    icon: Crosshair,
+    court: true,
   },
   {
     number: "02",
     title: "Finalización",
     description: "Resolver cerca del aro con distintos apoyos y recursos.",
-    icon: Footprints,
+    court: true,
   },
   {
     number: "03",
     title: "Tiro en estático",
     description: "Preparación de pies, equilibrio y ejecución tras recepción.",
-    icon: Target,
+    court: true,
   },
   {
     number: "04",
     title: "Tiro en movimiento",
     description: "Tirar tras bote o desplazamiento, también con oposición.",
-    icon: MoveUpRight,
+    court: true,
   },
   {
     number: "05",
     title: "Inteligencia anotadora",
     description: "Reconocer cuándo tirar, penetrar, pasar o moverse sin balón.",
-    icon: ScanEye,
+    court: false,
   },
   {
     number: "06",
     title: "Físico aplicado",
     description: "Acelerar, frenar y cambiar de dirección con control.",
-    icon: Dumbbell,
+    court: false,
   },
   {
     number: "07",
     title: "Mentalidad",
     description: "Atreverse, aprender del error y sostener el esfuerzo.",
-    icon: BrainCircuit,
+    court: false,
   },
 ] as const;
+
+const courtAreas = areas.filter((area) => area.court);
+const everywhereAreas = areas.filter((area) => !area.court);
 
 const questions = [
   {
@@ -361,26 +355,39 @@ export default function AnotadoresElitePage() {
                 MÁS RECURSOS. <em className={styles.plainEm}>MEJORES DECISIONES.</em>
               </h2>
             </div>
-            <p>
-              Siete áreas para observar el juego del jugador y elegir qué
-              necesita trabajar, sin obligar a todos a seguir el mismo ritmo.
-            </p>
+            <p>Lo que trabajamos y dónde: cuatro áreas con su zona en la pista y tres que acompañan al jugador en todas.</p>
           </div>
-          <div className={styles.areasGrid}>
-            {areas.map((area) => {
-              const Icon = area.icon;
-              return (
-                <article className={styles.area} key={area.number}>
-                  <div className={styles.areaTop}>
-                    <Icon size={27} strokeWidth={1.6} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3>{area.title}</h3>
-                    <p>{area.description}</p>
-                  </div>
-                </article>
-              );
-            })}
+          <div className={styles.court}>
+            {/* Apoyo visual: toda la información está en la leyenda. */}
+            <div className={styles.courtFigure}>
+              <CourtDiagram />
+            </div>
+            <ol className={styles.zoneList}>
+                {courtAreas.map((area, index) => (
+                  <li key={area.number} data-zone={index + 1}>
+                    <span className={styles.zoneNumber} aria-hidden="true">{index + 1}</span>
+                    <div>
+                      <h3>{area.title}</h3>
+                      <p>{area.description}</p>
+                    </div>
+                  </li>
+                ))}
+            </ol>
+            <div className={styles.everywhere}>
+                <p className={styles.everywhereLabel}>En todas las zonas</p>
+                <ul>
+                  {everywhereAreas.map((area, index) => (
+                    <li key={area.number}>
+                      {/* Continúan la numeración de la pista (5–7), sin zona propia. */}
+                      <span className={styles.everywhereNumber} aria-hidden="true">
+                        {courtAreas.length + index + 1}
+                      </span>
+                      <h3>{area.title}</h3>
+                      <p>{area.description}</p>
+                    </li>
+                  ))}
+                </ul>
+            </div>
           </div>
         </div>
       </section>
