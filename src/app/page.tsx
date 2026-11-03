@@ -15,7 +15,7 @@ import {
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { baseOpenGraph } from "@/lib/metadata";
-import { academyAreas, location, methodSteps, programFactLabels, programs, whatsappMessages } from "@/lib/site";
+import { academyAreas, location, methodSteps, programs, whatsappMessages } from "@/lib/site";
 import styles from "./home.module.css";
 
 // Título y descripción generales del layout; aquí solo la URL canónica.
@@ -151,11 +151,6 @@ export default function HomePage() {
                   href={program.href}
                   className={featured ? `${styles.programCard} ${styles.programCardFeatured}` : styles.programCard}
                 >
-                  <div className={styles.programCardTop}>
-                    <span>{program.label}</span>
-                    <ArrowRight size={23} aria-hidden="true" />
-                  </div>
-
                   {featured && (
                     <div className={styles.programFeatureArt} aria-hidden="true">
                       <span className={styles.programRing} />
@@ -175,15 +170,12 @@ export default function HomePage() {
                   <div className={styles.programCardBody}>
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
-                    {/* Los mismos tres datos en las dos tarjetas: se comparan de un vistazo. */}
-                    <dl className={styles.programFacts}>
-                      {programFactLabels.map((label, index) => (
-                        <div key={label}>
-                          <dt>{label}</dt>
-                          <dd>{program.facts[index]}</dd>
-                        </div>
+                    {/* Datos clave en una línea; la comparativa completa está en Programas. */}
+                    <ul className={styles.programHighlights}>
+                      {program.highlights.map((item) => (
+                        <li key={item}>{item}</li>
                       ))}
-                    </dl>
+                    </ul>
                     <span className={styles.programMore}>
                       Descubre el programa
                       <ArrowRight size={17} aria-hidden="true" />

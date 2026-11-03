@@ -188,7 +188,8 @@
   padding: clamp(24px, 2.4vw, 32px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Contenido abajo; arriba queda el motivo decorativo de cada tarjeta. */
+  justify-content: flex-end;
   overflow: hidden;
   position: relative;
   background: #e3e8d6;
@@ -208,30 +209,18 @@
 @media (hover: hover) and (pointer: fine) {
   .programCardFeatured:hover { background: linear-gradient(110deg, #27352c 14%, #394b3e 100%); box-shadow: 0 16px 35px #16291e26; }
 }
-.programCardTop,
 .programCardBody { position: relative; z-index: 1; }
-.programCardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  font-weight: 850;
-  font-size: 11px;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
 .programCardBody { max-width: 555px; }
 .programCardFeatured .programCardBody { max-width: 100%; }
-/* Datos comparables (formato, seguimiento, precio): mismas filas en las dos tarjetas. */
-.programFacts { display: grid; max-width: 490px; margin: 20px 0 0; border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
-.programFacts > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
-.programFacts dt { color: var(--green-label); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
-.programCardFeatured .programFacts dt { color: var(--sage); }
-.programFacts dd { margin: 0; font-size: 14px; font-weight: 650; line-height: 1.45; }
+/* Datos clave: cada uno con su punto delante, así la línea se parte limpia en móvil. */
+.programHighlights { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; font-weight: 750; }
+.programHighlights li { display: inline-flex; align-items: center; gap: 8px; }
+.programHighlights li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--orange-dark); }
+.programCardFeatured .programHighlights li::before { background: var(--sage); }
 .programCard h3 { font-size: clamp(31px, 3.8vw, 58px); font-weight: 940; line-height: 1; letter-spacing: -.04em; margin: 14px 0; }
 .programCard p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
 .programMore { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
-.programMore svg, .programCardTop svg { transition: transform .2s ease; }
+.programMore svg { transition: transform .2s ease; }
 .programCard:focus-visible .programMore svg { transform: translateX(4px); }
 @media (hover: hover) and (pointer: fine) {
   .programCard:hover .programMore svg { transform: translateX(4px); }
@@ -405,7 +394,6 @@
 @media (max-width: 600px) {
   .programFeatureArt { opacity: .13; right: -13%; width: 55%; }
   .sectionTitle { font-size: clamp(35px, 9vw, 47px); }
-  .programCardTop { font-size: 11px; }
   .programCardFeatured p { max-width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -417,7 +405,6 @@
   .programCard:focus-visible .programMore svg,
   .pillar:hover { transform: none; }
   .programMore svg,
-  .programCardTop svg,
   .pillar { transition: none; }
 }
 
@@ -481,7 +468,8 @@
 }
 .programCardSymbol {
   position: absolute;
-  right: 5%; top: 27%;
+  /* Esquina superior: el hueco que deja libre el contenido alineado abajo. */
+  right: 28px; top: 28px;
   color: #51664a;
   /* Marca de agua tenue: el texto de la tarjeta puede pasar por encima. */
   opacity: .12;
@@ -592,7 +580,7 @@
   .introDiagram { width: 42px; margin: 0; flex: 0 0 42px; }
   .introDiagramRing { border-width: 1px; }
   .introDiagramCenter { width: 5px; height: 5px; }
-  .programCardSymbol { right: 8%; top: 24%; opacity: .13; }
+  .programCardSymbol { right: 20px; top: 20px; opacity: .13; }
   .methodSymbol { width: 39px; height: 39px; margin: 0; }
   .closingCourt { width: 88vw; right: -48%; opacity: .08; }
 }
@@ -623,8 +611,7 @@
     font-size: 16px;
   }
 
-  .hero .heroFacts,
-  .programCard .programCardTop {
+  .hero .heroFacts {
     font-size: 12px;
   }
 

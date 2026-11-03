@@ -89,8 +89,10 @@ export type Program = {
   title: string;
   description: string;
   href: string;
-  /** Valores en el orden de programFactLabels. */
+  /** Valores en el orden de programFactLabels (tabla comparativa de Programas). */
   facts: readonly [string, string, string];
+  /** Resumen en una línea para las tarjetas de Inicio. */
+  highlights: readonly string[];
 };
 
 export const programs: Program[] = [
@@ -106,6 +108,7 @@ export const programs: Program[] = [
       "Valoración inicial, objetivos e informe final",
       `${eliteOffer.singlePayment} € (${eliteOffer.installmentTotal} € en tres pagos)`,
     ],
+    highlights: [`${eliteOffer.durationWeeks} semanas`, "1 sesión semanal", `${eliteOffer.singlePayment} €`],
   },
   {
     number: "02",
@@ -119,6 +122,7 @@ export const programs: Program[] = [
       "Valoración aparte, si la quieres",
       "A consultar",
     ],
+    highlights: ["Sesiones sueltas", "Bono de cuatro", "Precio a consultar"],
   },
 ];
 
