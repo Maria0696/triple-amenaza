@@ -96,17 +96,33 @@
 /* Áreas de desarrollo */
 .areas { padding-block: clamp(76px, 7vw, 115px); background: #eef0e7; scroll-margin-top: 100px; }
 .areasHead > p { flex-basis: 300px; }
+
+/* Desarrollo anotador: media pista con las zonas de trabajo y su leyenda. */
+.court { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.courtFigure { min-width: 0; }
+.courtSvg { display: block; width: 100%; max-width: 560px; height: auto; margin-inline: auto; }
+.courtFloor { fill: #fbfaf3; }
+.courtZone { fill: #c8d88e66; }
+.courtLines { fill: none; stroke: #2d4a35; stroke-width: 2.4; stroke-linejoin: round; }
+.courtLineDashed { stroke-dasharray: 7 7; }
+.courtPath { fill: none; stroke: var(--orange-dark); stroke-width: 2.6; stroke-dasharray: 2 7; stroke-linecap: round; }
+.courtMarker circle { fill: var(--orange-dark); stroke: #fbfaf3; stroke-width: 3; }
+.courtMarker text { fill: var(--paper); font-family: var(--font-sans), sans-serif; font-size: 17px; font-weight: 900; }
+.courtLegend { min-width: 0; }
+.zoneList { margin: 0; padding: 0; list-style: none; border-top: 1px solid #ced8c8; }
+.zoneList li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; align-items: start; padding: 18px 0; border-bottom: 1px solid #ced8c8; }
+.zoneNumber { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--orange-dark); color: var(--paper); font-size: 14px; font-weight: 900; }
+.zoneList h3, .everywhere h3 { margin: 0 0 6px; font-size: clamp(21px, 1.7vw, 25px); line-height: 1.1; letter-spacing: -.03em; }
+.zoneList p, .everywhere li p { margin: 0; color: #556356; font-size: 14px; line-height: 1.6; }
+.everywhere { margin-top: 26px; padding: 22px 24px; border: 1px solid #ced8c8; background: #e1e9dc; }
+.everywhereLabel { margin: 0 0 14px; color: var(--green-label); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.everywhere ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.everywhere h3 { font-size: clamp(18px, 1.4vw, 21px); }
+@media (max-width: 860px) {
+  .court { grid-template-columns: minmax(0, 1fr); }
+  .courtSvg { max-width: 460px; }
+}
 /* Rejilla de 12 columnas: cuatro tarjetas arriba y tres abajo, sin huecos. */
-.areasGrid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
-.area { grid-column: span 3; }
-.area:nth-child(n + 5) { grid-column: span 4; }
-.area { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 56px; padding: 24px; min-height: 245px; border: 1px solid #ced8c8; background: #fbfaf3; transition: background-color .22s ease, box-shadow .22s ease, transform .22s ease; }
-.area:nth-child(even) { background: #e1e9dc; }
-.area::before { position: absolute; content: ''; inset: 0 0 auto; width: 100%; height: 3px; background: var(--orange-dark); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-.areaTop { display: flex; justify-content: space-between; align-items: start; gap: 14px; color: var(--green-label); }
-.areaTop span { font-size: 11px; font-weight: 850; letter-spacing: .1em; }
-.area h3 { margin: 0 0 11px; font-size: clamp(24px, 2vw, 31px); line-height: 1.07; letter-spacing: -.04em; }
-.area p { margin: 0; color: #556356; font-size: 13px; line-height: 1.7; }
 
 /* Seguimiento editorial: el pasaporte todavía no es una función pública. */
 .passport {
@@ -203,8 +219,7 @@
   .foundation:nth-child(2):hover { background: #e6d5c8; }
   .foundation:nth-child(3):hover { background: #d4e2c4; }
   .foundation:hover::before { transform: scaleX(1); }
-  .area:hover { background: #e7f0dd; transform: translateY(-3px); box-shadow: 0 12px 20px #20312510; }
-  .area:hover::before { transform: scaleX(1); }
+
   .faqItem summary:hover { background: #ecf0e9; }
 }
 @media (max-width: 1060px) {
@@ -212,17 +227,13 @@
   .heroTitle { font-size: clamp(53px, 6vw, 85px); }
   .foundationsHeading > p, .sectionHead > p { flex-basis: 250px; }
   /* Tablet: distribución 3 + 2 + 2. */
-  .areasGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .area, .area:nth-child(n + 5) { grid-column: span 3; }
-  .area:nth-child(-n + 3) { grid-column: span 2; }
+
   .closingGrid { align-items: start; flex-direction: column; gap: 18px; }
 }
 @media (max-width: 860px) {
   .passportLower { grid-template-columns: 1fr; gap: 35px; }
   /* Móvil: la última tarjeta ocupa las dos columnas para evitar un hueco. */
-  .areasGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .area, .area:nth-child(-n + 3), .area:nth-child(n + 5) { grid-column: auto; }
-  .area:last-child { grid-column: 1 / -1; }
+
   .heroGrid, .faqGrid { grid-template-columns: 1fr; }
   .heroGrid { padding-block: 58px 70px; }
   .heroTitle { max-width: 750px; font-size: clamp(60px, 9vw, 91px); }
@@ -250,12 +261,11 @@
 .foundations, .areas, .passport, .faq, .closing { padding-block: 65px; }
   .foundationsHeading, .sectionHead { margin-bottom: 27px; }
   .foundationsHeading > p, .sectionHead > p { font-size: 15px; }
-  .foundationsGrid, .areasGrid { grid-template-columns: 1fr; }
-  .area:last-child { grid-column: auto; }
+  .foundationsGrid{ grid-template-columns: 1fr; }
+
   .foundation, .foundation:last-child { min-height: 230px; grid-column: auto; padding: 24px; }
   .foundation h3 { font-size: 33px; }
-  .area { min-height: 170px; gap: 32px; padding: 23px; }
-  .area h3 { font-size: 29px; }
+
   .faqItem summary { font-size: 19px; padding: 22px 8px; gap: 10px; grid-template-columns: minmax(0, 1fr) 20px; }
   .faqItem > p { margin: -4px 30px 25px 40px; font-size: 14px; }
   .closing h2 { font-size: clamp(46px, 11.5vw, 71px); }
@@ -263,7 +273,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .button, .foundation, .foundation::before,
-  .area, .area::before,
   .faqItem summary svg, .profileAreas li,
   .profileAreas li::before, .profileAreas li span:last-child {
     transition: none !important;
@@ -271,7 +280,7 @@
   .heroCopy, .profile { animation: none !important; }
   .profileAreas li:hover span:last-child,
   .profileAreas li:hover::before,
-  .button:hover, .foundation:hover, .area:hover { transform: none !important; }
+  .button:hover, .foundation:hover{ transform: none !important; }
 }
 
 /* ANOTADORES ÉLITE · BLOQUES COMERCIALES Y PRECIOS
