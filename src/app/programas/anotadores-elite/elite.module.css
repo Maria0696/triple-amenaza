@@ -118,11 +118,17 @@
 .zoneNumber { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--orange-dark); color: var(--paper); font-size: 14px; font-weight: 900; }
 .zoneList h3, .everywhere h3 { margin: 0 0 6px; font-size: clamp(21px, 1.7vw, 25px); line-height: 1.1; letter-spacing: -.03em; }
 .zoneList p, .everywhere li p { margin: 0; color: #556356; font-size: 14px; line-height: 1.6; }
-.everywhere { grid-area: all; min-width: 0; padding: 22px 24px; border: 1px solid #ced8c8; background: #e1e9dc; }
-.everywhereLabel { margin: 0 0 14px; color: var(--green-label); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+/* Las tres áreas transversales: banda oscura (el verde del panel del hero) para que
+   pesen tanto como las de la pista. Numeradas 5–7 con contorno: no tienen zona. */
+.everywhere { grid-area: all; min-width: 0; padding: 26px 28px 28px; background: #293b31; }
+.everywhereLabel { margin: 0 0 18px; color: var(--orange-on-dark); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 /* Columnas al ancho de su texto: cada descripción cabe en una línea en escritorio. */
-.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
-.everywhere h3 { font-size: clamp(18px, 1.4vw, 21px); }
+.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 22px 32px; margin: 0; padding: 0; list-style: none; }
+/* El número va en la línea del título; la descripción ocupa todo el ancho de la columna. */
+.everywhere li { display: grid; grid-template-columns: 30px auto; justify-content: start; align-items: center; column-gap: 12px; }
+.everywhere li p { grid-column: 1 / -1; margin-top: 10px; color: #c4d1c3; }
+.everywhere h3 { margin: 0; color: var(--paper); font-size: clamp(19px, 1.5vw, 23px); }
+.everywhereNumber { display: grid; place-items: center; width: 30px; height: 30px; border: 1.5px solid var(--orange-on-dark); border-radius: 50%; color: var(--orange-on-dark); font-size: 14px; font-weight: 900; }
 /* Por debajo de este ancho del bloque la media pista no alcanza el alto de la lista:
    todo se apila. Depende del ancho del bloque, por eso es una container query. */
 .areas :global(.container) { container: elite-areas / inline-size; }
@@ -140,7 +146,8 @@
 /* Leyenda y pista enlazadas por data-zone: al pasar por una fila (o por su marca,
    zona o trayectoria) se resaltan ambas y las demás marcas se atenúan. */
 .zoneList li { position: relative; isolation: isolate; }
-.zoneList li::before { content: ""; position: absolute; inset: 0 -12px; z-index: -1; background: transparent; transition: background-color .22s ease; }
+/* Solo sobresale por la izquierda: a la derecha la fila termina en el borde de la lista. */
+.zoneList li::before { content: ""; position: absolute; inset: 0 0 0 -12px; z-index: -1; background: transparent; box-shadow: inset 0 0 0 transparent; transition: background-color .22s ease, box-shadow .22s ease; }
 .zoneNumber { transition: transform .22s ease; }
 .zoneList h3 { transition: transform .22s ease; }
 .courtZone { transition: fill .22s ease; }
@@ -164,7 +171,7 @@
   .court:has([data-zone="1"]:hover) li[data-zone="1"]::before,
   .court:has([data-zone="2"]:hover) li[data-zone="2"]::before,
   .court:has([data-zone="3"]:hover) li[data-zone="3"]::before,
-  .court:has([data-zone="4"]:hover) li[data-zone="4"]::before { background: #e3e9da; }
+  .court:has([data-zone="4"]:hover) li[data-zone="4"]::before { background: #dfe7d1; box-shadow: inset 3px 0 0 var(--orange-dark); }
   .court:has([data-zone="1"]:hover) li[data-zone="1"] .zoneNumber,
   .court:has([data-zone="2"]:hover) li[data-zone="2"] .zoneNumber,
   .court:has([data-zone="3"]:hover) li[data-zone="3"] .zoneNumber,

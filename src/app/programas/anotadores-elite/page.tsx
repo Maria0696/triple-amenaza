@@ -355,7 +355,7 @@ export default function AnotadoresElitePage() {
                 MÁS RECURSOS. <em className={styles.plainEm}>MEJORES DECISIONES.</em>
               </h2>
             </div>
-            <p>Siete áreas: cuatro con su zona en la pista y tres que acompañan en todas.</p>
+            <p>Lo que trabajamos y dónde: cuatro áreas con su zona en la pista y tres que acompañan al jugador en todas.</p>
           </div>
           <div className={styles.court}>
             {/* Apoyo visual: toda la información está en la leyenda. */}
@@ -376,8 +376,12 @@ export default function AnotadoresElitePage() {
             <div className={styles.everywhere}>
                 <p className={styles.everywhereLabel}>En todas las zonas</p>
                 <ul>
-                  {everywhereAreas.map((area) => (
+                  {everywhereAreas.map((area, index) => (
                     <li key={area.number}>
+                      {/* Continúan la numeración de la pista (5–7), sin zona propia. */}
+                      <span className={styles.everywhereNumber} aria-hidden="true">
+                        {courtAreas.length + index + 1}
+                      </span>
                       <h3>{area.title}</h3>
                       <p>{area.description}</p>
                     </li>
