@@ -67,13 +67,32 @@ export function isNavigationActive(pathname: string, href: string): boolean {
   return current === target || (target !== "/" && current.startsWith(target));
 }
 
+/**
+ * Tarifas de Anotadores Élite utilizadas anteriormente por ATA (IVA incluido).
+ * Revisar antes del lanzamiento. El coste de la valoración, la política de faltas
+ * y los cupos no están confirmados.
+ */
+export const eliteOffer = {
+  durationWeeks: 12,
+  totalSessions: 12,
+  sessionMinutes: 60,
+  singlePayment: 240,
+  installmentTotal: 255,
+} as const;
+
+/** Los mismos tres datos en los dos programas, para poder compararlos de un vistazo. */
+export const programFactLabels = ["Formato", "Seguimiento", "Precio"] as const;
+
 export type Program = {
   number: string;
   label: string;
   title: string;
   description: string;
   href: string;
-  tag: string;
+  /** Valores en el orden de programFactLabels (tabla comparativa de Programas). */
+  facts: readonly [string, string, string];
+  /** Resumen en una línea para las tarjetas de Inicio. */
+  highlights: readonly string[];
 };
 
 export const programs: Program[] = [
@@ -82,18 +101,28 @@ export const programs: Program[] = [
     label: "Programa de desarrollo",
     title: "Anotadores Élite",
     description:
-      "Un proceso estructurado de tecnificación, objetivos y seguimiento para trabajar la capacidad anotadora.",
+      "Un proceso de 12 semanas de trabajo técnico, con objetivos y seguimiento, para mejorar la capacidad anotadora.",
     href: "/programas/anotadores-elite/",
-    tag: "Proceso completo",
+    facts: [
+      `${eliteOffer.durationWeeks} semanas, una sesión de ${eliteOffer.sessionMinutes} min por semana`,
+      "Valoración inicial, objetivos e informe final",
+      `${eliteOffer.singlePayment} € (${eliteOffer.installmentTotal} € en tres pagos)`,
+    ],
+    highlights: [`${eliteOffer.durationWeeks} semanas`, "1 sesión semanal", `${eliteOffer.singlePayment} €`],
   },
   {
     number: "02",
     label: "Entrena con flexibilidad",
     title: "Anotadores Flex",
     description:
-      "Sesiones de tecnificación con un formato flexible, como alternativa al programa completo.",
+      "Sesiones de trabajo técnico que eliges según tu calendario, como alternativa al programa completo.",
     href: "/programas/anotadores-flex/",
-    tag: "Formato flexible",
+    facts: [
+      "Sesiones sueltas o bono de cuatro",
+      "Valoración aparte, si la quieres",
+      "A consultar",
+    ],
+    highlights: ["Sesiones sueltas", "Bono de cuatro", "Precio a consultar"],
   },
 ];
 

@@ -21,7 +21,6 @@ export default function ContactoPage() {
   return (
     <>
       <section className={styles.hero} aria-labelledby="contact-title">
-        {/* Elementos puramente decorativos, no interactivos. */}
         <div className={styles.heroArt} aria-hidden="true">
           <span className={`${styles.heroOrbit} ${styles.heroOrbitOuter}`} />
           <span className={`${styles.heroOrbit} ${styles.heroOrbitInner}`} />
@@ -175,8 +174,9 @@ export default function ContactoPage() {
               </span>
             </p>
             <p className={styles.sectionNote}>
-              Al elegir una tarjeta se abrirá WhatsApp o tu aplicación de correo.
-              Evita incluir información médica u otros datos sensibles en el primer mensaje.
+              Al elegir una tarjeta se abrirá WhatsApp o tu aplicación de correo. Para
+              empezar basta con la edad del jugador y lo que quiere mejorar; los datos
+              médicos, mejor en persona.
             </p>
           </div>
         </div>
@@ -184,20 +184,25 @@ export default function ContactoPage() {
 
       <section className={styles.closing} aria-labelledby="contact-closing-title">
         <div className={`container ${styles.closingInner}`}>
+          {/* El último bloque tranquiliza en vez de mandar fuera: qué pasa al escribir. */}
           <div>
             <h2 id="contact-closing-title">
-              ¿AÚN NO SABES <em>QUÉ PROGRAMA ELEGIR?</em>
+              ¿QUÉ PASA <em>DESPUÉS?</em>
             </h2>
-            <p>
-              Descubre Anotadores Élite y Anotadores Flex para conocer las
-              diferentes formas de entrenar con la academia.
-            </p>
+            <p>Así es el primer contacto con la academia.</p>
           </div>
 
-          <Link className={styles.closingLink} href="/programas/">
-            Explorar programas
-            <ArrowRight size={19} aria-hidden="true" />
-          </Link>
+          <div>
+            <ol className={styles.closingSteps}>
+              <li>Nos escribes por WhatsApp o por correo.</li>
+              <li>Te responde {contact.responder} en un máximo de {contact.responseTime}.</li>
+              <li>Te orientamos entre Anotadores Élite y Flex y, si encaja, te proponemos la valoración inicial.</li>
+            </ol>
+            <Link className={styles.closingLink} href="/programas/">
+              Ver los programas antes
+              <ArrowRight size={19} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

@@ -112,7 +112,7 @@
   box-shadow: 13px 13px 0 #f6f3ec0b;
 }
 .heroPhoto {
-  /* En móvil se sustituye por una versión de 800px (ver max-width: 550px). */
+  /* En móvil se sustituye por una versión de 800px (ver max-width: 600px). */
   --home-hero-image: url("/imagenes/sesion-ata.webp");
   position: absolute;
   inset: 0;
@@ -138,16 +138,6 @@
   pointer-events: none;
 }
 
-.heroPhotoCaption {
-  position: absolute;
-  bottom: 51px;
-  left: 28px;
-  right: 28px;
-  display: grid;
-  gap: 9px;
-}
-.heroPhotoCaption > span { color: var(--sage); font-size: 11px; font-weight: 850; letter-spacing: .14em; }
-.heroPhotoCaption strong { max-width: 510px; font-size: clamp(26px, 2.65vw, 39px); letter-spacing: -.04em; line-height: 1.08; }
 .heroImageCredit {
   position: absolute;
   bottom: 15px;
@@ -198,7 +188,8 @@
   padding: clamp(24px, 2.4vw, 32px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Contenido abajo; arriba queda el motivo decorativo de cada tarjeta. */
+  justify-content: flex-end;
   overflow: hidden;
   position: relative;
   background: #e3e8d6;
@@ -218,25 +209,18 @@
 @media (hover: hover) and (pointer: fine) {
   .programCardFeatured:hover { background: linear-gradient(110deg, #27352c 14%, #394b3e 100%); box-shadow: 0 16px 35px #16291e26; }
 }
-.programCardTop,
 .programCardBody { position: relative; z-index: 1; }
-.programCardTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  font-weight: 850;
-  font-size: 11px;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-}
 .programCardBody { max-width: 555px; }
 .programCardFeatured .programCardBody { max-width: 100%; }
-.programTag { display: inline-block; border: 1px solid currentColor; padding: 7px 9px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+/* Datos clave: cada uno con su punto delante, así la línea se parte limpia en móvil. */
+.programHighlights { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; font-weight: 750; }
+.programHighlights li { display: inline-flex; align-items: center; gap: 8px; }
+.programHighlights li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--orange-dark); }
+.programCardFeatured .programHighlights li::before { background: var(--sage); }
 .programCard h3 { font-size: clamp(31px, 3.8vw, 58px); font-weight: 940; line-height: 1; letter-spacing: -.04em; margin: 14px 0; }
 .programCard p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
 .programMore { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
-.programMore svg, .programCardTop svg { transition: transform .2s ease; }
+.programMore svg { transition: transform .2s ease; }
 .programCard:focus-visible .programMore svg { transform: translateX(4px); }
 @media (hover: hover) and (pointer: fine) {
   .programCard:hover .programMore svg { transform: translateX(4px); }
@@ -264,11 +248,11 @@
 .method { background: #28352d; color: #fff; padding: clamp(68px, 6vw, 98px) 0; }
 .methodHeading { display: flex; justify-content: space-between; gap: 45px; align-items: end; }
 .methodHeading .sectionTitle { max-width: none; }
-.methodHeading .sectionTitle span { display: block; }
-@media (min-width: 861px) {
-  .methodHeading .sectionTitle span {
-    white-space: nowrap;
-  }
+/* Escritorio: "DEL ENTRENAMIENTO AL PARTIDO." en una línea; en móvil, en dos. */
+.methodHeading .sectionTitle { white-space: nowrap; }
+@media (max-width: 860px) {
+  .methodHeading .sectionTitle { white-space: normal; }
+  .methodHeading .sectionTitle span { display: block; }
 }
 .methodHeading .sectionTitle span { color: var(--sage); }
 .methodSteps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule-on-dark); margin: 35px 0 26px; }
@@ -315,8 +299,6 @@
 .closingInner h2 em { color: #4f6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .closingInner > p:not(.eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
 .actionDark { color: #fff; background: var(--ink); }
-/* Cierre: WhatsApp como acción principal y los programas como alternativa. */
-.closingActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 @media (hover: hover) and (pointer: fine) {
   .actionDark:hover { background: var(--ink-hover); transform: translateY(-2px); }
 }
@@ -356,8 +338,6 @@
   .heroMedia { min-height: 350px; }
   .heroPhoto { --home-hero-image: url("/imagenes/sesion-ata-800.webp"); }
 
-  .heroPhotoCaption { left: 18px; right: 18px; bottom: 53px; }
-  .heroPhotoCaption strong { font-size: clamp(27px, 6.5vw, 36px); }
   .heroImageCredit { left: 18px; right: 18px; }
   
   .introCopy { font-size: 16px; }
@@ -401,7 +381,6 @@
 .actionDark:focus-visible,
 .inlineLink:focus-visible,
 .actionText:focus-visible {
-  outline: 3px solid #76bdf1;
   outline-offset: 4px;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -415,7 +394,6 @@
 @media (max-width: 600px) {
   .programFeatureArt { opacity: .13; right: -13%; width: 55%; }
   .sectionTitle { font-size: clamp(35px, 9vw, 47px); }
-  .programCardTop { font-size: 11px; }
   .programCardFeatured p { max-width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -427,7 +405,6 @@
   .programCard:focus-visible .programMore svg,
   .pillar:hover { transform: none; }
   .programMore svg,
-  .programCardTop svg,
   .pillar { transition: none; }
 }
 
@@ -491,20 +468,22 @@
 }
 .programCardSymbol {
   position: absolute;
-  right: 5%; top: 27%;
+  /* Esquina superior: el hueco que deja libre el contenido alineado abajo. */
+  right: 28px; top: 28px;
   color: #51664a;
-  opacity: .23;
+  /* Marca de agua tenue: el texto de la tarjeta puede pasar por encima. */
+  opacity: .12;
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease;
 }
 .programCard:focus-visible .programCardSymbol {
   transform: translateY(-6px) rotate(-4deg);
-  opacity: .35;
+  opacity: .2;
 }
 @media (hover: hover) and (pointer: fine) {
   .programCard:hover .programCardSymbol {
     transform: translateY(-6px) rotate(-4deg);
-    opacity: .35;
+    opacity: .2;
   }
 }
 .programFeatureArt {
@@ -601,7 +580,7 @@
   .introDiagram { width: 42px; margin: 0; flex: 0 0 42px; }
   .introDiagramRing { border-width: 1px; }
   .introDiagramCenter { width: 5px; height: 5px; }
-  .programCardSymbol { right: 8%; top: 24%; opacity: .13; }
+  .programCardSymbol { right: 20px; top: 20px; opacity: .13; }
   .methodSymbol { width: 39px; height: 39px; margin: 0; }
   .closingCourt { width: 88vw; right: -48%; opacity: .08; }
 }
@@ -619,7 +598,7 @@
   .methodStep:hover .methodSymbol { transform: none !important; }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 860px) {
   .actionText,
   .inlineLink {
@@ -632,16 +611,15 @@
     font-size: 16px;
   }
 
-  .hero .heroFacts,
-  .hero .heroPhotoCaption > span,
-  .programCard .programTag,
-  .programCard .programCardTop {
+  .hero .heroFacts {
     font-size: 12px;
   }
 
 }
 
 @media (max-width: 380px) {
+  /* "ENTRENAMIENTO" (método en Inicio) no cabe a 34px en 320px. */
+  .methodHeading .sectionTitle { font-size: clamp(28px, 9.2vw, 34px); }
   .hero .heroTitle {
     max-width: 100%;
     font-size: clamp(39px, 11.5vw, 46px);

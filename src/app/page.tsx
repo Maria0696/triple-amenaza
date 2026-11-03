@@ -24,14 +24,7 @@ export const metadata: Metadata = {
   openGraph: { ...baseOpenGraph, url: "/" },
 };
 
-/**
- * Portada pública de Triple Amenaza.
- *
- * Esta página es un Server Component: no necesita "use client".
- * Los contenidos de los programas se reutilizan desde src/lib/site.ts.
- * La fotografía del hero es provisional y se sustituirá por una foto propia
- * y autorizada de la academia antes de publicar el sitio.
- */
+/** Iconos de las etapas del método: los mismos que en Método (stageDetails). */
 const methodIcons = {
   "01": Eye,
   "02": ListChecks,
@@ -49,13 +42,12 @@ const pillars = [
 export default function HomePage() {
   return (
     <>
-      {/* 1 · Primera impresión */}
       <section className={styles.hero} aria-labelledby="home-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroContent}>
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
               <span className={styles.eyebrowBar} aria-hidden="true" />
-              Academia Triple Amenaza · Baloncesto
+              Academia Triple Amenaza (ATA) · Baloncesto
             </p>
 
             <h1 id="home-title" className={styles.heroTitle}>
@@ -70,13 +62,14 @@ export default function HomePage() {
               encontrar la tuya.
             </p>
 
+            {/* Botón relleno = WhatsApp en toda la web; la navegación interna va como texto. */}
             <div className={styles.heroActions}>
-              <Link href="/programas/" className={styles.actionPrimary}>
+              <WhatsappLink className={styles.actionPrimary} message={whatsappMessages.general} namesChannel>
+                Escribir por WhatsApp
+                <ArrowUpRight size={19} aria-hidden="true" />
+              </WhatsappLink>
+              <Link href="/programas/" className={styles.actionText}>
                 Descubre nuestros programas
-                <ArrowRight size={19} aria-hidden="true" />
-              </Link>
-              <Link href="/metodo/" className={styles.actionText}>
-                Conoce nuestro método
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
@@ -94,15 +87,14 @@ export default function HomePage() {
             </ul>
           </div>
 
+          {/* Foto provisional (fondo CSS de .heroPhoto): sustituir por una propia y
+              autorizada de la academia antes de publicar. */}
           <div className={styles.heroMedia}>
             <div
               className={styles.heroPhoto}
               role="img"
               aria-label="Entrenador de Academia Triple Amenaza trabajando con un jugador durante una sesión de baloncesto"
             />
-            <div className={styles.heroPhotoCaption}>
-              <strong>PREPÁRATE PARA EL SIGUIENTE MOVIMIENTO.</strong>
-            </div>
             <span className={styles.heroImageCredit}>
               Academia Triple Amenaza · Fotografía: R1kman_fotografia
             </span>
@@ -110,7 +102,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 · Filosofía ATA: misma secuencia que el método oficial */}
       <section className={styles.intro} aria-labelledby="home-intro-title">
         <div className={`container ${styles.introGrid}`}>
           <div className={styles.introAside}>
@@ -139,7 +130,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 · Programas: Anotadores Élite ocupa el primer plano */}
       <section className={styles.programs} id="programas" aria-labelledby="home-programs-title">
         <div className="container">
           <div className={styles.sectionHead}>
@@ -161,11 +151,6 @@ export default function HomePage() {
                   href={program.href}
                   className={featured ? `${styles.programCard} ${styles.programCardFeatured}` : styles.programCard}
                 >
-                  <div className={styles.programCardTop}>
-                    <span>{program.label}</span>
-                    <ArrowRight size={23} aria-hidden="true" />
-                  </div>
-
                   {featured && (
                     <div className={styles.programFeatureArt} aria-hidden="true">
                       <span className={styles.programRing} />
@@ -183,9 +168,14 @@ export default function HomePage() {
                   )}
 
                   <div className={styles.programCardBody}>
-                    <span className={styles.programTag}>{program.tag}</span>
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
+                    {/* Datos clave en una línea; la comparativa completa está en Programas. */}
+                    <ul className={styles.programHighlights}>
+                      {program.highlights.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
                     <span className={styles.programMore}>
                       Descubre el programa
                       <ArrowRight size={17} aria-hidden="true" />
@@ -202,14 +192,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 · Proceso de trabajo */}
       <section className={styles.method} aria-labelledby="home-method-title">
         <div className="container">
           <div className={styles.methodHeading}>
             <div>
               <h2 id="home-method-title" className={styles.sectionTitle}>
-                NO ES SOLO REPETIR.
-                <span> ES APRENDER A JUGAR.</span>
+                DEL ENTRENAMIENTO
+                <span> AL PARTIDO.</span>
               </h2>
             </div>
           </div>
@@ -254,13 +243,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 · Tres áreas de trabajo */}
       <section className={styles.pillars} aria-labelledby="home-pillars-title">
         <div className={`container ${styles.pillarsLayout}`}>
           <div>
             <h2 id="home-pillars-title" className={styles.sectionTitle}>
-              MÁS ALLÁ
-              <span> DEL BOTE.</span>
+              EL BOTE ES SOLO
+              <span> EL PRINCIPIO.</span>
             </h2>
             <p className={styles.pillarsLead}>
               La mejora no depende de una sola habilidad. Trabajamos
@@ -278,7 +266,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 · CTA final: solo enlaza a páginas existentes */}
       <section className={styles.closing} aria-labelledby="home-closing-title">
         <div className={styles.closingCourt} aria-hidden="true">
           <span className={styles.closingCourtOuter} />
@@ -288,14 +275,9 @@ export default function HomePage() {
         <div className={`container ${styles.closingInner}`}>
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
           <p>Cuéntanos qué quiere mejorar el jugador y te orientamos hacia el programa que mejor encaja con sus objetivos.</p>
-          <div className={styles.closingActions}>
-            <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
-              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
-            </WhatsappLink>
-            <Link href="/programas/" className="text-link">
-              Ver los programas <ArrowRight size={18} aria-hidden="true" />
-            </Link>
-          </div>
+          <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
+            Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+          </WhatsappLink>
         </div>
       </section>
     </>

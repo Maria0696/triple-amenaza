@@ -340,9 +340,38 @@
 
 .closingInner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 35px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 35px clamp(35px, 6vw, 90px);
+}
+
+/* Qué pasa después de escribir: tres pasos numerados. */
+.closingSteps {
+  display: grid;
+  gap: 0;
+  margin: 0 0 26px;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+  border-top: 1px solid #ffffff2e;
+}
+.closingSteps li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #ffffff2e;
+  color: #e4ebe0;
+  font-size: 16px;
+  line-height: 1.6;
+  counter-increment: paso;
+}
+.closingSteps li::before {
+  content: counter(paso, decimal-leading-zero);
+  color: var(--sage);
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.95;
 }
 
 .closing h2 {
@@ -362,20 +391,18 @@
   line-height: 1.75;
 }
 
+/* Enlace de texto: el botón relleno se reserva para WhatsApp. */
 .closingLink {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  min-height: 56px;
-  padding: 16px 20px;
-  border-radius: 3px;
-  background: var(--sage);
-  color: var(--ink);
-  white-space: nowrap;
+  gap: 12px;
+  min-height: 44px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  color: var(--sage);
   font-size: 14px;
   font-weight: 850;
-  transition: background-color .2s ease, transform .2s ease;
+  transition: color .2s ease;
 }
 
 .closingLink:focus-visible {
@@ -394,8 +421,7 @@
   }
 
   .closingLink:hover {
-    background: #dceaa8;
-    transform: translateY(-2px);
+    color: #dceaa8;
   }
 }
 
@@ -484,9 +510,7 @@
     font-size: clamp(38px, 9vw, 58px);
   }
 
-  .closingLink {
-    width: 100%;
-  }
+
 }
 
 @media (max-width: 380px) {
@@ -828,7 +852,7 @@
   .card:focus-visible .cardAction svg,
   .closingLink:hover svg,
   .closingLink:focus-visible svg {
-    transform: translate(4px, -3px);
+    transform: translateX(4px);
   }
 }
 

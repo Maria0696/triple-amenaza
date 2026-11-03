@@ -214,7 +214,7 @@
   letter-spacing: -.04em;
 }
 .closing h2 em { color: #4f6849; }
-/* En escritorio, el subtítulo ocupa una sola línea; en móvil puede partirse. */
+/* En escritorio, "DOS PROGRAMAS." va entero en su línea; en móvil puede partirse. */
 @media (min-width: 861px) {
   .closing h2 em {
     display: block;
@@ -293,8 +293,8 @@
   .stageQuestionLabel { margin-top: 7px; }
   .practice .heading { font-size: clamp(39px, 10vw, 57px); }
   .practiceCopy p { font-size: 15px; }
-  /* Mínimo 40px: a 320px "PROGRAMAS." no cabe a 48px. */
-  .closing h2 { font-size: clamp(40px, 11vw, 69px); }
+  /* Mínimo 38px: a 320px "PROGRAMAS." no cabe a 48px. */
+  .closing h2 { font-size: clamp(38px, 10.4vw, 69px); }
   .closingInner > p:not(.eyebrow) { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -302,7 +302,7 @@
   .index li a:hover svg, .closingLink:hover, .closingLink:hover svg { transform: none !important; }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 600px) {
   .hero .heroLead,
   .stage .stageText,

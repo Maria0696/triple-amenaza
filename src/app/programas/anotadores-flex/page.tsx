@@ -33,7 +33,7 @@ const strengths = [
   {
     number: "02",
     label: "TRABAJO CON SENTIDO",
-    title: "Tecnificación con intención",
+    title: "Técnica en situaciones de juego",
     description:
       "Las sesiones se centran en recursos técnicos y situaciones de juego, con correcciones y propuestas adaptadas a lo que se trabaja en pista.",
     icon: Crosshair,
@@ -112,7 +112,7 @@ export default function AnotadoresFlexPage() {
               <span>A TU RITMO.</span>
             </h1>
             <p className={styles.heroLead}>
-              Sigue desarrollando tu capacidad anotadora con sesiones de tecnificación
+              Sigue desarrollando tu capacidad anotadora con sesiones de trabajo técnico
               que puedes encajar en tu temporada. Más libertad de asistencia,
               la misma intención de aprender y decidir mejor.
             </p>
@@ -125,6 +125,7 @@ export default function AnotadoresFlexPage() {
             <div className={styles.heroBoardHead}>
               <span>MODALIDAD FLEX</span>
             </div>
+            {/* Lema decorativo, oculto a lectores de pantalla; los tres conceptos de abajo sí se leen. */}
             <div className={styles.heroBoardCore} aria-hidden="true">
               <span className={styles.boardLabel}>LA CLAVE NO ES CUÁNDO.</span>
               <strong>FLEX</strong>
@@ -144,7 +145,7 @@ export default function AnotadoresFlexPage() {
           <div className={styles.sectionHead}>
             <div>
               <h2 id="flex-page-value-title" className={styles.heading}>
-                FLEXIBILIDAD. <em>CON INTENCIÓN.</em>
+                FLEXIBILIDAD. <em>SIN PERDER EL FOCO.</em>
               </h2>
             </div>
             <p>
@@ -181,6 +182,9 @@ export default function AnotadoresFlexPage() {
               La planificación de las sesiones sigue teniendo sentido.
               Lo que cambia es cómo puedes organizar tu asistencia.
             </p>
+            <WhatsappLink className={`${styles.heroAction} ${styles.stepsAction}`} message={whatsappMessages.flex}>
+              Consultar sesiones disponibles <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
           </div>
           <div className={styles.stepsList}>
             {howItWorks.map((step) => (
@@ -217,7 +221,7 @@ export default function AnotadoresFlexPage() {
               </div>
               <h3>Anotadores Flex</h3>
               <p>
-                Sesiones de tecnificación con libertad de asistencia, sujetas
+                Sesiones de trabajo técnico con libertad de asistencia, sujetas
                 a las fechas y plazas disponibles.
               </p>
               <WhatsappLink className={styles.compareLink} message={whatsappMessages.flex}>

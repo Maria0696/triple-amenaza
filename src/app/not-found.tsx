@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
+import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { PageIntro } from "@/components/web/page-intro";
+import { whatsappMessages } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Página no encontrada" };
 
@@ -10,9 +12,8 @@ export default function NotFound() {
   return (
     <>
       <PageIntro
-        eyebrow="ERROR 404"
-        title="Esta jugada no existe."
-        description="La página que buscas no está disponible o ha cambiado de dirección."
+        title={<>ESTA JUGADA <span>NO EXISTE.</span></>}
+        description="Error 404: la página que buscas no está disponible o ha cambiado de dirección."
       />
       <section className="section section-cream">
         <div className="container simple-note">
@@ -22,11 +23,11 @@ export default function NotFound() {
             concreto y no lo encuentras.
           </p>
           <div className="simple-note-actions">
-            <Link className="button button-orange" href="/programas/">
+            <WhatsappLink className="button button-orange" message={whatsappMessages.general} namesChannel>
+              Escribir por WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
+            </WhatsappLink>
+            <Link className="text-link" href="/programas/">
               Ver los programas <ArrowRight size={18} aria-hidden="true" />
-            </Link>
-            <Link className="text-link" href="/contacto/">
-              Ir a contacto <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </div>

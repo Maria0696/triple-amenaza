@@ -24,9 +24,11 @@ export function SiteFooter() {
         <div className="footer-links">
           <p className="footer-heading">Contacto</p>
           <WhatsappLink message={whatsappMessages.general} namesChannel>
-            {/* Espacios no separables: el número no se parte entre líneas. */}
-            WhatsApp · {contact.phoneDisplay.replace(/ /g, " ")}
-            <ArrowUpRight size={14} aria-hidden="true" />
+            {/* Espacios no separables: el número no se parte. La flecha va dentro del
+                mismo texto para seguir al número cuando la línea se parte (móvil). */}
+            <span className="footer-inline">WhatsApp · <span className="footer-nowrap">{contact.phoneDisplay.replace(/ /g, " ")}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </span></span>
           </WhatsappLink>
           <a href={`mailto:${contact.email}`}>
             {emailUser}<wbr />@{emailDomain}

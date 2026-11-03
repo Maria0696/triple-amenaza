@@ -60,7 +60,6 @@ const collaborator: { photo?: { src: string; alt: string } } = {};
 export default function EquipoPage() {
   return (
     <>
-      {/* Cabecera editorial con elementos decorativos no interactivos. */}
       <section className={styles.hero} aria-labelledby="team-title">
         <div className={styles.heroArt} aria-hidden="true">
           <span className={`${styles.heroRing} ${styles.heroRingOuter}`} />
@@ -90,7 +89,6 @@ export default function EquipoPage() {
         </div>
       </section>
 
-      {/* Dirección: perfiles protagonistas, sin atribuir trayectorias no verificadas. */}
       <section
         id="direccion"
         className={styles.leadership}
@@ -176,7 +174,6 @@ export default function EquipoPage() {
         </div>
       </section>
 
-      {/* Colaboradores: se diferencian del equipo de dirección. */}
       <section
         className={styles.collaborations}
         aria-labelledby="team-collaborations-title"
@@ -207,7 +204,7 @@ export default function EquipoPage() {
               <div className={styles.collabMark} aria-hidden="true">
                 <span className={styles.collabMarkRim} />
                 <span>JH</span>
-                <small>3×3 / 5×5</small>
+                <small>5×5 / 3×3</small>
               </div>
             )}
 
@@ -230,7 +227,6 @@ export default function EquipoPage() {
         </div>
       </section>
 
-      {/* Una única acción final: escribir a la academia por WhatsApp. */}
       <section className={styles.closing} aria-labelledby="team-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <div className={styles.closingCopy}>

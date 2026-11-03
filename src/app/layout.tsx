@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     apple: "/imagenes/apple-icon.png",
   },
 
+  // Sin indexar hasta publicar: entonces quitar noindex y añadir sitemap.xml y robots.txt.
   robots: { index: false, follow: false },
 };
 

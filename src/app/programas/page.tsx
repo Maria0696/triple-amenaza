@@ -3,13 +3,13 @@ import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { programs, whatsappMessages } from "@/lib/site";
+import { programFactLabels, programs, whatsappMessages } from "@/lib/site";
 import styles from "./programas.module.css";
 
 export const metadata = pageMetadata({
   title: "Programas",
   description:
-    "Conoce Anotadores Élite y Anotadores Flex de Academia Triple Amenaza. Dos maneras de entrenar con intención y desarrollar tu juego.",
+    "Conoce Anotadores Élite y Anotadores Flex de Academia Triple Amenaza: un proceso completo de 12 semanas o sesiones sueltas para desarrollar tu juego.",
   path: "/programas/",
 });
 
@@ -19,7 +19,7 @@ const selectionQuestions = [
   {
     number: "01",
     title: "¿Qué quieres mejorar?",
-    text: "Piensa qué recursos anotadores quieres mejorar y cómo trasladarlos a situaciones de partido.",
+    text: "Piensa qué recursos de anotación quieres mejorar y cómo trasladarlos a situaciones de partido.",
   },
   {
     number: "02",
@@ -47,20 +47,28 @@ export default function ProgramasPage() {
               que mejor se adapta a tu objetivo y a tu manera de organizar el entrenamiento.
             </p>
           </div>
-          <div className={styles.heroAside} role="group" aria-label="Los dos formatos de entrenamiento">
-            <div className={styles.heroAsideTop}>
-              <span>UNA ACADEMIA</span>
-              <span>DOS FORMATOS</span>
-            </div>
-            <div className={styles.heroAsideRow}>
-              <strong>Continuidad</strong><span>ÉLITE</span>
-            </div>
-            <div className={styles.heroAsideRow}>
-              <strong>Flexibilidad</strong><span>FLEX</span>
-            </div>
-            <div className={styles.heroAsideBottom}>
-              DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
-            </div>
+          {/* Comparativa en el punto de decisión: los mismos datos que las tarjetas de Inicio. */}
+          <div className={styles.heroAside}>
+            <table className={styles.compare}>
+              <caption>Élite y Flex, de un vistazo</caption>
+              <thead>
+                <tr>
+                  <td />
+                  <th scope="col">Élite</th>
+                  <th scope="col">Flex</th>
+                </tr>
+              </thead>
+              <tbody>
+                {programFactLabels.map((label, index) => (
+                  <tr key={label}>
+                    <th scope="row">{label}</th>
+                    <td>{elite.facts[index]}</td>
+                    <td>{flex.facts[index]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className={styles.heroAsideBottom}>Precios con IVA incluido.</p>
           </div>
         </div>
       </section>
@@ -75,8 +83,8 @@ export default function ProgramasPage() {
               </h2>
             </div>
             <p>
-              Dos maneras de entrenar con intención. Elige la continuidad que mejor
-              encaja contigo: proceso completo o asistencia flexible.
+              Elige la continuidad que mejor encaja contigo: un proceso completo de
+              12 semanas o sesiones cuando te vengan bien.
             </p>
           </div>
 
@@ -90,7 +98,6 @@ export default function ProgramasPage() {
                 <span /><span /><span />
               </div>
               <div className={styles.duoContent}>
-                <span className={styles.duoTag}>{elite.tag}</span>
                 <h3>{elite.title}</h3>
                 <p>{elite.description}</p>
                 <span className={styles.duoLink}>
@@ -106,7 +113,6 @@ export default function ProgramasPage() {
               </div>
               <CalendarRange className={styles.duoSymbol} size={108} strokeWidth={1.1} aria-hidden="true" />
               <div className={styles.duoContent}>
-                <span className={styles.duoTag}>{flex.tag}</span>
                 <h3>{flex.title}</h3>
                 <p>{flex.description}</p>
                 <span className={styles.duoLink}>
@@ -118,6 +124,13 @@ export default function ProgramasPage() {
           <p className={styles.duoNote}>
             Las condiciones, fechas y plazas se confirmarán directamente con la academia.
           </p>
+          {/* Workshops: actividades puntuales, no un tercer programa; sin calendario aún. */}
+          <p className={styles.workshopsRow}>
+            <span>Además organizamos <strong>workshops y masterclasses</strong> sobre aspectos concretos del juego.</span>
+            <Link href="/programas/workshops/" className="text-link">
+              Ver próximas actividades <ArrowRight size={18} aria-hidden="true" />
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -125,12 +138,9 @@ export default function ProgramasPage() {
         <div className={`container ${styles.choiceGrid}`}>
           <div className={styles.choiceIntro}>
             <h2 id="programs-page-choice-title" className={styles.sectionTitle}>
-              ELIGE CON <em>INTENCIÓN.</em>
+              ELIGE CON <em>CRITERIO.</em>
             </h2>
-            <p>No se trata de encontrar el programa más exigente, sino el que tenga sentido para tu momento deportivo.</p>
-            <WhatsappLink className={styles.choiceAction} message={whatsappMessages.programChoice}>
-              ¿Dudas? Te ayudamos a elegir <ArrowUpRight size={19} aria-hidden="true" />
-            </WhatsappLink>
+            <p>El mejor programa no es el más exigente, sino el que tiene sentido para tu momento deportivo.</p>
           </div>
           <div className={styles.questions}>
             {selectionQuestions.map((question) => (
@@ -145,29 +155,23 @@ export default function ProgramasPage() {
         </div>
       </section>
 
-      {/* Cierre editorial: actividades puntuales, diferenciadas de los programas. */}
-      <section className={styles.workshops} aria-labelledby="programs-page-workshops-title">
-        <div className={`container ${styles.workshopsGrid}`}>
-          <div className={styles.workshopsHeading}>
-            <h2 id="programs-page-workshops-title">
-              HAY MÁS JUEGO <em>POR DESCUBRIR.</em>
+      {/* Cierre en el punto de decisión: quien duda entre Élite y Flex pregunta aquí. */}
+      <section className={styles.closing} aria-labelledby="programs-page-closing-title">
+        <div className={`container ${styles.closingGrid}`}>
+          <div className={styles.closingHeading}>
+            <h2 id="programs-page-closing-title">
+              ¿DUDAS ENTRE ÉLITE <em>Y FLEX?</em>
             </h2>
           </div>
-          <div className={styles.workshopsContent}>
-            <p className={styles.workshopsLabel}>WORKSHOPS / MASTERCLASSES</p>
-            <p className={styles.workshopsLead}>
-              Además de nuestros programas habituales, organizamos actividades
-              dedicadas a aspectos concretos del baloncesto y del desarrollo deportivo.
+          <div className={styles.closingContent}>
+            <p className={styles.closingLead}>
+              Cuéntanos qué quiere mejorar el jugador y cómo encaja en su temporada:
+              te ayudamos a elegir el formato.
             </p>
-            <p className={styles.workshopsDetail}>
-              Encuentros para profundizar, compartir experiencias y llevarse nuevas
-              ideas a la pista. Consulta el espacio de actividades para conocer
-              las próximas novedades.
-            </p>
-            <Link href="/programas/workshops/" className={styles.workshopsLink}>
-              Descubre los workshops
-              <ArrowRight size={19} aria-hidden="true" />
-            </Link>
+            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice}>
+              Te ayudamos a elegir
+              <ArrowUpRight size={19} aria-hidden="true" />
+            </WhatsappLink>
           </div>
         </div>
       </section>

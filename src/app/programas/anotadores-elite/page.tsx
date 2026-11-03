@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, ChevronDown } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { whatsappMessages } from "@/lib/site";
+import { eliteOffer, whatsappMessages } from "@/lib/site";
 import { CourtDiagram } from "./court-diagram";
 import styles from "./elite.module.css";
 
@@ -14,18 +14,8 @@ export const metadata = pageMetadata({
   path: "/programas/anotadores-elite/",
 });
 
-/**
- * Tarifas de Anotadores Élite utilizadas anteriormente por ATA.
- * El usuario ha solicitado mostrarlas en la página; revisar antes del lanzamiento.
- * El coste de la valoración, la política de faltas y los cupos no están confirmados.
- */
-const offer = {
-  durationWeeks: 12,
-  totalSessions: 12,
-  sessionMinutes: 60,
-  singlePayment: 240,
-  installmentTotal: 255,
-} as const;
+/** Tarifa y formato compartidos con las tarjetas de programas (src/lib/site.ts). */
+const offer = eliteOffer;
 
 const deliverables = [
   {
@@ -44,7 +34,7 @@ const deliverables = [
     number: "03",
     title: "Entrenamos con continuidad",
     description:
-      "Doce sesiones de una hora, con propuestas de tecnificación y situaciones de juego con oposición.",
+      "Doce sesiones de una hora, con trabajo técnico y situaciones de juego con oposición.",
   },
   {
     number: "04",
@@ -149,12 +139,12 @@ const questions = [
   {
     title: "¿En qué se diferencia de Anotadores Flex?",
     answer:
-      "Élite está planteado como un proceso de 12 semanas con objetivos, continuidad y seguimiento. Flex permite participar en sesiones de tecnificación con mayor flexibilidad de asistencia.",
+      "Élite está planteado como un proceso de 12 semanas con objetivos, continuidad y seguimiento. Flex permite venir a sesiones de trabajo técnico con más flexibilidad de asistencia.",
   },
   {
     title: "¿La valoración inicial obliga a inscribirse?",
     answer:
-      "No. La valoración sirve para conocer al jugador y hablar de su posible incorporación. Si tiene algún coste, te lo decimos antes.",
+      "No. La valoración sirve para conocer al jugador y hablar de su posible incorporación; después decides con calma.",
   },
   {
     title: "¿Cuánto cuesta y cómo se paga?",
@@ -180,7 +170,6 @@ const questions = [
 export default function AnotadoresElitePage() {
   return (
     <>
-      {/* Cabecera: mensaje, llamada a la valoración y ficha con lo esencial del programa. */}
       <section className={styles.hero} aria-labelledby="elite-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
@@ -193,7 +182,7 @@ export default function AnotadoresElitePage() {
               <span>ES SABER DECIDIR.</span>
             </h1>
             <p className={styles.heroLead}>
-              Un proceso de tecnificación para desarrollar recursos anotadores,
+              Un proceso de trabajo técnico para desarrollar recursos de anotación,
               generar ventajas y tomar mejores decisiones frente a defensores,
               con el objetivo de llevar ese aprendizaje al partido.
             </p>
@@ -205,10 +194,6 @@ export default function AnotadoresElitePage() {
           </div>
 
           <aside className={styles.profile} aria-label="Anotadores Élite de un vistazo">
-            <div className={styles.profileTop}>
-              <span>ATA / ANOTADORES ÉLITE</span>
-              <span>FICHA</span>
-            </div>
             <div className={styles.profileTitle}>
               <span>EL PROGRAMA</span>
               <strong>DE UN VISTAZO.</strong>
@@ -221,14 +206,10 @@ export default function AnotadoresElitePage() {
                 </div>
               ))}
             </dl>
-            <p className={styles.profileFoot}>
-              También en tres pagos: {offer.installmentTotal} € en total.
-            </p>
           </aside>
         </div>
       </section>
 
-      {/* Bloque comercial más importante: qué recibe la familia. */}
       <section className={styles.commercialIncludes} id="elite-incluye" aria-labelledby="elite-includes-title">
         <div className="container">
           <div className={styles.commercialIncludesHead}>
@@ -238,17 +219,16 @@ export default function AnotadoresElitePage() {
               </h2>
             </div>
             <p>
-              No es solo venir a entrenar. Es saber de dónde partes, qué quieres mejorar
-              y cómo comprobar si tus recursos aparecen también en el juego real.
+              Sabrás de dónde partes, qué quieres mejorar y cómo comprobar si tus
+              recursos aparecen también en el juego real.
             </p>
           </div>
 
           <div className={styles.commercialIncludesGrid}>
             {deliverables.map((item) => (
               <article key={item.number} className={styles.commercialDeliverable}>
-                <div className={styles.commercialDeliverableTop}>
-                  <Check size={21} strokeWidth={1.8} aria-hidden="true" />
-                </div>
+                {/* Numerados: es el orden del proceso, de la valoración al informe final. */}
+                <span className={styles.commercialDeliverableTop}>{item.number}</span>
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
@@ -260,7 +240,6 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Tarifas históricas solicitadas por ATA; confirmar condiciones adicionales antes de publicar. */}
       <section className={styles.commercialPricing} id="elite-condiciones" aria-labelledby="elite-pricing-title">
         <div className={`container ${styles.commercialPricingLayout}`}>
           <div className={styles.commercialPricingCopy}>
@@ -297,7 +276,6 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Diferenciadores: conserva la rejilla visual original. */}
       <section className={styles.foundations} aria-labelledby="elite-foundations-title">
         <div className="container">
           <div className={styles.foundationsHeading}>
@@ -372,10 +350,14 @@ export default function AnotadoresElitePage() {
                 </ol>
             </div>
           </div>
+          <WhatsappLink message={whatsappMessages.eliteValuation} className={`${styles.button} ${styles.commercialPrimary} ${styles.areasAction}`}>
+            Consultar valoración inicial <ArrowUpRight size={19} aria-hidden="true" />
+          </WhatsappLink>
         </div>
       </section>
 
-      {/* Mantener la comunicación prudente hasta que se confirme el pasaporte. */}
+      {/* El Pasaporte del Anotador no está confirmado: se presenta como herramienta en
+          preparación, no como parte del programa. */}
       <section className={styles.passport} aria-labelledby="elite-passport-title">
         <div className={`container ${styles.passportInner}`}>
           <h2 id="elite-passport-title" className={styles.heading}>
@@ -388,7 +370,6 @@ export default function AnotadoresElitePage() {
               orientamos los siguientes pasos.
             </p>
             <div className={styles.passportDevelopment}>
-              <span className={styles.passportDevelopmentLabel}>HERRAMIENTA EN PREPARACIÓN</span>
               <h3>Pasaporte del Anotador</h3>
               <p>
                 Estamos terminando una herramienta visual para acompañar el
@@ -420,7 +401,7 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* CTA de contacto directo, sin simular un sistema de inscripciones. */}
+      {/* No hay inscripción online: el cierre abre WhatsApp con el mensaje de la valoración. */}
       <section className={styles.closing} aria-labelledby="elite-closing-title">
         <div className={`container ${styles.closingGrid}`}>
           <div>
