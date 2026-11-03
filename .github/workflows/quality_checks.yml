@@ -1,10 +1,9 @@
 name: Quality checks
 
 on:
+  # En todas las PR, sea cual sea su rama base: una PR abierta sobre otra rama
+  # de trabajo también pasa el CI y no se queda bloqueada al cambiar de base.
   pull_request:
-    branches:
-      - develop
-      - main
   push:
     branches:
       - develop
