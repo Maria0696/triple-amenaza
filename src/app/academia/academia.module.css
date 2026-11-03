@@ -20,10 +20,12 @@
   gap: clamp(28px,4vw,70px);
   padding-block: clamp(50px,6vw,94px);
 }
-.heroCopy { min-width: 0; }
+/* El titular se mide con su columna (cqi), no con la ventana: a partir de 1220px
+   la columna deja de crecer y "ENTRENAR." se metía bajo la foto. */
+.heroCopy { min-width: 0; container-type: inline-size; }
 .heroTitle {
   margin: 0;
-  font-size: clamp(57px,6.2vw,105px);
+  font-size: min(clamp(57px,6.2vw,105px), 18cqi);
   font-weight: 950;
   line-height: .94;
   letter-spacing: -.04em;
@@ -168,7 +170,7 @@
 .nextCourt span { position: absolute; inset: 30%; border: 7px solid var(--ink); border-radius: 50%; }
 
 @media (max-width: 1060px) {
-  .heroTitle { font-size: clamp(52px,6.1vw,82px); }
+  .heroTitle { font-size: min(clamp(52px,6.1vw,82px), 18cqi); }
   .pillar { min-height: 330px; }
 }
 @media (max-width: 860px) {
