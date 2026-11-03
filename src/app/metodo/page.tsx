@@ -25,6 +25,7 @@ export const metadata = pageMetadata({
  * Contenido ampliado de cada etapa. Los nombres, números y descripciones
  * oficiales se mantienen exclusivamente en src/lib/site.ts.
  */
+// Iconos de cada etapa: los mismos que methodIcons en Inicio (src/app/page.tsx).
 const stageDetails = [
   {
     kicker: "LEER EL PUNTO DE PARTIDA",
@@ -59,7 +60,6 @@ const stageDetails = [
 export default function MetodoPage() {
   return (
     <>
-      {/* Introducción: resumen navegable de las etapas. */}
       <section className={styles.hero} aria-labelledby="method-page-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
@@ -97,7 +97,6 @@ export default function MetodoPage() {
         </div>
       </section>
 
-      {/* Las cuatro etapas oficiales, con información adicional para cada una. */}
       <section className={styles.process} id="etapas" aria-labelledby="method-page-process-title">
         <div className="container">
           <div className={styles.processHeading}>
@@ -160,7 +159,6 @@ export default function MetodoPage() {
         </div>
       </section>
 
-      {/* Idea central del método, sin repetir los cuatro pasos. */}
       <section className={styles.practice} aria-labelledby="method-page-practice-title">
         <div className={`container ${styles.practiceGrid}`}>
           <div>
@@ -182,7 +180,7 @@ export default function MetodoPage() {
         </div>
       </section>
 
-      {/* Próximo paso: un único enlace a programas. */}
+      {/* Cierre: los programas como acción principal; WhatsApp para quien aún duda. */}
       <section className={styles.closing} aria-labelledby="method-page-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <h2 id="method-page-closing-title">

@@ -66,7 +66,6 @@ const pillars = [
 export default function AcademiaPage() {
   return (
     <>
-      {/* Cabecera de la academia. Se mantiene el header compartido. */}
       <section className={styles.hero} aria-labelledby="academy-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
@@ -124,7 +123,6 @@ export default function AcademiaPage() {
         </div>
       </section>
 
-      {/* Tres pilares de la academia; no equivalen a las cuatro etapas de ATA. */}
       <section className={styles.pillars} aria-labelledby="academy-pillars-title">
         <div className="container">
           <div className={styles.pillarsHeading}>
@@ -152,7 +150,6 @@ export default function AcademiaPage() {
         </div>
       </section>
 
-      {/* Relación de ATA con la competición y los entrenamientos del club. */}
       <section className={styles.club} aria-labelledby="academy-club-title">
         <div className={`container ${styles.clubGrid}`}>
           <figure className={styles.clubFigure}>

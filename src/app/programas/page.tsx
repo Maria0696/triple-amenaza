@@ -151,7 +151,6 @@ export default function ProgramasPage() {
         </div>
       </section>
 
-      {/* Cierre editorial: actividades puntuales, diferenciadas de los programas. */}
       <section className={styles.workshops} aria-labelledby="programs-page-workshops-title">
         <div className={`container ${styles.workshopsGrid}`}>
           <div className={styles.workshopsHeading}>

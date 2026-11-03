@@ -170,7 +170,6 @@ const questions = [
 export default function AnotadoresElitePage() {
   return (
     <>
-      {/* Cabecera: mensaje, llamada a la valoración y ficha con lo esencial del programa. */}
       <section className={styles.hero} aria-labelledby="elite-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
@@ -218,7 +217,6 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Bloque comercial más importante: qué recibe la familia. */}
       <section className={styles.commercialIncludes} id="elite-incluye" aria-labelledby="elite-includes-title">
         <div className="container">
           <div className={styles.commercialIncludesHead}>
@@ -250,7 +248,6 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Tarifas históricas solicitadas por ATA; confirmar condiciones adicionales antes de publicar. */}
       <section className={styles.commercialPricing} id="elite-condiciones" aria-labelledby="elite-pricing-title">
         <div className={`container ${styles.commercialPricingLayout}`}>
           <div className={styles.commercialPricingCopy}>
@@ -287,7 +284,6 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Diferenciadores: conserva la rejilla visual original. */}
       <section className={styles.foundations} aria-labelledby="elite-foundations-title">
         <div className="container">
           <div className={styles.foundationsHeading}>
@@ -365,7 +361,8 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* Mantener la comunicación prudente hasta que se confirme el pasaporte. */}
+      {/* El Pasaporte del Anotador no está confirmado: se presenta como herramienta en
+          preparación, no como parte del programa. */}
       <section className={styles.passport} aria-labelledby="elite-passport-title">
         <div className={`container ${styles.passportInner}`}>
           <h2 id="elite-passport-title" className={styles.heading}>
@@ -410,7 +407,7 @@ export default function AnotadoresElitePage() {
         </div>
       </section>
 
-      {/* CTA de contacto directo, sin simular un sistema de inscripciones. */}
+      {/* No hay inscripción online: el cierre abre WhatsApp con el mensaje de la valoración. */}
       <section className={styles.closing} aria-labelledby="elite-closing-title">
         <div className={`container ${styles.closingGrid}`}>
           <div>

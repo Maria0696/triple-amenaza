@@ -21,7 +21,6 @@ export default function ContactoPage() {
   return (
     <>
       <section className={styles.hero} aria-labelledby="contact-title">
-        {/* Elementos puramente decorativos, no interactivos. */}
         <div className={styles.heroArt} aria-hidden="true">
           <span className={`${styles.heroOrbit} ${styles.heroOrbitOuter}`} />
           <span className={`${styles.heroOrbit} ${styles.heroOrbitInner}`} />

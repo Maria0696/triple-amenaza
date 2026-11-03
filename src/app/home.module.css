@@ -112,7 +112,7 @@
   box-shadow: 13px 13px 0 #f6f3ec0b;
 }
 .heroPhoto {
-  /* En móvil se sustituye por una versión de 800px (ver max-width: 550px). */
+  /* En móvil se sustituye por una versión de 800px (ver max-width: 600px). */
   --home-hero-image: url("/imagenes/sesion-ata.webp");
   position: absolute;
   inset: 0;
@@ -625,7 +625,7 @@
   .methodStep:hover .methodSymbol { transform: none !important; }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 860px) {
   .actionText,
   .inlineLink {

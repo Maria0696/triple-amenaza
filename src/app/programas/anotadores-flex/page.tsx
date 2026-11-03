@@ -125,6 +125,7 @@ export default function AnotadoresFlexPage() {
             <div className={styles.heroBoardHead}>
               <span>MODALIDAD FLEX</span>
             </div>
+            {/* Lema decorativo, oculto a lectores de pantalla; los tres conceptos de abajo sí se leen. */}
             <div className={styles.heroBoardCore} aria-hidden="true">
               <span className={styles.boardLabel}>LA CLAVE NO ES CUÁNDO.</span>
               <strong>FLEX</strong>

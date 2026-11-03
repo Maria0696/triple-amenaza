@@ -377,7 +377,7 @@
   .strength:hover, .strength:hover .strengthTop svg, .compareLink:hover svg, .closingLink:hover, .closingLink:hover svg { transform: none !important; }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 600px) {
   .hero .heroLead,
   body .stepsIntro > p:last-child,

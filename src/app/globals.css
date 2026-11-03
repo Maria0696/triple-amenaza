@@ -1021,7 +1021,7 @@ button, a {
   }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 860px) {
   .site-footer .footer-links a {
     min-height: 44px;

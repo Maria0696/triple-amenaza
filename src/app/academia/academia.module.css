@@ -289,7 +289,7 @@
   .outlineLink:hover svg, .nextLink:hover svg { transform: none !important; }
 }
 
-/* Legibilidad y zona táctil en móvil (antes en mobile-accessibility.css). */
+/* Legibilidad y zona táctil en móvil. */
 @media (max-width: 600px) {
   .hero .heroLead,
   .approach .principle p {

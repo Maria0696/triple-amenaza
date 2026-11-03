@@ -24,14 +24,7 @@ export const metadata: Metadata = {
   openGraph: { ...baseOpenGraph, url: "/" },
 };
 
-/**
- * Portada pública de Triple Amenaza.
- *
- * Esta página es un Server Component: no necesita "use client".
- * Los contenidos de los programas se reutilizan desde src/lib/site.ts.
- * La fotografía del hero es provisional y se sustituirá por una foto propia
- * y autorizada de la academia antes de publicar el sitio.
- */
+/** Iconos de las etapas del método: los mismos que en Método (stageDetails). */
 const methodIcons = {
   "01": Eye,
   "02": ListChecks,
@@ -49,7 +42,6 @@ const pillars = [
 export default function HomePage() {
   return (
     <>
-      {/* 1 · Primera impresión */}
       <section className={styles.hero} aria-labelledby="home-title">
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroContent}>
@@ -94,6 +86,8 @@ export default function HomePage() {
             </ul>
           </div>
 
+          {/* Foto provisional (fondo CSS de .heroPhoto): sustituir por una propia y
+              autorizada de la academia antes de publicar. */}
           <div className={styles.heroMedia}>
             <div
               className={styles.heroPhoto}
@@ -110,7 +104,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2 · Filosofía ATA: misma secuencia que el método oficial */}
       <section className={styles.intro} aria-labelledby="home-intro-title">
         <div className={`container ${styles.introGrid}`}>
           <div className={styles.introAside}>
@@ -139,7 +132,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 · Programas: Anotadores Élite ocupa el primer plano */}
       <section className={styles.programs} id="programas" aria-labelledby="home-programs-title">
         <div className="container">
           <div className={styles.sectionHead}>
@@ -210,7 +202,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4 · Proceso de trabajo */}
       <section className={styles.method} aria-labelledby="home-method-title">
         <div className="container">
           <div className={styles.methodHeading}>
@@ -262,7 +253,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5 · Tres áreas de trabajo */}
       <section className={styles.pillars} aria-labelledby="home-pillars-title">
         <div className={`container ${styles.pillarsLayout}`}>
           <div>
@@ -286,7 +276,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6 · CTA final: solo enlaza a páginas existentes */}
       <section className={styles.closing} aria-labelledby="home-closing-title">
         <div className={styles.closingCourt} aria-hidden="true">
           <span className={styles.closingCourtOuter} />
