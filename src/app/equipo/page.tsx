@@ -207,7 +207,7 @@ export default function EquipoPage() {
               <div className={styles.collabMark} aria-hidden="true">
                 <span className={styles.collabMarkRim} />
                 <span>JH</span>
-                <small>3×3 / 5×5</small>
+                <small>5×5 / 3×3</small>
               </div>
             )}
 

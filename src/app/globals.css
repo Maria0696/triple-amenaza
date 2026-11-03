@@ -607,6 +607,18 @@ button, a {
   color: var(--sage);
 }
 
+/* El número y su flecha no se separan: si la línea se parte, bajan juntos. */
+.footer-nowrap {
+  white-space: nowrap;
+}
+
+/* Icono en línea con el texto (no bloque), pegado al número. */
+.footer-inline svg {
+  display: inline-block;
+  margin-left: 7px;
+  vertical-align: -1px;
+}
+
 .footer-heading {
   margin: 0 0 10px;
 

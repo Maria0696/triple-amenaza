@@ -232,7 +232,12 @@
 }
 .programCardBody { max-width: 555px; }
 .programCardFeatured .programCardBody { max-width: 100%; }
-.programTag { display: inline-block; border: 1px solid currentColor; padding: 7px 9px; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+/* Datos comparables (formato, seguimiento, precio): mismas filas en las dos tarjetas. */
+.programFacts { display: grid; max-width: 490px; margin: 20px 0 0; border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+.programFacts > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent); }
+.programFacts dt { color: var(--green-label); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.programCardFeatured .programFacts dt { color: var(--sage); }
+.programFacts dd { margin: 0; font-size: 14px; font-weight: 650; line-height: 1.45; }
 .programCard h3 { font-size: clamp(31px, 3.8vw, 58px); font-weight: 940; line-height: 1; letter-spacing: -.04em; margin: 14px 0; }
 .programCard p { max-width: 490px; font-size: 15px; line-height: 1.65; margin: 0; opacity: .94; }
 .programMore { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-bottom: 1px solid currentColor; padding-bottom: 5px; font-size: 13px; font-weight: 800; }
@@ -493,18 +498,19 @@
   position: absolute;
   right: 5%; top: 27%;
   color: #51664a;
-  opacity: .23;
+  /* Marca de agua tenue: el texto de la tarjeta puede pasar por encima. */
+  opacity: .12;
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease;
 }
 .programCard:focus-visible .programCardSymbol {
   transform: translateY(-6px) rotate(-4deg);
-  opacity: .35;
+  opacity: .2;
 }
 @media (hover: hover) and (pointer: fine) {
   .programCard:hover .programCardSymbol {
     transform: translateY(-6px) rotate(-4deg);
-    opacity: .35;
+    opacity: .2;
   }
 }
 .programFeatureArt {
@@ -634,7 +640,6 @@
 
   .hero .heroFacts,
   .hero .heroPhotoCaption > span,
-  .programCard .programTag,
   .programCard .programCardTop {
     font-size: 12px;
   }
@@ -642,6 +647,8 @@
 }
 
 @media (max-width: 380px) {
+  /* "ENTRENAMIENTO" (método en Inicio) no cabe a 34px en 320px. */
+  .methodHeading .sectionTitle { font-size: clamp(28px, 9.2vw, 34px); }
   .hero .heroTitle {
     max-width: 100%;
     font-size: clamp(39px, 11.5vw, 46px);

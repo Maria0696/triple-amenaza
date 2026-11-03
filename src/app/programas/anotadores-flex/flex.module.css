@@ -359,7 +359,8 @@
   .step h3 { font-size: 27px; }
   .compareHeading > p:last-child { font-size: 15px; }
   .compareCard { min-height: 330px; padding: 28px; }
-  .compareCard h3 { font-size: 42px; }
+  /* A 320px "Anotadores" no cabía a 42px. */
+  .compareCard h3 { font-size: clamp(32px, 10.5vw, 42px); }
   .compareCard > p { font-size: 15px; }
   .faqItem summary { grid-template-columns: minmax(0,1fr) 22px; gap: 9px; padding: 21px 0; font-size: 19px; }
   .faqItem > p { margin: 0 0 23px 35px; font-size: 14px; }

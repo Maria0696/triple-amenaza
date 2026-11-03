@@ -15,7 +15,7 @@ import {
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { baseOpenGraph } from "@/lib/metadata";
-import { academyAreas, location, methodSteps, programs, whatsappMessages } from "@/lib/site";
+import { academyAreas, location, methodSteps, programFactLabels, programs, whatsappMessages } from "@/lib/site";
 import styles from "./home.module.css";
 
 // Título y descripción generales del layout; aquí solo la URL canónica.
@@ -183,9 +183,17 @@ export default function HomePage() {
                   )}
 
                   <div className={styles.programCardBody}>
-                    <span className={styles.programTag}>{program.tag}</span>
                     <h3>{program.title}</h3>
                     <p>{program.description}</p>
+                    {/* Los mismos tres datos en las dos tarjetas: se comparan de un vistazo. */}
+                    <dl className={styles.programFacts}>
+                      {programFactLabels.map((label, index) => (
+                        <div key={label}>
+                          <dt>{label}</dt>
+                          <dd>{program.facts[index]}</dd>
+                        </div>
+                      ))}
+                    </dl>
                     <span className={styles.programMore}>
                       Descubre el programa
                       <ArrowRight size={17} aria-hidden="true" />
@@ -208,8 +216,8 @@ export default function HomePage() {
           <div className={styles.methodHeading}>
             <div>
               <h2 id="home-method-title" className={styles.sectionTitle}>
-                NO ES SOLO REPETIR.
-                <span> ES APRENDER A JUGAR.</span>
+                DEL ENTRENAMIENTO
+                <span> AL PARTIDO.</span>
               </h2>
             </div>
           </div>

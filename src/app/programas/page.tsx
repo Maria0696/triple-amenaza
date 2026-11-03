@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, CalendarRange } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { programs, whatsappMessages } from "@/lib/site";
+import { programFactLabels, programs, whatsappMessages } from "@/lib/site";
 import styles from "./programas.module.css";
 
 export const metadata = pageMetadata({
@@ -47,20 +47,28 @@ export default function ProgramasPage() {
               que mejor se adapta a tu objetivo y a tu manera de organizar el entrenamiento.
             </p>
           </div>
-          <div className={styles.heroAside} role="group" aria-label="Los dos formatos de entrenamiento">
-            <div className={styles.heroAsideTop}>
-              <span>UNA ACADEMIA</span>
-              <span>DOS FORMATOS</span>
-            </div>
-            <div className={styles.heroAsideRow}>
-              <strong>Continuidad</strong><span>ÉLITE</span>
-            </div>
-            <div className={styles.heroAsideRow}>
-              <strong>Flexibilidad</strong><span>FLEX</span>
-            </div>
-            <div className={styles.heroAsideBottom}>
-              DIFERENTES NECESIDADES. UNA MISMA INTENCIÓN.
-            </div>
+          {/* Comparativa en el punto de decisión: los mismos datos que las tarjetas de Inicio. */}
+          <div className={styles.heroAside}>
+            <table className={styles.compare}>
+              <caption>Élite y Flex, de un vistazo</caption>
+              <thead>
+                <tr>
+                  <td />
+                  <th scope="col">Élite</th>
+                  <th scope="col">Flex</th>
+                </tr>
+              </thead>
+              <tbody>
+                {programFactLabels.map((label, index) => (
+                  <tr key={label}>
+                    <th scope="row">{label}</th>
+                    <td>{elite.facts[index]}</td>
+                    <td>{flex.facts[index]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className={styles.heroAsideBottom}>Precios con IVA incluido.</p>
           </div>
         </div>
       </section>
@@ -90,7 +98,6 @@ export default function ProgramasPage() {
                 <span /><span /><span />
               </div>
               <div className={styles.duoContent}>
-                <span className={styles.duoTag}>{elite.tag}</span>
                 <h3>{elite.title}</h3>
                 <p>{elite.description}</p>
                 <span className={styles.duoLink}>
@@ -106,7 +113,6 @@ export default function ProgramasPage() {
               </div>
               <CalendarRange className={styles.duoSymbol} size={108} strokeWidth={1.1} aria-hidden="true" />
               <div className={styles.duoContent}>
-                <span className={styles.duoTag}>{flex.tag}</span>
                 <h3>{flex.title}</h3>
                 <p>{flex.description}</p>
                 <span className={styles.duoLink}>
@@ -127,7 +133,7 @@ export default function ProgramasPage() {
             <h2 id="programs-page-choice-title" className={styles.sectionTitle}>
               ELIGE CON <em>INTENCIÓN.</em>
             </h2>
-            <p>No se trata de encontrar el programa más exigente, sino el que tenga sentido para tu momento deportivo.</p>
+            <p>El mejor programa no es el más exigente, sino el que tiene sentido para tu momento deportivo.</p>
             <WhatsappLink className={styles.choiceAction} message={whatsappMessages.programChoice}>
               ¿Dudas? Te ayudamos a elegir <ArrowUpRight size={19} aria-hidden="true" />
             </WhatsappLink>

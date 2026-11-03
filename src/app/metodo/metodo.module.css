@@ -294,7 +294,7 @@
   .practice .heading { font-size: clamp(39px, 10vw, 57px); }
   .practiceCopy p { font-size: 15px; }
   /* Mínimo 40px: a 320px "PROGRAMAS." no cabe a 48px. */
-  .closing h2 { font-size: clamp(40px, 11vw, 69px); }
+  .closing h2 { font-size: clamp(38px, 10.4vw, 69px); }
   .closingInner > p:not(.eyebrow) { font-size: 15px; }
 }
 @media (prefers-reduced-motion: reduce) {

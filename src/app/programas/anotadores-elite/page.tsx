@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, ChevronDown } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { pageMetadata } from "@/lib/metadata";
-import { whatsappMessages } from "@/lib/site";
+import { eliteOffer, whatsappMessages } from "@/lib/site";
 import { CourtDiagram } from "./court-diagram";
 import styles from "./elite.module.css";
 
@@ -14,18 +14,8 @@ export const metadata = pageMetadata({
   path: "/programas/anotadores-elite/",
 });
 
-/**
- * Tarifas de Anotadores Élite utilizadas anteriormente por ATA.
- * El usuario ha solicitado mostrarlas en la página; revisar antes del lanzamiento.
- * El coste de la valoración, la política de faltas y los cupos no están confirmados.
- */
-const offer = {
-  durationWeeks: 12,
-  totalSessions: 12,
-  sessionMinutes: 60,
-  singlePayment: 240,
-  installmentTotal: 255,
-} as const;
+/** Tarifa y formato compartidos con las tarjetas de programas (src/lib/site.ts). */
+const offer = eliteOffer;
 
 const deliverables = [
   {
@@ -154,7 +144,7 @@ const questions = [
   {
     title: "¿La valoración inicial obliga a inscribirse?",
     answer:
-      "No. La valoración sirve para conocer al jugador y hablar de su posible incorporación. Si tiene algún coste, te lo decimos antes.",
+      "No. La valoración sirve para conocer al jugador y hablar de su posible incorporación; después decides con calma.",
   },
   {
     title: "¿Cuánto cuesta y cómo se paga?",
@@ -238,8 +228,8 @@ export default function AnotadoresElitePage() {
               </h2>
             </div>
             <p>
-              No es solo venir a entrenar. Es saber de dónde partes, qué quieres mejorar
-              y cómo comprobar si tus recursos aparecen también en el juego real.
+              Sabrás de dónde partes, qué quieres mejorar y cómo comprobar si tus
+              recursos aparecen también en el juego real.
             </p>
           </div>
 
