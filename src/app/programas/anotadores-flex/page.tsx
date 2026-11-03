@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   CalendarRange,
   ChevronDown,
   Crosshair,
@@ -116,8 +115,8 @@ export default function AnotadoresFlexPage() {
               que puedes encajar en tu temporada. Más libertad de asistencia,
               la misma intención de aprender y decidir mejor.
             </p>
-            <WhatsappLink className={styles.heroAction} message={whatsappMessages.flex}>
-              Consultar sesiones disponibles <ArrowUpRight size={19} aria-hidden="true" />
+            <WhatsappLink className={styles.heroAction} message={whatsappMessages.flex} namesChannel>
+              Consultar por WhatsApp
             </WhatsappLink>
           </div>
 
@@ -182,8 +181,8 @@ export default function AnotadoresFlexPage() {
               La planificación de las sesiones sigue teniendo sentido.
               Lo que cambia es cómo puedes organizar tu asistencia.
             </p>
-            <WhatsappLink className={`${styles.heroAction} ${styles.stepsAction}`} message={whatsappMessages.flex}>
-              Consultar sesiones disponibles <ArrowUpRight size={19} aria-hidden="true" />
+            <WhatsappLink className={`${styles.heroAction} ${styles.stepsAction}`} message={whatsappMessages.flex} namesChannel>
+              Consultar por WhatsApp
             </WhatsappLink>
           </div>
           <div className={styles.stepsList}>
@@ -224,8 +223,8 @@ export default function AnotadoresFlexPage() {
                 Sesiones de trabajo técnico con libertad de asistencia, sujetas
                 a las fechas y plazas disponibles.
               </p>
-              <WhatsappLink className={styles.compareLink} message={whatsappMessages.flex}>
-                Consultar sesiones <ArrowUpRight size={19} aria-hidden="true" />
+              <WhatsappLink className={`${styles.heroAction} ${styles.compareAction}`} message={whatsappMessages.flex} namesChannel>
+                Consultar por WhatsApp
               </WhatsappLink>
             </div>
             <div className={`${styles.compareCard} ${styles.compareElite}`}>
@@ -283,7 +282,7 @@ export default function AnotadoresFlexPage() {
               Escríbenos y te contamos las próximas fechas.
             </p>
             <WhatsappLink className={styles.closingLink} message={whatsappMessages.flex} namesChannel>
-              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+              Escribir por WhatsApp
             </WhatsappLink>
           </div>
         </div>

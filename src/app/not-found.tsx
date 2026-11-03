@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { PageIntro } from "@/components/web/page-intro";
@@ -23,8 +23,8 @@ export default function NotFound() {
             concreto y no lo encuentras.
           </p>
           <div className="simple-note-actions">
-            <WhatsappLink className="button button-orange" message={whatsappMessages.general} namesChannel>
-              Escribir por WhatsApp <ArrowUpRight size={18} aria-hidden="true" />
+            <WhatsappLink className="button button-orange" message={whatsappMessages.general} namesChannel iconSize={18}>
+              Escribir por WhatsApp
             </WhatsappLink>
             <Link className="text-link" href="/programas/">
               Ver los programas <ArrowRight size={18} aria-hidden="true" />

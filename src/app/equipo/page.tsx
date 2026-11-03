@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Target } from "lucide-react";
+import { Target } from "lucide-react";
 
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import styles from "./equipo.module.css";
@@ -41,7 +41,7 @@ const direccion: readonly Persona[] = [
     initials: "J",
     statement: "Primero el jugador. Después, el entrenamiento.",
     description:
-      "Jose es entrenador y, junto a Edu, impulsa Academia Triple Amenaza. Ambos organizan sesiones y actividades para ofrecer a cada jugador un espacio donde aprender, mejorar y conectar el trabajo de pista con la competición.",
+      "Jose es entrenador y, junto a Edu, impulsa Academia Triple Amenaza. Ambos organizan sesiones y actividades para ofrecer a cada jugador un espacio donde aprender, mejorar y conectar el trabajo de pista con la competición. Es quien te responde por WhatsApp.",
   },
   {
     number: "02",
@@ -238,9 +238,8 @@ export default function EquipoPage() {
               entrenamiento de la academia.
             </p>
           </div>
-          <WhatsappLink className={styles.closingLink} message={whatsappMessages.general} namesChannel>
+          <WhatsappLink className={styles.closingLink} message={whatsappMessages.general} namesChannel iconSize={20}>
             Escribir por WhatsApp
-            <ArrowUpRight size={20} aria-hidden="true" />
           </WhatsappLink>
           <Target className={styles.closingDecoration} size={330} strokeWidth={.5} aria-hidden="true" />
         </div>

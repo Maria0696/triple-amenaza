@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   BrainCircuit,
   CalendarRange,
   Eye,
@@ -66,7 +65,6 @@ export default function HomePage() {
             <div className={styles.heroActions}>
               <WhatsappLink className={styles.actionPrimary} message={whatsappMessages.general} namesChannel>
                 Escribir por WhatsApp
-                <ArrowUpRight size={19} aria-hidden="true" />
               </WhatsappLink>
               <Link href="/programas/" className={styles.actionText}>
                 Descubre nuestros programas
@@ -276,7 +274,7 @@ export default function HomePage() {
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
           <p>Cuéntanos qué quiere mejorar el jugador y te orientamos hacia el programa que mejor encaja con sus objetivos.</p>
           <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
-            Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+            Escribir por WhatsApp
           </WhatsappLink>
         </div>
       </section>
