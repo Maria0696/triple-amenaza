@@ -120,7 +120,8 @@
 .zoneList p, .everywhere li p { margin: 0; color: #556356; font-size: 14px; line-height: 1.6; }
 .everywhere { grid-area: all; min-width: 0; padding: 22px 24px; border: 1px solid #ced8c8; background: #e1e9dc; }
 .everywhereLabel { margin: 0 0 14px; color: var(--green-label); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
+/* Columnas al ancho de su texto: cada descripción cabe en una línea en escritorio. */
+.everywhere ul { display: grid; grid-template-columns: repeat(3, minmax(0, max-content)); justify-content: space-between; gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
 .everywhere h3 { font-size: clamp(18px, 1.4vw, 21px); }
 /* Por debajo de este ancho del bloque la media pista no alcanza el alto de la lista:
    todo se apila. Depende del ancho del bloque, por eso es una container query. */
@@ -134,6 +135,49 @@
 }
 @container elite-areas (max-width: 600px) {
   .everywhere ul { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Leyenda y pista enlazadas por data-zone: al pasar por una fila (o por su marca,
+   zona o trayectoria) se resaltan ambas y las demás marcas se atenúan. */
+.zoneList li { position: relative; isolation: isolate; }
+.zoneList li::before { content: ""; position: absolute; inset: 0 -12px; z-index: -1; background: transparent; transition: background-color .22s ease; }
+.zoneNumber { transition: transform .22s ease; }
+.zoneList h3 { transition: transform .22s ease; }
+.courtZone { transition: fill .22s ease; }
+.courtMarker { transition: opacity .22s ease; }
+.courtMarker circle { transform-box: fill-box; transform-origin: center; transition: transform .22s ease; }
+@keyframes court-run { to { stroke-dashoffset: -18; } }
+@media (hover: hover) and (pointer: fine) {
+  .court:has([data-zone]:hover) .courtMarker { opacity: .4; }
+  .court:has([data-zone="1"]:hover) .courtMarker[data-zone="1"],
+  .court:has([data-zone="2"]:hover) .courtMarker[data-zone="2"],
+  .court:has([data-zone="3"]:hover) .courtMarker[data-zone="3"],
+  .court:has([data-zone="4"]:hover) .courtMarker[data-zone="4"] { opacity: 1; }
+  .court:has([data-zone="1"]:hover) .courtMarker[data-zone="1"] circle,
+  .court:has([data-zone="2"]:hover) .courtMarker[data-zone="2"] circle,
+  .court:has([data-zone="3"]:hover) .courtMarker[data-zone="3"] circle,
+  .court:has([data-zone="4"]:hover) .courtMarker[data-zone="4"] circle { transform: scale(1.22); }
+  .court:has([data-zone="1"]:hover) .courtZone[data-zone="1"],
+  .court:has([data-zone="2"]:hover) .courtZone[data-zone="2"],
+  .court:has([data-zone="3"]:hover) .courtZone[data-zone="3"] { fill: #b7cb6fb3; }
+  .court:has([data-zone="4"]:hover) .courtPath { animation: court-run .9s linear infinite; }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"]::before,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"]::before,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"]::before,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"]::before { background: #e3e9da; }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"] .zoneNumber,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"] .zoneNumber,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"] .zoneNumber,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"] .zoneNumber { transform: scale(1.12); }
+  .court:has([data-zone="1"]:hover) li[data-zone="1"] h3,
+  .court:has([data-zone="2"]:hover) li[data-zone="2"] h3,
+  .court:has([data-zone="3"]:hover) li[data-zone="3"] h3,
+  .court:has([data-zone="4"]:hover) li[data-zone="4"] h3 { transform: translateX(5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoneList li::before, .zoneNumber, .zoneList h3, .courtZone, .courtMarker, .courtMarker circle { transition: none; }
+  .court .courtPath { animation: none !important; }
+  .court .zoneNumber, .court .zoneList h3, .court .courtMarker circle { transform: none !important; }
 }
 
 /* Seguimiento editorial: el pasaporte todavía no es una función pública. */

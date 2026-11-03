@@ -4,7 +4,8 @@ import styles from "./elite.module.css";
  * Media pista FIBA a escala (1 m = 33,33 unidades): 15 m de ancho × 14 m de fondo,
  * con la línea de fondo arriba. Aro a 1,575 m del fondo, zona de 4,9 × 5,8 m,
  * línea de tres a 6,75 m y esquinas a 0,9 m de la banda.
- * Las marcas numeradas coinciden con la leyenda de la sección.
+ * Las marcas numeradas coinciden con la leyenda de la sección; data-zone enlaza
+ * cada marca y su zona con su fila de la leyenda (resaltado al pasar el ratón).
  */
 const RIM = { x: 250, y: 52.5 };
 
@@ -27,9 +28,9 @@ export function CourtDiagram() {
 
       {/* Zonas de trabajo, bajo las líneas y recortadas a la pista */}
       <g clipPath="url(#elite-court-floor)">
-        <circle className={styles.courtZone} cx={RIM.x} cy={RIM.y} r="62" />
-        <ellipse className={styles.courtZone} cx="250" cy="352" rx="78" ry="44" />
-        <circle className={styles.courtZone} cx="425" cy="228" r="42" />
+        <circle className={styles.courtZone} data-zone="2" cx={RIM.x} cy={RIM.y} r="62" />
+        <ellipse className={styles.courtZone} data-zone="1" cx="250" cy="352" rx="78" ry="44" />
+        <circle className={styles.courtZone} data-zone="3" cx="425" cy="228" r="42" />
       </g>
 
       <g className={styles.courtLines}>
@@ -47,10 +48,15 @@ export function CourtDiagram() {
       </g>
 
       {/* Trayectoria del tiro en movimiento: desde el bote hasta el codo */}
-      <path className={styles.courtPath} d="M92 330 C 95 280, 120 240, 150 222" />
+      <path className={styles.courtPath} data-zone="4" d="M92 330 C 95 280, 120 240, 150 222" />
 
       {zones.map((zone) => (
-        <g key={zone.n} className={styles.courtMarker} transform={`translate(${zone.x} ${zone.y})`}>
+        <g
+          key={zone.n}
+          className={styles.courtMarker}
+          data-zone={zone.n}
+          transform={`translate(${zone.x} ${zone.y})`}
+        >
           <circle r="17" />
           <text y="1" textAnchor="middle" dominantBaseline="middle">
             {zone.n}
