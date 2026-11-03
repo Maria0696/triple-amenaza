@@ -366,8 +366,7 @@ export default function AnotadoresElitePage() {
             <div className={styles.courtFigure}>
               <CourtDiagram />
             </div>
-            <div className={styles.courtLegend}>
-              <ol className={styles.zoneList}>
+            <ol className={styles.zoneList}>
                 {courtAreas.map((area, index) => (
                   <li key={area.number}>
                     <span className={styles.zoneNumber} aria-hidden="true">{index + 1}</span>
@@ -377,8 +376,8 @@ export default function AnotadoresElitePage() {
                     </div>
                   </li>
                 ))}
-              </ol>
-              <div className={styles.everywhere}>
+            </ol>
+            <div className={styles.everywhere}>
                 <p className={styles.everywhereLabel}>En todas las zonas</p>
                 <ul>
                   {everywhereAreas.map((area) => (
@@ -388,7 +387,6 @@ export default function AnotadoresElitePage() {
                     </li>
                   ))}
                 </ul>
-              </div>
             </div>
           </div>
         </div>

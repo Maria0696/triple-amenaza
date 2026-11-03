@@ -95,12 +95,20 @@
 
 /* Áreas de desarrollo */
 .areas { padding-block: clamp(76px, 7vw, 115px); background: #eef0e7; scroll-margin-top: 100px; }
-.areasHead > p { flex-basis: 300px; }
+/* Entradilla bajo el titular, no en una columna lateral. */
+.sectionHead.areasHead { flex-direction: column; align-items: flex-start; gap: 20px; }
+/* flex: none — en columna, el flex-basis de .sectionHead > p se aplicaría a la altura. */
+.sectionHead.areasHead > p { flex: none; max-width: 640px; margin: 0; }
 
 /* Desarrollo anotador: media pista con las zonas de trabajo y su leyenda. */
-.court { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
-.courtFigure { min-width: 0; }
-.courtSvg { display: block; width: 100%; max-width: 560px; height: auto; }
+/* Escritorio: la pista ocupa las dos filas y llega hasta el final de "En todas las zonas". */
+.court { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "figure list" "figure all"; column-gap: clamp(28px, 4vw, 64px); row-gap: 26px; align-content: start; }
+/* Alto mínimo = media pista (470/503 del ancho del viewBox); la rejilla lo estira
+   hasta la altura de la leyenda y el SVG ("slice") muestra más pista por abajo. */
+.courtFigure { grid-area: figure; position: relative; min-width: 0; container-type: inline-size; }
+.courtFigure::before { content: ""; display: block; padding-top: 93.44%; }
+/* Tope: la pista completa (937/503 del ancho), para no recortar nunca las bandas. */
+.courtSvg { position: absolute; inset: 0; display: block; width: 100%; height: min(100%, 186.28cqw); }
 .courtFloor { fill: #fbfaf3; }
 .courtZone { fill: #c8d88e66; }
 .courtLines { fill: none; stroke: #2d4a35; stroke-width: 2.4; stroke-linejoin: round; }
@@ -108,19 +116,25 @@
 .courtPath { fill: none; stroke: var(--orange-dark); stroke-width: 2.6; stroke-dasharray: 2 7; stroke-linecap: round; }
 .courtMarker circle { fill: var(--orange-dark); stroke: #fbfaf3; stroke-width: 3; }
 .courtMarker text { fill: var(--paper); font-family: var(--font-sans), sans-serif; font-size: 17px; font-weight: 900; }
-.courtLegend { min-width: 0; }
-.zoneList { margin: 0; padding: 0; list-style: none; border-top: 1px solid #ced8c8; }
+.zoneList { grid-area: list; align-self: start; min-width: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid #ced8c8; }
 .zoneList li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; align-items: start; padding: 18px 0; border-bottom: 1px solid #ced8c8; }
 .zoneNumber { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--orange-dark); color: var(--paper); font-size: 14px; font-weight: 900; }
 .zoneList h3, .everywhere h3 { margin: 0 0 6px; font-size: clamp(21px, 1.7vw, 25px); line-height: 1.1; letter-spacing: -.03em; }
 .zoneList p, .everywhere li p { margin: 0; color: #556356; font-size: 14px; line-height: 1.6; }
-.everywhere { margin-top: 26px; padding: 22px 24px; border: 1px solid #ced8c8; background: #e1e9dc; }
+.everywhere { grid-area: all; align-self: start; min-width: 0; padding: 22px 24px; border: 1px solid #ced8c8; background: #e1e9dc; }
 .everywhereLabel { margin: 0 0 14px; color: var(--green-label); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
 .everywhere ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
 .everywhere h3 { font-size: clamp(18px, 1.4vw, 21px); }
+/* Si el bloque mide menos de 860px, la leyenda supera la altura de la pista completa:
+   "En todas las zonas" pasa debajo, a todo el ancho. Depende del ancho del bloque,
+   no de la ventana, por eso es una container query. (En móvil manda la regla siguiente.) */
+.areas :global(.container) { container: elite-areas / inline-size; }
+@container elite-areas (max-width: 859px) {
+  .court { grid-template-areas: "figure list" "all all"; }
+}
 @media (max-width: 860px) {
-  .court { grid-template-columns: minmax(0, 1fr); }
-  .courtSvg { max-width: 460px; }
+  .court { grid-template-columns: minmax(0, 1fr); grid-template-areas: "figure" "list" "all"; }
+  .courtFigure { max-width: 460px; }
 }
 /* Rejilla de 12 columnas: cuatro tarjetas arriba y tres abajo, sin huecos. */
 
