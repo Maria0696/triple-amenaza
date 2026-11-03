@@ -247,6 +247,21 @@
   font-size: 13px;
   line-height: 1.7;
 }
+/* Workshops: una fila discreta bajo los programas (aún no hay calendario). */
+.workshopsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 28px;
+  margin: 26px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #d7dccd;
+  color: #4d5e51;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.workshopsRow strong { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) {
   .duoCard:hover {
     transform: translateY(-5px);
@@ -293,11 +308,6 @@
 .choiceIntro { min-width: 0; }
 .choice .sectionTitle em { color: var(--sage); }
 .choiceIntro > p:not(.eyebrow) { max-width: 455px; margin: 26px 0 0; font-size: 17px; line-height: 1.8; color: #d3ded3; }
-/* Punto de decisión: quien duda entre Élite y Flex puede preguntar sin salir de aquí. */
-.choiceAction { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 54px; margin-top: 32px; padding: 16px 20px; border-radius: 3px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 850; transition: background-color .2s ease; }
-@media (hover: hover) and (pointer: fine) {
-  .choiceAction:hover { background: #ff935f; }
-}
 .questions { border-top: 1px solid #ffffff42; }
 .question {
   display: grid;
@@ -391,64 +401,50 @@
   .heroAside { animation: programs-page-rise .65s .12s ease-out both; }
 }
 
-/* Workshops y masterclasses: actividades, no un tercer programa. */
-.workshops {
+/* Cierre: ayuda para elegir entre Élite y Flex, con WhatsApp. */
+.closing {
   background: var(--sage);
   color: var(--ink);
   padding-block: clamp(76px, 8vw, 118px);
 }
 
-.workshopsGrid {
+.closingGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
   align-items: center;
   gap: clamp(40px, 7vw, 112px);
 }
-.workshopsHeading { min-width: 0; }
-.workshops h2 {
+.closingHeading { min-width: 0; }
+.closing h2 {
   margin: 0;
   max-width: 820px;
   font-size: clamp(58px, 6.8vw, 103px);
-  /* 1.02: con .95 la "J" de "JUEGO" tocaba "POR". */
+  /* 1.02: con .95 los descendentes tocaban la línea siguiente. */
   line-height: 1.02;
   font-weight: 950;
   letter-spacing: -.04em;
 }
-.workshops h2 em {
+.closing h2 em {
   display: block;
   color: #4f6849;
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
   letter-spacing: -.04em;
 }
-.workshopsContent {
+.closingContent {
   min-width: 0;
   padding-top: 23px;
   border-top: 1px solid #32473263;
 }
-.workshopsLabel {
+.closingLead {
   margin: 0 0 30px;
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .15em;
-  color: #3f6040;
-}
-.workshopsLead {
-  margin: 0 0 17px;
   max-width: 580px;
   font-size: clamp(19px, 1.8vw, 25px);
   line-height: 1.5;
   font-weight: 650;
   letter-spacing: -.025em;
 }
-.workshopsDetail {
-  margin: 0 0 30px;
-  max-width: 560px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #324a35;
-}
-.workshopsLink {
+.closingLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -462,41 +458,34 @@
   border-radius: 3px;
   transition: background-color .2s ease, transform .2s ease;
 }
-.workshopsLink svg { transition: transform .2s ease; }
+.closingLink svg { transition: transform .2s ease; }
 @media (hover: hover) and (pointer: fine) {
-  .workshopsLink:hover { background: var(--ink-hover); transform: translateY(-2px); }
-  .workshopsLink:hover svg { transform: translateX(4px); }
+  .closingLink:hover { background: var(--ink-hover); transform: translateY(-2px); }
+  .closingLink:hover svg { transform: translate(3px, -3px); }
 }
 @media (max-width: 860px) {
-  .workshopsGrid { grid-template-columns: 1fr; gap: 37px; }
-  .workshops h2 { max-width: 680px; font-size: clamp(58px, 9vw, 86px); }
-  .workshopsContent { max-width: 650px; }
+  .closingGrid { grid-template-columns: 1fr; gap: 37px; }
+  .closing h2 { max-width: 680px; font-size: clamp(58px, 9vw, 86px); }
+  .closingContent { max-width: 650px; }
 }
 @media (max-width: 600px) {
-  .workshops { padding-block: 65px; }
-  .workshopsGrid { gap: 29px; }
-  .workshops h2 { font-size: clamp(45px, 11vw, 67px); }
-  .workshopsLabel { font-size: 11px; margin-bottom: 23px; }
-  .workshopsLead { font-size: 19px; }
-  .workshopsDetail { font-size: 14px; }
+  .closing { padding-block: 65px; }
+  .closingGrid { gap: 29px; }
+  .closing h2 { font-size: clamp(45px, 11vw, 67px); }
+  .closingLead { font-size: 19px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .workshopsLink,
-  .workshopsLink svg { transition: none !important; }
-  .workshopsLink:hover,
-  .workshopsLink:hover svg { transform: none !important; }
+  .closingLink,
+  .closingLink svg { transition: none !important; }
+  .closingLink:hover,
+  .closingLink:hover svg { transform: none !important; }
 }
 
 /* Legibilidad y zona táctil en móvil. */
 @media (max-width: 600px) {
   .hero .heroLead,
-  body .question p,
-  .workshops .workshopsDetail {
+  body .question p {
     font-size: 16px;
-  }
-
-  .workshops .workshopsLabel {
-    font-size: 12px;
   }
 }
 

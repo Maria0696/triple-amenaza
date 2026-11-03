@@ -17,8 +17,7 @@ export default function WorkshopsPage() {
   return (
     <>
       <PageIntro
-        eyebrow="ACTIVIDADES"
-        title="Aprender en cada encuentro."
+        title={<>APRENDER <span>EN CADA ENCUENTRO.</span></>}
         description="Workshops y masterclasses dedicados a aspectos específicos del juego y del desarrollo deportivo."
         back={{ href: "/programas/", label: "Volver a Programas" }}
       />

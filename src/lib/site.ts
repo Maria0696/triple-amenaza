@@ -99,7 +99,7 @@ export const programs: Program[] = [
     label: "Programa de desarrollo",
     title: "Anotadores Élite",
     description:
-      "Un proceso estructurado de tecnificación, objetivos y seguimiento para trabajar la capacidad anotadora.",
+      "Un proceso de 12 semanas de trabajo técnico, con objetivos y seguimiento, para mejorar la capacidad anotadora.",
     href: "/programas/anotadores-elite/",
     facts: [
       `${eliteOffer.durationWeeks} semanas, una sesión de ${eliteOffer.sessionMinutes} min por semana`,
@@ -112,7 +112,7 @@ export const programs: Program[] = [
     label: "Entrena con flexibilidad",
     title: "Anotadores Flex",
     description:
-      "Sesiones de tecnificación con un formato flexible, como alternativa al programa completo.",
+      "Sesiones de trabajo técnico que eliges según tu calendario, como alternativa al programa completo.",
     href: "/programas/anotadores-flex/",
     facts: [
       "Sesiones sueltas o bono de cuatro",

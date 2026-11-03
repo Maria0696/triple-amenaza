@@ -246,6 +246,7 @@
 }
 .compareLink svg { transition: transform .25s ease; }
 .compareFlex .compareLink { color: var(--ink); border-color: #47654b; }
+.stepsAction { margin-top: 30px; }
 /* Contacto directo desde la cabecera: mismo naranja que el botón primario de Inicio. */
 .heroAction { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 54px; padding: 16px 20px; border-radius: 3px; background: var(--orange); color: var(--ink); font-size: 13px; font-weight: 850; transition: background-color .2s ease; }
 
@@ -275,7 +276,7 @@
 .faqItem[open] summary svg { transform: rotate(180deg); }
 .faqItem[open] summary { color: var(--orange-dark); }
 .faqItem > p { margin: -2px 40px 24px 50px; max-width: 620px; font-size: 15px; line-height: 1.77; color: #566559; }
-.faqItem summary:focus-visible { outline: 3px solid #85cbff; outline-offset: 4px; }
+.faqItem summary:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 4px; }
 
 /* Cierre */
 .closing { background: var(--sage); padding-block: clamp(75px, 7.3vw, 105px); }

@@ -119,8 +119,9 @@ textarea {
   --orange-on-sage: #963d1d; /* naranja sobre --sage */
 
   /* Accesibilidad */
-  --focus-color: #164660;
-  --focus-light: #b7ecff;
+  /* Foco con la paleta: tinta sobre fondos claros, salvia sobre oscuros (≥3:1). */
+  --focus-color: var(--ink);
+  --focus-light: var(--sage);
 }
 
 body {
@@ -495,8 +496,15 @@ button, a {
   line-height: .95;
   font-weight: 950;
   letter-spacing: -.04em;
+  text-transform: uppercase;
 
   overflow-wrap: break-word;
+}
+
+/* Segunda parte del titular en salvia, como en las cabeceras del resto de páginas. */
+.inner-title span {
+  display: block;
+  color: var(--sage);
 }
 
 .inner-lead {
@@ -515,10 +523,12 @@ button, a {
 }
 
 .simple-note h2 {
-  font-size: clamp(36px, 6vw, 65px);
+  font-size: clamp(34px, 4vw, 56px);
   margin: 0 0 20px;
-  line-height: 1.1;
+  line-height: 1.06;
+  font-weight: 940;
   letter-spacing: -.04em;
+  text-transform: uppercase;
 }
 
 .simple-note > p:not(.eyebrow) {

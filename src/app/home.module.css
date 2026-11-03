@@ -138,16 +138,6 @@
   pointer-events: none;
 }
 
-.heroPhotoCaption {
-  position: absolute;
-  bottom: 51px;
-  left: 28px;
-  right: 28px;
-  display: grid;
-  gap: 9px;
-}
-.heroPhotoCaption > span { color: var(--sage); font-size: 11px; font-weight: 850; letter-spacing: .14em; }
-.heroPhotoCaption strong { max-width: 510px; font-size: clamp(26px, 2.65vw, 39px); letter-spacing: -.04em; line-height: 1.08; }
 .heroImageCredit {
   position: absolute;
   bottom: 15px;
@@ -320,8 +310,6 @@
 .closingInner h2 em { color: #4f6847; font-family: var(--font-serif), Georgia, serif; font-weight: 500; }
 .closingInner > p:not(.eyebrow) { max-width: 100%; font-size: 17px; line-height: 1.7; margin: 0 0 27px; }
 .actionDark { color: #fff; background: var(--ink); }
-/* Cierre: WhatsApp como acción principal y los programas como alternativa. */
-.closingActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
 @media (hover: hover) and (pointer: fine) {
   .actionDark:hover { background: var(--ink-hover); transform: translateY(-2px); }
 }
@@ -361,8 +349,6 @@
   .heroMedia { min-height: 350px; }
   .heroPhoto { --home-hero-image: url("/imagenes/sesion-ata-800.webp"); }
 
-  .heroPhotoCaption { left: 18px; right: 18px; bottom: 53px; }
-  .heroPhotoCaption strong { font-size: clamp(27px, 6.5vw, 36px); }
   .heroImageCredit { left: 18px; right: 18px; }
   
   .introCopy { font-size: 16px; }
@@ -406,7 +392,6 @@
 .actionDark:focus-visible,
 .inlineLink:focus-visible,
 .actionText:focus-visible {
-  outline: 3px solid #76bdf1;
   outline-offset: 4px;
 }
 @media (hover: hover) and (pointer: fine) {
@@ -639,7 +624,6 @@
   }
 
   .hero .heroFacts,
-  .hero .heroPhotoCaption > span,
   .programCard .programCardTop {
     font-size: 12px;
   }

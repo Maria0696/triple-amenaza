@@ -6,5 +6,5 @@ export const metadata: Metadata = { title: "ATA Hub — En preparación", robots
 
 /** Página provisional del área privada: el acceso está oculto (hubEnabled en src/lib/site.ts). */
 export default function HubPage() {
-  return <main className="hub-placeholder"><div className="hub-placeholder-card"><div className="hub-icon"><LockKeyhole size={28} aria-hidden="true" /></div><p className="eyebrow">ÁREA PRIVADA</p><h1>ATA Hub</h1><p>El espacio de gestión de administradores y entrenadores está en desarrollo. El acceso aún no está habilitado.</p><Link className="button button-orange" href="/"><ArrowLeft size={18} aria-hidden="true" /> Volver a Triple Amenaza</Link></div></main>;
+  return <main className="hub-placeholder"><div className="hub-placeholder-card"><div className="hub-icon"><LockKeyhole size={28} aria-hidden="true" /></div><h1>ATA Hub</h1><p>El espacio de gestión de administradores y entrenadores está en desarrollo. El acceso aún no está habilitado.</p><Link className="button button-orange" href="/"><ArrowLeft size={18} aria-hidden="true" /> Volver a Triple Amenaza</Link></div></main>;
 }

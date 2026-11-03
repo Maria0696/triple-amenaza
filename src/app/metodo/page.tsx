@@ -180,7 +180,7 @@ export default function MetodoPage() {
         </div>
       </section>
 
-      {/* Cierre: los programas como acción principal; WhatsApp para quien aún duda. */}
+      {/* Cierre: WhatsApp como botón (relleno = WhatsApp en toda la web); los programas, como texto. */}
       <section className={styles.closing} aria-labelledby="method-page-closing-title">
         <div className={`container ${styles.closingInner}`}>
           <h2 id="method-page-closing-title">
@@ -192,13 +192,13 @@ export default function MetodoPage() {
             a lo que buscas.
           </p>
           <div className={styles.closingActions}>
-            <Link className={styles.closingLink} href="/programas/">
-              Explorar programas
-              <ArrowRight size={19} aria-hidden="true" />
-            </Link>
-            <WhatsappLink className="text-link" message={whatsappMessages.programChoice}>
-              ¿Dudas? Te ayudamos a elegir <ArrowUpRight size={18} aria-hidden="true" />
+            <WhatsappLink className={styles.closingLink} message={whatsappMessages.programChoice}>
+              ¿Dudas? Te ayudamos a elegir
+              <ArrowUpRight size={19} aria-hidden="true" />
             </WhatsappLink>
+            <Link className="text-link" href="/programas/">
+              Explorar programas <ArrowRight size={18} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

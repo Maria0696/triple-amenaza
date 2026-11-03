@@ -47,7 +47,7 @@ export default function HomePage() {
           <div className={styles.heroContent}>
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>
               <span className={styles.eyebrowBar} aria-hidden="true" />
-              Academia Triple Amenaza · Baloncesto
+              Academia Triple Amenaza (ATA) · Baloncesto
             </p>
 
             <h1 id="home-title" className={styles.heroTitle}>
@@ -62,13 +62,14 @@ export default function HomePage() {
               encontrar la tuya.
             </p>
 
+            {/* Botón relleno = WhatsApp en toda la web; la navegación interna va como texto. */}
             <div className={styles.heroActions}>
-              <Link href="/programas/" className={styles.actionPrimary}>
+              <WhatsappLink className={styles.actionPrimary} message={whatsappMessages.general} namesChannel>
+                Escribir por WhatsApp
+                <ArrowUpRight size={19} aria-hidden="true" />
+              </WhatsappLink>
+              <Link href="/programas/" className={styles.actionText}>
                 Descubre nuestros programas
-                <ArrowRight size={19} aria-hidden="true" />
-              </Link>
-              <Link href="/metodo/" className={styles.actionText}>
-                Conoce nuestro método
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
@@ -94,9 +95,6 @@ export default function HomePage() {
               role="img"
               aria-label="Entrenador de Academia Triple Amenaza trabajando con un jugador durante una sesión de baloncesto"
             />
-            <div className={styles.heroPhotoCaption}>
-              <strong>PREPÁRATE PARA EL SIGUIENTE MOVIMIENTO.</strong>
-            </div>
             <span className={styles.heroImageCredit}>
               Academia Triple Amenaza · Fotografía: R1kman_fotografia
             </span>
@@ -257,8 +255,8 @@ export default function HomePage() {
         <div className={`container ${styles.pillarsLayout}`}>
           <div>
             <h2 id="home-pillars-title" className={styles.sectionTitle}>
-              MÁS ALLÁ
-              <span> DEL BOTE.</span>
+              EL BOTE ES SOLO
+              <span> EL PRINCIPIO.</span>
             </h2>
             <p className={styles.pillarsLead}>
               La mejora no depende de una sola habilidad. Trabajamos
@@ -285,14 +283,9 @@ export default function HomePage() {
         <div className={`container ${styles.closingInner}`}>
           <h2 id="home-closing-title">EL SIGUIENTE PASO <em>SE ENTRENA.</em></h2>
           <p>Cuéntanos qué quiere mejorar el jugador y te orientamos hacia el programa que mejor encaja con sus objetivos.</p>
-          <div className={styles.closingActions}>
-            <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
-              Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
-            </WhatsappLink>
-            <Link href="/programas/" className="text-link">
-              Ver los programas <ArrowRight size={18} aria-hidden="true" />
-            </Link>
-          </div>
+          <WhatsappLink className={styles.actionDark} message={whatsappMessages.general} namesChannel>
+            Escribir por WhatsApp <ArrowUpRight size={19} aria-hidden="true" />
+          </WhatsappLink>
         </div>
       </section>
     </>

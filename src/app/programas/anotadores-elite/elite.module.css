@@ -19,7 +19,6 @@
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 16px; padding: 16px 21px; min-height: 56px; border-radius: 3px; font-size: 13px; font-weight: 850; transition: transform .2s ease, background-color .2s ease; }
 
 .profile { min-width: 0; border: 1px solid #ffffff3b; background: #293b31; box-shadow: 15px 15px 0 #ffffff08; }
-.profileTop { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 25px; border-bottom: 1px solid #ffffff29; color: var(--sage); font-size: 11px; letter-spacing: .13em; font-weight: 850; }
 .profileTitle { padding: 32px 25px 27px; display: grid; gap: 5px; }
 .profileTitle span { color: #becbbd; font-size: 12px; font-weight: 850; letter-spacing: .12em; }
 .profileTitle strong { max-width: none; color: var(--paper); font-size: clamp(26px, 2.45vw, 38px); line-height: 1.04; letter-spacing: -.04em; white-space: nowrap; }
@@ -57,7 +56,6 @@
   margin: 0;
   transition: color .25s ease;
 }
-.profileFoot { margin: 0; padding: 20px 25px; border-top: 1px solid #ffffff2a; font-size: 12px; line-height: 1.6; color: #c4d1c3; }
 
 /* Entrada del texto y la ficha de la cabecera. */
 @keyframes elite-enter {
@@ -117,6 +115,8 @@
 .courtPath { fill: none; stroke: var(--orange-dark); stroke-width: 2.6; stroke-dasharray: 2 7; stroke-linecap: round; }
 .courtMarker circle { fill: var(--orange-dark); stroke: #fbfaf3; stroke-width: 3; }
 .courtMarker text { fill: var(--paper); font-family: var(--font-sans), sans-serif; font-size: 17px; font-weight: 900; }
+/* Tras la pista: en móvil la página es larga y este es el momento de decidir. */
+.areasAction { margin-top: 36px; }
 /* La lista ocupa el alto de la pista: las cuatro zonas se reparten el espacio. */
 .zoneList { grid-area: list; align-self: stretch; display: grid; grid-auto-rows: 1fr; min-width: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid #ced8c8; }
 .zoneList li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid #ced8c8; }
@@ -228,12 +228,6 @@
   border-left: 3px solid var(--orange);
   padding: 1px 0 1px 25px;
 }
-.passportDevelopmentLabel {
-  color: var(--sage);
-  font-size: 11px;
-  font-weight: 850;
-  letter-spacing: .15em;
-}
 .passportDevelopment h3 {
   margin: 13px 0 12px;
   color: var(--paper);
@@ -317,9 +311,8 @@
   .heroTitle { font-size: clamp(49px, 12vw, 69px); }
   .heroTitle span { margin-top: 6px; }
   .heroLead { margin: 23px 0; font-size: 15px; }
-  .profileTop, .profileAreas > div { padding-inline: 18px; }
+  .profileAreas > div { padding-inline: 18px; }
   .profileTitle { padding: 26px 18px 20px; }
-  .profileFoot { padding-inline: 18px; }
   .profileTitle strong { font-size: 31px; white-space: normal; }
 .foundations, .areas, .passport, .faq, .closing { padding-block: 65px; }
   .foundationsHeading, .sectionHead { margin-bottom: 27px; }
@@ -355,9 +348,10 @@
   gap: 12px 26px;
   margin-top: 25px;
 }
+/* Botón relleno = WhatsApp: el mismo naranja en toda la web. */
 .commercialPrimary {
   color: var(--ink);
-  background: var(--sage);
+  background: var(--orange);
   font-size: 14px;
   font-weight: 850;
 }
@@ -392,10 +386,11 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
+/* Contenido arriba: así los títulos de las seis tarjetas quedan a la misma altura. */
 .commercialDeliverable {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-width: 0;
   min-height: 255px;
   gap: 47px;
@@ -528,7 +523,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .commercialPrimary:hover { transform: translateY(-2px); background: #dceaa8; }
+  .commercialPrimary:hover { transform: translateY(-2px); background: #ff935f; }
   .commercialDeliverable:hover { background: #dbe7d3; }
   .commercialMethodLink:hover { transform: translateX(4px); }
 }
